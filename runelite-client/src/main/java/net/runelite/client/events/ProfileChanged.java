@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Adam <Adam@sigterm.info>
+ * Copyright (c) 2023, Adam <Adam@sigterm.info>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,34 +22,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.api;
+package net.runelite.client.events;
 
 /**
- * An animated object
+ * Fired when the active {@link net.runelite.client.config.ConfigProfile} is changed
  */
-public interface DynamicObject extends Renderable
+public class ProfileChanged
 {
-	/**
-	 * Get the animation applied to the object
-	 * @return
-	 */
-	Animation getAnimation();
-	
-	/**
-	 * Get the animation id
-	 * @return
-	 */
-	int getAnimationID();
-
-	/**
-	 * Get the frame of the current animation
-	 * @return
-	 */
-	int getAnimFrame();
-
-	/**
-	 * Get the frame cycle. The number of ticks the client has been on this frame.
-	 * @return
-	 */
-	int getAnimCycle();
 }
