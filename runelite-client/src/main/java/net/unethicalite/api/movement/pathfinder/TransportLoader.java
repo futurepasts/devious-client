@@ -350,6 +350,30 @@ public class TransportLoader
                 }
             }
 
+            // Corsair Cove, Captain Tock's ship's gangplank
+            transports.add(objectTransport(new WorldPoint(2578, 2837, 1), new WorldPoint(2578, 2840, 0), 31756, "Cross"));
+            transports.add(objectTransport(new WorldPoint(2578, 2840, 0), new WorldPoint(2578, 2837, 1), 31756, "Cross"));
+
+            // Corsair Cove, Ithoi the Navigator's hut stairs
+            transports.add(objectTransport(new WorldPoint(2532, 2833, 0), new WorldPoint(2529, 2835, 1), 31735, "Climb"));
+            transports.add(objectTransport(new WorldPoint(2529, 2835, 1), new WorldPoint(2532, 2833, 0), 31735, "Climb"));
+
+            // Corsair Cove, Dungeon hole to Ogress Warriors/Vine ladder
+            transports.add(objectTransport(new WorldPoint(2523, 2860, 0), new WorldPoint(2012, 9004, 1), 31791, "Enter"));
+            transports.add(objectTransport(new WorldPoint(2012, 9004, 1), new WorldPoint(2523, 2860, 0), 31790, "Climb"));
+
+            // Rimmington docks to and from Corsair Cove using Captain Tock's ship
+            if (Quests.isFinished(Quest.THE_CORSAIR_CURSE))
+            {
+                transports.add(npcTransport(new WorldPoint(2910, 3226, 0), new WorldPoint(2578, 2837, 1), NpcID.CABIN_BOY_COLIN_7967, "Travel"));
+                transports.add(npcTransport(new WorldPoint(2574, 2835, 1), new WorldPoint(2909, 3230, 1), NpcID.CABIN_BOY_COLIN_7967, "Travel"));
+            }
+            else if (Vars.getBit(QuestVarbits.QUEST_THE_CORSAIR_CURSE.getId()) >= 15)
+            {
+                transports.add(npcTransport(new WorldPoint(2910, 3226, 0), new WorldPoint(2578, 2837, 1), NpcID.CAPTAIN_TOCK_7958, "Travel"));
+                transports.add(npcTransport(new WorldPoint(2574, 2835, 1), new WorldPoint(2909, 3230, 1), NpcID.CAPTAIN_TOCK_7958, "Travel"));
+            }
+
             if (Inventory.contains(SLASH_ITEMS) || Equipment.contains(SLASH_ITEMS))
             {
                 for (Pair<WorldPoint, WorldPoint> pair : SLASH_WEB_POINTS)

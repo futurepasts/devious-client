@@ -541,7 +541,15 @@ public final class Varbits
 	public static final int AUTOWEED = 5557;
 
 	/**
-	 * The varbit that stores the players {@code AccountType}.
+	 * The player's account type.
+	 * <p>
+	 * 0 = normal
+	 * 1 = ironman
+	 * 2 = ultimate ironman
+	 * 3 = hardcore ironman
+	 * 4 = group ironman
+	 * 5 = hardcore group ironman
+	 * 6 = unranked group ironman
 	 */
 	public static final int ACCOUNT_TYPE = 1777;
 
@@ -837,6 +845,11 @@ public final class Varbits
 	public static final int SLAYER_TASK_BOSS = 4723;
 
 	/**
+	 * Whether the level up interface is disabled
+	 */
+	public static final int DISABLE_LEVEL_UP_INTERFACE = 9452;
+
+	/**
 	 * Draynor manor basement
 	 * See <a href="https://oldschool.runescape.wiki/w/File:Ernest_the_Chicken_-_Oil_can_map.png">asd</a>
 	 */
@@ -873,4 +886,15 @@ public final class Varbits
 	 * Veos dialog
 	 */
 	public static final int VEOS_HAS_TALKED_TO_BEFORE = 4897;
+
+
+	/**
+	 * Tutorial island
+	 */
+	public static final int CUSTOMIZE_PLAYER_STATE = 5605;
+
+	/**
+	 * Local player gender? (Changes depending on gender selected within Tutorial island)
+	 */
+	public static final int LOCAL_PLAYER_GENDER = 14021;
 }

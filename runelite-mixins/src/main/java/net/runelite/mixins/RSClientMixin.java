@@ -519,9 +519,11 @@ public abstract class RSClientMixin implements RSClient
 				return AccountType.GROUP_IRONMAN;
 			case 5:
 				return AccountType.HARDCORE_GROUP_IRONMAN;
+			case 6:
+				return AccountType.UNRANKED_GROUP_IRONMAN;
+			default:
+				return AccountType.NORMAL;
 		}
-
-		return AccountType.NORMAL;
 	}
 
 	@Inject
@@ -3035,7 +3037,7 @@ public abstract class RSClientMixin implements RSClient
 		check("FloorUnderlayDefinition_cached", client.getFloorUnderlayDefinitionCache());
 		check("FloorOverlayDefinition_cached", client.getFloorOverlayDefinitionCache());
 		check("HitSplatDefinition_cached", client.getHitSplatDefinitionCache());
-		check("HitSplatDefinition_cachedSprites", client.getHitSplatDefinitionSpritesCache());
+		//check("HitSplatDefinition_cachedSprites", client.getHitSplatDefinitionSpritesCache());
 		check("HitSplatDefinition_cachedFonts", client.getHitSplatDefinitionDontsCache());
 		check("InvDefinition_cached", client.getInvDefinitionCache());
 		check("ItemDefinition_cachedModels", client.getItemDefinitionModelsCache());
