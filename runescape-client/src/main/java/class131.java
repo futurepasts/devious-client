@@ -1,91 +1,137 @@
-import java.util.concurrent.Callable;
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fr")
-class class131 implements Callable {
-   // $FF: synthetic field
+@ObfuscatedName("fa")
+public class class131 implements MouseWheel {
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lfl;"
+      descriptor = "Lfa;"
    )
-   final class134 this$0;
-   // $FF: synthetic field
+   static final class131 field1554 = new class131(0, 0, (String)null, -1, -1);
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lsy;"
+      descriptor = "Lfa;"
    )
-   final Buffer val$p;
-   // $FF: synthetic field
-   final int val$version;
+   static final class131 field1540 = new class131(1, 1, (String)null, 0, 2);
+   @ObfuscatedName("av")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1541 = new class131(2, 2, (String)null, 1, 2);
+   @ObfuscatedName("as")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1557 = new class131(3, 3, (String)null, 2, 2);
+   @ObfuscatedName("ax")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1543 = new class131(4, 4, (String)null, 3, 1);
+   @ObfuscatedName("ap")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1553 = new class131(5, 5, (String)null, 4, 1);
+   @ObfuscatedName("ab")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1545 = new class131(6, 6, (String)null, 5, 1);
+   @ObfuscatedName("ak")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1546 = new class131(7, 7, (String)null, 6, 3);
+   @ObfuscatedName("ae")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1547 = new class131(8, 8, (String)null, 7, 3);
+   @ObfuscatedName("af")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1548 = new class131(9, 9, (String)null, 8, 3);
+   @ObfuscatedName("ao")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1542 = new class131(10, 10, (String)null, 0, 7);
+   @ObfuscatedName("aa")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1550 = new class131(11, 11, (String)null, 1, 7);
+   @ObfuscatedName("aj")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1544 = new class131(12, 12, (String)null, 2, 7);
+   @ObfuscatedName("ad")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1552 = new class131(13, 13, (String)null, 3, 7);
+   @ObfuscatedName("ac")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1549 = new class131(14, 14, (String)null, 4, 7);
+   @ObfuscatedName("ag")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1551 = new class131(15, 15, (String)null, 5, 7);
+   @ObfuscatedName("ar")
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
+   )
+   static final class131 field1555 = new class131(16, 16, (String)null, 0, 5);
+   @ObfuscatedName("ah")
+   @ObfuscatedGetter(
+      intValue = -1549039255
+   )
+   final int field1556;
+   @ObfuscatedName("az")
+   @ObfuscatedGetter(
+      intValue = 530600191
+   )
+   final int field1539;
+   @ObfuscatedName("au")
+   @ObfuscatedGetter(
+      intValue = 100469303
+   )
+   final int field1558;
 
    @ObfuscatedSignature(
-      descriptor = "(Lfl;Lsy;I)V"
+      descriptor = "(IILjava/lang/String;II)V",
+      garbageValue = "-1"
    )
-   class131(class134 var1, Buffer var2, int var3) {
-      this.this$0 = var1;
-      this.val$p = var2;
-      this.val$version = var3;
+   class131(int var1, int var2, String var3, int var4, int var5) {
+      this.field1556 = var1;
+      this.field1539 = var2;
+      this.field1558 = var4;
    }
 
-   public Object call() {
-      this.this$0.method3049(this.val$p, this.val$version);
-      return null;
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(B)I",
+      garbageValue = "-14"
+   )
+   @Export("rsOrdinal")
+   public int rsOrdinal() {
+      return this.field1539;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
-      descriptor = "([BIIB)Ljava/lang/String;",
-      garbageValue = "1"
+      descriptor = "(I)I",
+      garbageValue = "1904770530"
    )
-   public static String method3032(byte[] var0, int var1, int var2) {
-      char[] var3 = new char[var2];
-      int var4 = 0;
-      int var5 = var1;
-
-      int var8;
-      for(int var6 = var2 + var1; var5 < var6; var3[var4++] = (char)var8) {
-         int var7 = var0[var5++] & 255;
-         if (var7 < 128) {
-            if (var7 == 0) {
-               var8 = 65533;
-            } else {
-               var8 = var7;
-            }
-         } else if (var7 < 192) {
-            var8 = 65533;
-         } else if (var7 < 224) {
-            if (var5 < var6 && (var0[var5] & 192) == 128) {
-               var8 = (var7 & 31) << 6 | var0[var5++] & 63;
-               if (var8 < 128) {
-                  var8 = 65533;
-               }
-            } else {
-               var8 = 65533;
-            }
-         } else if (var7 < 240) {
-            if (var5 + 1 < var6 && (var0[var5] & 192) == 128 && (var0[var5 + 1] & 192) == 128) {
-               var8 = (var7 & 15) << 12 | (var0[var5++] & 63) << 6 | var0[var5++] & 63;
-               if (var8 < 2048) {
-                  var8 = 65533;
-               }
-            } else {
-               var8 = 65533;
-            }
-         } else if (var7 < 248) {
-            if (var5 + 2 < var6 && (var0[var5] & 192) == 128 && (var0[var5 + 1] & 192) == 128 && (var0[var5 + 2] & 192) == 128) {
-               var8 = (var7 & 7) << 18 | (var0[var5++] & 63) << 12 | (var0[var5++] & 63) << 6 | var0[var5++] & 63;
-               if (var8 >= 65536 && var8 <= 1114111) {
-                  var8 = 65533;
-               } else {
-                  var8 = 65533;
-               }
-            } else {
-               var8 = 65533;
-            }
-         } else {
-            var8 = 65533;
-         }
-      }
-
-      return new String(var3, 0, var4);
+   int method3017() {
+      return this.field1558;
    }
 }

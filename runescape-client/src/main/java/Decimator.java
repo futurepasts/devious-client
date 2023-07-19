@@ -4,69 +4,84 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("co")
+@ObfuscatedName("ch")
 @Implements("Decimator")
 public class Decimator {
-   @ObfuscatedName("aq")
-   @Export("Tiles_underlays2")
-   static byte[][][] Tiles_underlays2;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("ae")
+   @ObfuscatedSignature(
+      descriptor = "Ltm;"
+   )
+   @Export("leftTitleSprite")
+   static SpritePixels leftTitleSprite;
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = 1441139311
+      intValue = -2102737717
    )
    @Export("inputRate")
    int inputRate;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = 1644975557
+      intValue = -265498811
    )
    @Export("outputRate")
    int outputRate;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @Export("table")
    int[][] table;
 
    public Decimator(int var1, int var2) {
       if (var2 != var1) {
-         int var3 = Client.method1780(var1, var2);
-         var1 /= var3;
-         var2 /= var3;
+         int var4 = var1;
+         int var5 = var2;
+         if (var2 > var1) {
+            var4 = var2;
+            var5 = var1;
+         }
+
+         while(var5 != 0) {
+            int var6 = var4 % var5;
+            var4 = var5;
+            var5 = var6;
+         }
+
+         var1 /= var4;
+         var2 /= var4;
          this.inputRate = var1;
          this.outputRate = var2;
          this.table = new int[var1][14];
 
-         for(int var4 = 0; var4 < var1; ++var4) {
-            int[] var5 = this.table[var4];
-            double var6 = 6.0 + (double)var4 / (double)var1;
-            int var8 = (int)Math.floor(1.0 + (var6 - 7.0));
-            if (var8 < 0) {
-               var8 = 0;
+         for(int var7 = 0; var7 < var1; ++var7) {
+            int[] var8 = this.table[var7];
+            double var9 = (double)var7 / (double)var1 + 6.0;
+            int var11 = (int)Math.floor(1.0 + (var9 - 7.0));
+            if (var11 < 0) {
+               var11 = 0;
             }
 
-            int var9 = (int)Math.ceil(var6 + 7.0);
-            if (var9 > 14) {
-               var9 = 14;
+            int var12 = (int)Math.ceil(var9 + 7.0);
+            if (var12 > 14) {
+               var12 = 14;
             }
 
-            for(double var10 = (double)var2 / (double)var1; var8 < var9; ++var8) {
-               double var12 = ((double)var8 - var6) * Math.PI;
-               double var14 = var10;
-               if (var12 < -1.0E-4 || var12 > 1.0E-4) {
-                  var14 = var10 * (Math.sin(var12) / var12);
+            for(double var13 = (double)var2 / (double)var1; var11 < var12; ++var11) {
+               double var15 = ((double)var11 - var9) * Math.PI;
+               double var17 = var13;
+               if (var15 < -1.0E-4 || var15 > 1.0E-4) {
+                  var17 = var13 * (Math.sin(var15) / var15);
                }
 
-               var14 *= 0.54 + 0.46 * Math.cos(((double)var8 - var6) * 0.2243994752564138);
-               var5[var8] = (int)Math.floor(0.5 + 65536.0 * var14);
+               var17 *= 0.54 + 0.46 * Math.cos(((double)var11 - var9) * 0.2243994752564138);
+               var8[var11] = (int)Math.floor(0.5 + 65536.0 * var17);
             }
          }
 
       }
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
       descriptor = "([BI)[B",
-      garbageValue = "581070602"
+      garbageValue = "-1120461861"
    )
    @Export("resample")
    byte[] resample(byte[] var1) {
@@ -84,7 +99,7 @@ public class Decimator {
 
             int var9;
             for(var9 = 0; var9 < 14; ++var9) {
-               var3[var4 + var9] += var8[var9] * var7;
+               var3[var4 + var9] += var7 * var8[var9];
             }
 
             var5 += this.outputRate;
@@ -110,135 +125,204 @@ public class Decimator {
       return var1;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(II)I",
-      garbageValue = "1978966471"
+      descriptor = "(IB)I",
+      garbageValue = "-32"
    )
    @Export("scaleRate")
    int scaleRate(int var1) {
       if (this.table != null) {
-         var1 = (int)((long)this.outputRate * (long)var1 / (long)this.inputRate);
+         var1 = (int)((long)var1 * (long)this.outputRate / (long)this.inputRate);
       }
 
       return var1;
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(IB)I",
-      garbageValue = "122"
+      descriptor = "(II)I",
+      garbageValue = "90354327"
    )
    @Export("scalePosition")
    int scalePosition(int var1) {
       if (this.table != null) {
-         var1 = (int)((long)this.outputRate * (long)var1 / (long)this.inputRate) + 6;
+         var1 = (int)((long)var1 * (long)this.outputRate / (long)this.inputRate) + 6;
       }
 
       return var1;
    }
 
-   @ObfuscatedName("al")
-   public static boolean method1127(long var0) {
-      return var0 != 0L && !ClanSettings.method3197(var0);
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(I)[Llp;",
+      garbageValue = "860811438"
+   )
+   static LoginPacket[] method1086() {
+      return new LoginPacket[]{LoginPacket.field3345, LoginPacket.field3342, LoginPacket.field3343, LoginPacket.field3346, LoginPacket.field3347, LoginPacket.field3344};
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(II)[B",
-      garbageValue = "-1641012787"
+      descriptor = "(CI)Z",
+      garbageValue = "2040533931"
    )
-   @Export("ByteArrayPool_getArray")
-   public static synchronized byte[] ByteArrayPool_getArray(int var0) {
-      return ByteArrayPool.ByteArrayPool_getArrayBool(var0, false);
+   static final boolean method1091(char var0) {
+      return var0 == 160 || var0 == ' ' || var0 == '_' || var0 == '-';
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("iu")
    @ObfuscatedSignature(
-      descriptor = "([BIIII[Liz;B)V",
-      garbageValue = "75"
+      descriptor = "(IIII)V",
+      garbageValue = "2142390934"
    )
-   static final void method1125(byte[] var0, int var1, int var2, int var3, int var4, CollisionMap[] var5) {
-      int var7;
-      int var8;
-      for(int var6 = 0; var6 < 4; ++var6) {
-         for(var7 = 0; var7 < 64; ++var7) {
-            for(var8 = 0; var8 < 64; ++var8) {
-               if (var7 + var1 > 0 && var7 + var1 < 103 && var8 + var2 > 0 && var8 + var2 < 103) {
-                  int[] var10000 = var5[var6].flags[var7 + var1];
-                  var10000[var8 + var2] &= -16777217;
+   @Export("worldToScreen")
+   static final void worldToScreen(int var0, int var1, int var2) {
+      if (var0 >= 128 && var1 >= 128 && var0 <= 13056 && var1 <= 13056) {
+         int var3 = Renderable.getTileHeight(var0, var1, Clock.Client_plane) - var2;
+         var0 -= class208.cameraX;
+         var3 -= class152.cameraY;
+         var1 -= ByteArrayPool.cameraZ;
+         int var4 = Rasterizer3D.Rasterizer3D_sine[MusicPatchNode.cameraPitch];
+         int var5 = Rasterizer3D.Rasterizer3D_cosine[MusicPatchNode.cameraPitch];
+         int var6 = Rasterizer3D.Rasterizer3D_sine[class291.cameraYaw];
+         int var7 = Rasterizer3D.Rasterizer3D_cosine[class291.cameraYaw];
+         int var8 = var0 * var7 + var6 * var1 >> 16;
+         var1 = var7 * var1 - var0 * var6 >> 16;
+         var0 = var8;
+         var8 = var5 * var3 - var4 * var1 >> 16;
+         var1 = var4 * var3 + var5 * var1 >> 16;
+         if (var1 >= 50) {
+            Client.viewportTempX = var0 * Client.viewportZoom / var1 + Client.viewportWidth / 2;
+            Client.viewportTempY = Client.viewportHeight / 2 + var8 * Client.viewportZoom / var1;
+         } else {
+            Client.viewportTempX = -1;
+            Client.viewportTempY = -1;
+         }
+
+      } else {
+         Client.viewportTempX = -1;
+         Client.viewportTempY = -1;
+      }
+   }
+
+   @ObfuscatedName("ml")
+   @ObfuscatedSignature(
+      descriptor = "(Lmb;IIIB)V",
+      garbageValue = "-12"
+   )
+   @Export("drawMinimap")
+   static final void drawMinimap(Widget var0, int var1, int var2, int var3) {
+      WorldMapSectionType.playPcmPlayers();
+      SpriteMask var4 = var0.getSpriteMask(false);
+      if (var4 != null) {
+         Rasterizer2D.Rasterizer2D_setClip(var1, var2, var4.width + var1, var2 + var4.height);
+         if (Client.minimapState != 2 && Client.minimapState != 5) {
+            int var5 = Client.camAngleY & 2047;
+            int var6 = Projectile.localPlayer.x / 32 + 48;
+            int var7 = 464 - Projectile.localPlayer.y / 32;
+            class33.sceneMinimapSprite.drawRotatedMaskedCenteredAround(var1, var2, var4.width, var4.height, var6, var7, var5, 256, var4.xStarts, var4.xWidths);
+
+            int var8;
+            int var10;
+            int var16;
+            for(var8 = 0; var8 < Client.mapIconCount; ++var8) {
+               var16 = Client.mapIconXs[var8] * 4 + 2 - Projectile.localPlayer.x / 32;
+               var10 = Client.mapIconYs[var8] * 4 + 2 - Projectile.localPlayer.y / 32;
+               class59.drawSpriteOnMinimap(var1, var2, var16, var10, Client.mapIcons[var8], var4);
+            }
+
+            int var11;
+            int var12;
+            for(var8 = 0; var8 < 104; ++var8) {
+               for(var16 = 0; var16 < 104; ++var16) {
+                  NodeDeque var14 = Client.groundItems[Clock.Client_plane][var8][var16];
+                  if (var14 != null) {
+                     var11 = var8 * 4 + 2 - Projectile.localPlayer.x / 32;
+                     var12 = var16 * 4 + 2 - Projectile.localPlayer.y / 32;
+                     class59.drawSpriteOnMinimap(var1, var2, var11, var12, class19.mapDotSprites[0], var4);
+                  }
                }
             }
-         }
-      }
 
-      Buffer var12 = new Buffer(var0);
+            for(var8 = 0; var8 < Client.npcCount; ++var8) {
+               NPC var9 = Client.npcs[Client.npcIndices[var8]];
+               if (var9 != null && var9.isVisible()) {
+                  NPCComposition var18 = var9.definition;
+                  if (var18 != null && var18.transforms != null) {
+                     var18 = var18.transform();
+                  }
 
-      for(var7 = 0; var7 < 4; ++var7) {
-         for(var8 = 0; var8 < 64; ++var8) {
-            for(int var9 = 0; var9 < 64; ++var9) {
-               int var10 = var8 + var1;
-               int var11 = var9 + var2;
-               WorldMapScaleHandler.loadTerrain(var12, var7, var10, var11, var3 + var10, var11 + var4, 0);
+                  if (var18 != null && var18.drawMapDot && var18.isInteractable) {
+                     var11 = var9.x / 32 - Projectile.localPlayer.x / 32;
+                     var12 = var9.y / 32 - Projectile.localPlayer.y / 32;
+                     class59.drawSpriteOnMinimap(var1, var2, var11, var12, class19.mapDotSprites[1], var4);
+                  }
+               }
             }
+
+            var8 = Players.Players_count;
+            int[] var17 = Players.Players_indices;
+
+            for(var10 = 0; var10 < var8; ++var10) {
+               Player var15 = Client.players[var17[var10]];
+               if (var15 != null && var15.isVisible() && !var15.isHidden && var15 != Projectile.localPlayer) {
+                  var12 = var15.x / 32 - Projectile.localPlayer.x / 32;
+                  int var13 = var15.y / 32 - Projectile.localPlayer.y / 32;
+                  if (var15.isFriend()) {
+                     class59.drawSpriteOnMinimap(var1, var2, var12, var13, class19.mapDotSprites[3], var4);
+                  } else if (Projectile.localPlayer.team != 0 && var15.team != 0 && var15.team == Projectile.localPlayer.team) {
+                     class59.drawSpriteOnMinimap(var1, var2, var12, var13, class19.mapDotSprites[4], var4);
+                  } else if (var15.isFriendsChatMember()) {
+                     class59.drawSpriteOnMinimap(var1, var2, var12, var13, class19.mapDotSprites[5], var4);
+                  } else if (var15.isClanMember()) {
+                     class59.drawSpriteOnMinimap(var1, var2, var12, var13, class19.mapDotSprites[6], var4);
+                  } else {
+                     class59.drawSpriteOnMinimap(var1, var2, var12, var13, class19.mapDotSprites[2], var4);
+                  }
+               }
+            }
+
+            if (Client.hintArrowType != 0 && Client.cycle % 20 < 10) {
+               if (Client.hintArrowType == 1 && Client.hintArrowNpcIndex >= 0 && Client.hintArrowNpcIndex < Client.npcs.length) {
+                  NPC var19 = Client.npcs[Client.hintArrowNpcIndex];
+                  if (var19 != null) {
+                     var11 = var19.x / 32 - Projectile.localPlayer.x / 32;
+                     var12 = var19.y / 32 - Projectile.localPlayer.y / 32;
+                     class136.worldToMinimap(var1, var2, var11, var12, LoginScreenAnimation.mapMarkerSprites[1], var4);
+                  }
+               }
+
+               if (Client.hintArrowType == 2) {
+                  var10 = Client.hintArrowX * 4 - class213.baseX * 256 + 2 - Projectile.localPlayer.x / 32;
+                  var11 = Client.hintArrowY * 4 - class101.baseY * 256 + 2 - Projectile.localPlayer.y / 32;
+                  class136.worldToMinimap(var1, var2, var10, var11, LoginScreenAnimation.mapMarkerSprites[1], var4);
+               }
+
+               if (Client.hintArrowType == 10 && Client.hintArrowPlayerIndex >= 0 && Client.hintArrowPlayerIndex < Client.players.length) {
+                  Player var20 = Client.players[Client.hintArrowPlayerIndex];
+                  if (var20 != null) {
+                     var11 = var20.x / 32 - Projectile.localPlayer.x / 32;
+                     var12 = var20.y / 32 - Projectile.localPlayer.y / 32;
+                     class136.worldToMinimap(var1, var2, var11, var12, LoginScreenAnimation.mapMarkerSprites[1], var4);
+                  }
+               }
+            }
+
+            if (Client.destinationX != 0) {
+               var10 = Client.destinationX * 4 + 2 - Projectile.localPlayer.x / 32;
+               var11 = Client.destinationY * 4 + 2 - Projectile.localPlayer.y / 32;
+               class59.drawSpriteOnMinimap(var1, var2, var10, var11, LoginScreenAnimation.mapMarkerSprites[0], var4);
+            }
+
+            if (!Projectile.localPlayer.isHidden) {
+               Rasterizer2D.Rasterizer2D_fillRectangle(var4.width / 2 + var1 - 1, var4.height / 2 + var2 - 1, 3, 3, 16777215);
+            }
+         } else {
+            Rasterizer2D.Rasterizer2D_fillMaskedRectangle(var1, var2, 0, var4.xStarts, var4.xWidths);
          }
+
+         Client.field724[var3] = true;
       }
-
-   }
-
-   @ObfuscatedName("ai")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "421048908"
-   )
-   static int method1114() {
-      return Login.loginIndex;
-   }
-
-   @ObfuscatedName("ho")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-617298505"
-   )
-   static final void method1120() {
-      if (PlayerCompositionColorTextureOverride.field1875) {
-         class174.method3493();
-         PlayerCompositionColorTextureOverride.field1875 = false;
-      }
-
-   }
-
-   @ObfuscatedName("jg")
-   @ObfuscatedSignature(
-      descriptor = "(IIIIIIIIIII)V",
-      garbageValue = "-2138006752"
-   )
-   static final void method1124(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
-      PendingSpawn var10 = null;
-
-      for(PendingSpawn var11 = (PendingSpawn)Client.pendingSpawns.last(); var11 != null; var11 = (PendingSpawn)Client.pendingSpawns.previous()) {
-         if (var0 == var11.plane && var11.x == var1 && var2 == var11.y && var3 == var11.type) {
-            var10 = var11;
-            break;
-         }
-      }
-
-      if (var10 == null) {
-         var10 = new PendingSpawn();
-         var10.plane = var0;
-         var10.type = var3;
-         var10.x = var1;
-         var10.y = var2;
-         var10.field1133 = -1;
-         class27.method383(var10);
-         Client.pendingSpawns.addFirst(var10);
-      }
-
-      var10.field1135 = var4;
-      var10.field1132 = var5;
-      var10.field1131 = var6;
-      var10.delay = var8;
-      var10.hitpoints = var9;
-      var10.method2344(var7);
    }
 }

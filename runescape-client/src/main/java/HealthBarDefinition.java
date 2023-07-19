@@ -4,101 +4,98 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hn")
+@ObfuscatedName("hp")
 @Implements("HealthBarDefinition")
 public class HealthBarDefinition extends DualNode {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
    )
    @Export("HealthBarDefinition_archive")
    public static AbstractArchive HealthBarDefinition_archive;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
    )
-   public static AbstractArchive field1947;
-   @ObfuscatedName("ac")
+   public static AbstractArchive field1952;
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Lkt;"
+      descriptor = "Llf;"
    )
    @Export("HealthBarDefinition_cached")
    public static EvictingDualNodeHashTable HealthBarDefinition_cached = new EvictingDualNodeHashTable(64);
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "Lkt;"
+      descriptor = "Llf;"
    )
    @Export("HealthBarDefinition_cachedSprites")
-   public static EvictingDualNodeHashTable HealthBarDefinition_cachedSprites = new EvictingDualNodeHashTable(64);
-   @ObfuscatedName("an")
+   static EvictingDualNodeHashTable HealthBarDefinition_cachedSprites = new EvictingDualNodeHashTable(64);
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = 758214251
+      intValue = 1932635953
    )
-   public int field1946;
-   @ObfuscatedName("aq")
+   public int field1954;
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = -1872045827
+      intValue = 1625569879
    )
    @Export("int1")
    public int int1 = 255;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = -1053115535
+      intValue = 750422699
    )
    @Export("int2")
    public int int2 = 255;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = 1554459737
+      intValue = 205889791
    )
    @Export("int3")
    public int int3 = -1;
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @ObfuscatedGetter(
-      intValue = 1621376523
+      intValue = -1908977665
    )
-   public int field1942 = 1;
-   @ObfuscatedName("ax")
+   public int field1960 = 1;
+   @ObfuscatedName("aa")
    @ObfuscatedGetter(
-      intValue = 1656797509
+      intValue = -1295532583
    )
    @Export("int5")
    public int int5 = 70;
-   @ObfuscatedName("as")
+   @ObfuscatedName("aj")
    @ObfuscatedGetter(
-      intValue = 1047664091
+      intValue = 1810270273
    )
    @Export("frontSpriteID")
    int frontSpriteID = -1;
-   @ObfuscatedName("ay")
+   @ObfuscatedName("ad")
    @ObfuscatedGetter(
-      intValue = 1815861979
+      intValue = 511268141
    )
    @Export("backSpriteID")
    int backSpriteID = -1;
-   @ObfuscatedName("am")
+   @ObfuscatedName("ac")
    @ObfuscatedGetter(
-      intValue = 1796624873
+      intValue = -1838106225
    )
    @Export("width")
    public int width = 30;
-   @ObfuscatedName("az")
+   @ObfuscatedName("ag")
    @ObfuscatedGetter(
-      intValue = -1912503923
+      intValue = -563933335
    )
    @Export("widthPadding")
    public int widthPadding = 0;
 
-   HealthBarDefinition() {
-   }
-
-   @ObfuscatedName("al")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;B)V",
-      garbageValue = "67"
+      descriptor = "(Ltz;I)V",
+      garbageValue = "536910502"
    )
    @Export("decode")
-   void decode(Buffer var1) {
+   public void decode(Buffer var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if (var2 == 0) {
@@ -109,10 +106,10 @@ public class HealthBarDefinition extends DualNode {
       }
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;II)V",
-      garbageValue = "-442070903"
+      descriptor = "(Ltz;II)V",
+      garbageValue = "-2057188465"
    )
    @Export("decodeNext")
    void decodeNext(Buffer var1, int var2) {
@@ -142,10 +139,10 @@ public class HealthBarDefinition extends DualNode {
 
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(S)Lsn;",
-      garbageValue = "-18194"
+      descriptor = "(I)Ltm;",
+      garbageValue = "-553105347"
    )
    @Export("getFrontSprite")
    public SpritePixels getFrontSprite() {
@@ -156,7 +153,7 @@ public class HealthBarDefinition extends DualNode {
          if (var1 != null) {
             return var1;
          } else {
-            var1 = WorldMapScaleHandler.SpriteBuffer_getSprite(field1947, this.frontSpriteID, 0);
+            var1 = class107.SpriteBuffer_getSprite(field1952, this.frontSpriteID, 0);
             if (var1 != null) {
                HealthBarDefinition_cachedSprites.put(var1, (long)this.frontSpriteID);
             }
@@ -166,10 +163,10 @@ public class HealthBarDefinition extends DualNode {
       }
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(B)Lsn;",
-      garbageValue = "99"
+      descriptor = "(I)Ltm;",
+      garbageValue = "-235452519"
    )
    @Export("getBackSprite")
    public SpritePixels getBackSprite() {
@@ -180,7 +177,7 @@ public class HealthBarDefinition extends DualNode {
          if (var1 != null) {
             return var1;
          } else {
-            var1 = WorldMapScaleHandler.SpriteBuffer_getSprite(field1947, this.backSpriteID, 0);
+            var1 = class107.SpriteBuffer_getSprite(field1952, this.backSpriteID, 0);
             if (var1 != null) {
                HealthBarDefinition_cachedSprites.put(var1, (long)this.backSpriteID);
             }
@@ -188,5 +185,15 @@ public class HealthBarDefinition extends DualNode {
             return var1;
          }
       }
+   }
+
+   @ObfuscatedName("ab")
+   @ObfuscatedSignature(
+      descriptor = "(I)[Lnw;",
+      garbageValue = "2145594899"
+   )
+   @Export("PlayerType_values")
+   public static PlayerType[] PlayerType_values() {
+      return new PlayerType[]{PlayerType.PlayerType_hardcoreIronman, PlayerType.field4205, PlayerType.field4204, PlayerType.field4211, PlayerType.PlayerType_ironman, PlayerType.field4212, PlayerType.field4208, PlayerType.field4203, PlayerType.PlayerType_playerModerator, PlayerType.PlayerType_ultimateIronman, PlayerType.field4206, PlayerType.field4207, PlayerType.PlayerType_normal, PlayerType.field4202, PlayerType.field4209, PlayerType.field4213, PlayerType.PlayerType_jagexModerator};
    }
 }

@@ -5,93 +5,92 @@ import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("aw")
 @Implements("DevicePcmPlayerProvider")
-public class DevicePcmPlayerProvider implements class50 {
-   @ObfuscatedName("bw")
-   @ObfuscatedSignature(
-      descriptor = "Lqy;"
-   )
-   static Bounds field118;
-
+public class DevicePcmPlayerProvider implements class51 {
    DevicePcmPlayerProvider() {
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(I)Lbd;",
-      garbageValue = "1985011377"
+      descriptor = "(I)Lbi;",
+      garbageValue = "-1314025679"
    )
    @Export("player")
    public PcmPlayer player() {
       return new DevicePcmPlayer();
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
-      descriptor = "(II)Lha;",
-      garbageValue = "341640175"
+      descriptor = "(Ltz;IIIIIIB)V",
+      garbageValue = "1"
    )
-   @Export("SpotAnimationDefinition_get")
-   public static SpotAnimationDefinition SpotAnimationDefinition_get(int var0) {
-      SpotAnimationDefinition var1 = (SpotAnimationDefinition)SpotAnimationDefinition.SpotAnimationDefinition_cached.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = SpotAnimationDefinition.SpotAnimationDefinition_archive.takeFile(13, var0);
-         var1 = new SpotAnimationDefinition();
-         var1.id = var0;
-         if (var2 != null) {
-            var1.decode(new Buffer(var2));
-         }
+   @Export("loadTerrain")
+   static final void loadTerrain(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+      int var7;
+      if (class169.method3438(var1, var2, var3)) {
+         Tiles.Tiles_renderFlags[var1][var2][var3] = 0;
 
-         SpotAnimationDefinition.SpotAnimationDefinition_cached.put(var1, (long)var0);
-         return var1;
-      }
-   }
-
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "(Lmx;IIIBZB)V",
-      garbageValue = "10"
-   )
-   @Export("requestNetFile")
-   static void requestNetFile(Archive var0, int var1, int var2, int var3, byte var4, boolean var5) {
-      long var6 = (long)((var1 << 16) + var2);
-      NetFileRequest var8 = (NetFileRequest)NetCache.NetCache_pendingPriorityWrites.get(var6);
-      if (var8 == null) {
-         var8 = (NetFileRequest)NetCache.NetCache_pendingPriorityResponses.get(var6);
-         if (var8 == null) {
-            var8 = (NetFileRequest)NetCache.NetCache_pendingWrites.get(var6);
-            if (var8 != null) {
-               if (var5) {
-                  var8.removeDual();
-                  NetCache.NetCache_pendingPriorityWrites.put(var8, var6);
-                  --NetCache.NetCache_pendingWritesCount;
-                  ++NetCache.NetCache_pendingPriorityWritesCount;
-               }
-
-            } else {
-               if (!var5) {
-                  var8 = (NetFileRequest)NetCache.NetCache_pendingResponses.get(var6);
-                  if (var8 != null) {
-                     return;
-                  }
-               }
-
-               var8 = new NetFileRequest();
-               var8.archive = var0;
-               var8.crc = var3;
-               var8.padding = var4;
-               if (var5) {
-                  NetCache.NetCache_pendingPriorityWrites.put(var8, var6);
-                  ++NetCache.NetCache_pendingPriorityWritesCount;
+         while(true) {
+            var7 = var0.readUnsignedShort();
+            if (var7 == 0) {
+               if (var1 == 0) {
+                  Tiles.Tiles_heights[0][var2][var3] = -class107.method2701(var4 + 932731, var5 + 556238) * 8;
                } else {
-                  NetCache.NetCache_pendingWritesQueue.addFirst(var8);
-                  NetCache.NetCache_pendingWrites.put(var8, var6);
-                  ++NetCache.NetCache_pendingWritesCount;
+                  Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - 240;
+               }
+               break;
+            }
+
+            if (var7 == 1) {
+               int var8 = var0.readUnsignedByte();
+               if (var8 == 1) {
+                  var8 = 0;
                }
 
+               if (var1 == 0) {
+                  Tiles.Tiles_heights[0][var2][var3] = -var8 * 8;
+               } else {
+                  Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - var8 * 8;
+               }
+               break;
+            }
+
+            if (var7 <= 49) {
+               class74.Tiles_overlays[var1][var2][var3] = (short)var0.readShort();
+               Player.Tiles_shapes[var1][var2][var3] = (byte)((var7 - 2) / 4);
+               Tiles.field1018[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3);
+            } else if (var7 <= 81) {
+               Tiles.Tiles_renderFlags[var1][var2][var3] = (byte)(var7 - 49);
+            } else {
+               FaceNormal.Tiles_underlays[var1][var2][var3] = (short)(var7 - 81);
+            }
+         }
+      } else {
+         while(true) {
+            var7 = var0.readUnsignedShort();
+            if (var7 == 0) {
+               break;
+            }
+
+            if (var7 == 1) {
+               var0.readUnsignedByte();
+               break;
+            }
+
+            if (var7 <= 49) {
+               var0.readShort();
             }
          }
       }
+
+   }
+
+   @ObfuscatedName("bt")
+   @ObfuscatedSignature(
+      descriptor = "(ILdd;ZI)I",
+      garbageValue = "-612230964"
+   )
+   static int method316(int var0, Script var1, boolean var2) {
+      return 2;
    }
 }

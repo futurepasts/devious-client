@@ -1,64 +1,63 @@
-import java.io.IOException;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jc")
+@ObfuscatedName("jo")
 @Implements("BoundaryObject")
 public final class BoundaryObject {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = -476261499
+      intValue = 1322040305
    )
    @Export("z")
    int z;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = -1217976121
+      intValue = -1395173813
    )
    @Export("x")
    int x;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = 220339665
+      intValue = 2147061777
    )
    @Export("y")
    int y;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -244010561
+      intValue = -312981103
    )
    @Export("orientationA")
    int orientationA;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = 1655274619
+      intValue = -272343979
    )
    @Export("orientationB")
    int orientationB;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "Liq;"
+      descriptor = "Lim;"
    )
    @Export("renderable1")
    public Renderable renderable1;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
-      descriptor = "Liq;"
+      descriptor = "Lim;"
    )
    @Export("renderable2")
    public Renderable renderable2;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      longValue = 1373015219928650129L
+      longValue = -1669611721957992963L
    )
    @Export("tag")
    public long tag = 0L;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = 1167353109
+      intValue = 1298585617
    )
    @Export("flags")
    int flags = 0;
@@ -66,27 +65,52 @@ public final class BoundaryObject {
    BoundaryObject() {
    }
 
-   @ObfuscatedName("ix")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(ZI)V",
-      garbageValue = "1252454973"
+      descriptor = "(I)J",
+      garbageValue = "-149818697"
    )
-   static final void method4754(boolean var0) {
-      EnumComposition.playPcmPlayers();
-      ++Client.packetWriter.pendingWrites;
-      if (Client.packetWriter.pendingWrites >= 50 || var0) {
-         Client.packetWriter.pendingWrites = 0;
-         if (!Client.hadNetworkError && Client.packetWriter.getSocket() != null) {
-            PacketBufferNode var1 = UserComparator9.getPacketBufferNode(ClientPacket.NO_TIMEOUT, Client.packetWriter.isaacCipher);
-            Client.packetWriter.addNode(var1);
-
-            try {
-               Client.packetWriter.flush();
-            } catch (IOException var3) {
-               Client.hadNetworkError = true;
-            }
-         }
-
+   public static final synchronized long method5027() {
+      long var0 = System.currentTimeMillis();
+      if (var0 < class300.field3364) {
+         class300.field3365 += class300.field3364 - var0;
       }
+
+      class300.field3364 = var0;
+      return var0 + class300.field3365;
+   }
+
+   @ObfuscatedName("jc")
+   @ObfuscatedSignature(
+      descriptor = "(IIIIIIIIIII)V",
+      garbageValue = "190093423"
+   )
+   static final void method5026(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
+      PendingSpawn var10 = null;
+
+      for(PendingSpawn var11 = (PendingSpawn)Client.pendingSpawns.last(); var11 != null; var11 = (PendingSpawn)Client.pendingSpawns.previous()) {
+         if (var0 == var11.plane && var11.x == var1 && var2 == var11.y && var3 == var11.type) {
+            var10 = var11;
+            break;
+         }
+      }
+
+      if (var10 == null) {
+         var10 = new PendingSpawn();
+         var10.plane = var0;
+         var10.type = var3;
+         var10.x = var1;
+         var10.y = var2;
+         var10.field1143 = -1;
+         DirectByteArrayCopier.method6568(var10);
+         Client.pendingSpawns.addFirst(var10);
+      }
+
+      var10.field1148 = var4;
+      var10.field1142 = var5;
+      var10.field1141 = var6;
+      var10.delay = var8;
+      var10.hitpoints = var9;
+      var10.method2346(var7);
    }
 }

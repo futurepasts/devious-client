@@ -1,23 +1,16 @@
 import java.util.Comparator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nw")
+@ObfuscatedName("nk")
 @Implements("GrandExchangeOfferWorldComparator")
 final class GrandExchangeOfferWorldComparator implements Comparator {
-   @ObfuscatedName("vu")
-   @ObfuscatedGetter(
-      longValue = -6846605090314585287L
-   )
-   static long field4254;
-
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lnv;Lnv;I)I",
-      garbageValue = "1452247774"
+      descriptor = "(Lod;Lod;B)I",
+      garbageValue = "25"
    )
    @Export("compare_bridged")
    int compare_bridged(GrandExchangeEvent var1, GrandExchangeEvent var2) {
@@ -30,5 +23,14 @@ final class GrandExchangeOfferWorldComparator implements Comparator {
 
    public boolean equals(Object var1) {
       return super.equals(var1);
+   }
+
+   @ObfuscatedName("av")
+   @ObfuscatedSignature(
+      descriptor = "(II)I",
+      garbageValue = "-1500765789"
+   )
+   public static int method6833(int var0) {
+      return class452.field4730[var0 & 16383];
    }
 }

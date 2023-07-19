@@ -4,64 +4,53 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cv")
+@ObfuscatedName("dd")
 @Implements("Script")
 public class Script extends DualNode {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lkt;"
+      descriptor = "Llf;"
    )
    @Export("Script_cached")
    static EvictingDualNodeHashTable Script_cached = new EvictingDualNodeHashTable(128);
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "Lbw;"
-   )
-   @Export("pcmPlayerProvider")
-   public static class50 pcmPlayerProvider;
-   @ObfuscatedName("oe")
-   @ObfuscatedSignature(
-      descriptor = "Lmy;"
-   )
-   static Widget field975;
-   @ObfuscatedName("al")
-   String field965;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("an")
+   String field992;
+   @ObfuscatedName("av")
    @Export("opcodes")
    int[] opcodes;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @Export("intOperands")
    int[] intOperands;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @Export("stringOperands")
    String[] stringOperands;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedGetter(
-      intValue = -643585665
+      intValue = 280962447
    )
    @Export("localIntCount")
    int localIntCount;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedGetter(
-      intValue = -1479313491
+      intValue = 219646607
    )
    @Export("localStringCount")
    int localStringCount;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = 208680291
+      intValue = -1089927101
    )
    @Export("intArgumentCount")
    int intArgumentCount;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = 492927757
+      intValue = 942495419
    )
    @Export("stringArgumentCount")
    int stringArgumentCount;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedSignature(
-      descriptor = "[Lrz;"
+      descriptor = "[Lsv;"
    )
    @Export("switches")
    IterableNodeHashTable[] switches;
@@ -69,49 +58,13 @@ public class Script extends DualNode {
    Script() {
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "(II)[Lrz;",
-      garbageValue = "-2130489863"
+      descriptor = "(II)[Lsv;",
+      garbageValue = "-1348069017"
    )
    @Export("newIterableNodeHashTable")
    IterableNodeHashTable[] newIterableNodeHashTable(int var1) {
       return new IterableNodeHashTable[var1];
-   }
-
-   @ObfuscatedName("kp")
-   @ObfuscatedSignature(
-      descriptor = "([Lmy;IIIZI)V",
-      garbageValue = "-1823735571"
-   )
-   @Export("resizeInterface")
-   static void resizeInterface(Widget[] var0, int var1, int var2, int var3, boolean var4) {
-      for(int var5 = 0; var5 < var0.length; ++var5) {
-         Widget var6 = var0[var5];
-         if (var6 != null && var6.parentId == var1) {
-            PcmPlayer.alignWidgetSize(var6, var2, var3, var4);
-            Tiles.alignWidgetPosition(var6, var2, var3);
-            if (var6.scrollX > var6.scrollWidth - var6.width) {
-               var6.scrollX = var6.scrollWidth - var6.width;
-            }
-
-            if (var6.scrollX < 0) {
-               var6.scrollX = 0;
-            }
-
-            if (var6.scrollY > var6.scrollHeight - var6.height) {
-               var6.scrollY = var6.scrollHeight - var6.height;
-            }
-
-            if (var6.scrollY < 0) {
-               var6.scrollY = 0;
-            }
-
-            if (var6.type == 0) {
-               class278.revalidateWidgetScroll(var0, var6, var4);
-            }
-         }
-      }
-
    }
 }

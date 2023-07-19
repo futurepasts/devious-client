@@ -1,48 +1,87 @@
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("or")
+@ObfuscatedName("oq")
 public class class383 {
-   @ObfuscatedName("jj")
-   @ObfuscatedSignature(
-      descriptor = "(III)V",
-      garbageValue = "344145901"
-   )
-   static void method7318(int var0, int var1) {
-      int var2 = class7.fontBold12.stringWidth("Choose Option");
+   @ObfuscatedName("at")
+   static char[] field4391 = new char[64];
+   @ObfuscatedName("an")
+   static char[] field4392;
+   @ObfuscatedName("av")
+   static char[] field4393;
+   @ObfuscatedName("as")
+   static int[] field4394;
 
-      int var3;
-      int var4;
-      for(var3 = 0; var3 < Client.menuOptionsCount; ++var3) {
-         var4 = class7.fontBold12.stringWidth(SceneTilePaint.method4753(var3));
-         if (var4 > var2) {
-            var2 = var4;
-         }
+   static {
+      int var0;
+      for(var0 = 0; var0 < 26; ++var0) {
+         field4391[var0] = (char)(var0 + 65);
       }
 
-      var2 += 8;
-      var3 = Client.menuOptionsCount * 15 + 22;
-      var4 = var0 - var2 / 2;
-      if (var4 + var2 > GameEngine.canvasWidth) {
-         var4 = GameEngine.canvasWidth - var2;
+      for(var0 = 26; var0 < 52; ++var0) {
+         field4391[var0] = (char)(var0 + 97 - 26);
       }
 
-      if (var4 < 0) {
-         var4 = 0;
+      for(var0 = 52; var0 < 62; ++var0) {
+         field4391[var0] = (char)(var0 + 48 - 52);
       }
 
-      int var5 = var1;
-      if (var3 + var1 > class143.canvasHeight) {
-         var5 = class143.canvasHeight - var3;
+      field4391[62] = '+';
+      field4391[63] = '/';
+      field4392 = new char[64];
+
+      for(var0 = 0; var0 < 26; ++var0) {
+         field4392[var0] = (char)(var0 + 65);
       }
 
-      if (var5 < 0) {
-         var5 = 0;
+      for(var0 = 26; var0 < 52; ++var0) {
+         field4392[var0] = (char)(var0 + 97 - 26);
       }
 
-      class20.menuX = var4;
-      Login.menuY = var5;
-      PacketWriter.menuWidth = var2;
-      class30.menuHeight = Client.menuOptionsCount * 15 + 22;
+      for(var0 = 52; var0 < 62; ++var0) {
+         field4392[var0] = (char)(var0 + 48 - 52);
+      }
+
+      field4392[62] = '*';
+      field4392[63] = '-';
+      field4393 = new char[64];
+
+      for(var0 = 0; var0 < 26; ++var0) {
+         field4393[var0] = (char)(var0 + 65);
+      }
+
+      for(var0 = 26; var0 < 52; ++var0) {
+         field4393[var0] = (char)(var0 + 97 - 26);
+      }
+
+      for(var0 = 52; var0 < 62; ++var0) {
+         field4393[var0] = (char)(var0 + 48 - 52);
+      }
+
+      field4393[62] = '-';
+      field4393[63] = '_';
+      field4394 = new int[128];
+
+      for(var0 = 0; var0 < field4394.length; ++var0) {
+         field4394[var0] = -1;
+      }
+
+      for(var0 = 65; var0 <= 90; ++var0) {
+         field4394[var0] = var0 - 65;
+      }
+
+      for(var0 = 97; var0 <= 122; ++var0) {
+         field4394[var0] = var0 - 97 + 26;
+      }
+
+      for(var0 = 48; var0 <= 57; ++var0) {
+         field4394[var0] = var0 - 48 + 52;
+      }
+
+      int[] var2 = field4394;
+      field4394[43] = 62;
+      var2[42] = 62;
+      int[] var1 = field4394;
+      field4394[47] = 63;
+      var1[45] = 63;
    }
 }

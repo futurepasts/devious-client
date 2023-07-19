@@ -1,28 +1,31 @@
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lq")
+@ObfuscatedName("ln")
 public class class291 {
-   @ObfuscatedName("aj")
-   static int[] field3311;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("gw")
    @ObfuscatedSignature(
-      descriptor = "Lbp;"
+      descriptor = "Lny;"
    )
-   @Export("soundSystem")
-   static SoundSystem soundSystem;
+   @Export("archive20")
+   static Archive archive20;
+   @ObfuscatedName("ki")
+   @ObfuscatedGetter(
+      intValue = 1518960023
+   )
+   @Export("cameraYaw")
+   static int cameraYaw;
 
-   static {
-      new Object();
-      field3311 = new int[33];
-      field3311[0] = 0;
-      int var0 = 2;
-
-      for(int var1 = 1; var1 < 33; ++var1) {
-         field3311[var1] = var0 - 1;
-         var0 += var0;
-      }
-
+   @ObfuscatedName("ao")
+   @ObfuscatedSignature(
+      descriptor = "(I)V",
+      garbageValue = "-248616806"
+   )
+   public static void method5661() {
+      HitSplatDefinition.HitSplatDefinition_cached.clear();
+      HitSplatDefinition.field2122.clear();
+      HitSplatDefinition.HitSplatDefinition_cachedFonts.clear();
    }
 }

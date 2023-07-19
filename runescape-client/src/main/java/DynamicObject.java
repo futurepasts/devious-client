@@ -4,66 +4,71 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cr")
+@ObfuscatedName("dl")
 @Implements("DynamicObject")
 public class DynamicObject extends Renderable {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ad")
+   @ObfuscatedSignature(
+      descriptor = "Ltj;"
+   )
+   static IndexedSprite field1008;
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 1550818127
+      intValue = 42066401
    )
    @Export("id")
    int id;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 644818899
+      intValue = 1436945355
    )
    @Export("type")
    int type;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = 636202351
+      intValue = 1497127871
    )
    @Export("orientation")
    int orientation;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = 891835891
+      intValue = -1001280961
    )
    @Export("plane")
    int plane;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = 820061589
+      intValue = -1464424995
    )
    @Export("x")
    int x;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedGetter(
-      intValue = -198305785
+      intValue = -1841030991
    )
    @Export("y")
    int y;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
-      descriptor = "Lhx;"
+      descriptor = "Lhy;"
    )
    @Export("sequenceDefinition")
    SequenceDefinition sequenceDefinition;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = 819372407
+      intValue = -597814633
    )
    @Export("frame")
    int frame;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = -1368103957
+      intValue = 1587205733
    )
    @Export("cycleStart")
    int cycleStart;
 
    @ObfuscatedSignature(
-      descriptor = "(IIIIIIIZLiq;)V"
+      descriptor = "(IIIIIIIZLim;)V"
    )
    DynamicObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, Renderable var9) {
       this.id = var1;
@@ -73,10 +78,10 @@ public class DynamicObject extends Renderable {
       this.x = var5;
       this.y = var6;
       if (var7 != -1) {
-         this.sequenceDefinition = Coord.SequenceDefinition_get(var7);
+         this.sequenceDefinition = WorldMapLabelSize.SequenceDefinition_get(var7);
          this.frame = 0;
          this.cycleStart = Client.cycle - 1;
-         if (this.sequenceDefinition.field2276 == 0 && var9 != null && var9 instanceof DynamicObject) {
+         if (this.sequenceDefinition.field2299 == 0 && var9 != null && var9 instanceof DynamicObject) {
             DynamicObject var10 = (DynamicObject)var9;
             if (this.sequenceDefinition == var10.sequenceDefinition) {
                this.frame = var10.frame;
@@ -90,17 +95,17 @@ public class DynamicObject extends Renderable {
                this.frame = (int)(Math.random() * (double)this.sequenceDefinition.frameIds.length);
                this.cycleStart -= (int)(Math.random() * (double)this.sequenceDefinition.frameLengths[this.frame]);
             } else {
-               this.frame = (int)(Math.random() * (double)this.sequenceDefinition.method4015());
+               this.frame = (int)(Math.random() * (double)this.sequenceDefinition.method4084());
             }
          }
       }
 
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(I)Lix;",
-      garbageValue = "-1998422213"
+      descriptor = "(I)Ljd;",
+      garbageValue = "-1953039490"
    )
    @Export("getModel")
    protected final Model getModel() {
@@ -112,7 +117,7 @@ public class DynamicObject extends Renderable {
          }
 
          if (this.sequenceDefinition.isCachedModelIdSet()) {
-            var2 = this.sequenceDefinition.method4015();
+            var2 = this.sequenceDefinition.method4084();
             this.frame += var1;
             var1 = 0;
             if (this.frame >= var2) {
@@ -143,7 +148,7 @@ public class DynamicObject extends Renderable {
          this.cycleStart = Client.cycle - var1;
       }
 
-      ObjectComposition var12 = WallDecoration.getObjectDefinition(this.id);
+      ObjectComposition var12 = class175.getObjectDefinition(this.id);
       if (var12.transforms != null) {
          var12 = var12.transform();
       }
@@ -170,32 +175,5 @@ public class DynamicObject extends Renderable {
          int var11 = (this.y << 7) + (var3 << 6);
          return var12.getModelDynamic(this.type, this.orientation, var8, var10, var9, var11, this.sequenceDefinition, this.frame);
       }
-   }
-
-   @ObfuscatedName("mw")
-   @ObfuscatedSignature(
-      descriptor = "(IIII)Lde;",
-      garbageValue = "739326708"
-   )
-   static final InterfaceParent method2142(int var0, int var1, int var2) {
-      InterfaceParent var3 = new InterfaceParent();
-      var3.group = var1;
-      var3.type = var2;
-      Client.interfaceParents.put(var3, (long)var0);
-      ApproximateRouteStrategy.Widget_resetModelFrames(var1);
-      Widget var4 = WorldMapSection1.getWidget(var0);
-      class69.invalidateWidget(var4);
-      if (Client.meslayerContinueWidget != null) {
-         class69.invalidateWidget(Client.meslayerContinueWidget);
-         Client.meslayerContinueWidget = null;
-      }
-
-      class278.revalidateWidgetScroll(class155.Widget_interfaceComponents[var0 >> 16], var4, false);
-      WorldMapSection1.runWidgetOnLoadListener(var1);
-      if (Client.rootInterface != -1) {
-         NPCComposition.runIntfCloseListeners(Client.rootInterface, 1);
-      }
-
-      return var3;
    }
 }

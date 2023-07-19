@@ -1,134 +1,132 @@
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("eu")
-public class class128 implements MouseWheel {
-   @ObfuscatedName("aj")
+@ObfuscatedName("eg")
+public class class128 implements Callable {
+   @ObfuscatedName("db")
    @ObfuscatedSignature(
-      descriptor = "Leu;"
+      descriptor = "Ltj;"
    )
-   static final class128 field1523 = new class128(0, 0, (String)null, 0);
-   @ObfuscatedName("al")
+   @Export("worldSelectRightSprite")
+   static IndexedSprite worldSelectRightSprite;
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Leu;"
+      descriptor = "Leq;"
    )
-   static final class128 field1534 = new class128(1, 1, (String)null, 9);
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Leu;"
-   )
-   static final class128 field1524 = new class128(2, 2, (String)null, 3);
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "Leu;"
-   )
-   static final class128 field1525 = new class128(3, 3, (String)null, 6);
+   final class129 field1502;
    @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Leu;"
+      descriptor = "Lfg;"
    )
-   static final class128 field1526 = new class128(4, 4, (String)null, 1);
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "Leu;"
-   )
-   static final class128 field1527 = new class128(5, 5, (String)null, 3);
-   @ObfuscatedName("ax")
-   public static short[] field1529;
-   @ObfuscatedName("lk")
-   @ObfuscatedGetter(
-      intValue = 21441505
-   )
-   static int field1533;
+   final class130 field1496;
    @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = -1075805337
+   @ObfuscatedSignature(
+      descriptor = "Lfa;"
    )
-   final int field1528;
-   @ObfuscatedName("aq")
+   final class131 field1497;
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -659778275
+      intValue = 498098769
    )
-   final int field1522;
-   @ObfuscatedName("ap")
-   @ObfuscatedGetter(
-      intValue = 669676889
+   final int field1499;
+   // $FF: synthetic field
+   @ObfuscatedSignature(
+      descriptor = "Lfz;"
    )
-   final int field1530;
+   final class136 this$0;
 
-   class128(int var1, int var2, String var3, int var4) {
-      this.field1528 = var1;
-      this.field1522 = var2;
-      this.field1530 = var4;
+   @ObfuscatedSignature(
+      descriptor = "(Lfz;Leq;Lfg;Lfa;I)V"
+   )
+   class128(class136 var1, class129 var2, class130 var3, class131 var4, int var5) {
+      this.this$0 = var1;
+      this.field1502 = var2;
+      this.field1496 = var3;
+      this.field1497 = var4;
+      this.field1499 = var5;
    }
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "-1409646049"
-   )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.field1522;
-   }
-
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "-1814624795"
-   )
-   int method3006() {
-      return this.field1530;
-   }
-
-   @ObfuscatedName("bm")
-   @ObfuscatedSignature(
-      descriptor = "(Lge;IIB)Lbd;",
-      garbageValue = "25"
-   )
-   public static final PcmPlayer method3014(TaskHandler var0, int var1, int var2) {
-      if (PcmPlayer.field292 == 0) {
-         throw new IllegalStateException();
-      } else if (var1 >= 0 && var1 < 2) {
-         if (var2 < 256) {
-            var2 = 256;
-         }
-
-         try {
-            PcmPlayer var3 = Script.pcmPlayerProvider.player();
-            var3.samples = new int[(ChatChannel.PcmPlayer_stereo ? 2 : 1) * 256];
-            var3.field285 = var2;
-            var3.init();
-            var3.capacity = (var2 & -1024) + 1024;
-            if (var3.capacity > 16384) {
-               var3.capacity = 16384;
-            }
-
-            var3.open(var3.capacity);
-            if (TileItem.field1314 > 0 && class291.soundSystem == null) {
-               class291.soundSystem = new SoundSystem();
-               PcmPlayer.soundSystemExecutor = Executors.newScheduledThreadPool(1);
-               PcmPlayer.soundSystemExecutor.scheduleAtFixedRate(class291.soundSystem, 0L, 10L, TimeUnit.MILLISECONDS);
-            }
-
-            if (class291.soundSystem != null) {
-               if (class291.soundSystem.players[var1] != null) {
-                  throw new IllegalArgumentException();
-               }
-
-               class291.soundSystem.players[var1] = var3;
-            }
-
-            return var3;
-         } catch (Throwable var4) {
-            return new PcmPlayer();
-         }
+   public Object call() {
+      this.field1502.method2986();
+      class129[][] var1;
+      if (this.field1496 == class130.field1529) {
+         var1 = this.this$0.field1584;
       } else {
-         throw new IllegalArgumentException();
+         var1 = this.this$0.field1583;
+      }
+
+      var1[this.field1499][this.field1497.method3017()] = this.field1502;
+      return null;
+   }
+
+   @ObfuscatedName("ax")
+   @ObfuscatedSignature(
+      descriptor = "(II)I",
+      garbageValue = "-709369885"
+   )
+   public static int method2970(int var0) {
+      --var0;
+      var0 |= var0 >>> 1;
+      var0 |= var0 >>> 2;
+      var0 |= var0 >>> 4;
+      var0 |= var0 >>> 8;
+      var0 |= var0 >>> 16;
+      return var0 + 1;
+   }
+
+   @ObfuscatedName("ja")
+   @ObfuscatedSignature(
+      descriptor = "(IIB)V",
+      garbageValue = "11"
+   )
+   @Export("updateItemPile")
+   static final void updateItemPile(int var0, int var1) {
+      NodeDeque var2 = Client.groundItems[Clock.Client_plane][var0][var1];
+      if (var2 == null) {
+         class36.scene.removeGroundItemPile(Clock.Client_plane, var0, var1);
+      } else {
+         long var3 = -99999999L;
+         TileItem var5 = null;
+
+         TileItem var6;
+         for(var6 = (TileItem)var2.last(); var6 != null; var6 = (TileItem)var2.previous()) {
+            ItemComposition var7 = class300.ItemDefinition_get(var6.id);
+            long var11 = (long)var7.price;
+            if (var7.isStackable == 1) {
+               var11 *= var6.quantity < Integer.MAX_VALUE ? (long)(var6.quantity + 1) : (long)var6.quantity;
+            }
+
+            if (var11 > var3) {
+               var3 = var11;
+               var5 = var6;
+            }
+         }
+
+         if (var5 == null) {
+            class36.scene.removeGroundItemPile(Clock.Client_plane, var0, var1);
+         } else {
+            var2.addLast(var5);
+            TileItem var13 = null;
+            TileItem var8 = null;
+
+            for(var6 = (TileItem)var2.last(); var6 != null; var6 = (TileItem)var2.previous()) {
+               if (var6.id != var5.id) {
+                  if (var13 == null) {
+                     var13 = var6;
+                  }
+
+                  if (var13.id != var6.id && var8 == null) {
+                     var8 = var6;
+                  }
+               }
+            }
+
+            long var9 = class394.calculateTag(var0, var1, 3, false, 0);
+            class36.scene.newGroundItemPile(Clock.Client_plane, var0, var1, Renderable.getTileHeight(var0 * 128 + 64, var1 * 128 + 64, Clock.Client_plane), var5, var9, var13, var8);
+         }
       }
    }
 }

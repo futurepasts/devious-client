@@ -4,27 +4,27 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rs")
+@ObfuscatedName("sr")
 @Implements("Fonts")
 public class Fonts {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
    )
    @Export("spritesArchive")
    AbstractArchive spritesArchive;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
    )
    @Export("fontsArchive")
    AbstractArchive fontsArchive;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @Export("map")
    HashMap map;
 
    @ObfuscatedSignature(
-      descriptor = "(Lne;Lne;)V"
+      descriptor = "(Lnq;Lnq;)V"
    )
    public Fonts(AbstractArchive var1, AbstractArchive var2) {
       this.spritesArchive = var1;
@@ -32,10 +32,10 @@ public class Fonts {
       this.map = new HashMap();
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "([Lry;I)Ljava/util/HashMap;",
-      garbageValue = "1210819555"
+      descriptor = "([Lsb;B)Ljava/util/HashMap;",
+      garbageValue = "46"
    )
    @Export("createMap")
    public HashMap createMap(FontName[] var1) {
@@ -47,7 +47,7 @@ public class Fonts {
          if (this.map.containsKey(var5)) {
             var2.put(var5, this.map.get(var5));
          } else {
-            Font var6 = class478.method8894(this.spritesArchive, this.fontsArchive, var5.name, "");
+            Font var6 = class478.method8649(this.spritesArchive, this.fontsArchive, var5.name, "");
             if (var6 != null) {
                this.map.put(var5, var6);
                var2.put(var5, var6);
@@ -58,24 +58,23 @@ public class Fonts {
       return var2;
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(Lsq;I)I",
-      garbageValue = "-253247961"
+      descriptor = "(Lny;II)V",
+      garbageValue = "-1908099645"
    )
-   static int method8249(PacketBuffer var0) {
-      int var1 = var0.readBits(2);
-      int var2;
-      if (var1 == 0) {
-         var2 = 0;
-      } else if (var1 == 1) {
-         var2 = var0.readBits(5);
-      } else if (var1 == 2) {
-         var2 = var0.readBits(8);
+   public static void method8576(Archive var0, int var1) {
+      class411.field4561.offset = var1 * 8 + 5;
+      if (class411.field4561.offset >= class411.field4561.array.length) {
+         if (var0.field4242) {
+            var0.method6648();
+         } else {
+            throw new RuntimeException("");
+         }
       } else {
-         var2 = var0.readBits(11);
+         int var2 = class411.field4561.readInt();
+         int var3 = class411.field4561.readInt();
+         var0.loadIndex(var2, var3);
       }
-
-      return var2;
    }
 }

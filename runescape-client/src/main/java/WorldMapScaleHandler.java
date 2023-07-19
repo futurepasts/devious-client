@@ -3,18 +3,23 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("kn")
+@ObfuscatedName("ko")
 @Implements("WorldMapScaleHandler")
 public class WorldMapScaleHandler {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("cw")
+   @ObfuscatedSignature(
+      descriptor = "Lsj;"
+   )
+   @Export("loginType")
+   static LoginType loginType;
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = -183595775
+      intValue = -552599477
    )
    @Export("pixelsPerTile")
    int pixelsPerTile;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @Export("tileTemplates")
    byte[][][] tileTemplates;
 
@@ -22,25 +27,25 @@ public class WorldMapScaleHandler {
       this.pixelsPerTile = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(IIIIIIIII)V",
-      garbageValue = "354305543"
+      descriptor = "(IIIIIIIIB)V",
+      garbageValue = "5"
    )
-   void method5368(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+   void method5560(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       if (var7 != 0 && this.pixelsPerTile != 0 && this.tileTemplates != null) {
-         var8 = this.method5325(var8, var7);
-         var7 = this.method5323(var7);
+         var8 = this.method5557(var8, var7);
+         var7 = this.method5558(var7);
          Rasterizer2D.Rasterizer2D_drawGradientPixels(var1, var2, var5, var6, var3, var4, this.tileTemplates[var7 - 1][var8], this.pixelsPerTile);
       }
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
       descriptor = "(III)I",
-      garbageValue = "295942057"
+      garbageValue = "-837689004"
    )
-   int method5325(int var1, int var2) {
+   int method5557(int var1, int var2) {
       if (var2 == 9) {
          var1 = var1 + 1 & 3;
       }
@@ -56,12 +61,12 @@ public class WorldMapScaleHandler {
       return var1;
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
       descriptor = "(II)I",
-      garbageValue = "-1852044276"
+      garbageValue = "-1694223035"
    )
-   int method5323(int var1) {
+   int method5558(int var1) {
       if (var1 != 9 && var1 != 10) {
          return var1 == 11 ? 8 : var1;
       } else {
@@ -69,10 +74,10 @@ public class WorldMapScaleHandler {
       }
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "1547047008"
+      descriptor = "(B)V",
+      garbageValue = "-120"
    )
    @Export("init")
    void init() {
@@ -89,10 +94,10 @@ public class WorldMapScaleHandler {
       }
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "513334212"
+      descriptor = "(B)V",
+      garbageValue = "60"
    )
    @Export("init0")
    void init0() {
@@ -156,10 +161,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[0][3] = var1;
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-2140987782"
+      descriptor = "(B)V",
+      garbageValue = "4"
    )
    @Export("init1")
    void init1() {
@@ -227,10 +232,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[1][3] = var1;
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-1441100224"
+      garbageValue = "597109789"
    )
    @Export("init2")
    void init2() {
@@ -294,10 +299,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[2][3] = var1;
    }
 
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "1120844163"
+      garbageValue = "-2127773930"
    )
    @Export("init3")
    void init3() {
@@ -361,10 +366,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[3][3] = var1;
    }
 
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "119"
+      descriptor = "(I)V",
+      garbageValue = "676851510"
    )
    @Export("init4")
    void init4() {
@@ -428,10 +433,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[4][3] = var1;
    }
 
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-125892"
+      descriptor = "(B)V",
+      garbageValue = "112"
    )
    @Export("init5")
    void init5() {
@@ -497,10 +502,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[5][3] = var1;
    }
 
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "2032657108"
+      garbageValue = "-405495204"
    )
    @Export("init6")
    void init6() {
@@ -566,10 +571,10 @@ public class WorldMapScaleHandler {
       this.tileTemplates[6][3] = var1;
    }
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aa")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-956475054"
+      descriptor = "(B)V",
+      garbageValue = "0"
    )
    @Export("init7")
    void init7() {
@@ -635,193 +640,93 @@ public class WorldMapScaleHandler {
       this.tileTemplates[7][3] = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lmg;B)V",
-      garbageValue = "0"
+      descriptor = "(Lsj;I)I",
+      garbageValue = "-1609910972"
    )
-   public static void method5372(Huffman var0) {
-      class315.huffman = var0;
+   static final int method5584(LoginType var0) {
+      if (var0 == null) {
+         return 12;
+      } else {
+         switch (var0.field4933) {
+            case 6:
+               return 20;
+            default:
+               return 12;
+         }
+      }
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lne;IIB)Lsn;",
-      garbageValue = "1"
+      descriptor = "(Lnq;III)[Ltm;",
+      garbageValue = "151600601"
    )
-   @Export("SpriteBuffer_getSprite")
-   public static SpritePixels SpriteBuffer_getSprite(AbstractArchive var0, int var1, int var2) {
+   public static SpritePixels[] method5597(AbstractArchive var0, int var1, int var2) {
       byte[] var4 = var0.takeFile(var1, var2);
       boolean var3;
       if (var4 == null) {
          var3 = false;
       } else {
-         class212.SpriteBuffer_decode(var4);
+         UserComparator2.SpriteBuffer_decode(var4);
          var3 = true;
       }
 
-      return !var3 ? null : class7.method55();
+      return !var3 ? null : WorldMapEvent.method5600();
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;IIIIIII)V",
-      garbageValue = "-1255218703"
+      descriptor = "(Lnq;Lnq;S)I",
+      garbageValue = "1834"
    )
-   @Export("loadTerrain")
-   static final void loadTerrain(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-      int var7;
-      if (class331.method6350(var1, var2, var3)) {
-         Tiles.Tiles_renderFlags[var1][var2][var3] = 0;
+   static int method5598(AbstractArchive var0, AbstractArchive var1) {
+      int var2 = 0;
+      String[] var3 = Login.field952;
 
-         while(true) {
-            var7 = var0.readUnsignedShort();
-            if (var7 == 0) {
-               if (var1 == 0) {
-                  Tiles.Tiles_heights[0][var2][var3] = -ItemLayer.method4162(var4 + 932731, var5 + 556238) * 8;
-               } else {
-                  Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - 240;
-               }
-               break;
-            }
-
-            if (var7 == 1) {
-               int var8 = var0.readUnsignedByte();
-               if (var8 == 1) {
-                  var8 = 0;
-               }
-
-               if (var1 == 0) {
-                  Tiles.Tiles_heights[0][var2][var3] = -var8 * 8;
-               } else {
-                  Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - var8 * 8;
-               }
-               break;
-            }
-
-            if (var7 <= 49) {
-               Tiles.Tiles_overlays[var1][var2][var3] = (short)var0.readShort();
-               class16.Tiles_shapes[var1][var2][var3] = (byte)((var7 - 2) / 4);
-               Tiles.field997[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3);
-            } else if (var7 <= 81) {
-               Tiles.Tiles_renderFlags[var1][var2][var3] = (byte)(var7 - 49);
-            } else {
-               Tiles.Tiles_underlays[var1][var2][var3] = (short)(var7 - 81);
-            }
-         }
-      } else {
-         while(true) {
-            var7 = var0.readUnsignedShort();
-            if (var7 == 0) {
-               break;
-            }
-
-            if (var7 == 1) {
-               var0.readUnsignedByte();
-               break;
-            }
-
-            if (var7 <= 49) {
-               var0.readShort();
-            }
+      int var4;
+      String var5;
+      for(var4 = 0; var4 < var3.length; ++var4) {
+         var5 = var3[var4];
+         if (var0.tryLoadFileByNames(var5, "")) {
+            ++var2;
          }
       }
 
-   }
+      var3 = Login.field953;
 
-   @ObfuscatedName("bm")
-   @ObfuscatedSignature(
-      descriptor = "(ILcv;ZI)I",
-      garbageValue = "-2124660715"
-   )
-   static int method5374(int var0, Script var1, boolean var2) {
-      int var3;
-      int var6;
-      int var9;
-      if (var0 == ScriptOpcodes.ENUM_STRING) {
-         Interpreter.Interpreter_intStackSize -= 2;
-         var3 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize];
-         var9 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1];
-         EnumComposition var10 = class132.getEnum(var3);
-         if (var10.outputType != 's') {
-         }
-
-         for(var6 = 0; var6 < var10.outputCount; ++var6) {
-            if (var9 == var10.keys[var6]) {
-               Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = var10.strVals[var6];
-               var10 = null;
-               break;
-            }
-         }
-
-         if (var10 != null) {
-            Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = var10.defaultStr;
-         }
-
-         return 1;
-      } else if (var0 != ScriptOpcodes.ENUM) {
-         if (var0 == ScriptOpcodes.ENUM_GETOUTPUTCOUNT) {
-            var3 = Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize];
-            EnumComposition var4 = class132.getEnum(var3);
-            Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var4.size();
-            return 1;
-         } else {
-            return 2;
-         }
-      } else {
-         Interpreter.Interpreter_intStackSize -= 4;
-         var3 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize];
-         var9 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1];
-         int var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 2];
-         var6 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 3];
-         EnumComposition var7 = class132.getEnum(var5);
-         if (var3 == var7.inputType && var9 == var7.outputType) {
-            for(int var8 = 0; var8 < var7.outputCount; ++var8) {
-               if (var6 == var7.keys[var8]) {
-                  if (var9 == 115) {
-                     Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = var7.strVals[var8];
-                  } else {
-                     Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var7.intVals[var8];
-                  }
-
-                  var7 = null;
-                  break;
-               }
-            }
-
-            if (var7 != null) {
-               if (var9 == 115) {
-                  Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = var7.defaultStr;
-               } else {
-                  Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var7.defaultInt;
-               }
-            }
-
-            return 1;
-         } else {
-            if (var9 == 115) {
-               Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = "null";
-            } else {
-               Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = 0;
-            }
-
-            return 1;
+      for(var4 = 0; var4 < var3.length; ++var4) {
+         var5 = var3[var4];
+         if (var1.tryLoadFileByNames(var5, "")) {
+            ++var2;
          }
       }
+
+      var3 = Login.field933;
+
+      for(var4 = 0; var4 < var3.length; ++var4) {
+         var5 = var3[var4];
+         if (var1.getGroupId(var5) != -1 && var1.tryLoadFileByNames(var5, "")) {
+            ++var2;
+         }
+      }
+
+      return var2;
    }
 
-   @ObfuscatedName("mx")
+   @ObfuscatedName("az")
    @ObfuscatedSignature(
-      descriptor = "(Lmy;II)Ljava/lang/String;",
-      garbageValue = "-666727144"
+      descriptor = "(IZII)V",
+      garbageValue = "-2033731154"
    )
-   static String method5373(Widget var0, int var1) {
-      int var3 = ParamComposition.getWidgetFlags(var0);
-      boolean var2 = (var3 >> var1 + 1 & 1) != 0;
-      if (!var2 && var0.onOp == null) {
-         return null;
+   public static final void method5595(int var0, boolean var1, int var2) {
+      if (var0 >= 8000 && var0 <= 48000) {
+         PcmPlayer.field291 = var0;
+         class347.PcmPlayer_stereo = var1;
+         class260.field2944 = var2;
       } else {
-         return var0.actions != null && var0.actions.length > var1 && var0.actions[var1] != null && var0.actions[var1].trim().length() != 0 ? var0.actions[var1] : null;
+         throw new IllegalArgumentException();
       }
    }
 }

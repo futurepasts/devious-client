@@ -1,177 +1,230 @@
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.AbstractQueue;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import javax.net.ssl.HttpsURLConnection;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("pu")
-public class class390 {
-   @ObfuscatedName("ab")
-   final Map field4465 = new HashMap();
+public class class390 extends AbstractQueue {
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "[Lou;"
+   )
+   class388[] field4416;
    @ObfuscatedName("an")
-   final Map field4468 = new HashMap();
-   @ObfuscatedName("ao")
-   final DecimalFormat field4469 = new DecimalFormat();
+   Map field4413;
+   @ObfuscatedName("av")
+   @ObfuscatedGetter(
+      intValue = -198371055
+   )
+   int field4412;
+   @ObfuscatedName("as")
+   final Comparator field4415;
+   @ObfuscatedName("ax")
+   @ObfuscatedGetter(
+      intValue = 490326883
+   )
+   int field4414;
 
-   public class390() {
-      this.field4469.setMaximumFractionDigits(2);
+   public class390(int var1, Comparator var2) {
+      this.field4414 = 0;
+      this.field4416 = new class388[var1];
+      this.field4413 = new HashMap();
+      this.field4415 = var2;
    }
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(Ljavax/net/ssl/HttpsURLConnection;I)V",
-      garbageValue = "-1545289120"
-   )
-   public void method7355(HttpsURLConnection var1) {
-      Iterator var2 = this.field4465.entrySet().iterator();
-
-      while(var2.hasNext()) {
-         Map.Entry var3 = (Map.Entry)var2.next();
-         var1.setRequestProperty((String)var3.getKey(), (String)var3.getValue());
-      }
-
+   public class390(int var1) {
+      this(var1, (Comparator)null);
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(B)Ljava/util/Map;",
-      garbageValue = "1"
+      descriptor = "(B)V",
+      garbageValue = "2"
    )
-   public Map method7356() {
-      return this.field4465;
-   }
-
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;Ljava/lang/String;I)V",
-      garbageValue = "-625731660"
-   )
-   public void method7359(String var1, String var2) {
-      if (var1 != null && !var1.isEmpty()) {
-         this.field4465.put(var1, var2 != null ? var2 : "");
-      }
-
-   }
-
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "1613794431"
-   )
-   public void method7358(String var1) {
-      if (var1 != null && !var1.isEmpty()) {
-         this.field4465.remove(var1);
-      }
-
+   void method7226() {
+      int var1 = (this.field4416.length << 1) + 1;
+      this.field4416 = (class388[])((class388[])Arrays.copyOf(this.field4416, var1));
    }
 
    @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(Loy;Ljava/lang/String;B)V",
-      garbageValue = "-64"
+      descriptor = "(II)V",
+      garbageValue = "980463966"
    )
-   void method7393(class389 var1, String var2) {
-      String var3 = String.format("%s %s", var1.method7351(), var2);
-      this.method7359("Authorization", var3);
-   }
+   void method7227(int var1) {
+      class388 var2;
+      int var3;
+      for(var2 = this.field4416[var1]; var1 > 0; var1 = var3) {
+         var3 = var1 - 1 >>> 1;
+         class388 var4 = this.field4416[var3];
+         if (this.field4415 != null) {
+            if (this.field4415.compare(var2.field4406, var4.field4406) >= 0) {
+               break;
+            }
+         } else if (((Comparable)var2.field4406).compareTo(var4.field4406) >= 0) {
+            break;
+         }
 
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "-512273013"
-   )
-   public void method7360(String var1) {
-      this.method7393(class389.field4463, var1);
+         this.field4416[var1] = var4;
+         this.field4416[var1].field4407 = var1;
+      }
+
+      this.field4416[var1] = var2;
+      this.field4416[var1].field4407 = var1;
    }
 
    @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "1064028789"
+      descriptor = "(IB)V",
+      garbageValue = "22"
    )
-   public void method7357(String var1) {
-      this.method7393(class389.field4461, var1);
-   }
+   void method7225(int var1) {
+      class388 var2 = this.field4416[var1];
 
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "(Lqn;B)V",
-      garbageValue = "4"
-   )
-   public void method7362(class431 var1) {
-      this.field4465.put("Content-Type", var1.method7965());
-   }
-
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-72"
-   )
-   public void method7363() {
-      this.field4465.remove("Content-Type");
-   }
-
-   @ObfuscatedName("ar")
-   @ObfuscatedSignature(
-      descriptor = "(Lqn;I)V",
-      garbageValue = "1731496941"
-   )
-   public void method7364(class431 var1) {
-      this.method7367(var1, 1.0F);
-   }
-
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "(Lqn;FB)V",
-      garbageValue = "36"
-   )
-   void method7367(class431 var1, float var2) {
-      this.field4468.put(var1, Math.max(0.0F, Math.min(1.0F, var2)));
-      this.method7366();
-   }
-
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-5"
-   )
-   void method7366() {
-      this.field4465.remove("Accept");
-      if (!this.field4468.isEmpty()) {
-         this.field4465.put("Accept", this.method7361());
-      }
-
-   }
-
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(B)Ljava/lang/String;",
-      garbageValue = "-88"
-   )
-   String method7361() {
-      ArrayList var1 = new ArrayList(this.field4468.entrySet());
-      Collections.sort(var1, new class391(this));
-      StringBuilder var2 = new StringBuilder();
-      Iterator var3 = var1.iterator();
-
-      while(var3.hasNext()) {
-         Map.Entry var4 = (Map.Entry)var3.next();
-         if (var2.length() > 0) {
-            var2.append(",");
+      int var8;
+      for(int var3 = this.field4412 >>> 1; var1 < var3; var1 = var8) {
+         int var4 = (var1 << 1) + 1;
+         class388 var5 = this.field4416[var4];
+         int var6 = (var1 << 1) + 2;
+         class388 var7 = this.field4416[var6];
+         if (this.field4415 != null) {
+            if (var6 < this.field4412 && this.field4415.compare(var5.field4406, var7.field4406) > 0) {
+               var8 = var6;
+            } else {
+               var8 = var4;
+            }
+         } else if (var6 < this.field4412 && ((Comparable)var5.field4406).compareTo(var7.field4406) > 0) {
+            var8 = var6;
+         } else {
+            var8 = var4;
          }
 
-         var2.append(((class431)var4.getKey()).method7965());
-         float var5 = (Float)var4.getValue();
-         if (var5 < 1.0F) {
-            String var6 = this.field4469.format((double)var5);
-            var2.append(";q=").append(var6);
+         if (this.field4415 != null) {
+            if (this.field4415.compare(var2.field4406, this.field4416[var8].field4406) <= 0) {
+               break;
+            }
+         } else if (((Comparable)var2.field4406).compareTo(this.field4416[var8].field4406) <= 0) {
+            break;
          }
+
+         this.field4416[var1] = this.field4416[var8];
+         this.field4416[var1].field4407 = var1;
       }
 
-      return var2.toString();
+      this.field4416[var1] = var2;
+      this.field4416[var1].field4407 = var1;
+   }
+
+   public boolean remove(Object var1) {
+      class388 var2 = (class388)this.field4413.remove(var1);
+      if (var2 == null) {
+         return false;
+      } else {
+         ++this.field4414;
+         --this.field4412;
+         if (this.field4412 == var2.field4407) {
+            this.field4416[this.field4412] = null;
+            return true;
+         } else {
+            class388 var3 = this.field4416[this.field4412];
+            this.field4416[this.field4412] = null;
+            this.field4416[var2.field4407] = var3;
+            this.field4416[var2.field4407].field4407 = var2.field4407;
+            this.method7225(var2.field4407);
+            if (var3 == this.field4416[var2.field4407]) {
+               this.method7227(var2.field4407);
+            }
+
+            return true;
+         }
+      }
+   }
+
+   public Object peek() {
+      return this.field4412 == 0 ? null : this.field4416[0].field4406;
+   }
+
+   public boolean contains(Object var1) {
+      return this.field4413.containsKey(var1);
+   }
+
+   public int size() {
+      return this.field4412;
+   }
+
+   public Object poll() {
+      if (this.field4412 == 0) {
+         return null;
+      } else {
+         ++this.field4414;
+         Object var1 = this.field4416[0].field4406;
+         this.field4413.remove(var1);
+         --this.field4412;
+         if (this.field4412 == 0) {
+            this.field4416[this.field4412] = null;
+         } else {
+            this.field4416[0] = this.field4416[this.field4412];
+            this.field4416[0].field4407 = 0;
+            this.field4416[this.field4412] = null;
+            this.method7225(0);
+         }
+
+         return var1;
+      }
+   }
+
+   public Iterator iterator() {
+      return new class389(this);
+   }
+
+   public Object[] toArray() {
+      Object[] var1 = super.toArray();
+      if (this.field4415 != null) {
+         Arrays.sort(var1, this.field4415);
+      } else {
+         Arrays.sort(var1);
+      }
+
+      return var1;
+   }
+
+   public boolean offer(Object var1) {
+      if (this.field4413.containsKey(var1)) {
+         throw new IllegalArgumentException("");
+      } else {
+         ++this.field4414;
+         int var2 = this.field4412;
+         if (var2 >= this.field4416.length) {
+            this.method7226();
+         }
+
+         ++this.field4412;
+         if (var2 == 0) {
+            this.field4416[0] = new class388(var1, 0);
+            this.field4413.put(var1, this.field4416[0]);
+         } else {
+            this.field4416[var2] = new class388(var1, var2);
+            this.field4413.put(var1, this.field4416[var2]);
+            this.method7227(var2);
+         }
+
+         return true;
+      }
+   }
+
+   @ObfuscatedName("au")
+   @ObfuscatedSignature(
+      descriptor = "(IB)V",
+      garbageValue = "0"
+   )
+   static void method7249(int var0) {
+      if (var0 != Login.loginIndex) {
+         Login.loginIndex = var0;
+      }
    }
 }

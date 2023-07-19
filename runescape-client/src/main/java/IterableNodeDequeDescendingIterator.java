@@ -4,37 +4,37 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nc")
+@ObfuscatedName("op")
 @Implements("IterableNodeDequeDescendingIterator")
 public class IterableNodeDequeDescendingIterator implements Iterator {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lni;"
+      descriptor = "Lom;"
    )
    @Export("deque")
    IterableNodeDeque deque;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lru;"
+      descriptor = "Lrz;"
    )
-   Node field4321;
-   @ObfuscatedName("ac")
+   Node field4376;
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Lru;"
+      descriptor = "Lrz;"
    )
    @Export("last")
    Node last = null;
 
    @ObfuscatedSignature(
-      descriptor = "(Lni;)V"
+      descriptor = "(Lom;)V"
    )
    IterableNodeDequeDescendingIterator(IterableNodeDeque var1) {
       this.setDeque(var1);
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lni;)V"
+      descriptor = "(Lom;)V"
    )
    @Export("setDeque")
    void setDeque(IterableNodeDeque var1) {
@@ -42,24 +42,11 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
       this.start();
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @Export("start")
    void start() {
-      this.field4321 = this.deque != null ? this.deque.sentinel.previous : null;
+      this.field4376 = this.deque != null ? this.deque.sentinel.previous : null;
       this.last = null;
-   }
-
-   public Object next() {
-      Node var1 = this.field4321;
-      if (var1 == this.deque.sentinel) {
-         var1 = null;
-         this.field4321 = null;
-      } else {
-         this.field4321 = var1.previous;
-      }
-
-      this.last = var1;
-      return var1;
    }
 
    public void remove() {
@@ -71,7 +58,20 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
       }
    }
 
+   public Object next() {
+      Node var1 = this.field4376;
+      if (var1 == this.deque.sentinel) {
+         var1 = null;
+         this.field4376 = null;
+      } else {
+         this.field4376 = var1.previous;
+      }
+
+      this.last = var1;
+      return var1;
+   }
+
    public boolean hasNext() {
-      return this.deque.sentinel != this.field4321 && this.field4321 != null;
+      return this.deque.sentinel != this.field4376 && this.field4376 != null;
    }
 }

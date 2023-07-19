@@ -1,51 +1,62 @@
+import java.io.File;
+import java.io.IOException;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ry")
+@ObfuscatedName("sb")
 @Implements("FontName")
 public class FontName {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lry;"
+      descriptor = "Lsb;"
    )
    @Export("FontName_plain11")
    public static final FontName FontName_plain11 = new FontName("p11_full");
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lry;"
+      descriptor = "Lsb;"
    )
    @Export("FontName_plain12")
    public static final FontName FontName_plain12 = new FontName("p12_full");
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Lry;"
+      descriptor = "Lsb;"
    )
    @Export("FontName_bold12")
    public static final FontName FontName_bold12 = new FontName("b12_full");
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "Lry;"
+      descriptor = "Lsb;"
    )
    @Export("FontName_verdana11")
    public static final FontName FontName_verdana11 = new FontName("verdana_11pt_regular");
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "Lry;"
+      descriptor = "Lsb;"
    )
    @Export("FontName_verdana13")
    public static final FontName FontName_verdana13 = new FontName("verdana_13pt_regular");
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "Lry;"
+      descriptor = "Lsb;"
    )
    @Export("FontName_verdana15")
    public static final FontName FontName_verdana15 = new FontName("verdana_15pt_regular");
-   @ObfuscatedName("cc")
-   static String field4790;
-   @ObfuscatedName("av")
+   @ObfuscatedName("fh")
+   @ObfuscatedSignature(
+      descriptor = "Lny;"
+   )
+   @Export("archive11")
+   static Archive archive11;
+   @ObfuscatedName("ge")
+   @ObfuscatedSignature(
+      descriptor = "Lqr;"
+   )
+   @Export("spriteIds")
+   static GraphicsDefaults spriteIds;
+   @ObfuscatedName("ab")
    @Export("name")
    String name;
 
@@ -53,145 +64,79 @@ public class FontName {
       this.name = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(S)[Lmr;",
-      garbageValue = "-27167"
+      descriptor = "(Ljava/lang/String;Ljava/lang/String;ZB)Lsu;",
+      garbageValue = "87"
    )
-   static class326[] method8260() {
-      return new class326[]{class326.field3762, class326.field3763};
-   }
+   @Export("getPreferencesFile")
+   public static AccessFile getPreferencesFile(String var0, String var1, boolean var2) {
+      File var3 = new File(class388.cacheDir, "preferences" + var0 + ".dat");
+      if (var3.exists()) {
+         try {
+            AccessFile var10 = new AccessFile(var3, "rw", 10000L);
+            return var10;
+         } catch (IOException var9) {
+         }
+      }
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(S)[Lry;",
-      garbageValue = "8828"
-   )
-   public static FontName[] method8254() {
-      return new FontName[]{FontName_plain12, FontName_verdana13, FontName_bold12, FontName_verdana11, FontName_plain11, FontName_verdana15};
-   }
+      String var4 = "";
+      if (class496.cacheGamebuild == 33) {
+         var4 = "_rc";
+      } else if (class496.cacheGamebuild == 34) {
+         var4 = "_wip";
+      }
 
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "(B)Lcz;",
-      garbageValue = "70"
-   )
-   @Export("worldListStart")
-   static World worldListStart() {
-      World.World_listCount = 0;
-      return class467.getNextWorldListWorld();
+      File var5 = new File(class148.userHomeDirectory, "jagex_" + var1 + "_preferences" + var0 + var4 + ".dat");
+      AccessFile var6;
+      if (!var2 && var5.exists()) {
+         try {
+            var6 = new AccessFile(var5, "rw", 10000L);
+            return var6;
+         } catch (IOException var8) {
+         }
+      }
+
+      try {
+         var6 = new AccessFile(var3, "rw", 10000L);
+         return var6;
+      } catch (IOException var7) {
+         throw new RuntimeException();
+      }
    }
 
    @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(ZI)V",
-      garbageValue = "-1950859515"
+      descriptor = "(IIILhx;IB)V",
+      garbageValue = "81"
    )
-   @Export("Login_promptCredentials")
-   static void Login_promptCredentials(boolean var0) {
-      if (!class392.client.method1222() && !class392.client.method1507() && !class392.client.method1223()) {
-         Login.Login_response1 = "";
-         Login.Login_response2 = "Enter your username/email & password.";
-         Login.Login_response3 = "";
-         class14.method173(2);
-         if (var0) {
-            Login.Login_password = "";
-         }
-
-         if (Login.Login_username == null || Login.Login_username.length() <= 0) {
-            if (WorldMapSectionType.clientPreferences.method2446() != null) {
-               Login.Login_username = WorldMapSectionType.clientPreferences.method2446();
-               Client.Login_isUsernameRemembered = true;
-            } else {
-               Client.Login_isUsernameRemembered = false;
-            }
-         }
-
-         ReflectionCheck.method678();
-      } else {
-         class14.method173(10);
-      }
-   }
-
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(ILcv;ZB)I",
-      garbageValue = "103"
-   )
-   static int method8261(int var0, Script var1, boolean var2) {
-      Widget var3 = WorldMapSection1.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]);
-      if (var0 == ScriptOpcodes.IF_GETTARGETMASK) {
-         Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = WorldMapDecorationType.Widget_unpackTargetMask(ParamComposition.getWidgetFlags(var3));
-         return 1;
-      } else if (var0 != ScriptOpcodes.IF_GETOP) {
-         if (var0 == ScriptOpcodes.IF_GETOPBASE) {
-            if (var3.dataText == null) {
-               Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = "";
-            } else {
-               Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = var3.dataText;
-            }
-
-            return 1;
-         } else {
-            return 2;
-         }
-      } else {
-         int var4 = Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize];
-         --var4;
-         if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) {
-            Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = var3.actions[var4];
-         } else {
-            Interpreter.Interpreter_stringStack[++HealthBar.Interpreter_stringStackSize - 1] = "";
-         }
-
-         return 1;
-      }
-   }
-
-   @ObfuscatedName("kg")
-   @ObfuscatedSignature(
-      descriptor = "(ILjava/lang/String;I)V",
-      garbageValue = "1033960923"
-   )
-   static void method8257(int var0, String var1) {
-      int var2 = Players.Players_count;
-      int[] var3 = Players.Players_indices;
-      boolean var4 = false;
-      Username var5 = new Username(var1, Occluder.loginType);
-
-      for(int var6 = 0; var6 < var2; ++var6) {
-         Player var7 = Client.players[var3[var6]];
-         if (var7 != null && var7 != BuddyRankComparator.localPlayer && var7.username != null && var7.username.equals(var5)) {
-            PacketBufferNode var8;
-            if (var0 == 1) {
-               var8 = UserComparator9.getPacketBufferNode(ClientPacket.OPPLAYER1, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeShort(var3[var6]);
-               var8.packetBuffer.writeByteSub(0);
-               Client.packetWriter.addNode(var8);
-            } else if (var0 == 4) {
-               var8 = UserComparator9.getPacketBufferNode(ClientPacket.OPPLAYER4, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeShortAddLE(var3[var6]);
-               var8.packetBuffer.writeByteNeg(0);
-               Client.packetWriter.addNode(var8);
-            } else if (var0 == 6) {
-               var8 = UserComparator9.getPacketBufferNode(ClientPacket.OPPLAYER6, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeByte(0);
-               var8.packetBuffer.writeShortAdd(var3[var6]);
-               Client.packetWriter.addNode(var8);
-            } else if (var0 == 7) {
-               var8 = UserComparator9.getPacketBufferNode(ClientPacket.OPPLAYER7, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeShort(var3[var6]);
-               var8.packetBuffer.writeByte(0);
-               Client.packetWriter.addNode(var8);
-            }
-
-            var4 = true;
-            break;
-         }
+   static void method8578(int var0, int var1, int var2, ObjectComposition var3, int var4) {
+      ObjectSound var5 = new ObjectSound();
+      var5.plane = var0;
+      var5.x = var1 * 128;
+      var5.y = var2 * 128;
+      int var6 = var3.sizeX;
+      int var7 = var3.sizeY;
+      if (var4 == 1 || var4 == 3) {
+         var6 = var3.sizeY;
+         var7 = var3.sizeX;
       }
 
-      if (!var4) {
-         MusicPatchNode.addGameMessage(4, "", "Unable to find " + var1);
+      var5.maxX = (var6 + var1) * 16384;
+      var5.maxY = (var7 + var2) * 16384;
+      var5.soundEffectId = var3.ambientSoundId;
+      var5.field843 = var3.int7 * 128;
+      var5.field845 = var3.int5;
+      var5.field836 = var3.int6;
+      var5.soundEffectIds = var3.soundEffectIds;
+      if (var3.transforms != null) {
+         var5.obj = var3;
+         var5.set();
+      }
+
+      ObjectSound.objectSounds.addFirst(var5);
+      if (var5.soundEffectIds != null) {
+         var5.field848 = var5.field845 + (int)(Math.random() * (double)(var5.field836 - var5.field845));
       }
 
    }

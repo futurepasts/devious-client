@@ -1,67 +1,74 @@
+import java.util.Arrays;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cq")
+@ObfuscatedName("cj")
 @Implements("GraphicsObject")
 public class GraphicsObject extends Renderable {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("qe")
+   @ObfuscatedSignature(
+      descriptor = "Lsp;"
+   )
+   @Export("HitSplatDefinition_cachedSprites")
+   static class485 HitSplatDefinition_cachedSprites;
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = -2054380649
+      intValue = -1137608953
    )
    @Export("id")
    int id;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = -279976939
+      intValue = 726894091
    )
    @Export("cycleStart")
    int cycleStart;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = -1458482639
+      intValue = 1476422717
    )
    @Export("plane")
    int plane;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = 195307387
+      intValue = 181165771
    )
    @Export("x")
    int x;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = 2026876309
+      intValue = 873930555
    )
    @Export("y")
    int y;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedGetter(
-      intValue = -391770129
+      intValue = 1091336731
    )
    @Export("z")
    int z;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
-      descriptor = "Lhx;"
+      descriptor = "Lhy;"
    )
    @Export("sequenceDefinition")
    SequenceDefinition sequenceDefinition;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = -968171095
+      intValue = -901968763
    )
    @Export("frame")
    int frame;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = -1608022677
+      intValue = -1772951091
    )
    @Export("frameCycle")
    int frameCycle;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @Export("isFinished")
    boolean isFinished;
 
@@ -75,20 +82,20 @@ public class GraphicsObject extends Renderable {
       this.y = var4;
       this.z = var5;
       this.cycleStart = var7 + var6;
-      int var8 = DevicePcmPlayerProvider.SpotAnimationDefinition_get(this.id).sequence;
+      int var8 = class53.SpotAnimationDefinition_get(this.id).sequence;
       if (var8 != -1) {
          this.isFinished = false;
-         this.sequenceDefinition = Coord.SequenceDefinition_get(var8);
+         this.sequenceDefinition = WorldMapLabelSize.SequenceDefinition_get(var8);
       } else {
          this.isFinished = true;
       }
 
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-1172204333"
+      descriptor = "(IB)V",
+      garbageValue = "-20"
    )
    @Export("advance")
    final void advance(int var1) {
@@ -105,7 +112,7 @@ public class GraphicsObject extends Renderable {
             }
          } else {
             this.frame += var1;
-            if (this.frame >= this.sequenceDefinition.method4015()) {
+            if (this.frame >= this.sequenceDefinition.method4084()) {
                this.isFinished = true;
             }
          }
@@ -113,14 +120,14 @@ public class GraphicsObject extends Renderable {
       }
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(I)Lix;",
-      garbageValue = "-1998422213"
+      descriptor = "(I)Ljd;",
+      garbageValue = "-1953039490"
    )
    @Export("getModel")
    protected final Model getModel() {
-      SpotAnimationDefinition var1 = DevicePcmPlayerProvider.SpotAnimationDefinition_get(this.id);
+      SpotAnimationDefinition var1 = class53.SpotAnimationDefinition_get(this.id);
       Model var2;
       if (!this.isFinished) {
          var2 = var1.getModel(this.frame);
@@ -129,6 +136,21 @@ public class GraphicsObject extends Renderable {
       }
 
       return var2 == null ? null : var2;
+   }
+
+   @ObfuscatedName("bm")
+   @ObfuscatedSignature(
+      descriptor = "(Lmb;Lmk;ZI)V",
+      garbageValue = "1991291892"
+   )
+   public static void method2043(Widget var0, PlayerComposition var1, boolean var2) {
+      var0.modelType = 7;
+      var0.field3631 = new PlayerComposition(var1);
+      if (!var2) {
+         var0.field3631.equipment = Arrays.copyOf(var0.field3631.field3544, var0.field3631.field3544.length);
+         var0.field3631.method6021();
+      }
+
    }
 
    public GraphicsObject() {

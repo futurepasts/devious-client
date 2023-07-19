@@ -4,48 +4,38 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jb")
+@ObfuscatedName("ks")
 @Implements("WorldMapLabel")
 public class WorldMapLabel {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @Export("text")
    String text;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = -1074567771
+      intValue = 1218787301
    )
    @Export("width")
    int width;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = -1212449241
+      intValue = -1047186033
    )
    @Export("height")
    int height;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "Ljd;"
+      descriptor = "Ljt;"
    )
    @Export("size")
    WorldMapLabelSize size;
 
    @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;IILjd;)V"
+      descriptor = "(Ljava/lang/String;IILjt;)V"
    )
    WorldMapLabel(String var1, int var2, int var3, WorldMapLabelSize var4) {
       this.text = var1;
       this.width = var2;
       this.height = var3;
       this.size = var4;
-   }
-
-   @ObfuscatedName("bx")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;I)I",
-      garbageValue = "1857576391"
-   )
-   @Export("stringCp1252NullTerminatedByteSize")
-   public static int stringCp1252NullTerminatedByteSize(String var0) {
-      return var0.length() + 1;
    }
 }

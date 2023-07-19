@@ -1,13 +1,19 @@
 import java.util.Comparator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ev")
+@ObfuscatedName("ek")
 @Implements("UserComparator4")
 public class UserComparator4 implements Comparator {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("uc")
+   @ObfuscatedGetter(
+      intValue = -1689252883
+   )
+   static int field1410;
+   @ObfuscatedName("at")
    @Export("reversed")
    final boolean reversed;
 
@@ -15,10 +21,10 @@ public class UserComparator4 implements Comparator {
       this.reversed = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lpt;Lpt;I)I",
-      garbageValue = "-664521357"
+      descriptor = "(Lqg;Lqg;B)I",
+      garbageValue = "8"
    )
    @Export("compare_bridged")
    int compare_bridged(Buddy var1, Buddy var2) {
@@ -33,43 +39,25 @@ public class UserComparator4 implements Comparator {
       return super.equals(var1);
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lne;I)V",
-      garbageValue = "-1194430739"
+      descriptor = "(Lnq;Lnq;I)V",
+      garbageValue = "-72085475"
    )
-   public static void method2842(AbstractArchive var0) {
-      InvDefinition.InvDefinition_archive = var0;
+   public static void method2847(AbstractArchive var0, AbstractArchive var1) {
+      NPCComposition.NpcDefinition_archive = var0;
+      NPCComposition.field1995 = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ar")
    @ObfuscatedSignature(
-      descriptor = "(IIIIIII)I",
-      garbageValue = "-401496193"
+      descriptor = "(IIB)I",
+      garbageValue = "3"
    )
-   public static int method2843(int var0, int var1, int var2, int var3, int var4, int var5) {
-      if ((var5 & 1) == 1) {
-         int var6 = var3;
-         var3 = var4;
-         var4 = var6;
-      }
-
-      var2 &= 3;
-      if (var2 == 0) {
-         return var0;
-      } else if (var2 == 1) {
-         return var1;
-      } else {
-         return var2 == 2 ? 7 - var0 - (var3 - 1) : 7 - var1 - (var4 - 1);
-      }
-   }
-
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-859160746"
-   )
-   public static void method2841() {
-      StructComposition.StructDefinition_cached.clear();
+   static final int method2848(int var0, int var1) {
+      int var2 = var1 * 57 + var0;
+      var2 ^= var2 << 13;
+      int var3 = var2 * (var2 * var2 * 15731 + 789221) + 1376312589 & Integer.MAX_VALUE;
+      return var3 >> 19 & 255;
    }
 }

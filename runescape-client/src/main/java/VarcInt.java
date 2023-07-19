@@ -3,62 +3,70 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hr")
+@ObfuscatedName("hi")
 @Implements("VarcInt")
 public class VarcInt extends DualNode {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
    )
    @Export("VarcInt_archive")
    public static AbstractArchive VarcInt_archive;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lkt;"
+      descriptor = "Llf;"
    )
    @Export("VarcInt_cached")
    public static EvictingDualNodeHashTable VarcInt_cached = new EvictingDualNodeHashTable(64);
-   @ObfuscatedName("aq")
-   @Export("ItemDefinition_inMembersWorld")
-   public static boolean ItemDefinition_inMembersWorld;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @Export("persist")
    public boolean persist = false;
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)V",
-      garbageValue = "1857783206"
+      descriptor = "(Ltz;B)V",
+      garbageValue = "-30"
    )
-   public void method3588(Buffer var1) {
+   public void method3613(Buffer var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if (var2 == 0) {
             return;
          }
 
-         this.method3592(var1, var2);
+         this.method3612(var1, var2);
       }
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;II)V",
-      garbageValue = "-1286505504"
+      descriptor = "(Ltz;II)V",
+      garbageValue = "-1843921437"
    )
-   void method3592(Buffer var1, int var2) {
+   void method3612(Buffer var1, int var2) {
       if (var2 == 2) {
          this.persist = true;
       }
 
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("ah")
    @ObfuscatedSignature(
-      descriptor = "(I)[Lis;",
-      garbageValue = "-353492841"
+      descriptor = "(I)V",
+      garbageValue = "-2100829638"
    )
-   public static class211[] method3594() {
-      return new class211[]{class211.field2336, class211.field2332, class211.field2333, class211.field2335};
+   public static void method3617() {
+      SequenceDefinition.SequenceDefinition_cached.clear();
+      SequenceDefinition.SequenceDefinition_cachedFrames.clear();
+      SequenceDefinition.SequenceDefinition_cachedModel.clear();
+   }
+
+   @ObfuscatedName("br")
+   @ObfuscatedSignature(
+      descriptor = "(Ljava/lang/String;B)I",
+      garbageValue = "-3"
+   )
+   public static int method3616(String var0) {
+      return var0.length() + 2;
    }
 }

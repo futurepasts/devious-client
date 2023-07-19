@@ -24,189 +24,173 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("br")
+@ObfuscatedName("ba")
 @Implements("GameEngine")
 public abstract class GameEngine extends Applet implements Runnable, FocusListener, WindowListener {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lge;"
+      descriptor = "Lgr;"
    )
    @Export("taskHandler")
    protected static TaskHandler taskHandler;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lbr;"
+      descriptor = "Lba;"
    )
    @Export("gameEngine")
    static GameEngine gameEngine = null;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = 525436457
+      intValue = -1991573117
    )
    @Export("GameEngine_redundantStartThreadCount")
    static int GameEngine_redundantStartThreadCount = 0;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      longValue = 930466698196425201L
+      longValue = 3402750991634106967L
    )
    @Export("stopTimeMs")
    static long stopTimeMs = 0L;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @Export("isKilled")
    static boolean isKilled = false;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedGetter(
-      intValue = -59634989
+      intValue = -463972869
    )
    @Export("gameCyclesToDo")
    static int gameCyclesToDo;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = 1656405161
+      intValue = -566000899
    )
    @Export("cycleDurationMillis")
    static int cycleDurationMillis = 20;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = 558836179
+      intValue = 889909645
    )
    @Export("fiveOrOne")
    static int fiveOrOne = 1;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = -1058805367
+      intValue = -2066314479
    )
    @Export("fps")
    protected static int fps = 0;
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "Lgj;"
-   )
-   @Export("clock")
-   static Clock clock;
-   @ObfuscatedName("as")
+   @ObfuscatedName("aj")
    @Export("graphicsTickTimes")
    static long[] graphicsTickTimes = new long[32];
-   @ObfuscatedName("am")
+   @ObfuscatedName("ac")
    @Export("clientTickTimes")
    static long[] clientTickTimes = new long[32];
-   @ObfuscatedName("af")
+   @ObfuscatedName("bd")
    @ObfuscatedGetter(
-      intValue = -237142695
+      intValue = 1923723849
    )
-   @Export("canvasWidth")
-   public static int canvasWidth;
-   @ObfuscatedName("bl")
-   @ObfuscatedGetter(
-      intValue = 177230237
-   )
-   static int field200 = 500;
-   @ObfuscatedName("bu")
+   static int field214 = 500;
+   @ObfuscatedName("bi")
    @Export("volatileFocus")
    static volatile boolean volatileFocus = true;
-   @ObfuscatedName("by")
+   @ObfuscatedName("bv")
    @ObfuscatedSignature(
-      descriptor = "Lad;"
+      descriptor = "Lam;"
    )
    @Export("keyHandler")
    protected static KeyHandler keyHandler = new KeyHandler();
-   @ObfuscatedName("bb")
+   @ObfuscatedName("bm")
    @ObfuscatedGetter(
-      longValue = 6221199429883435377L
+      longValue = -2987006904821226527L
    )
    @Export("garbageCollectorLastCollectionTime")
    static long garbageCollectorLastCollectionTime = -1L;
-   @ObfuscatedName("bx")
+   @ObfuscatedName("br")
    @ObfuscatedGetter(
-      longValue = -7755829023092509053L
+      longValue = 8420725591338873961L
    )
    @Export("garbageCollectorLastCheckTimeMs")
    static long garbageCollectorLastCheckTimeMs = -1L;
-   @ObfuscatedName("il")
-   @ObfuscatedGetter(
-      intValue = 1501514427
-   )
-   @Export("baseX")
-   static int baseX;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @Export("hasErrored")
    boolean hasErrored = false;
-   @ObfuscatedName("ae")
+   @ObfuscatedName("ar")
    @ObfuscatedGetter(
-      intValue = -1818873547
+      intValue = 774787359
    )
    @Export("contentWidth")
    protected int contentWidth;
-   @ObfuscatedName("au")
+   @ObfuscatedName("ah")
    @ObfuscatedGetter(
-      intValue = 789379165
+      intValue = 135212301
    )
    @Export("contentHeight")
    protected int contentHeight;
-   @ObfuscatedName("ag")
+   @ObfuscatedName("az")
    @ObfuscatedGetter(
-      intValue = -1753863005
+      intValue = -205265531
    )
    @Export("canvasX")
    int canvasX = 0;
-   @ObfuscatedName("at")
+   @ObfuscatedName("au")
    @ObfuscatedGetter(
-      intValue = -703705607
+      intValue = 654173713
    )
    @Export("canvasY")
    int canvasY = 0;
    @ObfuscatedName("aw")
    @ObfuscatedGetter(
-      intValue = 686366177
+      intValue = 1513648757
    )
-   int field215;
-   @ObfuscatedName("aa")
+   int field193;
+   @ObfuscatedName("ay")
    @ObfuscatedGetter(
-      intValue = 164167003
+      intValue = 650620733
    )
-   int field198;
-   @ObfuscatedName("ah")
+   int field207;
+   @ObfuscatedName("al")
    @ObfuscatedGetter(
-      intValue = -1378787843
+      intValue = 758964699
    )
    @Export("maxCanvasWidth")
    int maxCanvasWidth;
-   @ObfuscatedName("ad")
+   @ObfuscatedName("am")
    @ObfuscatedGetter(
-      intValue = 160585329
+      intValue = -2053407577
    )
    @Export("maxCanvasHeight")
    int maxCanvasHeight;
+   @ObfuscatedName("bs")
+   protected boolean field209 = false;
    @ObfuscatedName("bo")
    @Export("frame")
    Frame frame;
-   @ObfuscatedName("bs")
+   @ObfuscatedName("bq")
    @Export("canvas")
    java.awt.Canvas canvas;
    @ObfuscatedName("bg")
    @Export("fullRedraw")
    volatile boolean fullRedraw = true;
-   @ObfuscatedName("bk")
+   @ObfuscatedName("ba")
    @Export("resizeCanvasNextFrame")
    boolean resizeCanvasNextFrame = false;
-   @ObfuscatedName("br")
+   @ObfuscatedName("bn")
    @Export("isCanvasInvalid")
    volatile boolean isCanvasInvalid = false;
-   @ObfuscatedName("ba")
+   @ObfuscatedName("bb")
    @ObfuscatedGetter(
-      longValue = -6601029033422362219L
+      longValue = -4715207515714124473L
    )
-   volatile long field208 = 0L;
-   @ObfuscatedName("bc")
+   volatile long field206 = 0L;
+   @ObfuscatedName("bh")
    @ObfuscatedSignature(
-      descriptor = "Lai;"
+      descriptor = "Laq;"
    )
    @Export("mouseWheelHandler")
    MouseWheelHandler mouseWheelHandler;
-   @ObfuscatedName("bt")
+   @ObfuscatedName("bp")
    @Export("clipboard")
    Clipboard clipboard;
-   @ObfuscatedName("be")
+   @ObfuscatedName("bw")
    @Export("eventQueue")
    final EventQueue eventQueue;
 
@@ -219,35 +203,34 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
 
       this.eventQueue = var1;
-      DevicePcmPlayerProvider var2 = new DevicePcmPlayerProvider();
-      Script.pcmPlayerProvider = var2;
+      class439.method8156(new DevicePcmPlayerProvider());
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
-      descriptor = "(IIB)V",
-      garbageValue = "2"
+      descriptor = "(III)V",
+      garbageValue = "313026208"
    )
    @Export("setMaxCanvasSize")
    protected final void setMaxCanvasSize(int var1, int var2) {
       if (this.maxCanvasWidth != var1 || var2 != this.maxCanvasHeight) {
-         this.method547();
+         this.method482();
       }
 
       this.maxCanvasWidth = var1;
       this.maxCanvasHeight = var2;
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/Object;I)V",
-      garbageValue = "-2104196567"
+      descriptor = "(Ljava/lang/Object;B)V",
+      garbageValue = "0"
    )
    @Export("post")
    final void post(Object var1) {
       if (this.eventQueue != null) {
          for(int var2 = 0; var2 < 50 && this.eventQueue.peekEvent() != null; ++var2) {
-            Login.method2088(1L);
+            FloorDecoration.method4357(1L);
          }
 
          if (var1 != null) {
@@ -257,13 +240,13 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
    }
 
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ae")
    @ObfuscatedSignature(
-      descriptor = "(I)Lgc;",
-      garbageValue = "-1701222724"
+      descriptor = "(I)Lgp;",
+      garbageValue = "1687069782"
    )
    @Export("mouseWheel")
-   protected class171 mouseWheel() {
+   protected class173 mouseWheel() {
       if (this.mouseWheelHandler == null) {
          this.mouseWheelHandler = new MouseWheelHandler();
          this.mouseWheelHandler.addTo(this.canvas);
@@ -272,38 +255,38 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       return this.mouseWheelHandler;
    }
 
-   @ObfuscatedName("ap")
+   @ObfuscatedName("af")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-1249824971"
+      garbageValue = "-1864005520"
    )
    @Export("setUpClipboard")
    protected void setUpClipboard() {
       this.clipboard = this.getToolkit().getSystemClipboard();
    }
 
-   @ObfuscatedName("ar")
+   @ObfuscatedName("ao")
    @ObfuscatedSignature(
       descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "1507261375"
+      garbageValue = "-569645123"
    )
-   protected void method481(String var1) {
+   protected void method465(String var1) {
       this.clipboard.setContents(new StringSelection(var1), (ClipboardOwner)null);
    }
 
-   @ObfuscatedName("ak")
+   @ObfuscatedName("aa")
    @ObfuscatedSignature(
       descriptor = "(I)Ljava/awt/datatransfer/Clipboard;",
-      garbageValue = "-2020792172"
+      garbageValue = "-18720527"
    )
-   public Clipboard method482() {
+   protected Clipboard method466() {
       return this.clipboard;
    }
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aj")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "25"
+      descriptor = "(I)V",
+      garbageValue = "-96205193"
    )
    @Export("setUpKeyboard")
    protected final void setUpKeyboard() {
@@ -335,48 +318,48 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          class28.KeyHandler_keyCodes[520] = 59;
       }
 
-      keyHandler.method344(this.canvas);
+      keyHandler.method350(this.canvas);
    }
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "6427"
-   )
-   protected final void method484() {
-      keyHandler.method346();
-   }
-
-   @ObfuscatedName("ay")
-   @ObfuscatedSignature(
-      descriptor = "(Lbs;II)V",
-      garbageValue = "-987446905"
-   )
-   protected void method476(class29 var1, int var2) {
-      keyHandler.method342(var1, var2);
-   }
-
-   @ObfuscatedName("am")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "0"
-   )
-   protected final void method486() {
-      AABB.method4546(this.canvas);
-   }
-
-   @ObfuscatedName("az")
+   @ObfuscatedName("ad")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "1946831285"
+      garbageValue = "-331583429"
+   )
+   protected final void method540() {
+      keyHandler.method351();
+   }
+
+   @ObfuscatedName("ac")
+   @ObfuscatedSignature(
+      descriptor = "(Lbo;II)V",
+      garbageValue = "-1406442453"
+   )
+   protected void method469(class29 var1, int var2) {
+      keyHandler.method347(var1, var2);
+   }
+
+   @ObfuscatedName("ag")
+   @ObfuscatedSignature(
+      descriptor = "(I)V",
+      garbageValue = "-1070899817"
+   )
+   protected final void method529() {
+      class237.method4769(this.canvas);
+   }
+
+   @ObfuscatedName("ar")
+   @ObfuscatedSignature(
+      descriptor = "(I)V",
+      garbageValue = "254887913"
    )
    @Export("resizeCanvas")
    final void resizeCanvas() {
       Container var1 = this.container();
       if (var1 != null) {
          Bounds var2 = this.getFrameContentBounds();
-         this.contentWidth = Math.max(var2.highX, this.field215);
-         this.contentHeight = Math.max(var2.highY, this.field198);
+         this.contentWidth = Math.max(var2.highX, this.field193);
+         this.contentHeight = Math.max(var2.highY, this.field207);
          if (this.contentWidth <= 0) {
             this.contentWidth = 1;
          }
@@ -385,15 +368,15 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
             this.contentHeight = 1;
          }
 
-         canvasWidth = Math.min(this.contentWidth, this.maxCanvasWidth);
-         class143.canvasHeight = Math.min(this.contentHeight, this.maxCanvasHeight);
-         this.canvasX = (this.contentWidth - canvasWidth) / 2;
+         class448.canvasWidth = Math.min(this.contentWidth, this.maxCanvasWidth);
+         WorldMapID.canvasHeight = Math.min(this.contentHeight, this.maxCanvasHeight);
+         this.canvasX = (this.contentWidth - class448.canvasWidth) / 2;
          this.canvasY = 0;
-         this.canvas.setSize(canvasWidth, class143.canvasHeight);
-         StudioGame.rasterProvider = new RasterProvider(canvasWidth, class143.canvasHeight, this.canvas);
+         this.canvas.setSize(class448.canvasWidth, WorldMapID.canvasHeight);
+         WorldMapSectionType.rasterProvider = new RasterProvider(class448.canvasWidth, WorldMapID.canvasHeight, this.canvas, this.field209);
          if (var1 == this.frame) {
             Insets var3 = this.frame.getInsets();
-            this.canvas.setLocation(this.canvasX + var3.left, var3.top + this.canvasY);
+            this.canvas.setLocation(var3.left + this.canvasX, this.canvasY + var3.top);
          } else {
             this.canvas.setLocation(this.canvasX, this.canvasY);
          }
@@ -403,25 +386,25 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
    }
 
-   @ObfuscatedName("ae")
+   @ObfuscatedName("ah")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "1315269031"
+      descriptor = "(B)V",
+      garbageValue = "57"
    )
    @Export("resizeGame")
    protected abstract void resizeGame();
 
-   @ObfuscatedName("au")
+   @ObfuscatedName("az")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "11"
+      descriptor = "(I)V",
+      garbageValue = "79303459"
    )
    @Export("clearBackground")
    void clearBackground() {
       int var1 = this.canvasX;
       int var2 = this.canvasY;
-      int var3 = this.contentWidth - canvasWidth - var1;
-      int var4 = this.contentHeight - class143.canvasHeight - var2;
+      int var3 = this.contentWidth - class448.canvasWidth - var1;
+      int var4 = this.contentHeight - WorldMapID.canvasHeight - var2;
       if (var1 > 0 || var3 > 0 || var2 > 0 || var4 > 0) {
          try {
             Container var5 = this.container();
@@ -456,33 +439,33 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
    }
 
-   @ObfuscatedName("ag")
+   @ObfuscatedName("au")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "122"
+      descriptor = "(I)V",
+      garbageValue = "729182928"
    )
    @Export("replaceCanvas")
    final void replaceCanvas() {
-      keyHandler.method348(this.canvas);
-      InvDefinition.method3545(this.canvas);
+      keyHandler.method359(this.canvas);
+      PendingSpawn.method2355(this.canvas);
       if (this.mouseWheelHandler != null) {
-         this.mouseWheelHandler.method303(this.canvas);
+         this.mouseWheelHandler.method314(this.canvas);
       }
 
       this.addCanvas();
-      keyHandler.method344(this.canvas);
-      AABB.method4546(this.canvas);
+      keyHandler.method350(this.canvas);
+      class237.method4769(this.canvas);
       if (this.mouseWheelHandler != null) {
          this.mouseWheelHandler.addTo(this.canvas);
       }
 
-      this.method547();
+      this.method482();
    }
 
-   @ObfuscatedName("at")
+   @ObfuscatedName("ai")
    @ObfuscatedSignature(
-      descriptor = "(IIIII)V",
-      garbageValue = "131093465"
+      descriptor = "(IIIIB)V",
+      garbageValue = "-31"
    )
    @Export("startThread")
    protected final void startThread(int var1, int var2, int var3, int var4) {
@@ -499,10 +482,10 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          }
 
          gameEngine = this;
-         canvasWidth = var1;
-         class143.canvasHeight = var2;
-         RunException.RunException_revision = var3;
-         class199.field2093 = var4;
+         class448.canvasWidth = var1;
+         WorldMapID.canvasHeight = var2;
+         class160.RunException_revision = var3;
+         class163.field1773 = var4;
          RunException.RunException_applet = this;
          if (taskHandler == null) {
             taskHandler = new TaskHandler();
@@ -510,16 +493,16 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
          taskHandler.newThreadTask(this, 1);
       } catch (Exception var6) {
-         class364.RunException_sendStackTrace((String)null, var6);
+         class260.RunException_sendStackTrace((String)null, var6);
          this.error("crash");
       }
 
    }
 
-   @ObfuscatedName("af")
+   @ObfuscatedName("aq")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "1598805112"
+      garbageValue = "-1333626461"
    )
    @Export("addCanvas")
    final synchronized void addCanvas() {
@@ -529,25 +512,25 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          var1.remove(this.canvas);
       }
 
-      canvasWidth = Math.max(var1.getWidth(), this.field215);
-      class143.canvasHeight = Math.max(var1.getHeight(), this.field198);
+      class448.canvasWidth = Math.max(var1.getWidth(), this.field193);
+      WorldMapID.canvasHeight = Math.max(var1.getHeight(), this.field207);
       Insets var2;
       if (this.frame != null) {
          var2 = this.frame.getInsets();
-         canvasWidth -= var2.right + var2.left;
-         class143.canvasHeight -= var2.top + var2.bottom;
+         class448.canvasWidth -= var2.right + var2.left;
+         WorldMapID.canvasHeight -= var2.bottom + var2.top;
       }
 
       this.canvas = new Canvas(this);
       var1.setBackground(Color.BLACK);
       var1.setLayout((LayoutManager)null);
       var1.add(this.canvas);
-      this.canvas.setSize(canvasWidth, class143.canvasHeight);
+      this.canvas.setSize(class448.canvasWidth, WorldMapID.canvasHeight);
       this.canvas.setVisible(true);
       this.canvas.setBackground(Color.BLACK);
       if (var1 == this.frame) {
          var2 = this.frame.getInsets();
-         this.canvas.setLocation(var2.left + this.canvasX, this.canvasY + var2.top);
+         this.canvas.setLocation(var2.left + this.canvasX, var2.top + this.canvasY);
       } else {
          this.canvas.setLocation(this.canvasX, this.canvasY);
       }
@@ -555,21 +538,35 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       this.canvas.addFocusListener(this);
       this.canvas.requestFocus();
       this.fullRedraw = true;
-      if (StudioGame.rasterProvider != null && canvasWidth == StudioGame.rasterProvider.width && class143.canvasHeight == StudioGame.rasterProvider.height) {
-         ((RasterProvider)StudioGame.rasterProvider).setComponent(this.canvas);
-         StudioGame.rasterProvider.drawFull(0, 0);
+      if (WorldMapSectionType.rasterProvider != null && class448.canvasWidth == WorldMapSectionType.rasterProvider.width && WorldMapID.canvasHeight == WorldMapSectionType.rasterProvider.height) {
+         ((RasterProvider)WorldMapSectionType.rasterProvider).setComponent(this.canvas);
+         WorldMapSectionType.rasterProvider.drawFull(0, 0);
       } else {
-         StudioGame.rasterProvider = new RasterProvider(canvasWidth, class143.canvasHeight, this.canvas);
+         WorldMapSectionType.rasterProvider = new RasterProvider(class448.canvasWidth, WorldMapID.canvasHeight, this.canvas, this.field209);
       }
 
       this.isCanvasInvalid = false;
-      this.field208 = WorldMapSection2.method4844();
+      this.field206 = BoundaryObject.method5027();
    }
 
-   @ObfuscatedName("ai")
+   @ObfuscatedName("aw")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "-2146736962"
+      descriptor = "(ZI)V",
+      garbageValue = "1666256751"
+   )
+   protected void method512(boolean var1) {
+      if (this.field209 != var1) {
+         this.field209 = var1;
+         WorldMapSectionType.rasterProvider.method9342(var1);
+         WorldMapSectionType.rasterProvider.apply();
+      }
+
+   }
+
+   @ObfuscatedName("ay")
+   @ObfuscatedSignature(
+      descriptor = "(B)Z",
+      garbageValue = "-64"
    )
    @Export("checkHost")
    protected final boolean checkHost() {
@@ -598,52 +595,52 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
    }
 
-   @ObfuscatedName("aw")
+   @ObfuscatedName("al")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-433695714"
+      garbageValue = "55714431"
    )
    @Export("clientTick")
    void clientTick() {
-      long var1 = WorldMapSection2.method4844();
-      long var3 = clientTickTimes[VarpDefinition.field1894];
-      clientTickTimes[VarpDefinition.field1894] = var1;
-      VarpDefinition.field1894 = VarpDefinition.field1894 + 1 & 31;
+      long var1 = BoundaryObject.method5027();
+      long var3 = clientTickTimes[class112.field1400];
+      clientTickTimes[class112.field1400] = var1;
+      class112.field1400 = class112.field1400 + 1 & 31;
       if (var3 != 0L && var1 > var3) {
       }
 
       synchronized(this) {
-         Varps.hasFocus = volatileFocus;
+         class31.hasFocus = volatileFocus;
       }
 
       this.doCycle();
    }
 
-   @ObfuscatedName("aa")
+   @ObfuscatedName("bo")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "1700389398"
+      garbageValue = "1752034937"
    )
    @Export("graphicsTick")
    void graphicsTick() {
       Container var1 = this.container();
-      long var2 = WorldMapSection2.method4844();
-      long var4 = graphicsTickTimes[class212.field2347];
-      graphicsTickTimes[class212.field2347] = var2;
-      class212.field2347 = class212.field2347 + 1 & 31;
+      long var2 = BoundaryObject.method5027();
+      long var4 = graphicsTickTimes[BufferedNetSocket.field4622];
+      graphicsTickTimes[BufferedNetSocket.field4622] = var2;
+      BufferedNetSocket.field4622 = BufferedNetSocket.field4622 + 1 & 31;
       if (0L != var4 && var2 > var4) {
          int var6 = (int)(var2 - var4);
          fps = ((var6 >> 1) + 32000) / var6;
       }
 
-      if (++field200 - 1 > 50) {
-         field200 -= 50;
+      if (++field214 - 1 > 50) {
+         field214 -= 50;
          this.fullRedraw = true;
-         this.canvas.setSize(canvasWidth, class143.canvasHeight);
+         this.canvas.setSize(class448.canvasWidth, WorldMapID.canvasHeight);
          this.canvas.setVisible(true);
          if (var1 == this.frame) {
             Insets var7 = this.frame.getInsets();
-            this.canvas.setLocation(this.canvasX + var7.left, var7.top + this.canvasY);
+            this.canvas.setLocation(this.canvasX + var7.left, this.canvasY + var7.top);
          } else {
             this.canvas.setLocation(this.canvasX, this.canvasY);
          }
@@ -653,7 +650,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          this.replaceCanvas();
       }
 
-      this.method489();
+      this.method481();
       this.draw(this.fullRedraw);
       if (this.fullRedraw) {
          this.clearBackground();
@@ -662,33 +659,33 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       this.fullRedraw = false;
    }
 
-   @ObfuscatedName("ah")
+   @ObfuscatedName("bq")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-237818236"
+      garbageValue = "1550811963"
    )
-   final void method489() {
+   final void method481() {
       Bounds var1 = this.getFrameContentBounds();
-      if (this.contentWidth != var1.highX || this.contentHeight != var1.highY || this.resizeCanvasNextFrame) {
+      if (var1.highX != this.contentWidth || var1.highY != this.contentHeight || this.resizeCanvasNextFrame) {
          this.resizeCanvas();
          this.resizeCanvasNextFrame = false;
       }
 
    }
 
-   @ObfuscatedName("ad")
+   @ObfuscatedName("bg")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-1502888715"
+      garbageValue = "934214551"
    )
-   final void method547() {
+   final void method482() {
       this.resizeCanvasNextFrame = true;
    }
 
-   @ObfuscatedName("bm")
+   @ObfuscatedName("bf")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "12"
+      descriptor = "(I)V",
+      garbageValue = "501694298"
    )
    @Export("kill")
    final synchronized void kill() {
@@ -719,91 +716,91 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
             }
          }
 
-         this.vmethod1617();
+         this.vmethod1197();
       }
    }
 
-   @ObfuscatedName("bk")
+   @ObfuscatedName("ba")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-1812622075"
+      descriptor = "(B)V",
+      garbageValue = "44"
    )
    @Export("setUp")
    protected abstract void setUp();
 
-   @ObfuscatedName("br")
+   @ObfuscatedName("bn")
    @ObfuscatedSignature(
       descriptor = "(B)V",
-      garbageValue = "32"
+      garbageValue = "43"
    )
    @Export("doCycle")
    protected abstract void doCycle();
 
-   @ObfuscatedName("ba")
+   @ObfuscatedName("bb")
    @ObfuscatedSignature(
-      descriptor = "(ZS)V",
-      garbageValue = "28303"
+      descriptor = "(ZI)V",
+      garbageValue = "-146179282"
    )
    @Export("draw")
    protected abstract void draw(boolean var1);
 
-   @ObfuscatedName("bz")
+   @ObfuscatedName("bx")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-78"
+      descriptor = "(I)V",
+      garbageValue = "279913198"
    )
    @Export("kill0")
    protected abstract void kill0();
 
-   @ObfuscatedName("bq")
+   @ObfuscatedName("be")
    @ObfuscatedSignature(
-      descriptor = "(ILjava/lang/String;ZS)V",
-      garbageValue = "1501"
+      descriptor = "(ILjava/lang/String;ZI)V",
+      garbageValue = "1215659496"
    )
    @Export("drawInitial")
    protected final void drawInitial(int var1, String var2, boolean var3) {
       try {
          Graphics var4 = this.canvas.getGraphics();
-         if (class306.fontHelvetica13 == null) {
-            class306.fontHelvetica13 = new java.awt.Font("Helvetica", 1, 13);
-            class139.loginScreenFontMetrics = this.canvas.getFontMetrics(class306.fontHelvetica13);
+         if (DesktopPlatformInfoProvider.fontHelvetica13 == null) {
+            DesktopPlatformInfoProvider.fontHelvetica13 = new java.awt.Font("Helvetica", 1, 13);
+            class133.loginScreenFontMetrics = this.canvas.getFontMetrics(DesktopPlatformInfoProvider.fontHelvetica13);
          }
 
          if (var3) {
             var4.setColor(Color.black);
-            var4.fillRect(0, 0, canvasWidth, class143.canvasHeight);
+            var4.fillRect(0, 0, class448.canvasWidth, WorldMapID.canvasHeight);
          }
 
          Color var5 = new Color(140, 17, 17);
 
          try {
-            if (AbstractByteArrayCopier.field3686 == null) {
-               AbstractByteArrayCopier.field3686 = this.canvas.createImage(304, 34);
+            if (class59.field432 == null) {
+               class59.field432 = this.canvas.createImage(304, 34);
             }
 
-            Graphics var6 = AbstractByteArrayCopier.field3686.getGraphics();
+            Graphics var6 = class59.field432.getGraphics();
             var6.setColor(var5);
             var6.drawRect(0, 0, 303, 33);
             var6.fillRect(2, 2, var1 * 3, 30);
             var6.setColor(Color.black);
             var6.drawRect(1, 1, 301, 31);
             var6.fillRect(var1 * 3 + 2, 2, 300 - var1 * 3, 30);
-            var6.setFont(class306.fontHelvetica13);
+            var6.setFont(DesktopPlatformInfoProvider.fontHelvetica13);
             var6.setColor(Color.white);
-            var6.drawString(var2, (304 - class139.loginScreenFontMetrics.stringWidth(var2)) / 2, 22);
-            var4.drawImage(AbstractByteArrayCopier.field3686, canvasWidth / 2 - 152, class143.canvasHeight / 2 - 18, (ImageObserver)null);
+            var6.drawString(var2, (304 - class133.loginScreenFontMetrics.stringWidth(var2)) / 2, 22);
+            var4.drawImage(class59.field432, class448.canvasWidth / 2 - 152, WorldMapID.canvasHeight / 2 - 18, (ImageObserver)null);
          } catch (Exception var9) {
-            int var7 = canvasWidth / 2 - 152;
-            int var8 = class143.canvasHeight / 2 - 18;
+            int var7 = class448.canvasWidth / 2 - 152;
+            int var8 = WorldMapID.canvasHeight / 2 - 18;
             var4.setColor(var5);
             var4.drawRect(var7, var8, 303, 33);
             var4.fillRect(var7 + 2, var8 + 2, var1 * 3, 30);
             var4.setColor(Color.black);
             var4.drawRect(var7 + 1, var8 + 1, 301, 31);
-            var4.fillRect(var7 + var1 * 3 + 2, var8 + 2, 300 - var1 * 3, 30);
-            var4.setFont(class306.fontHelvetica13);
+            var4.fillRect(var1 * 3 + var7 + 2, var8 + 2, 300 - var1 * 3, 30);
+            var4.setFont(DesktopPlatformInfoProvider.fontHelvetica13);
             var4.setColor(Color.white);
-            var4.drawString(var2, var7 + (304 - class139.loginScreenFontMetrics.stringWidth(var2)) / 2, var8 + 22);
+            var4.drawString(var2, var7 + (304 - class133.loginScreenFontMetrics.stringWidth(var2)) / 2, var8 + 22);
          }
       } catch (Exception var10) {
          this.canvas.repaint();
@@ -811,21 +808,21 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
    }
 
-   @ObfuscatedName("bc")
+   @ObfuscatedName("bh")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "3"
+      descriptor = "(I)V",
+      garbageValue = "-622954298"
    )
-   protected final void method507() {
-      AbstractByteArrayCopier.field3686 = null;
-      class306.fontHelvetica13 = null;
-      class139.loginScreenFontMetrics = null;
+   protected final void method500() {
+      class59.field432 = null;
+      DesktopPlatformInfoProvider.fontHelvetica13 = null;
+      class133.loginScreenFontMetrics = null;
    }
 
-   @ObfuscatedName("bt")
+   @ObfuscatedName("bp")
    @ObfuscatedSignature(
       descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "160680772"
+      garbageValue = "1477771111"
    )
    @Export("error")
    protected void error(String var1) {
@@ -841,71 +838,74 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
    }
 
-   @ObfuscatedName("be")
+   @ObfuscatedName("bw")
    @ObfuscatedSignature(
       descriptor = "(I)Ljava/awt/Container;",
-      garbageValue = "335116823"
+      garbageValue = "1128381047"
    )
    @Export("container")
    Container container() {
       return (Container)(this.frame != null ? this.frame : this);
    }
 
-   @ObfuscatedName("bu")
+   @ObfuscatedName("bi")
    @ObfuscatedSignature(
-      descriptor = "(I)Lqy;",
-      garbageValue = "-2116397766"
+      descriptor = "(B)Lqs;",
+      garbageValue = "48"
    )
    @Export("getFrameContentBounds")
    Bounds getFrameContentBounds() {
       Container var1 = this.container();
-      int var2 = Math.max(var1.getWidth(), this.field215);
-      int var3 = Math.max(var1.getHeight(), this.field198);
+      int var2 = Math.max(var1.getWidth(), this.field193);
+      int var3 = Math.max(var1.getHeight(), this.field207);
       if (this.frame != null) {
          Insets var4 = this.frame.getInsets();
-         var2 -= var4.right + var4.left;
-         var3 -= var4.top + var4.bottom;
+         var2 -= var4.left + var4.right;
+         var3 -= var4.bottom + var4.top;
       }
 
       return new Bounds(var2, var3);
    }
 
-   @ObfuscatedName("bd")
+   @ObfuscatedName("bk")
    @ObfuscatedSignature(
       descriptor = "(I)Z",
-      garbageValue = "-254629922"
+      garbageValue = "-1053178714"
    )
    @Export("hasFrame")
    protected final boolean hasFrame() {
       return this.frame != null;
    }
 
-   @ObfuscatedName("bp")
+   @ObfuscatedName("bz")
    @ObfuscatedSignature(
       descriptor = "(B)V",
-      garbageValue = "-87"
+      garbageValue = "-6"
    )
-   protected abstract void vmethod1617();
-
-   public final void destroy() {
-      if (this == gameEngine && !isKilled) {
-         stopTimeMs = WorldMapSection2.method4844();
-         Login.method2088(5000L);
-         this.kill();
-      }
-   }
+   protected abstract void vmethod1197();
 
    public final synchronized void paint(Graphics var1) {
       if (this == gameEngine && !isKilled) {
          this.fullRedraw = true;
-         if (WorldMapSection2.method4844() - this.field208 > 1000L) {
+         if (BoundaryObject.method5027() - this.field206 > 1000L) {
             Rectangle var2 = var1.getClipBounds();
-            if (var2 == null || var2.width >= canvasWidth && var2.height >= class143.canvasHeight) {
+            if (var2 == null || var2.width >= class448.canvasWidth && var2.height >= WorldMapID.canvasHeight) {
                this.isCanvasInvalid = true;
             }
          }
 
       }
+   }
+
+   public final void destroy() {
+      if (this == gameEngine && !isKilled) {
+         stopTimeMs = BoundaryObject.method5027();
+         FloorDecoration.method4357(5000L);
+         this.kill();
+      }
+   }
+
+   public final void windowClosed(WindowEvent var1) {
    }
 
    public void run() {
@@ -921,11 +921,11 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
                if (var2.startsWith("1.6.0_")) {
                   int var3;
-                  for(var3 = 6; var3 < var2.length() && class28.isDigit(var2.charAt(var3)); ++var3) {
+                  for(var3 = 6; var3 < var2.length() && class159.isDigit(var2.charAt(var3)); ++var3) {
                   }
 
                   String var4 = var2.substring(6, var3);
-                  if (class162.isNumber(var4) && GrandExchangeEvent.method6573(var4) < 10) {
+                  if (class146.isNumber(var4) && TextureProvider.method4744(var4) < 10) {
                      this.error("wrongjava");
                      return;
                   }
@@ -938,10 +938,18 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          this.setFocusCycleRoot(true);
          this.addCanvas();
          this.setUp();
-         clock = class421.method7879();
 
-         while(0L == stopTimeMs || WorldMapSection2.method4844() < stopTimeMs) {
-            gameCyclesToDo = clock.wait(cycleDurationMillis, fiveOrOne);
+         Object var8;
+         try {
+            var8 = new NanoClock();
+         } catch (Throwable var6) {
+            var8 = new MilliClock();
+         }
+
+         BufferedNetSocket.clock = (Clock)var8;
+
+         while(0L == stopTimeMs || BoundaryObject.method5027() < stopTimeMs) {
+            gameCyclesToDo = BufferedNetSocket.clock.wait(cycleDurationMillis, fiveOrOne);
 
             for(int var5 = 0; var5 < gameCyclesToDo; ++var5) {
                this.clientTick();
@@ -950,20 +958,17 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
             this.graphicsTick();
             this.post(this.canvas);
          }
-      } catch (Exception var6) {
-         class364.RunException_sendStackTrace((String)null, var6);
+      } catch (Exception var7) {
+         class260.RunException_sendStackTrace((String)null, var7);
          this.error("crash");
       }
 
       this.kill();
    }
 
-   public final void windowDeactivated(WindowEvent var1) {
-   }
-
-   public final void stop() {
+   public final void start() {
       if (this == gameEngine && !isKilled) {
-         stopTimeMs = WorldMapSection2.method4844() + 4000L;
+         stopTimeMs = 0L;
       }
    }
 
@@ -978,76 +983,70 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
    public final void windowActivated(WindowEvent var1) {
    }
 
-   public final void windowClosed(WindowEvent var1) {
-   }
-
-   public final void windowClosing(WindowEvent var1) {
-      this.destroy();
+   public final void windowDeiconified(WindowEvent var1) {
    }
 
    public final void windowIconified(WindowEvent var1) {
    }
 
-   public final void windowOpened(WindowEvent var1) {
-   }
-
    public abstract void init();
-
-   public final void start() {
-      if (this == gameEngine && !isKilled) {
-         stopTimeMs = 0L;
-      }
-   }
-
-   public final void windowDeiconified(WindowEvent var1) {
-   }
 
    public final void focusGained(FocusEvent var1) {
       volatileFocus = true;
       this.fullRedraw = true;
    }
 
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "(II)Lhc;",
-      garbageValue = "976952306"
-   )
-   @Export("VarpDefinition_get")
-   public static VarpDefinition VarpDefinition_get(int var0) {
-      VarpDefinition var1 = (VarpDefinition)VarpDefinition.VarpDefinition_cached.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = VarpDefinition.VarpDefinition_archive.takeFile(16, var0);
-         var1 = new VarpDefinition();
-         if (var2 != null) {
-            var1.decode(new Buffer(var2));
-         }
-
-         VarpDefinition.VarpDefinition_cached.put(var1, (long)var0);
-         return var1;
+   public final void stop() {
+      if (this == gameEngine && !isKilled) {
+         stopTimeMs = BoundaryObject.method5027() + 4000L;
       }
    }
 
-   @ObfuscatedName("km")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-141536950"
-   )
-   @Export("Widget_runOnTargetLeave")
-   static void Widget_runOnTargetLeave() {
-      if (Client.isSpellSelected) {
-         Widget var0 = class36.getWidgetChild(class18.selectedSpellWidget, Client.selectedSpellChildIndex);
-         if (var0 != null && var0.onTargetLeave != null) {
-            ScriptEvent var1 = new ScriptEvent();
-            var1.widget = var0;
-            var1.args = var0.onTargetLeave;
-            class9.runScriptEvent(var1);
-         }
+   public final void windowDeactivated(WindowEvent var1) {
+   }
 
-         Client.selectedSpellItemId = -1;
-         Client.isSpellSelected = false;
-         class69.invalidateWidget(var0);
+   public final void windowOpened(WindowEvent var1) {
+   }
+
+   public final void windowClosing(WindowEvent var1) {
+      this.destroy();
+   }
+
+   @ObfuscatedName("at")
+   public static boolean method563(long var0) {
+      boolean var2 = 0L != var0;
+      if (var2) {
+         boolean var3 = (int)(var0 >>> 16 & 1L) == 1;
+         var2 = !var3;
       }
+
+      return var2;
+   }
+
+   @ObfuscatedName("au")
+   @ObfuscatedSignature(
+      descriptor = "(IIII)I",
+      garbageValue = "301181960"
+   )
+   @Export("hslToRgb")
+   static final int hslToRgb(int var0, int var1, int var2) {
+      if (var2 > 179) {
+         var1 /= 2;
+      }
+
+      if (var2 > 192) {
+         var1 /= 2;
+      }
+
+      if (var2 > 217) {
+         var1 /= 2;
+      }
+
+      if (var2 > 243) {
+         var1 /= 2;
+      }
+
+      int var3 = (var1 / 32 << 7) + (var0 / 4 << 10) + var2 / 2;
+      return var3;
    }
 }

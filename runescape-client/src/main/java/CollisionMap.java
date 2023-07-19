@@ -4,36 +4,34 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("iz")
+@ObfuscatedName("ic")
 @Implements("CollisionMap")
 public class CollisionMap {
-   @ObfuscatedName("ak")
-   public static short[][] field2315;
-   @ObfuscatedName("bk")
+   @ObfuscatedName("bd")
    @ObfuscatedGetter(
-      intValue = -19289501
+      intValue = -125707177
    )
    @Export("xInset")
    int xInset = 0;
-   @ObfuscatedName("br")
+   @ObfuscatedName("ba")
    @ObfuscatedGetter(
-      intValue = 1760891395
+      intValue = 552306335
    )
    @Export("yInset")
    int yInset = 0;
-   @ObfuscatedName("ba")
+   @ObfuscatedName("bn")
    @ObfuscatedGetter(
-      intValue = -1745624937
+      intValue = 1661847085
    )
    @Export("xSize")
    int xSize;
-   @ObfuscatedName("bz")
+   @ObfuscatedName("bb")
    @ObfuscatedGetter(
-      intValue = 1825387011
+      intValue = -58964621
    )
    @Export("ySize")
    int ySize;
-   @ObfuscatedName("bq")
+   @ObfuscatedName("bx")
    @Export("flags")
    public int[][] flags;
 
@@ -44,10 +42,10 @@ public class CollisionMap {
       this.clear();
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "755620870"
+      garbageValue = "1511058982"
    )
    @Export("clear")
    public void clear() {
@@ -63,12 +61,12 @@ public class CollisionMap {
 
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
       descriptor = "(IIIIZB)V",
-      garbageValue = "3"
+      garbageValue = "13"
    )
-   public void method4114(int var1, int var2, int var3, int var4, boolean var5) {
+   public void method4189(int var1, int var2, int var3, int var4, boolean var5) {
       var1 -= this.xInset;
       var2 -= this.yInset;
       if (var3 == 0) {
@@ -215,10 +213,10 @@ public class CollisionMap {
 
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
       descriptor = "(IIIIZI)V",
-      garbageValue = "1944088761"
+      garbageValue = "-762578896"
    )
    @Export("addGameObject")
    public void addGameObject(int var1, int var2, int var3, int var4, boolean var5) {
@@ -242,10 +240,10 @@ public class CollisionMap {
 
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
       descriptor = "(III)V",
-      garbageValue = "190737298"
+      garbageValue = "-75937963"
    )
    @Export("setBlockedByFloor")
    public void setBlockedByFloor(int var1, int var2) {
@@ -255,10 +253,10 @@ public class CollisionMap {
       var10000[var2] |= 2097152;
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "(IIB)V",
-      garbageValue = "96"
+      descriptor = "(III)V",
+      garbageValue = "1296673547"
    )
    @Export("setBlockedByFloorDec")
    public void setBlockedByFloorDec(int var1, int var2) {
@@ -268,10 +266,10 @@ public class CollisionMap {
       var10000[var2] |= 262144;
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
       descriptor = "(IIIB)V",
-      garbageValue = "-21"
+      garbageValue = "-75"
    )
    @Export("setFlag")
    void setFlag(int var1, int var2, int var3) {
@@ -279,12 +277,12 @@ public class CollisionMap {
       var10000[var2] |= var3;
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
       descriptor = "(IIIIZI)V",
-      garbageValue = "-1194067709"
+      garbageValue = "1015647112"
    )
-   public void method4136(int var1, int var2, int var3, int var4, boolean var5) {
+   public void method4179(int var1, int var2, int var3, int var4, boolean var5) {
       var1 -= this.xInset;
       var2 -= this.yInset;
       if (var3 == 0) {
@@ -431,10 +429,10 @@ public class CollisionMap {
 
    }
 
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
       descriptor = "(IIIIIZI)V",
-      garbageValue = "-264491909"
+      garbageValue = "1260178952"
    )
    @Export("setFlagOffNonSquare")
    public void setFlagOffNonSquare(int var1, int var2, int var3, int var4, int var5, boolean var6) {
@@ -464,10 +462,10 @@ public class CollisionMap {
 
    }
 
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedSignature(
-      descriptor = "(IIII)V",
-      garbageValue = "-2143569365"
+      descriptor = "(IIIB)V",
+      garbageValue = "3"
    )
    @Export("setFlagOff")
    void setFlagOff(int var1, int var2, int var3) {
@@ -475,15 +473,30 @@ public class CollisionMap {
       var10000[var2] &= ~var3;
    }
 
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedSignature(
       descriptor = "(IIB)V",
-      garbageValue = "59"
+      garbageValue = "-92"
    )
-   public void method4120(int var1, int var2) {
+   public void method4180(int var1, int var2) {
       var1 -= this.xInset;
       var2 -= this.yInset;
       int[] var10000 = this.flags[var1];
       var10000[var2] &= -262145;
+   }
+
+   @ObfuscatedName("ap")
+   @ObfuscatedSignature(
+      descriptor = "(Lnq;Ljava/lang/String;Ljava/lang/String;B)[Ltm;",
+      garbageValue = "-1"
+   )
+   public static SpritePixels[] method4206(AbstractArchive var0, String var1, String var2) {
+      if (!var0.isValidFileName(var1, var2)) {
+         return null;
+      } else {
+         int var3 = var0.getGroupId(var1);
+         int var4 = var0.getFileId(var3, var2);
+         return WorldMapScaleHandler.method5597(var0, var3, var4);
+      }
    }
 }

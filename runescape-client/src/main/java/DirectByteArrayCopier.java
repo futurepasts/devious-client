@@ -4,20 +4,20 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mo")
+@ObfuscatedName("mt")
 @Implements("DirectByteArrayCopier")
 public class DirectByteArrayCopier extends AbstractByteArrayCopier {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @Export("directBuffer")
    ByteBuffer directBuffer;
 
    DirectByteArrayCopier() {
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(B)[B",
-      garbageValue = "118"
+      descriptor = "(I)[B",
+      garbageValue = "-2143916315"
    )
    @Export("get")
    byte[] get() {
@@ -27,10 +27,10 @@ public class DirectByteArrayCopier extends AbstractByteArrayCopier {
       return var1;
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "([BB)V",
-      garbageValue = "-25"
+      descriptor = "([BI)V",
+      garbageValue = "-752004447"
    )
    @Export("set")
    void set(byte[] var1) {
@@ -39,49 +39,41 @@ public class DirectByteArrayCopier extends AbstractByteArrayCopier {
       this.directBuffer.put(var1);
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("js")
    @ObfuscatedSignature(
-      descriptor = "(Lsq;I)V",
-      garbageValue = "1115242547"
+      descriptor = "(Ldv;B)V",
+      garbageValue = "-55"
    )
-   @Export("updatePlayer")
-   static final void updatePlayer(PacketBuffer var0) {
-      var0.importIndex();
-      int var1 = Client.localPlayerIndex;
-      Player var2 = BuddyRankComparator.localPlayer = Client.players[var1] = new Player();
-      var2.index = var1;
-      int var3 = var0.readBits(30);
-      byte var4 = (byte)(var3 >> 28);
-      int var5 = var3 >> 14 & 16383;
-      int var6 = var3 & 16383;
-      var2.pathX[0] = var5 - GameEngine.baseX * 64;
-      var2.x = (var2.pathX[0] << 7) + (var2.transformedSize() << 6);
-      var2.pathY[0] = var6 - class178.baseY * 64;
-      var2.y = (var2.pathY[0] << 7) + (var2.transformedSize() << 6);
-      TaskHandler.Client_plane = var2.plane = var4;
-      if (Players.field1335[var1] != null) {
-         var2.read(Players.field1335[var1]);
+   static final void method6568(PendingSpawn var0) {
+      long var1 = 0L;
+      int var3 = -1;
+      int var4 = 0;
+      int var5 = 0;
+      if (var0.type == 0) {
+         var1 = class36.scene.getBoundaryObjectTag(var0.plane, var0.x, var0.y);
       }
 
-      Players.Players_count = 0;
-      Players.Players_indices[++Players.Players_count - 1] = var1;
-      Players.field1336[var1] = 0;
-      Players.Players_emptyIdxCount = 0;
-
-      for(int var7 = 1; var7 < 2048; ++var7) {
-         if (var7 != var1) {
-            int var8 = var0.readBits(18);
-            int var9 = var8 >> 16;
-            int var10 = var8 >> 8 & 597;
-            int var11 = var8 & 597;
-            Players.Players_regions[var7] = (var10 << 14) + var11 + (var9 << 28);
-            Players.Players_orientations[var7] = 0;
-            Players.Players_targetIndices[var7] = -1;
-            Players.Players_emptyIndices[++Players.Players_emptyIdxCount - 1] = var7;
-            Players.field1336[var7] = 0;
-         }
+      if (var0.type == 1) {
+         var1 = class36.scene.getWallDecorationTag(var0.plane, var0.x, var0.y);
       }
 
-      var0.exportIndex();
+      if (var0.type == 2) {
+         var1 = class36.scene.getGameObjectTag(var0.plane, var0.x, var0.y);
+      }
+
+      if (var0.type == 3) {
+         var1 = class36.scene.getFloorDecorationTag(var0.plane, var0.x, var0.y);
+      }
+
+      if (var1 != 0L) {
+         int var6 = class36.scene.getObjectFlags(var0.plane, var0.x, var0.y, var1);
+         var3 = class215.Entity_unpackID(var1);
+         var4 = var6 & 31;
+         var5 = var6 >> 6 & 3;
+      }
+
+      var0.objectId = var3;
+      var0.field1133 = var4;
+      var0.field1140 = var5;
    }
 }

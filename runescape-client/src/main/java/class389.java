@@ -1,61 +1,69 @@
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oy")
-public class class389 {
-   @ObfuscatedName("aj")
+@ObfuscatedName("of")
+public class class389 implements Iterator {
+   @ObfuscatedName("si")
    @ObfuscatedSignature(
-      descriptor = "Loy;"
+      descriptor = "Lfs;"
    )
-   static final class389 field4463 = new class389("Basic");
-   @ObfuscatedName("al")
+   @Export("guestClanSettings")
+   static ClanSettings guestClanSettings;
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Loy;"
+      descriptor = "Lpu;"
    )
-   static final class389 field4461 = new class389("Bearer");
-   @ObfuscatedName("ac")
-   final String field4462;
+   class390 field4410;
+   @ObfuscatedName("an")
+   @ObfuscatedGetter(
+      intValue = -1784205805
+   )
+   int field4409 = 0;
+   @ObfuscatedName("av")
+   @ObfuscatedGetter(
+      intValue = -1457471961
+   )
+   int field4408;
 
-   class389(String var1) {
-      this.field4462 = var1;
+   @ObfuscatedSignature(
+      descriptor = "(Lpu;)V"
+   )
+   class389(class390 var1) {
+      this.field4408 = this.field4410.field4414;
+      this.field4410 = var1;
    }
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(I)Ljava/lang/String;",
-      garbageValue = "1567314137"
-   )
-   String method7351() {
-      return this.field4462;
+   public boolean hasNext() {
+      return this.field4409 < this.field4410.field4412;
    }
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "1824771862"
-   )
-   static int method7352() {
-      return ++Messages.Messages_count - 1;
+   public void remove() {
+      throw new UnsupportedOperationException();
    }
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "69"
-   )
-   static void method7353() {
-      for(ObjectSound var0 = (ObjectSound)ObjectSound.objectSounds.last(); var0 != null; var0 = (ObjectSound)ObjectSound.objectSounds.previous()) {
-         if (var0.stream1 != null) {
-            class323.pcmStreamMixer.removeSubStream(var0.stream1);
-            var0.stream1 = null;
-         }
-
-         if (var0.stream2 != null) {
-            class323.pcmStreamMixer.removeSubStream(var0.stream2);
-            var0.stream2 = null;
-         }
+   public Object next() {
+      if (this.field4410.field4414 != this.field4408) {
+         throw new ConcurrentModificationException();
+      } else if (this.field4409 < this.field4410.field4412) {
+         Object var1 = this.field4410.field4416[this.field4409].field4406;
+         ++this.field4409;
+         return var1;
+      } else {
+         throw new NoSuchElementException();
       }
+   }
 
-      ObjectSound.objectSounds.clear();
+   @ObfuscatedName("bp")
+   @ObfuscatedSignature(
+      descriptor = "(II)I",
+      garbageValue = "840269360"
+   )
+   static int method7215(int var0) {
+      return (int)Math.pow(2.0, (double)((float)var0 / 256.0F + 7.0F));
    }
 }

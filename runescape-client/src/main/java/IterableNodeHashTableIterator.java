@@ -4,45 +4,54 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rp")
+@ObfuscatedName("sc")
 @Implements("IterableNodeHashTableIterator")
 public class IterableNodeHashTableIterator implements Iterator {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lrz;"
+      descriptor = "Lsv;"
    )
    @Export("hashTable")
    IterableNodeHashTable hashTable;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lru;"
+      descriptor = "Lrz;"
    )
    @Export("head")
    Node head;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @Export("index")
    int index;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "Lru;"
+      descriptor = "Lrz;"
    )
    @Export("last")
    Node last = null;
 
    @ObfuscatedSignature(
-      descriptor = "(Lrz;)V"
+      descriptor = "(Lsv;)V"
    )
-   IterableNodeHashTableIterator(IterableNodeHashTable var1) {
+   public IterableNodeHashTableIterator(IterableNodeHashTable var1) {
       this.hashTable = var1;
       this.start();
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @Export("start")
    void start() {
       this.head = this.hashTable.buckets[0].previous;
       this.index = 1;
       this.last = null;
+   }
+
+   @ObfuscatedName("an")
+   @ObfuscatedSignature(
+      descriptor = "()Lrz;"
+   )
+   public Node method8589() {
+      this.start();
+      return (Node)this.next();
    }
 
    public Object next() {
@@ -67,6 +76,15 @@ public class IterableNodeHashTableIterator implements Iterator {
       }
    }
 
+   public void remove() {
+      if (this.last == null) {
+         throw new IllegalStateException();
+      } else {
+         this.last.remove();
+         this.last = null;
+      }
+   }
+
    public boolean hasNext() {
       if (this.hashTable.buckets[this.index - 1] != this.head) {
          return true;
@@ -82,10 +100,5 @@ public class IterableNodeHashTableIterator implements Iterator {
 
          return false;
       }
-   }
-
-   public void remove() {
-      this.last.remove();
-      this.last = null;
    }
 }

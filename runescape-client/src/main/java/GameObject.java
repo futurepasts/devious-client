@@ -4,95 +4,94 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jm")
+@ObfuscatedName("jj")
 @Implements("GameObject")
 public final class GameObject {
-   @ObfuscatedName("am")
-   @ObfuscatedSignature(
-      descriptor = "Lmy;"
-   )
-   @Export("scriptDotWidget")
-   static Widget scriptDotWidget;
-   @ObfuscatedName("aj")
+   @ObfuscatedName("cy")
    @ObfuscatedGetter(
-      intValue = 1334453607
+      intValue = 1995795893
+   )
+   static int field2850;
+   @ObfuscatedName("at")
+   @ObfuscatedGetter(
+      intValue = 1220186919
    )
    @Export("plane")
    int plane;
-   @ObfuscatedName("al")
-   @ObfuscatedGetter(
-      intValue = -204624613
-   )
-   @Export("z")
-   int z;
-   @ObfuscatedName("ac")
-   @ObfuscatedGetter(
-      intValue = -445636047
-   )
-   @Export("centerX")
-   int centerX;
-   @ObfuscatedName("ab")
-   @ObfuscatedGetter(
-      intValue = -1941335121
-   )
-   @Export("centerY")
-   int centerY;
    @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 1237306913
+      intValue = 963750777
    )
    @Export("startX")
    int startX;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("av")
+   @ObfuscatedGetter(
+      intValue = -1050812385
+   )
+   @Export("z")
+   int z;
+   @ObfuscatedName("as")
+   @ObfuscatedGetter(
+      intValue = 1872708547
+   )
+   @Export("centerX")
+   int centerX;
+   @ObfuscatedName("ax")
+   @ObfuscatedGetter(
+      intValue = 1000962549
+   )
+   @Export("centerY")
+   int centerY;
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "Liq;"
+      descriptor = "Lim;"
    )
    @Export("renderable")
    public Renderable renderable;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedGetter(
-      intValue = 405751931
+      intValue = 1073660437
    )
    @Export("orientation")
    int orientation;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = 739083279
+      intValue = 674522119
    )
    @Export("endX")
    int endX;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = -904563983
+      intValue = 1292137241
    )
    @Export("startY")
    int startY;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = 1485400867
+      intValue = 1875098861
    )
    @Export("endY")
    int endY;
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @ObfuscatedGetter(
-      intValue = 87893493
+      intValue = -1962091335
    )
-   int field2798;
-   @ObfuscatedName("ax")
+   int field2847;
+   @ObfuscatedName("aa")
    @ObfuscatedGetter(
-      intValue = 1344380565
+      intValue = -1491176913
    )
    @Export("lastDrawn")
    int lastDrawn;
-   @ObfuscatedName("as")
+   @ObfuscatedName("aj")
    @ObfuscatedGetter(
-      longValue = -8829904473065290459L
+      longValue = 3751080140565960067L
    )
    @Export("tag")
    public long tag = 0L;
-   @ObfuscatedName("ay")
+   @ObfuscatedName("ad")
    @ObfuscatedGetter(
-      intValue = -102078043
+      intValue = -1247354483
    )
    @Export("flags")
    int flags = 0;
@@ -100,22 +99,22 @@ public final class GameObject {
    GameObject() {
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(IB)I",
-      garbageValue = "-88"
+      descriptor = "([Lob;II)Lob;",
+      garbageValue = "285155448"
    )
-   public static int method4778(int var0) {
-      return var0 >>> 4 & class473.field4885;
-   }
+   @Export("findEnumerated")
+   public static MouseWheel findEnumerated(MouseWheel[] var0, int var1) {
+      MouseWheel[] var2 = var0;
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(B)[Lsc;",
-      garbageValue = "-41"
-   )
-   @Export("FillMode_values")
-   public static FillMode[] FillMode_values() {
-      return new FillMode[]{FillMode.field4982, FillMode.field4983, FillMode.SOLID};
+      for(int var3 = 0; var3 < var2.length; ++var3) {
+         MouseWheel var4 = var2[var3];
+         if (var1 == var4.rsOrdinal()) {
+            return var4;
+         }
+      }
+
+      return null;
    }
 }

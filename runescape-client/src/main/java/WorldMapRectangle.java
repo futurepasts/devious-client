@@ -4,185 +4,147 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jl")
+@ObfuscatedName("kx")
 @Implements("WorldMapRectangle")
 public final class WorldMapRectangle {
-   @ObfuscatedName("uk")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 906986471
-   )
-   static int field2963;
-   @ObfuscatedName("aj")
-   @ObfuscatedGetter(
-      intValue = 887635381
+      intValue = -1076784797
    )
    @Export("width")
    int width;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 1760410641
+      intValue = 289845951
    )
    @Export("height")
    int height;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = 2069261645
+      intValue = 1144330999
    )
    @Export("x")
    int x;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -165337537
+      intValue = -63228659
    )
    @Export("y")
    int y;
    // $FF: synthetic field
    @ObfuscatedSignature(
-      descriptor = "Ljt;"
+      descriptor = "Lje;"
    )
    final WorldMapRenderer this$0;
 
    @ObfuscatedSignature(
-      descriptor = "(Ljt;)V"
+      descriptor = "(Lje;)V"
    )
    WorldMapRectangle(WorldMapRenderer var1) {
       this.this$0 = var1;
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(Lsq;I)V",
-      garbageValue = "295942057"
+      descriptor = "(II)Lsw;",
+      garbageValue = "1075897911"
    )
-   static final void method5219(PacketBuffer var0) {
-      int var1 = 0;
-      var0.importIndex();
-
-      byte[] var10000;
-      int var2;
-      int var4;
-      int var5;
-      for(var2 = 0; var2 < Players.Players_count; ++var2) {
-         var5 = Players.Players_indices[var2];
-         if ((Players.field1336[var5] & 1) == 0) {
-            if (var1 > 0) {
-               --var1;
-               var10000 = Players.field1336;
-               var10000[var5] = (byte)(var10000[var5] | 2);
-            } else {
-               var4 = var0.readBits(1);
-               if (var4 == 0) {
-                  var1 = Fonts.method8249(var0);
-                  var10000 = Players.field1336;
-                  var10000[var5] = (byte)(var10000[var5] | 2);
-               } else {
-                  AttackOption.readPlayerUpdate(var0, var5);
-               }
-            }
-         }
-      }
-
-      var0.exportIndex();
-      if (var1 != 0) {
-         throw new RuntimeException();
+   public static class490 method5458(int var0) {
+      int var1 = class488.field4966[var0];
+      if (var1 == 1) {
+         return class490.field4973;
+      } else if (var1 == 2) {
+         return class490.field4976;
       } else {
-         var0.importIndex();
+         return var1 == 3 ? class490.field4972 : null;
+      }
+   }
 
-         for(var2 = 0; var2 < Players.Players_count; ++var2) {
-            var5 = Players.Players_indices[var2];
-            if ((Players.field1336[var5] & 1) != 0) {
-               if (var1 > 0) {
-                  --var1;
-                  var10000 = Players.field1336;
-                  var10000[var5] = (byte)(var10000[var5] | 2);
-               } else {
-                  var4 = var0.readBits(1);
-                  if (var4 == 0) {
-                     var1 = Fonts.method8249(var0);
-                     var10000 = Players.field1336;
-                     var10000[var5] = (byte)(var10000[var5] | 2);
-                  } else {
-                     AttackOption.readPlayerUpdate(var0, var5);
-                  }
-               }
-            }
-         }
-
-         var0.exportIndex();
-         if (var1 != 0) {
-            throw new RuntimeException();
+   @ObfuscatedName("as")
+   @ObfuscatedSignature(
+      descriptor = "(Lnq;Ljava/lang/String;Ljava/lang/String;I)[Ltj;",
+      garbageValue = "-2037926568"
+   )
+   public static IndexedSprite[] method5460(AbstractArchive var0, String var1, String var2) {
+      if (!var0.isValidFileName(var1, var2)) {
+         return null;
+      } else {
+         int var3 = var0.getGroupId(var1);
+         int var4 = var0.getFileId(var3, var2);
+         byte[] var7 = var0.takeFile(var3, var4);
+         boolean var6;
+         if (var7 == null) {
+            var6 = false;
          } else {
-            var0.importIndex();
-
-            for(var2 = 0; var2 < Players.Players_emptyIdxCount; ++var2) {
-               var5 = Players.Players_emptyIndices[var2];
-               if ((Players.field1336[var5] & 1) != 0) {
-                  if (var1 > 0) {
-                     --var1;
-                     var10000 = Players.field1336;
-                     var10000[var5] = (byte)(var10000[var5] | 2);
-                  } else {
-                     var4 = var0.readBits(1);
-                     if (var4 == 0) {
-                        var1 = Fonts.method8249(var0);
-                        var10000 = Players.field1336;
-                        var10000[var5] = (byte)(var10000[var5] | 2);
-                     } else if (class157.updateExternalPlayer(var0, var5)) {
-                        var10000 = Players.field1336;
-                        var10000[var5] = (byte)(var10000[var5] | 2);
-                     }
-                  }
-               }
-            }
-
-            var0.exportIndex();
-            if (var1 != 0) {
-               throw new RuntimeException();
-            } else {
-               var0.importIndex();
-
-               for(var2 = 0; var2 < Players.Players_emptyIdxCount; ++var2) {
-                  var5 = Players.Players_emptyIndices[var2];
-                  if ((Players.field1336[var5] & 1) == 0) {
-                     if (var1 > 0) {
-                        --var1;
-                        var10000 = Players.field1336;
-                        var10000[var5] = (byte)(var10000[var5] | 2);
-                     } else {
-                        var4 = var0.readBits(1);
-                        if (var4 == 0) {
-                           var1 = Fonts.method8249(var0);
-                           var10000 = Players.field1336;
-                           var10000[var5] = (byte)(var10000[var5] | 2);
-                        } else if (class157.updateExternalPlayer(var0, var5)) {
-                           var10000 = Players.field1336;
-                           var10000[var5] = (byte)(var10000[var5] | 2);
-                        }
-                     }
-                  }
-               }
-
-               var0.exportIndex();
-               if (var1 != 0) {
-                  throw new RuntimeException();
-               } else {
-                  Players.Players_count = 0;
-                  Players.Players_emptyIdxCount = 0;
-
-                  for(var2 = 1; var2 < 2048; ++var2) {
-                     var10000 = Players.field1336;
-                     var10000[var2] = (byte)(var10000[var2] >> 1);
-                     Player var3 = Client.players[var2];
-                     if (var3 != null) {
-                        Players.Players_indices[++Players.Players_count - 1] = var2;
-                     } else {
-                        Players.Players_emptyIndices[++Players.Players_emptyIdxCount - 1] = var2;
-                     }
-                  }
-
-               }
-            }
+            UserComparator2.SpriteBuffer_decode(var7);
+            var6 = true;
          }
+
+         IndexedSprite[] var5;
+         if (!var6) {
+            var5 = null;
+         } else {
+            IndexedSprite[] var8 = new IndexedSprite[class515.SpriteBuffer_spriteCount];
+
+            for(int var9 = 0; var9 < class515.SpriteBuffer_spriteCount; ++var9) {
+               IndexedSprite var10 = var8[var9] = new IndexedSprite();
+               var10.width = class330.SpriteBuffer_spriteWidth;
+               var10.height = class489.SpriteBuffer_spriteHeight;
+               var10.xOffset = class515.SpriteBuffer_xOffsets[var9];
+               var10.yOffset = class402.SpriteBuffer_yOffsets[var9];
+               var10.subWidth = class515.SpriteBuffer_spriteWidths[var9];
+               var10.subHeight = class515.SpriteBuffer_spriteHeights[var9];
+               var10.palette = class515.SpriteBuffer_spritePalette;
+               var10.pixels = class515.SpriteBuffer_pixels[var9];
+            }
+
+            TextureProvider.method4758();
+            var5 = var8;
+         }
+
+         return var5;
+      }
+   }
+
+   @ObfuscatedName("ax")
+   @ObfuscatedSignature(
+      descriptor = "(Lnq;Ljava/lang/String;Ljava/lang/String;B)Ltj;",
+      garbageValue = "115"
+   )
+   @Export("SpriteBuffer_getIndexedSpriteByName")
+   public static IndexedSprite SpriteBuffer_getIndexedSpriteByName(AbstractArchive var0, String var1, String var2) {
+      if (!var0.isValidFileName(var1, var2)) {
+         return null;
+      } else {
+         int var3 = var0.getGroupId(var1);
+         int var4 = var0.getFileId(var3, var2);
+         byte[] var7 = var0.takeFile(var3, var4);
+         boolean var6;
+         if (var7 == null) {
+            var6 = false;
+         } else {
+            UserComparator2.SpriteBuffer_decode(var7);
+            var6 = true;
+         }
+
+         IndexedSprite var5;
+         if (!var6) {
+            var5 = null;
+         } else {
+            IndexedSprite var8 = new IndexedSprite();
+            var8.width = class330.SpriteBuffer_spriteWidth;
+            var8.height = class489.SpriteBuffer_spriteHeight;
+            var8.xOffset = class515.SpriteBuffer_xOffsets[0];
+            var8.yOffset = class402.SpriteBuffer_yOffsets[0];
+            var8.subWidth = class515.SpriteBuffer_spriteWidths[0];
+            var8.subHeight = class515.SpriteBuffer_spriteHeights[0];
+            var8.palette = class515.SpriteBuffer_spritePalette;
+            var8.pixels = class515.SpriteBuffer_pixels[0];
+            TextureProvider.method4758();
+            var5 = var8;
+         }
+
+         return var5;
       }
    }
 }

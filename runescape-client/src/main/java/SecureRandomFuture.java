@@ -4,22 +4,23 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cf")
+@ObfuscatedName("cz")
 @Implements("SecureRandomFuture")
 public class SecureRandomFuture {
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Lne;"
+   @ObfuscatedName("gi")
+   @ObfuscatedGetter(
+      intValue = -1065093397
    )
-   @Export("HitSplatDefinition_fontsArchive")
-   public static AbstractArchive HitSplatDefinition_fontsArchive;
-   @ObfuscatedName("aj")
+   @Export("js5Port")
+   static int js5Port;
+   @ObfuscatedName("at")
    @Export("executor")
    ExecutorService executor = Executors.newSingleThreadExecutor();
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @Export("future")
    Future future;
 
@@ -27,10 +28,10 @@ public class SecureRandomFuture {
       this.future = this.executor.submit(new SecureRandomCallable());
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "141845738"
+      garbageValue = "-947147535"
    )
    @Export("shutdown")
    void shutdown() {
@@ -38,45 +39,29 @@ public class SecureRandomFuture {
       this.executor = null;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
       descriptor = "(I)Z",
-      garbageValue = "-2139546026"
+      garbageValue = "1288448133"
    )
    @Export("isDone")
    boolean isDone() {
       return this.future.isDone();
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(I)Ljava/security/SecureRandom;",
-      garbageValue = "-1649323244"
+      descriptor = "(S)Ljava/security/SecureRandom;",
+      garbageValue = "6896"
    )
    @Export("get")
    SecureRandom get() {
       try {
          return (SecureRandom)this.future.get();
-      } catch (Exception var2) {
-         return class392.method7406();
+      } catch (Exception var4) {
+         SecureRandom var3 = new SecureRandom();
+         var3.nextInt();
+         return var3;
       }
-   }
-
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(I)[Lmf;",
-      garbageValue = "1229624350"
-   )
-   static GameBuild[] method2123() {
-      return new GameBuild[]{GameBuild.WIP, GameBuild.BUILDLIVE, GameBuild.LIVE, GameBuild.RC};
-   }
-
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(B)[Lml;",
-      garbageValue = "-8"
-   )
-   public static StudioGame[] method2124() {
-      return new StudioGame[]{StudioGame.game5, StudioGame.oldscape, StudioGame.game3, StudioGame.runescape, StudioGame.game4, StudioGame.stellardawn};
    }
 }

@@ -1,19 +1,18 @@
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ea")
+@ObfuscatedName("eo")
 @Implements("BuddyRankComparator")
 public class BuddyRankComparator extends AbstractUserComparator {
-   @ObfuscatedName("ml")
+   @ObfuscatedName("fv")
    @ObfuscatedSignature(
-      descriptor = "Ldh;"
+      descriptor = "Lny;"
    )
-   @Export("localPlayer")
-   static Player localPlayer;
-   @ObfuscatedName("aj")
+   @Export("archive4")
+   static Archive archive4;
+   @ObfuscatedName("at")
    @Export("reversed")
    final boolean reversed;
 
@@ -21,10 +20,10 @@ public class BuddyRankComparator extends AbstractUserComparator {
       this.reversed = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lpt;Lpt;B)I",
-      garbageValue = "8"
+      descriptor = "(Lqg;Lqg;B)I",
+      garbageValue = "13"
    )
    @Export("compareBuddy")
    int compareBuddy(Buddy var1, Buddy var2) {
@@ -39,157 +38,48 @@ public class BuddyRankComparator extends AbstractUserComparator {
       return this.compareBuddy((Buddy)var1, (Buddy)var2);
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("kl")
    @ObfuscatedSignature(
-      descriptor = "(ILjava/lang/String;Lnq;II)Lkp;",
-      garbageValue = "662322828"
+      descriptor = "(Ljava/lang/String;Lmb;I)Ljava/lang/String;",
+      garbageValue = "-745287011"
    )
-   public static PacketBufferNode method2887(int var0, String var1, Language var2, int var3) {
-      PacketBufferNode var4 = UserComparator9.getPacketBufferNode(ClientPacket.field3072, Client.packetWriter.isaacCipher);
-      var4.packetBuffer.writeByte(0);
-      int var5 = var4.packetBuffer.offset;
-      var4.packetBuffer.writeByte(var0);
-      String var6 = var1.toLowerCase();
-      byte var7 = 0;
-      if (var6.startsWith("yellow:")) {
-         var7 = 0;
-         var1 = var1.substring("yellow:".length());
-      } else if (var6.startsWith("red:")) {
-         var7 = 1;
-         var1 = var1.substring("red:".length());
-      } else if (var6.startsWith("green:")) {
-         var7 = 2;
-         var1 = var1.substring("green:".length());
-      } else if (var6.startsWith("cyan:")) {
-         var7 = 3;
-         var1 = var1.substring("cyan:".length());
-      } else if (var6.startsWith("purple:")) {
-         var7 = 4;
-         var1 = var1.substring("purple:".length());
-      } else if (var6.startsWith("white:")) {
-         var7 = 5;
-         var1 = var1.substring("white:".length());
-      } else if (var6.startsWith("flash1:")) {
-         var7 = 6;
-         var1 = var1.substring("flash1:".length());
-      } else if (var6.startsWith("flash2:")) {
-         var7 = 7;
-         var1 = var1.substring("flash2:".length());
-      } else if (var6.startsWith("flash3:")) {
-         var7 = 8;
-         var1 = var1.substring("flash3:".length());
-      } else if (var6.startsWith("glow1:")) {
-         var7 = 9;
-         var1 = var1.substring("glow1:".length());
-      } else if (var6.startsWith("glow2:")) {
-         var7 = 10;
-         var1 = var1.substring("glow2:".length());
-      } else if (var6.startsWith("glow3:")) {
-         var7 = 11;
-         var1 = var1.substring("glow3:".length());
-      } else if (var2 != Language.Language_EN) {
-         if (var6.startsWith("yellow:")) {
-            var7 = 0;
-            var1 = var1.substring("yellow:".length());
-         } else if (var6.startsWith("red:")) {
-            var7 = 1;
-            var1 = var1.substring("red:".length());
-         } else if (var6.startsWith("green:")) {
-            var7 = 2;
-            var1 = var1.substring("green:".length());
-         } else if (var6.startsWith("cyan:")) {
-            var7 = 3;
-            var1 = var1.substring("cyan:".length());
-         } else if (var6.startsWith("purple:")) {
-            var7 = 4;
-            var1 = var1.substring("purple:".length());
-         } else if (var6.startsWith("white:")) {
-            var7 = 5;
-            var1 = var1.substring("white:".length());
-         } else if (var6.startsWith("flash1:")) {
-            var7 = 6;
-            var1 = var1.substring("flash1:".length());
-         } else if (var6.startsWith("flash2:")) {
-            var7 = 7;
-            var1 = var1.substring("flash2:".length());
-         } else if (var6.startsWith("flash3:")) {
-            var7 = 8;
-            var1 = var1.substring("flash3:".length());
-         } else if (var6.startsWith("glow1:")) {
-            var7 = 9;
-            var1 = var1.substring("glow1:".length());
-         } else if (var6.startsWith("glow2:")) {
-            var7 = 10;
-            var1 = var1.substring("glow2:".length());
-         } else if (var6.startsWith("glow3:")) {
-            var7 = 11;
-            var1 = var1.substring("glow3:".length());
+   static String method2892(String var0, Widget var1) {
+      if (var0.indexOf("%") != -1) {
+         for(int var2 = 1; var2 <= 5; ++var2) {
+            while(true) {
+               int var3 = var0.indexOf("%" + var2);
+               if (var3 == -1) {
+                  break;
+               }
+
+               String var4 = var0.substring(0, var3);
+               int var6 = ClanChannelMember.method3137(var1, var2 - 1);
+               String var5;
+               if (var6 < 999999999) {
+                  var5 = Integer.toString(var6);
+               } else {
+                  var5 = "*";
+               }
+
+               var0 = var4 + var5 + var0.substring(var3 + 2);
+            }
          }
       }
 
-      var6 = var1.toLowerCase();
-      byte var8 = 0;
-      if (var6.startsWith("wave:")) {
-         var8 = 1;
-         var1 = var1.substring("wave:".length());
-      } else if (var6.startsWith("wave2:")) {
-         var8 = 2;
-         var1 = var1.substring("wave2:".length());
-      } else if (var6.startsWith("shake:")) {
-         var8 = 3;
-         var1 = var1.substring("shake:".length());
-      } else if (var6.startsWith("scroll:")) {
-         var8 = 4;
-         var1 = var1.substring("scroll:".length());
-      } else if (var6.startsWith("slide:")) {
-         var8 = 5;
-         var1 = var1.substring("slide:".length());
-      } else if (var2 != Language.Language_EN) {
-         if (var6.startsWith("wave:")) {
-            var8 = 1;
-            var1 = var1.substring("wave:".length());
-         } else if (var6.startsWith("wave2:")) {
-            var8 = 2;
-            var1 = var1.substring("wave2:".length());
-         } else if (var6.startsWith("shake:")) {
-            var8 = 3;
-            var1 = var1.substring("shake:".length());
-         } else if (var6.startsWith("scroll:")) {
-            var8 = 4;
-            var1 = var1.substring("scroll:".length());
-         } else if (var6.startsWith("slide:")) {
-            var8 = 5;
-            var1 = var1.substring("slide:".length());
-         }
-      }
-
-      var4.packetBuffer.writeByte(var7);
-      var4.packetBuffer.writeByte(var8);
-      ClanChannel.method3325(var4.packetBuffer, var1);
-      if (var0 == class320.field3705.rsOrdinal()) {
-         var4.packetBuffer.writeByte(var3);
-      }
-
-      var4.packetBuffer.writeLengthByte(var4.packetBuffer.offset - var5);
-      return var4;
+      return var0;
    }
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("nc")
    @ObfuscatedSignature(
-      descriptor = "(I)Ljava/lang/String;",
-      garbageValue = "-713331340"
+      descriptor = "(Lmb;B)Ljava/lang/String;",
+      garbageValue = "-40"
    )
-   static String method2886() {
-      StringBuilder var0 = new StringBuilder();
-
-      Message var2;
-      for(Iterator var1 = Messages.Messages_hashTable.iterator(); var1.hasNext(); var0.append(var2.text).append('\n')) {
-         var2 = (Message)var1.next();
-         if (var2.sender != null && !var2.sender.isEmpty()) {
-            var0.append(var2.sender).append(':');
-         }
+   @Export("Widget_getSpellActionName")
+   static String Widget_getSpellActionName(Widget var0) {
+      if (LoginScreenAnimation.Widget_unpackTargetMask(StudioGame.getWidgetFlags(var0)) == 0) {
+         return null;
+      } else {
+         return var0.spellActionName != null && var0.spellActionName.trim().length() != 0 ? var0.spellActionName : null;
       }
-
-      return var0.toString();
    }
 }

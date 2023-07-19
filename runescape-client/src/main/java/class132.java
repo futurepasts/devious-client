@@ -1,39 +1,64 @@
+import java.lang.management.GarbageCollectorMXBean;
+import java.lang.management.ManagementFactory;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fs")
-public class class132 {
-   @ObfuscatedName("al")
+@ObfuscatedName("fm")
+public class class132 implements class123 {
+   @ObfuscatedName("ao")
+   @Export("musicTrackBoolean")
+   public static boolean musicTrackBoolean;
+
+   @ObfuscatedName("bv")
    @ObfuscatedSignature(
-      descriptor = "(IB)Lhg;",
-      garbageValue = "-90"
+      descriptor = "(B)I",
+      garbageValue = "0"
    )
-   @Export("getEnum")
-   public static EnumComposition getEnum(int var0) {
-      EnumComposition var1 = (EnumComposition)EnumComposition.EnumDefinition_cached.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = EnumComposition.EnumDefinition_archive.takeFile(8, var0);
-         var1 = new EnumComposition();
-         if (var2 != null) {
-            var1.decode(new Buffer(var2));
+   @Export("getGcDuration")
+   protected static int getGcDuration() {
+      int var0 = 0;
+      if (class405.garbageCollector == null || !class405.garbageCollector.isValid()) {
+         try {
+            Iterator var1 = ManagementFactory.getGarbageCollectorMXBeans().iterator();
+
+            while(var1.hasNext()) {
+               GarbageCollectorMXBean var2 = (GarbageCollectorMXBean)var1.next();
+               if (var2.isValid()) {
+                  class405.garbageCollector = var2;
+                  GameEngine.garbageCollectorLastCheckTimeMs = -1L;
+                  GameEngine.garbageCollectorLastCollectionTime = -1L;
+               }
+            }
+         } catch (Throwable var11) {
+         }
+      }
+
+      if (class405.garbageCollector != null) {
+         long var9 = BoundaryObject.method5027();
+         long var3 = class405.garbageCollector.getCollectionTime();
+         if (-1L != GameEngine.garbageCollectorLastCollectionTime) {
+            long var5 = var3 - GameEngine.garbageCollectorLastCollectionTime;
+            long var7 = var9 - GameEngine.garbageCollectorLastCheckTimeMs;
+            if (var7 != 0L) {
+               var0 = (int)(var5 * 100L / var7);
+            }
          }
 
-         EnumComposition.EnumDefinition_cached.put(var1, (long)var0);
-         return var1;
+         GameEngine.garbageCollectorLastCollectionTime = var3;
+         GameEngine.garbageCollectorLastCheckTimeMs = var9;
       }
+
+      return var0;
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("kn")
    @ObfuscatedSignature(
-      descriptor = "(IB)I",
-      garbageValue = "-97"
+      descriptor = "(I)I",
+      garbageValue = "578044573"
    )
-   public static int method3036(int var0) {
-      long var2 = ViewportMouse.ViewportMouse_entityTags[var0];
-      int var1 = (int)(var2 >>> 0 & 127L);
-      return var1;
+   static final int method3034() {
+      return Client.menuOptionsCount - 1;
    }
 }

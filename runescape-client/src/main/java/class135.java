@@ -1,98 +1,84 @@
-import java.lang.management.GarbageCollectorMXBean;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.concurrent.Callable;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fa")
-public enum class135 implements MouseWheel {
-   @ObfuscatedName("aj")
+@ObfuscatedName("fe")
+class class135 implements Callable {
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lfa;"
+      descriptor = "[Lis;"
    )
-   field1588(0, 0),
-   @ObfuscatedName("al")
+   public static class215[] field1579;
+   // $FF: synthetic field
    @ObfuscatedSignature(
-      descriptor = "Lfa;"
+      descriptor = "Lfz;"
    )
-   field1579(1, 1),
-   @ObfuscatedName("ac")
+   final class136 this$0;
+   // $FF: synthetic field
+   final int val$workStart;
+   // $FF: synthetic field
+   final int val$workEnd;
+   // $FF: synthetic field
    @ObfuscatedSignature(
-      descriptor = "Lfa;"
+      descriptor = "[Leg;"
    )
-   field1580(2, 2),
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   field1581(3, 3),
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   field1589(4, 4),
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   field1583(5, 5),
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   field1584(6, 6),
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   field1585(7, 7),
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   field1586(8, 8);
+   final class128[] val$curveLoadJobs;
 
-   @ObfuscatedName("bp")
-   @Export("garbageCollector")
-   static GarbageCollectorMXBean garbageCollector;
-   @ObfuscatedName("fg")
    @ObfuscatedSignature(
-      descriptor = "Lmx;"
+      descriptor = "(Lfz;II[Leg;)V"
    )
-   @Export("archive4")
-   static Archive archive4;
-   @ObfuscatedName("ar")
-   @ObfuscatedGetter(
-      intValue = -1601735427
-   )
-   final int field1582;
-   @ObfuscatedName("ak")
-   @ObfuscatedGetter(
-      intValue = 443647549
-   )
-   final int field1590;
+   class135(class136 var1, int var2, int var3, class128[] var4) {
+      this.this$0 = var1;
+      this.val$workStart = var2;
+      this.val$workEnd = var3;
+      this.val$curveLoadJobs = var4;
+   }
 
-   class135(int var3, int var4) {
-      this.field1582 = var3;
-      this.field1590 = var4;
+   public Object call() {
+      for(int var1 = this.val$workStart; var1 < this.val$workEnd; ++var1) {
+         this.val$curveLoadJobs[var1].call();
+      }
+
+      return null;
+   }
+
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(I)[Llj;",
+      garbageValue = "1017659250"
+   )
+   public static class294[] method3046() {
+      return new class294[]{class294.field3206, class294.field3199, class294.field3207, class294.field3201, class294.field3198, class294.field3203, class294.field3202, class294.field3205, class294.field3208, class294.field3204, class294.field3200};
    }
 
    @ObfuscatedName("aj")
+   @ObfuscatedSignature(
+      descriptor = "(IIIB)I",
+      garbageValue = "36"
+   )
+   static int method3045(int var0, int var1, int var2) {
+      if ((Tiles.Tiles_renderFlags[var0][var1][var2] & 8) != 0) {
+         return 0;
+      } else {
+         return var0 > 0 && (Tiles.Tiles_renderFlags[1][var1][var2] & 2) != 0 ? var0 - 1 : var0;
+      }
+   }
+
+   @ObfuscatedName("ai")
    @ObfuscatedSignature(
       descriptor = "(I)I",
-      garbageValue = "-1409646049"
+      garbageValue = "844519050"
    )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.field1590;
+   static int method3048() {
+      return Login.loginIndex;
    }
 
-   @ObfuscatedName("cj")
+   @ObfuscatedName("bu")
    @ObfuscatedSignature(
-      descriptor = "(II)Ljava/lang/Object;",
-      garbageValue = "1765946215"
+      descriptor = "(ILdd;ZB)I",
+      garbageValue = "49"
    )
-   static Object method3074(int var0) {
-      return class148.method3171((class467)SpriteMask.findEnumerated(class467.method8480(), var0));
+   static int method3047(int var0, Script var1, boolean var2) {
+      return 2;
    }
 }

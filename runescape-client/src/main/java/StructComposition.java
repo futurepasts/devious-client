@@ -3,24 +3,27 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hm")
+@ObfuscatedName("hr")
 @Implements("StructComposition")
 public class StructComposition extends DualNode {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
    )
    @Export("StructDefinition_archive")
    static AbstractArchive StructDefinition_archive;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lkt;"
+      descriptor = "Llf;"
    )
    @Export("StructDefinition_cached")
    static EvictingDualNodeHashTable StructDefinition_cached = new EvictingDualNodeHashTable(64);
-   @ObfuscatedName("ac")
+   @ObfuscatedName("ar")
+   @Export("cacheParentPaths")
+   static String[] cacheParentPaths;
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Lrz;"
+      descriptor = "Lsv;"
    )
    @Export("params")
    IterableNodeHashTable params;
@@ -28,19 +31,19 @@ public class StructComposition extends DualNode {
    StructComposition() {
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
       descriptor = "(B)V",
-      garbageValue = "-42"
+      garbageValue = "8"
    )
    @Export("postDecode")
    void postDecode() {
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)V",
-      garbageValue = "641873901"
+      descriptor = "(Ltz;B)V",
+      garbageValue = "0"
    )
    @Export("decode")
    void decode(Buffer var1) {
@@ -54,45 +57,49 @@ public class StructComposition extends DualNode {
       }
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;II)V",
-      garbageValue = "-443433378"
+      descriptor = "(Ltz;IB)V",
+      garbageValue = "-28"
    )
    @Export("decodeNext")
    void decodeNext(Buffer var1, int var2) {
       if (var2 == 249) {
-         this.params = AABB.readStringIntParameters(var1, this.params);
+         this.params = ReflectionCheck.readStringIntParameters(var1, this.params);
       }
 
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "(IIB)I",
-      garbageValue = "4"
+      descriptor = "(III)I",
+      garbageValue = "661998652"
    )
    @Export("getIntParam")
    public int getIntParam(int var1, int var2) {
-      return class139.method3104(this.params, var1, var2);
+      IterableNodeHashTable var4 = this.params;
+      int var3;
+      if (var4 == null) {
+         var3 = var2;
+      } else {
+         IntegerNode var5 = (IntegerNode)var4.get((long)var1);
+         if (var5 == null) {
+            var3 = var2;
+         } else {
+            var3 = var5.integer;
+         }
+      }
+
+      return var3;
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
       descriptor = "(ILjava/lang/String;I)Ljava/lang/String;",
-      garbageValue = "-2007282645"
+      garbageValue = "-1837954427"
    )
    @Export("getStringParam")
    public String getStringParam(int var1, String var2) {
-      return class428.method7964(this.params, var1, var2);
-   }
-
-   @ObfuscatedName("nw")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-1561868773"
-   )
-   static void method3815(int var0) {
-      Client.oculusOrbState = var0;
+      return class165.method3374(this.params, var1, var2);
    }
 }

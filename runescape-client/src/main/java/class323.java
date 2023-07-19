@@ -1,115 +1,52 @@
+import java.applet.Applet;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mb")
+@ObfuscatedName("mm")
 public class class323 {
-   @ObfuscatedName("tn")
-   @ObfuscatedSignature(
-      descriptor = "Lbc;"
-   )
-   @Export("pcmStreamMixer")
-   static PcmStreamMixer pcmStreamMixer;
-   @ObfuscatedName("wj")
+   @ObfuscatedName("gc")
    @ObfuscatedGetter(
-      intValue = 757139865
+      intValue = 52013663
    )
-   @Export("foundItemIdCount")
-   static int foundItemIdCount;
+   static int field3524;
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(III)I",
-      garbageValue = "-236309756"
+      descriptor = "(Ljava/applet/Applet;Ljava/lang/String;B)V",
+      garbageValue = "-38"
    )
-   public static int method6323(int var0, int var1) {
-      return (var0 << 8) + var1;
-   }
-
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "(CLnq;I)C",
-      garbageValue = "1192929878"
-   )
-   @Export("standardizeChar")
-   static char standardizeChar(char var0, Language var1) {
-      if (var0 >= 192 && var0 <= 255) {
-         if (var0 >= 192 && var0 <= 198) {
-            return 'A';
-         }
-
-         if (var0 == 199) {
-            return 'C';
-         }
-
-         if (var0 >= 200 && var0 <= 203) {
-            return 'E';
-         }
-
-         if (var0 >= 204 && var0 <= 207) {
-            return 'I';
-         }
-
-         if (var0 == 209 && var1 != Language.Language_ES) {
-            return 'N';
-         }
-
-         if (var0 >= 210 && var0 <= 214) {
-            return 'O';
-         }
-
-         if (var0 >= 217 && var0 <= 220) {
-            return 'U';
-         }
-
-         if (var0 == 221) {
-            return 'Y';
-         }
-
-         if (var0 == 223) {
-            return 's';
-         }
-
-         if (var0 >= 224 && var0 <= 230) {
-            return 'a';
-         }
-
-         if (var0 == 231) {
-            return 'c';
-         }
-
-         if (var0 >= 232 && var0 <= 235) {
-            return 'e';
-         }
-
-         if (var0 >= 236 && var0 <= 239) {
-            return 'i';
-         }
-
-         if (var0 == 241 && var1 != Language.Language_ES) {
-            return 'n';
-         }
-
-         if (var0 >= 242 && var0 <= 246) {
-            return 'o';
-         }
-
-         if (var0 >= 249 && var0 <= 252) {
-            return 'u';
-         }
-
-         if (var0 == 253 || var0 == 255) {
-            return 'y';
-         }
+   public static void method5998(Applet var0, String var1) {
+      class31.field162 = var0;
+      if (var1 != null) {
+         class31.field160 = var1;
       }
 
-      if (var0 == 338) {
-         return 'O';
-      } else if (var0 == 339) {
-         return 'o';
+   }
+
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(Lnq;I)V",
+      garbageValue = "276922095"
+   )
+   public static void method6002(AbstractArchive var0) {
+      FloorUnderlayDefinition.FloorUnderlayDefinition_archive = var0;
+   }
+
+   @ObfuscatedName("ac")
+   @ObfuscatedSignature(
+      descriptor = "(CB)Z",
+      garbageValue = "-17"
+   )
+   @Export("isCharPrintable")
+   public static boolean isCharPrintable(char var0) {
+      if (var0 >= ' ' && var0 <= '~') {
+         return true;
+      } else if (var0 >= 160 && var0 <= 255) {
+         return true;
       } else {
-         return var0 == 376 ? 'Y' : var0;
+         return var0 == 8364 || var0 == 338 || var0 == 8212 || var0 == 339 || var0 == 376;
       }
    }
 }

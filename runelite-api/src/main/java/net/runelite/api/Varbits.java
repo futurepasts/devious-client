@@ -541,7 +541,15 @@ public final class Varbits
 	public static final int AUTOWEED = 5557;
 
 	/**
-	 * The varbit that stores the players {@code AccountType}.
+	 * The player's account type.
+	 * <p>
+	 * 0 = normal
+	 * 1 = ironman
+	 * 2 = ultimate ironman
+	 * 3 = hardcore ironman
+	 * 4 = group ironman
+	 * 5 = hardcore group ironman
+	 * 6 = unranked group ironman
 	 */
 	public static final int ACCOUNT_TYPE = 1777;
 
@@ -606,6 +614,7 @@ public final class Varbits
 	/**
 	 * Spell cooldowns
 	 */
+	public static final int HEAL_GROUP_COOLDOWN = 925;
 	public static final int VENGEANCE_COOLDOWN = 2451;
 	public static final int DEATH_CHARGE_COOLDOWN = 12138;
 	public static final int CORRUPTION_COOLDOWN = 12288;
@@ -834,4 +843,60 @@ public final class Varbits
 	 * The assigned boss for boss slayer.
 	 */
 	public static final int SLAYER_TASK_BOSS = 4723;
+
+	/**
+	 * Whether the level up interface is disabled
+	 */
+	public static final int DISABLE_LEVEL_UP_INTERFACE = 9452;
+
+	public static final int PRAYERBOOK = 14826;
+
+	/**
+	 * Draynor manor basement
+	 * See <a href="https://oldschool.runescape.wiki/w/File:Ernest_the_Chicken_-_Oil_can_map.png">asd</a>
+	 */
+
+	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_A = 1788;
+	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_B = 1789;
+	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_C = 1790;
+	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_D = 1791;
+	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_E = 1792;
+	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_F = 1793;
+
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_1_STATE = 1801;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_2_STATE = 1796;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_3_STATE = 1802;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_4_STATE = 1797;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_5_STATE = 1800;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_6_STATE = 1795;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_7_STATE = 1794;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_8_STATE = 1799;
+	public static final int DRAYNOR_MANOR_BASEMENT_DOOR_9_STATE = 1798;
+
+	/**
+	 * Constructible Darkmeyer eastern wall shortcut
+	 */
+	public static final int DARKMEYER_EAST_WALL_SHORTCUT_1 = 10449;
+	public static final int DARKMEYER_EAST_WALL_SHORTCUT_2 = 10450;
+
+	/**
+	 * Kudos
+	 */
+	public static final int KUDOS = 3637;
+
+	/**
+	 * Veos dialog
+	 */
+	public static final int VEOS_HAS_TALKED_TO_BEFORE = 4897;
+
+
+	/**
+	 * Tutorial island
+	 */
+	public static final int CUSTOMIZE_PLAYER_STATE = 5605;
+
+	/**
+	 * Local player gender? (Changes depending on gender selected within Tutorial island)
+	 */
+	public static final int LOCAL_PLAYER_GENDER = 14021;
 }

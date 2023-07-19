@@ -200,6 +200,12 @@ public final class WidgetID
 	public static final int TOA_RAID_GROUP_ID = 481;
 	public static final int ACHIEVEMENT_DIARY_SCROLL_GROUP_ID = 741;
 
+	/**
+	 * Tutorial Island player customization
+	 */
+	public static final int SET_DISPLAY_NAME_GROUP_ID = 558;
+	public static final int CHARACTER_CREATOR_GROUP_ID = 679;
+
 	static class WorldMap
 	{
 		static final int MAPVIEW = 7;
@@ -409,6 +415,10 @@ public final class WidgetID
 
 	static class Equipment
 	{
+		static final int STATS = 1;
+		static final int PRICES = 3;
+		static final int DEATH = 5;
+		static final int FOLLOWER = 7;
 		static final int HELMET = 15;
 		static final int CAPE = 16;
 		static final int AMULET = 17;
@@ -550,12 +560,23 @@ public final class WidgetID
 		static final int MINIMAP_ORB_HOLDER = 32;
 		static final int LOGOUT_BUTTON_OVERLAY = 33;
 		static final int MINIMAP_LOGOUT_BUTTON = 34;
+		static final int FRIENDS_CHAT_TAB = 37;
+		static final int IGNORES_TAB = 38;
+		static final int FRIENDS_TAB = 39;
+		static final int SETTINGS_TAB = 40;
+		static final int EMOTES_TAB = 41;
+		static final int MUSIC_TAB = 42;
 		static final int FC_ICON = 43;
+		static final int IGNORES_ICON = 44;
 		static final int FRIEND_ICON = 45;
 		static final int SETTINGS_ICON = 46;
 		static final int EMOTE_ICON = 47;
 		static final int MUSIC_ICON = 48;
+		static final int COMBAT_TAB = 51;
+		static final int SKILLS_TAB = 52;
+		static final int QUESTS_TAB = 53;
 		static final int INVENTORY_TAB = 54;
+		static final int EQUIP_TAB = 55;
 		static final int PRAYER_TAB = 56;
 		static final int MAGIC_TAB = 57;
 		static final int CMB_ICON = 58;
@@ -604,22 +625,22 @@ public final class WidgetID
 		static final int BURST_OF_STRENGTH = 10;
 		static final int CLARITY_OF_THOUGHT = 11;
 		static final int SHARP_EYE = 27;
-		static final int MYSTIC_WILL = 28;
+		static final int MYSTIC_WILL = 30;
 		static final int ROCK_SKIN = 12;
 		static final int SUPERHUMAN_STRENGTH = 13;
 		static final int IMPROVED_REFLEXES = 14;
 		static final int RAPID_RESTORE = 15;
 		static final int RAPID_HEAL = 16;
 		static final int PROTECT_ITEM = 17;
-		static final int HAWK_EYE = 29;
-		static final int MYSTIC_LORE = 30;
+		static final int HAWK_EYE = 28;
+		static final int MYSTIC_LORE = 31;
 		static final int STEEL_SKIN = 18;
-		static final int ULTIMATE_STRENGTH = 29;
-		static final int INCREDIBLE_REFLEXES = 16;
+		static final int ULTIMATE_STRENGTH = 19;
+		static final int INCREDIBLE_REFLEXES = 20;
 		static final int PROTECT_FROM_MAGIC = 21;
 		static final int PROTECT_FROM_MISSILES = 22;
 		static final int PROTECT_FROM_MELEE = 23;
-		static final int EAGLE_EYE = 31;
+		static final int EAGLE_EYE = 29;
 		static final int MYSTIC_MIGHT = 32;
 		static final int RETRIBUTION = 24;
 		static final int REDEMPTION = 25;
@@ -866,7 +887,7 @@ public final class WidgetID
 	static class WorldSwitcher
 	{
 		static final int CONTAINER = 1;
-		static final int WORLD_LIST = 16;
+		static final int WORLD_LIST = 18;
 		static final int LOGOUT_BUTTON = 23;
 	}
 
@@ -875,7 +896,7 @@ public final class WidgetID
 		static final int TELEPORT_BUTTON = 30;
 	}
 
-	public static class StandardSpellBook
+	static class StandardSpellBook
 	{
 		static final int LUMBRIDGE_HOME_TELEPORT = 6;
 		static final int KOUREND_HOME_TELEPORT = 4;
@@ -936,9 +957,9 @@ public final class WidgetID
 	static class Music
 	{
 		static final int CONTAINER = 0;
-		static final int SCROLL_CONTAINER = 3;
-		static final int LIST = 5;
-		static final int SCROLLBAR = 6;
+		static final int SCROLL_CONTAINER = 4;
+		static final int LIST = 6;
+		static final int SCROLLBAR = 7;
 	}
 
 	static class Barrows_Puzzle
@@ -968,10 +989,10 @@ public final class WidgetID
 
 	static class SettingsSide
 	{
-		static final int CAMERA_ZOOM_SLIDER_TRACK = 100;
-		static final int MUSIC_SLIDER = 29;
-		static final int SOUND_EFFECT_SLIDER = 43;
-		static final int AREA_SOUND_SLIDER = 57;
+		static final int CAMERA_ZOOM_SLIDER_TRACK = 57;
+		static final int MUSIC_SLIDER = 92;
+		static final int SOUND_EFFECT_SLIDER = 106;
+		static final int AREA_SOUND_SLIDER = 120;
 	}
 
 	static class Settings
@@ -1408,5 +1429,47 @@ public final class WidgetID
 	static class Trade
 	{
 		static final int HEADER = 31;
+	}
+
+	static class SetDisplayName
+	{
+		static final int LAYER = 0;
+		static final int ENTER_NAME_INPUT = 7;
+		static final int NAME_STATUS = 13;
+		static final int NAME_SUGGESTIONS = 14;
+		static final int LOOKUP_NAME_BUTTON = 18;
+		static final int SET_NAME_BUTTON = 19;
+	}
+
+	static class CharacterCreator
+	{
+		static final int LAYER = 0;
+		static final int HEAD_LEFT_BUTTON = 12;
+		static final int HEAD_RIGHT_BUTTON = 13;
+		static final int JAW_LEFT_BUTTON = 16;
+		static final int JAW_RIGHT_BUTTON = 17;
+		static final int TORSO_LEFT_BUTTON = 20;
+		static final int TORSO_RIGHT_BUTTON = 21;
+		static final int ARMS_LEFT_BUTTON = 24;
+		static final int ARMS_RIGHT_BUTTON = 25;
+		static final int HANDS_LEFT_BUTTON = 28;
+		static final int HANDS_RIGHT_BUTTON = 29;
+		static final int LEGS_LEFT_BUTTON = 32;
+		static final int LEGS_RIGHT_BUTTON = 33;
+		static final int FEET_LEFT_BUTTON = 36;
+		static final int FEET_RIGHT_BUTTON = 37;
+		static final int HAIR_COLOR_LEFT_BUTTON = 43;
+		static final int HAIR_COLOR_RIGHT_BUTTON = 44;
+		static final int TORSO_COLOR_LEFT_BUTTON = 47;
+		static final int TORSO_COLOR_RIGHT_BUTTON = 48;
+		static final int LEGS_COLOR_LEFT_BUTTON = 51;
+		static final int LEGS_COLOR_RIGHT_BUTTON = 52;
+		static final int FEET_COLOR_LEFT_BUTTON = 55;
+		static final int FEET_COLOR_RIGHT_BUTTON = 56;
+		static final int SKIN_COLOR_LEFT_BUTTON = 59;
+		static final int SKIN_COLOR_RIGHT_BUTTON = 60;
+		static final int GENDER_MALE_BUTTON = 65;
+		static final int GENDER_FEMALE_BUTTON = 66;
+		static final int CONFIRM_BUTTON = 68;
 	}
 }

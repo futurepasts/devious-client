@@ -4,45 +4,48 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("it")
+@ObfuscatedName("jn")
 @Implements("SceneTilePaint")
 public final class SceneTilePaint {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("jk")
+   @Export("regions")
+   static int[] regions;
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 1545996495
+      intValue = 2013504147
    )
    @Export("swColor")
    int swColor;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = -1652527289
+      intValue = 1549439477
    )
    @Export("seColor")
    int seColor;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = -1801729611
+      intValue = 1522386339
    )
    @Export("neColor")
    int neColor;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -2002434175
+      intValue = 965064125
    )
    @Export("nwColor")
    int nwColor;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = -1083388959
+      intValue = 1669670065
    )
    @Export("texture")
    int texture;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @Export("isFlat")
    boolean isFlat = true;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedGetter(
-      intValue = 91212955
+      intValue = 499123279
    )
    @Export("rgb")
    int rgb;
@@ -57,16 +60,31 @@ public final class SceneTilePaint {
       this.isFlat = var7;
    }
 
-   @ObfuscatedName("kr")
+   @ObfuscatedName("aa")
    @ObfuscatedSignature(
-      descriptor = "(II)Ljava/lang/String;",
-      garbageValue = "1985297196"
+      descriptor = "(Lmb;II)V",
+      garbageValue = "-1277532143"
    )
-   static String method4753(int var0) {
-      if (var0 < 0) {
-         return "";
+   @Export("Widget_setKeyIgnoreHeld")
+   static final void Widget_setKeyIgnoreHeld(Widget var0, int var1) {
+      if (var0.field3678 == null) {
+         throw new RuntimeException();
       } else {
-         return Client.menuTargets[var0].length() > 0 ? Client.menuActions[var0] + " " + Client.menuTargets[var0] : Client.menuActions[var0];
+         if (var0.field3669 == null) {
+            var0.field3669 = new int[var0.field3678.length];
+         }
+
+         var0.field3669[var1] = Integer.MAX_VALUE;
       }
+   }
+
+   @ObfuscatedName("lq")
+   @ObfuscatedSignature(
+      descriptor = "(B)Z",
+      garbageValue = "-24"
+   )
+   @Export("getTapToDrop")
+   static boolean getTapToDrop() {
+      return Client.tapToDrop;
    }
 }

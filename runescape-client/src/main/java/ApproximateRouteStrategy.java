@@ -3,87 +3,100 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cy")
+@ObfuscatedName("ci")
 @Implements("ApproximateRouteStrategy")
 public class ApproximateRouteStrategy extends RouteStrategy {
+   @ObfuscatedName("vh")
+   @ObfuscatedSignature(
+      descriptor = "Lck;"
+   )
+   @Export("friendSystem")
+   public static FriendSystem friendSystem;
+   @ObfuscatedName("ad")
+   @ObfuscatedSignature(
+      descriptor = "Lno;"
+   )
+   @Export("NetCache_currentResponse")
+   public static NetFileRequest NetCache_currentResponse;
+
    ApproximateRouteStrategy() {
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(IIILiz;B)Z",
-      garbageValue = "1"
+      descriptor = "(IIILic;B)Z",
+      garbageValue = "-38"
    )
    @Export("hasArrived")
    protected boolean hasArrived(int var1, int var2, int var3, CollisionMap var4) {
       return var2 == super.approxDestinationX && var3 == super.approxDestinationY;
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(II)Lej;",
-      garbageValue = "-2100418601"
+      descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
+      garbageValue = "-2089408122"
    )
-   static class125 method1203(int var0) {
-      class125 var1 = (class125)SpriteMask.findEnumerated(Occluder.method4564(), var0);
-      if (var1 == null) {
-         var1 = class125.field1490;
+   @Export("addChatMessage")
+   static void addChatMessage(int var0, String var1, String var2, String var3) {
+      ChatChannel var4 = (ChatChannel)Messages.Messages_channels.get(var0);
+      if (var4 == null) {
+         var4 = new ChatChannel();
+         Messages.Messages_channels.put(var0, var4);
       }
 
-      return var1;
+      Message var5 = var4.addMessage(var0, var1, var2, var3);
+      Messages.Messages_hashTable.put(var5, (long)var5.count);
+      Messages.Messages_queue.add(var5);
+      Client.chatCycle = Client.cycleCntr;
    }
 
-   @ObfuscatedName("ll")
+   @ObfuscatedName("hx")
    @ObfuscatedSignature(
-      descriptor = "(IB)V",
-      garbageValue = "92"
+      descriptor = "(IIII)V",
+      garbageValue = "-1102055523"
    )
-   @Export("Widget_resetModelFrames")
-   static final void Widget_resetModelFrames(int var0) {
-      if (GrandExchangeEvent.loadInterface(var0)) {
-         Widget[] var1 = class155.Widget_interfaceComponents[var0];
-
-         for(int var2 = 0; var2 < var1.length; ++var2) {
-            Widget var3 = var1[var2];
-            if (var3 != null) {
-               var3.modelFrame = 0;
-               var3.modelFrameCycle = 0;
-            }
+   static final void method1186(int var0, int var1, int var2) {
+      if (class208.cameraX < var0) {
+         class208.cameraX = (var0 - class208.cameraX) * LoginScreenAnimation.field1255 / 1000 + class208.cameraX + UserComparator4.field1410;
+         if (class208.cameraX > var0) {
+            class208.cameraX = var0;
          }
-
       }
-   }
 
-   @ObfuscatedName("lo")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "957157213"
-   )
-   static final void method1201(int var0) {
-      var0 = Math.min(Math.max(var0, 0), 127);
-      WorldMapSectionType.clientPreferences.updateSoundEffectVolume(var0);
-   }
-
-   @ObfuscatedName("nk")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "872602777"
-   )
-   static void method1202(String var0) {
-      FontName.field4790 = var0;
-
-      try {
-         String var1 = class392.client.getParameter(Integer.toString(18));
-         String var2 = class392.client.getParameter(Integer.toString(13));
-         String var3 = var1 + "settings=" + var0 + "; version=1; path=/; domain=" + var2;
-         if (var0.length() == 0) {
-            var3 = var3 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
-         } else {
-            var3 = var3 + "; Expires=" + class140.method3114(WorldMapSection2.method4844() + 94608000000L) + "; Max-Age=" + 94608000L;
+      if (class208.cameraX > var0) {
+         class208.cameraX -= (class208.cameraX - var0) * LoginScreenAnimation.field1255 / 1000 + UserComparator4.field1410;
+         if (class208.cameraX < var0) {
+            class208.cameraX = var0;
          }
+      }
 
-         class26.method381(class392.client, "document.cookie=\"" + var3 + "\"");
-      } catch (Throwable var4) {
+      if (class152.cameraY < var1) {
+         class152.cameraY = (var1 - class152.cameraY) * LoginScreenAnimation.field1255 / 1000 + class152.cameraY + UserComparator4.field1410;
+         if (class152.cameraY > var1) {
+            class152.cameraY = var1;
+         }
+      }
+
+      if (class152.cameraY > var1) {
+         class152.cameraY -= (class152.cameraY - var1) * LoginScreenAnimation.field1255 / 1000 + UserComparator4.field1410;
+         if (class152.cameraY < var1) {
+            class152.cameraY = var1;
+         }
+      }
+
+      if (ByteArrayPool.cameraZ < var2) {
+         ByteArrayPool.cameraZ = (var2 - ByteArrayPool.cameraZ) * LoginScreenAnimation.field1255 / 1000 + ByteArrayPool.cameraZ + UserComparator4.field1410;
+         if (ByteArrayPool.cameraZ > var2) {
+            ByteArrayPool.cameraZ = var2;
+         }
+      }
+
+      if (ByteArrayPool.cameraZ > var2) {
+         ByteArrayPool.cameraZ -= (ByteArrayPool.cameraZ - var2) * LoginScreenAnimation.field1255 / 1000 + UserComparator4.field1410;
+         if (ByteArrayPool.cameraZ < var2) {
+            ByteArrayPool.cameraZ = var2;
+         }
       }
 
    }

@@ -4,130 +4,130 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rt")
+@ObfuscatedName("rk")
 @Implements("PlatformInfo")
 public class PlatformInfo extends Node {
-   @ObfuscatedName("bl")
+   @ObfuscatedName("bf")
    @ObfuscatedGetter(
-      intValue = 866420121
+      intValue = -2030368791
    )
    @Export("os")
    int os;
-   @ObfuscatedName("bk")
+   @ObfuscatedName("bd")
    @Export("field4518")
    boolean field4518;
-   @ObfuscatedName("br")
+   @ObfuscatedName("ba")
    @ObfuscatedGetter(
-      intValue = -988253511
+      intValue = -377501257
    )
    @Export("osVersion")
    int osVersion;
-   @ObfuscatedName("ba")
+   @ObfuscatedName("bn")
    @ObfuscatedGetter(
-      intValue = 1200698943
+      intValue = -1764874715
    )
    @Export("vendor")
    int vendor;
-   @ObfuscatedName("bz")
+   @ObfuscatedName("bb")
    @ObfuscatedGetter(
-      intValue = 2129153279
+      intValue = -571023749
    )
    @Export("javaMajor")
    int javaMajor;
-   @ObfuscatedName("bq")
+   @ObfuscatedName("bx")
    @ObfuscatedGetter(
-      intValue = 2112872127
+      intValue = 735267855
    )
    @Export("javaMinor")
    int javaMinor;
-   @ObfuscatedName("bc")
+   @ObfuscatedName("be")
    @ObfuscatedGetter(
-      intValue = -1861897227
+      intValue = 1056403691
    )
    @Export("javaPatch")
    int javaPatch;
-   @ObfuscatedName("bt")
+   @ObfuscatedName("bh")
    @Export("field4524")
    boolean field4524;
-   @ObfuscatedName("be")
+   @ObfuscatedName("bp")
    @ObfuscatedGetter(
-      intValue = -1076112561
+      intValue = 1141519983
    )
    @Export("maxMemory")
    int maxMemory;
-   @ObfuscatedName("bu")
+   @ObfuscatedName("bw")
    @ObfuscatedGetter(
-      intValue = 648519259
+      intValue = 971608119
    )
    @Export("cpuCores")
    int cpuCores;
-   @ObfuscatedName("by")
+   @ObfuscatedName("bk")
    @ObfuscatedGetter(
-      intValue = -1963553311
+      intValue = 1732961895
    )
    @Export("field4527")
    int field4527;
-   @ObfuscatedName("bp")
+   @ObfuscatedName("bv")
    @ObfuscatedGetter(
-      intValue = 1789047105
+      intValue = -1262950683
    )
    @Export("clockSpeed")
    int clockSpeed;
-   @ObfuscatedName("bb")
+   @ObfuscatedName("bz")
    @Export("field4536")
    String field4536;
-   @ObfuscatedName("bx")
+   @ObfuscatedName("bm")
    @Export("field4514")
    String field4514;
-   @ObfuscatedName("bn")
+   @ObfuscatedName("br")
    @Export("field4528")
    String field4528;
-   @ObfuscatedName("bj")
+   @ObfuscatedName("bu")
    @Export("field4532")
    String field4532;
-   @ObfuscatedName("bf")
+   @ObfuscatedName("by")
    @ObfuscatedGetter(
-      intValue = -1550142989
+      intValue = 1942363389
    )
    @Export("field4512")
    int field4512;
-   @ObfuscatedName("bw")
+   @ObfuscatedName("bt")
    @ObfuscatedGetter(
-      intValue = 1918720287
+      intValue = -1980385953
    )
    @Export("field4534")
    int field4534;
-   @ObfuscatedName("bi")
+   @ObfuscatedName("bl")
    @ObfuscatedGetter(
-      intValue = 451790491
+      intValue = -1721142979
    )
    @Export("field4535")
    int field4535;
-   @ObfuscatedName("cl")
+   @ObfuscatedName("cs")
    @ObfuscatedGetter(
-      intValue = -511758947
+      intValue = -680624643
    )
    @Export("field4530")
    int field4530;
-   @ObfuscatedName("ca")
+   @ObfuscatedName("cu")
    @Export("field4537")
    String field4537;
-   @ObfuscatedName("cb")
+   @ObfuscatedName("ca")
    @Export("field4538")
    String field4538;
-   @ObfuscatedName("co")
+   @ObfuscatedName("cf")
    @Export("field4539")
    int[] field4539 = new int[3];
-   @ObfuscatedName("cj")
+   @ObfuscatedName("cw")
    @ObfuscatedGetter(
-      intValue = -777505601
+      intValue = 1787161071
    )
    @Export("field4540")
    int field4540;
-   @ObfuscatedName("cn")
+   @ObfuscatedName("ch")
    @Export("field4541")
    String field4541;
-   @ObfuscatedName("ce")
+   @ObfuscatedName("cp")
    @Export("field4542")
    String field4542;
 
@@ -160,10 +160,10 @@ public class PlatformInfo extends Node {
       this.field4542 = var26;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)V",
-      garbageValue = "202560901"
+      descriptor = "(Ltz;I)V",
+      garbageValue = "559305271"
    )
    @Export("write")
    public void write(Buffer var1) {
@@ -200,22 +200,67 @@ public class PlatformInfo extends Node {
       var1.writeStringCp1252NullCircumfixed(this.field4542);
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
       descriptor = "(I)I",
-      garbageValue = "228584167"
+      garbageValue = "1243632731"
    )
    @Export("size")
    public int size() {
       int var1 = 39;
-      var1 += class19.method282(this.field4536);
-      var1 += class19.method282(this.field4514);
-      var1 += class19.method282(this.field4528);
-      var1 += class19.method282(this.field4532);
-      var1 += class19.method282(this.field4537);
-      var1 += class19.method282(this.field4538);
-      var1 += class19.method282(this.field4541);
-      var1 += class19.method282(this.field4542);
+      var1 += VarcInt.method3616(this.field4536);
+      var1 += VarcInt.method3616(this.field4514);
+      var1 += VarcInt.method3616(this.field4528);
+      var1 += VarcInt.method3616(this.field4532);
+      var1 += VarcInt.method3616(this.field4537);
+      var1 += VarcInt.method3616(this.field4538);
+      var1 += VarcInt.method3616(this.field4541);
+      var1 += VarcInt.method3616(this.field4542);
       return var1;
+   }
+
+   @ObfuscatedName("ho")
+   @ObfuscatedSignature(
+      descriptor = "(B)V",
+      garbageValue = "59"
+   )
+   static final void method8309() {
+      if (Clock.Client_plane != Client.field747) {
+         Client.field747 = Clock.Client_plane;
+         ItemContainer.method2239(Clock.Client_plane);
+      }
+
+   }
+
+   @ObfuscatedName("le")
+   @ObfuscatedSignature(
+      descriptor = "(I)V",
+      garbageValue = "-167178637"
+   )
+   static void method8310() {
+      for(InterfaceParent var0 = (InterfaceParent)Client.interfaceParents.first(); var0 != null; var0 = (InterfaceParent)Client.interfaceParents.next()) {
+         int var1 = var0.group;
+         if (Client.loadInterface(var1)) {
+            boolean var2 = true;
+            Widget[] var3 = class16.Widget_interfaceComponents[var1];
+
+            int var4;
+            for(var4 = 0; var4 < var3.length; ++var4) {
+               if (var3[var4] != null) {
+                  var2 = var3[var4].isIf3;
+                  break;
+               }
+            }
+
+            if (!var2) {
+               var4 = (int)var0.key;
+               Widget var5 = FriendSystem.getWidget(var4);
+               if (var5 != null) {
+                  Messages.invalidateWidget(var5);
+               }
+            }
+         }
+      }
+
    }
 }

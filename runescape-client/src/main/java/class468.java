@@ -1,32 +1,53 @@
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sd")
-final class class468 implements class463 {
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/Object;Lsy;I)V",
-      garbageValue = "-1509130344"
+@ObfuscatedName("sx")
+public abstract class class468 {
+   @ObfuscatedName("ak")
+   @ObfuscatedGetter(
+      intValue = 1238147959
    )
-   public void vmethod8486(Object var1, Buffer var2) {
-      this.method8483((String)var1, var2);
-   }
-
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "(Lsy;B)Ljava/lang/Object;",
-      garbageValue = "0"
+   int field4815 = 0;
+   @ObfuscatedName("ae")
+   @ObfuscatedGetter(
+      intValue = -805297035
    )
-   public Object vmethod8485(Buffer var1) {
-      return var1.readStringCp1252NullTerminated();
-   }
-
+   int field4816 = 0;
+   @ObfuscatedName("af")
+   double field4817 = 0.0;
    @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;Lsy;I)V",
-      garbageValue = "1996281669"
+   @ObfuscatedGetter(
+      intValue = -422186143
    )
-   void method8483(String var1, Buffer var2) {
-      var2.writeStringCp1252NullTerminated(var1);
+   int field4818 = 0;
+
+   class468(int var1, int var2) {
+      this.field4815 = var1;
+      this.field4816 = 0;
+      this.field4818 = var2 >= 0 && var2 <= 27 ? var2 : 0;
+      this.field4817 = World.method1801(this.field4816, this.field4815, this.field4818);
+   }
+
+   @ObfuscatedName("ad")
+   @ObfuscatedSignature(
+      descriptor = "(I)V",
+      garbageValue = "-786703556"
+   )
+   public void method8359() {
+      if (this.field4816 < this.field4815) {
+         ++this.field4816;
+         this.field4817 = World.method1801(this.field4816, this.field4815, this.field4818);
+      }
+
+   }
+
+   @ObfuscatedName("ac")
+   @ObfuscatedSignature(
+      descriptor = "(B)D",
+      garbageValue = "-3"
+   )
+   double method8361() {
+      return this.field4817;
    }
 }

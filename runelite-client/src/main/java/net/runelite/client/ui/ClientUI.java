@@ -32,6 +32,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -44,6 +45,7 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.Window;
+import java.awt.desktop.QuitStrategy;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -365,7 +367,8 @@ public class ClientUI
 			{
 				// Change the default quit strategy to CLOSE_ALL_WINDOWS so that ctrl+q
 				// triggers the listener below instead of exiting.
-				MacOSQuitStrategy.setup();
+				Desktop.getDesktop()
+					.setQuitStrategy(QuitStrategy.CLOSE_ALL_WINDOWS);
 			}
 			frame.addWindowListener(new WindowAdapter()
 			{
@@ -549,6 +552,8 @@ public class ClientUI
 
 	public void show()
 	{
+		logGraphicsEnvironment();
+
 		SwingUtilities.invokeLater(() ->
 		{
 			// Layout frame
@@ -568,14 +573,15 @@ public class ClientUI
 					CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
 				if (clientBounds != null)
 				{
+					frame.setBounds(clientBounds);
+
 					// Check that the bounds are contained inside a valid display
 					GraphicsConfiguration gc = findDisplayFromBounds(clientBounds);
-					if (gc != null)
+					if (gc == null)
 					{
-						frame.setBounds(clientBounds);
-					}
-					else
-					{
+						log.info("Reset client position. Client bounds: {}x{}x{}x{}",
+							clientBounds.x, clientBounds.y, clientBounds.width, clientBounds.height);
+						// Reset the position, but not the size
 						frame.setLocationRelativeTo(frame.getOwner());
 					}
 				}
@@ -600,7 +606,7 @@ public class ClientUI
 			frame.setResizable(!config.lockWindowSize());
 			frame.toFront();
 			requestFocus();
-			log.info("Showing frame {}", frame);
+			log.debug("Showing frame {}", frame);
 			frame.revalidateMinimumSize();
 		});
 
@@ -635,6 +641,16 @@ public class ClientUI
 				JOptionPane.showMessageDialog(frame,
 						ep, "Max memory limit low", JOptionPane.WARNING_MESSAGE);
 			});
+		}
+	}
+
+	private void logGraphicsEnvironment()
+	{
+		GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		for (GraphicsDevice graphicsDevice : graphicsEnvironment.getScreenDevices())
+		{
+			GraphicsConfiguration configuration = graphicsDevice.getDefaultConfiguration();
+			log.debug("Graphics device {}: bounds {} transform: {}", graphicsDevice, configuration.getBounds(), configuration.getDefaultTransform());
 		}
 	}
 

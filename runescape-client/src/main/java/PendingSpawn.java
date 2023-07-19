@@ -1,86 +1,94 @@
+import java.awt.Component;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.Reflection;
 
-@ObfuscatedName("da")
+@ObfuscatedName("dv")
 @Implements("PendingSpawn")
 public final class PendingSpawn extends Node {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ah")
+   @Export("ByteArrayPool_altSizeArrayCounts")
+   static int[] ByteArrayPool_altSizeArrayCounts;
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 2091348261
+      intValue = 1023930455
    )
    @Export("plane")
    int plane;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = -1750766831
+      intValue = -569523289
    )
    @Export("type")
    int type;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = -1589620863
+      intValue = -1633819283
    )
    @Export("x")
    int x;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = 1917723923
+      intValue = -2019699419
    )
    @Export("y")
    int y;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = -215829263
+      intValue = 1049216013
    )
    @Export("objectId")
    int objectId;
-   @ObfuscatedName("ao")
-   @ObfuscatedGetter(
-      intValue = -2017792735
-   )
-   int field1128;
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = 1031118679
-   )
-   int field1130;
-   @ObfuscatedName("aq")
-   @ObfuscatedGetter(
-      intValue = 1609452867
-   )
-   int field1135;
    @ObfuscatedName("ap")
    @ObfuscatedGetter(
-      intValue = -1840767699
+      intValue = -1071594059
    )
-   int field1131;
-   @ObfuscatedName("ar")
+   int field1140;
+   @ObfuscatedName("ab")
    @ObfuscatedGetter(
-      intValue = -1919497029
-   )
-   int field1132;
-   @ObfuscatedName("ak")
-   @ObfuscatedGetter(
-      intValue = -2144249083
+      intValue = -12280057
    )
    int field1133;
-   @ObfuscatedName("as")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = -974620651
+      intValue = 1405378325
    )
-   int field1134 = 31;
-   @ObfuscatedName("ay")
+   int field1148;
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = 412374047
+      intValue = 962562353
+   )
+   int field1141;
+   @ObfuscatedName("af")
+   @ObfuscatedGetter(
+      intValue = 1128778359
+   )
+   int field1142;
+   @ObfuscatedName("ao")
+   @ObfuscatedGetter(
+      intValue = 1460152863
+   )
+   int field1143;
+   @ObfuscatedName("aj")
+   @ObfuscatedGetter(
+      intValue = 2125358201
+   )
+   int field1144 = 31;
+   @ObfuscatedName("ad")
+   @ObfuscatedGetter(
+      intValue = -1835031023
    )
    @Export("delay")
    int delay = 0;
-   @ObfuscatedName("am")
+   @ObfuscatedName("ac")
    @ObfuscatedGetter(
-      intValue = 468175117
+      intValue = -1114479713
    )
    @Export("hitpoints")
    int hitpoints = -1;
@@ -88,358 +96,234 @@ public final class PendingSpawn extends Node {
    PendingSpawn() {
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
       descriptor = "(II)V",
-      garbageValue = "1524864888"
+      garbageValue = "-2117639418"
    )
-   void method2344(int var1) {
-      this.field1134 = var1;
+   void method2346(int var1) {
+      this.field1144 = var1;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(IB)Z",
-      garbageValue = "37"
+      descriptor = "(II)Z",
+      garbageValue = "-116866001"
    )
-   boolean method2345(int var1) {
+   boolean method2351(int var1) {
       if (var1 >= 0 && var1 <= 4) {
-         return (this.field1134 & 1 << var1) != 0;
+         return (this.field1144 & 1 << var1) != 0;
       } else {
          return true;
       }
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(IIILip;Liz;I)Z",
-      garbageValue = "806683414"
+      descriptor = "(Ljava/awt/Component;I)V",
+      garbageValue = "-213752479"
    )
-   static final boolean method2343(int var0, int var1, int var2, RouteStrategy var3, CollisionMap var4) {
-      int var5 = var0;
-      int var6 = var1;
-      int var7 = 64;
-      int var8 = 64;
-      int var9 = var0 - var7;
-      int var10 = var1 - var8;
-      class212.directions[var7][var8] = 99;
-      class212.distances[var7][var8] = 0;
-      int var11 = 0;
-      int var12 = 0;
-      class212.bufferX[var11] = var0;
-      class212.bufferY[var11++] = var1;
-      int[][] var13 = var4.flags;
-
-      while(true) {
-         label305:
-         while(true) {
-            int var14;
-            int var15;
-            int var16;
-            int var17;
-            do {
-               do {
-                  do {
-                     label282:
-                     do {
-                        if (var11 == var12) {
-                           class212.field2344 = var5;
-                           class83.field1035 = var6;
-                           return false;
-                        }
-
-                        var5 = class212.bufferX[var12];
-                        var6 = class212.bufferY[var12];
-                        var12 = var12 + 1 & 4095;
-                        var7 = var5 - var9;
-                        var8 = var6 - var10;
-                        var14 = var5 - var4.xInset;
-                        var15 = var6 - var4.yInset;
-                        if (var3.hasArrived(var2, var5, var6, var4)) {
-                           class212.field2344 = var5;
-                           class83.field1035 = var6;
-                           return true;
-                        }
-
-                        var16 = class212.distances[var7][var8] + 1;
-                        if (var7 > 0 && class212.directions[var7 - 1][var8] == 0 && (var13[var14 - 1][var15] & 19136782) == 0 && (var13[var14 - 1][var15 + var2 - 1] & 19136824) == 0) {
-                           var17 = 1;
-
-                           while(true) {
-                              if (var17 >= var2 - 1) {
-                                 class212.bufferX[var11] = var5 - 1;
-                                 class212.bufferY[var11] = var6;
-                                 var11 = var11 + 1 & 4095;
-                                 class212.directions[var7 - 1][var8] = 2;
-                                 class212.distances[var7 - 1][var8] = var16;
-                                 break;
-                              }
-
-                              if ((var13[var14 - 1][var15 + var17] & 19136830) != 0) {
-                                 break;
-                              }
-
-                              ++var17;
-                           }
-                        }
-
-                        if (var7 < 128 - var2 && class212.directions[var7 + 1][var8] == 0 && (var13[var14 + var2][var15] & 19136899) == 0 && (var13[var14 + var2][var15 + var2 - 1] & 19136992) == 0) {
-                           var17 = 1;
-
-                           while(true) {
-                              if (var17 >= var2 - 1) {
-                                 class212.bufferX[var11] = var5 + 1;
-                                 class212.bufferY[var11] = var6;
-                                 var11 = var11 + 1 & 4095;
-                                 class212.directions[var7 + 1][var8] = 8;
-                                 class212.distances[var7 + 1][var8] = var16;
-                                 break;
-                              }
-
-                              if ((var13[var14 + var2][var17 + var15] & 19136995) != 0) {
-                                 break;
-                              }
-
-                              ++var17;
-                           }
-                        }
-
-                        if (var8 > 0 && class212.directions[var7][var8 - 1] == 0 && (var13[var14][var15 - 1] & 19136782) == 0 && (var13[var14 + var2 - 1][var15 - 1] & 19136899) == 0) {
-                           var17 = 1;
-
-                           while(true) {
-                              if (var17 >= var2 - 1) {
-                                 class212.bufferX[var11] = var5;
-                                 class212.bufferY[var11] = var6 - 1;
-                                 var11 = var11 + 1 & 4095;
-                                 class212.directions[var7][var8 - 1] = 1;
-                                 class212.distances[var7][var8 - 1] = var16;
-                                 break;
-                              }
-
-                              if ((var13[var17 + var14][var15 - 1] & 19136911) != 0) {
-                                 break;
-                              }
-
-                              ++var17;
-                           }
-                        }
-
-                        if (var8 < 128 - var2 && class212.directions[var7][var8 + 1] == 0 && (var13[var14][var15 + var2] & 19136824) == 0 && (var13[var14 + var2 - 1][var15 + var2] & 19136992) == 0) {
-                           var17 = 1;
-
-                           while(true) {
-                              if (var17 >= var2 - 1) {
-                                 class212.bufferX[var11] = var5;
-                                 class212.bufferY[var11] = var6 + 1;
-                                 var11 = var11 + 1 & 4095;
-                                 class212.directions[var7][var8 + 1] = 4;
-                                 class212.distances[var7][var8 + 1] = var16;
-                                 break;
-                              }
-
-                              if ((var13[var17 + var14][var15 + var2] & 19137016) != 0) {
-                                 break;
-                              }
-
-                              ++var17;
-                           }
-                        }
-
-                        if (var7 > 0 && var8 > 0 && class212.directions[var7 - 1][var8 - 1] == 0 && (var13[var14 - 1][var15 - 1] & 19136782) == 0) {
-                           var17 = 1;
-
-                           while(true) {
-                              if (var17 >= var2) {
-                                 class212.bufferX[var11] = var5 - 1;
-                                 class212.bufferY[var11] = var6 - 1;
-                                 var11 = var11 + 1 & 4095;
-                                 class212.directions[var7 - 1][var8 - 1] = 3;
-                                 class212.distances[var7 - 1][var8 - 1] = var16;
-                                 break;
-                              }
-
-                              if ((var13[var14 - 1][var17 + (var15 - 1)] & 19136830) != 0 || (var13[var17 + (var14 - 1)][var15 - 1] & 19136911) != 0) {
-                                 break;
-                              }
-
-                              ++var17;
-                           }
-                        }
-
-                        if (var7 < 128 - var2 && var8 > 0 && class212.directions[var7 + 1][var8 - 1] == 0 && (var13[var14 + var2][var15 - 1] & 19136899) == 0) {
-                           var17 = 1;
-
-                           while(true) {
-                              if (var17 >= var2) {
-                                 class212.bufferX[var11] = var5 + 1;
-                                 class212.bufferY[var11] = var6 - 1;
-                                 var11 = var11 + 1 & 4095;
-                                 class212.directions[var7 + 1][var8 - 1] = 9;
-                                 class212.distances[var7 + 1][var8 - 1] = var16;
-                                 break;
-                              }
-
-                              if ((var13[var14 + var2][var17 + (var15 - 1)] & 19136995) != 0 || (var13[var17 + var14][var15 - 1] & 19136911) != 0) {
-                                 break;
-                              }
-
-                              ++var17;
-                           }
-                        }
-
-                        if (var7 > 0 && var8 < 128 - var2 && class212.directions[var7 - 1][var8 + 1] == 0 && (var13[var14 - 1][var15 + var2] & 19136824) == 0) {
-                           for(var17 = 1; var17 < var2; ++var17) {
-                              if ((var13[var14 - 1][var17 + var15] & 19136830) != 0 || (var13[var17 + (var14 - 1)][var15 + var2] & 19137016) != 0) {
-                                 continue label282;
-                              }
-                           }
-
-                           class212.bufferX[var11] = var5 - 1;
-                           class212.bufferY[var11] = var6 + 1;
-                           var11 = var11 + 1 & 4095;
-                           class212.directions[var7 - 1][var8 + 1] = 6;
-                           class212.distances[var7 - 1][var8 + 1] = var16;
-                        }
-                     } while(var7 >= 128 - var2);
-                  } while(var8 >= 128 - var2);
-               } while(class212.directions[var7 + 1][var8 + 1] != 0);
-            } while((var13[var14 + var2][var15 + var2] & 19136992) != 0);
-
-            for(var17 = 1; var17 < var2; ++var17) {
-               if ((var13[var17 + var14][var15 + var2] & 19137016) != 0 || (var13[var14 + var2][var15 + var17] & 19136995) != 0) {
-                  continue label305;
-               }
-            }
-
-            class212.bufferX[var11] = var5 + 1;
-            class212.bufferY[var11] = var6 + 1;
-            var11 = var11 + 1 & 4095;
-            class212.directions[var7 + 1][var8 + 1] = 12;
-            class212.distances[var7 + 1][var8 + 1] = var16;
-         }
-      }
+   static void method2355(Component var0) {
+      var0.removeMouseListener(MouseHandler.MouseHandler_instance);
+      var0.removeMouseMotionListener(MouseHandler.MouseHandler_instance);
+      var0.removeFocusListener(MouseHandler.MouseHandler_instance);
+      MouseHandler.MouseHandler_currentButtonVolatile = 0;
    }
 
-   @ObfuscatedName("gj")
+   @ObfuscatedName("av")
+   @ObfuscatedSignature(
+      descriptor = "(Ltz;IB)V",
+      garbageValue = "27"
+   )
+   @Export("readReflectionCheck")
+   public static void readReflectionCheck(Buffer var0, int var1) {
+      ReflectionCheck var2 = new ReflectionCheck();
+      var2.size = var0.readUnsignedByte();
+      var2.id = var0.readInt();
+      var2.operations = new int[var2.size];
+      var2.creationErrors = new int[var2.size];
+      var2.fields = new Field[var2.size];
+      var2.intReplaceValues = new int[var2.size];
+      var2.methods = new Method[var2.size];
+      var2.arguments = new byte[var2.size][][];
+
+      for(int var3 = 0; var3 < var2.size; ++var3) {
+         try {
+            int var4 = var0.readUnsignedByte();
+            String var5;
+            String var6;
+            int var7;
+            if (var4 != 0 && var4 != 1 && var4 != 2) {
+               if (var4 == 3 || var4 == 4) {
+                  var5 = var0.readStringCp1252NullTerminated();
+                  var6 = var0.readStringCp1252NullTerminated();
+                  var7 = var0.readUnsignedByte();
+                  String[] var8 = new String[var7];
+
+                  for(int var9 = 0; var9 < var7; ++var9) {
+                     var8[var9] = var0.readStringCp1252NullTerminated();
+                  }
+
+                  String var20 = var0.readStringCp1252NullTerminated();
+                  byte[][] var10 = new byte[var7][];
+                  int var12;
+                  if (var4 == 3) {
+                     for(int var11 = 0; var11 < var7; ++var11) {
+                        var12 = var0.readInt();
+                        var10[var11] = new byte[var12];
+                        var0.readBytes(var10[var11], 0, var12);
+                     }
+                  }
+
+                  var2.operations[var3] = var4;
+                  Class[] var21 = new Class[var7];
+
+                  for(var12 = 0; var12 < var7; ++var12) {
+                     var21[var12] = class28.loadClassFromDescriptor(var8[var12]);
+                  }
+
+                  Class var22 = class28.loadClassFromDescriptor(var20);
+                  if (class28.loadClassFromDescriptor(var5).getClassLoader() == null) {
+                     throw new SecurityException();
+                  }
+
+                  Method[] var13 = class28.loadClassFromDescriptor(var5).getDeclaredMethods();
+                  Method[] var14 = var13;
+
+                  for(int var15 = 0; var15 < var14.length; ++var15) {
+                     Method var16 = var14[var15];
+                     if (Reflection.getMethodName(var16).equals(var6)) {
+                        Class[] var17 = Reflection.getParameterTypes(var16);
+                        if (var17.length == var21.length) {
+                           boolean var18 = true;
+
+                           for(int var19 = 0; var19 < var21.length; ++var19) {
+                              if (var21[var19] != var17[var19]) {
+                                 var18 = false;
+                                 break;
+                              }
+                           }
+
+                           if (var18 && var22 == var16.getReturnType()) {
+                              var2.methods[var3] = var16;
+                           }
+                        }
+                     }
+                  }
+
+                  var2.arguments[var3] = var10;
+               }
+            } else {
+               var5 = var0.readStringCp1252NullTerminated();
+               var6 = var0.readStringCp1252NullTerminated();
+               var7 = 0;
+               if (var4 == 1) {
+                  var7 = var0.readInt();
+               }
+
+               var2.operations[var3] = var4;
+               var2.intReplaceValues[var3] = var7;
+               if (class28.loadClassFromDescriptor(var5).getClassLoader() == null) {
+                  throw new SecurityException();
+               }
+
+               var2.fields[var3] = Reflection.findField(class28.loadClassFromDescriptor(var5), var6);
+            }
+         } catch (ClassNotFoundException var24) {
+            var2.creationErrors[var3] = -1;
+         } catch (SecurityException var25) {
+            var2.creationErrors[var3] = -2;
+         } catch (NullPointerException var26) {
+            var2.creationErrors[var3] = -3;
+         } catch (Exception var27) {
+            var2.creationErrors[var3] = -4;
+         } catch (Throwable var28) {
+            var2.creationErrors[var3] = -5;
+         }
+      }
+
+      class36.reflectionChecks.addFirst(var2);
+   }
+
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-183595775"
+      garbageValue = "2120477731"
    )
-   static final void method2350() {
-      if (Client.logoutTimer > 0) {
-         class278.logOut();
-      } else {
-         Client.timer.method7323();
-         class19.updateGameState(40);
-         FloorDecoration.field2411 = Client.packetWriter.getSocket();
-         Client.packetWriter.removeSocket();
-      }
-   }
+   static void method2353() {
+      Iterator var0 = Messages.Messages_hashTable.iterator();
 
-   @ObfuscatedName("hk")
-   @ObfuscatedSignature(
-      descriptor = "(IIII)V",
-      garbageValue = "-587511051"
-   )
-   static final void method2351(int var0, int var1, int var2) {
-      if (class381.cameraX < var0) {
-         class381.cameraX = (var0 - class381.cameraX) * class313.field3676 / 1000 + class381.cameraX + class19.field104;
-         if (class381.cameraX > var0) {
-            class381.cameraX = var0;
-         }
-      }
-
-      if (class381.cameraX > var0) {
-         class381.cameraX -= (class381.cameraX - var0) * class313.field3676 / 1000 + class19.field104;
-         if (class381.cameraX < var0) {
-            class381.cameraX = var0;
-         }
-      }
-
-      if (class351.cameraY < var1) {
-         class351.cameraY = (var1 - class351.cameraY) * class313.field3676 / 1000 + class351.cameraY + class19.field104;
-         if (class351.cameraY > var1) {
-            class351.cameraY = var1;
-         }
-      }
-
-      if (class351.cameraY > var1) {
-         class351.cameraY -= (class351.cameraY - var1) * class313.field3676 / 1000 + class19.field104;
-         if (class351.cameraY < var1) {
-            class351.cameraY = var1;
-         }
-      }
-
-      if (class471.cameraZ < var2) {
-         class471.cameraZ = (var2 - class471.cameraZ) * class313.field3676 / 1000 + class471.cameraZ + class19.field104;
-         if (class471.cameraZ > var2) {
-            class471.cameraZ = var2;
-         }
-      }
-
-      if (class471.cameraZ > var2) {
-         class471.cameraZ -= (class471.cameraZ - var2) * class313.field3676 / 1000 + class19.field104;
-         if (class471.cameraZ < var2) {
-            class471.cameraZ = var2;
-         }
+      while(var0.hasNext()) {
+         Message var1 = (Message)var0.next();
+         var1.clearIsFromIgnored();
       }
 
    }
 
-   @ObfuscatedName("ie")
+   @ObfuscatedName("gq")
    @ObfuscatedSignature(
-      descriptor = "(Ldq;IB)V",
-      garbageValue = "-47"
+      descriptor = "(I)V",
+      garbageValue = "-2029580457"
    )
-   static final void method2355(Actor var0, int var1) {
-      GrandExchangeOfferUnitPriceComparator.worldToScreen(var0.x, var0.y, var1);
+   static void method2350() {
+      Client.packetWriter.clearBuffer();
+      Client.packetWriter.packetBuffer.offset = 0;
+      Client.packetWriter.serverPacket = null;
+      Client.packetWriter.field1390 = null;
+      Client.packetWriter.field1393 = null;
+      Client.packetWriter.field1392 = null;
+      Client.packetWriter.serverPacketLength = 0;
+      Client.packetWriter.field1388 = 0;
+      Client.rebootTimer = 0;
+      Player.method2340();
+      Client.minimapState = 0;
+      Client.destinationX = 0;
+
+      int var0;
+      for(var0 = 0; var0 < 2048; ++var0) {
+         Client.players[var0] = null;
+      }
+
+      Projectile.localPlayer = null;
+
+      for(var0 = 0; var0 < Client.npcs.length; ++var0) {
+         NPC var1 = Client.npcs[var0];
+         if (var1 != null) {
+            var1.targetIndex = -1;
+            var1.false0 = false;
+         }
+      }
+
+      class6.method36();
+      UserComparator8.updateGameState(30);
+
+      for(var0 = 0; var0 < 100; ++var0) {
+         Client.field723[var0] = true;
+      }
+
+      PacketBufferNode var2 = ObjectComposition.getPacketBufferNode(ClientPacket.EVENT_WINDOW_SETTING, Client.packetWriter.isaacCipher);
+      var2.packetBuffer.writeByte(class237.getWindowedMode());
+      var2.packetBuffer.writeShort(class448.canvasWidth);
+      var2.packetBuffer.writeShort(WorldMapID.canvasHeight);
+      Client.packetWriter.addNode(var2);
    }
 
-   @ObfuscatedName("nz")
+   @ObfuscatedName("nw")
    @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;ZB)V",
-      garbageValue = "49"
+      descriptor = "(B)V",
+      garbageValue = "-1"
    )
-   @Export("findItemDefinitions")
-   static void findItemDefinitions(String var0, boolean var1) {
-      var0 = var0.toLowerCase();
-      short[] var2 = new short[16];
-      int var3 = 0;
+   static void method2354() {
+      if (class30.field152 != null) {
+         Client.field698 = Client.cycle;
+         class30.field152.method6887();
 
-      for(int var4 = 0; var4 < ChatChannel.ItemDefinition_fileCount; ++var4) {
-         ItemComposition var9 = ParamComposition.ItemDefinition_get(var4);
-         if ((!var1 || var9.isTradable) && var9.noteTemplate == -1 && var9.name.toLowerCase().indexOf(var0) != -1) {
-            if (var3 >= 250) {
-               class323.foundItemIdCount = -1;
-               GrandExchangeEvents.foundItemIds = null;
-               return;
+         for(int var0 = 0; var0 < Client.players.length; ++var0) {
+            if (Client.players[var0] != null) {
+               class30.field152.method6876(class213.baseX * 64 + (Client.players[var0].x >> 7), class101.baseY * 64 + (Client.players[var0].y >> 7));
             }
-
-            if (var3 >= var2.length) {
-               short[] var6 = new short[var2.length * 2];
-
-               for(int var7 = 0; var7 < var3; ++var7) {
-                  var6[var7] = var2[var7];
-               }
-
-               var2 = var6;
-            }
-
-            var2[var3++] = (short)var4;
          }
       }
 
-      GrandExchangeEvents.foundItemIds = var2;
-      class173.foundItemIndex = 0;
-      class323.foundItemIdCount = var3;
-      String[] var8 = new String[class323.foundItemIdCount];
-
-      for(int var5 = 0; var5 < class323.foundItemIdCount; ++var5) {
-         var8[var5] = ParamComposition.ItemDefinition_get(var2[var5]).name;
-      }
-
-      short[] var10 = GrandExchangeEvents.foundItemIds;
-      MouseRecorder.sortItemsByName(var8, var10, 0, var8.length - 1);
    }
 }

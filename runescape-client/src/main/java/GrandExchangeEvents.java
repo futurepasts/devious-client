@@ -4,28 +4,32 @@ import java.util.Comparator;
 import java.util.List;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nz")
+@ObfuscatedName("nl")
 @Implements("GrandExchangeEvents")
 public class GrandExchangeEvents {
-   @ObfuscatedName("wd")
-   @Export("foundItemIds")
-   static short[] foundItemIds;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @Export("GrandExchangeEvents_ageComparator")
    public static Comparator GrandExchangeEvents_ageComparator = new GrandExchangeOfferAgeComparator();
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @Export("GrandExchangeEvents_priceComparator")
    public static Comparator GrandExchangeEvents_priceComparator;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @Export("GrandExchangeEvents_nameComparator")
    public static Comparator GrandExchangeEvents_nameComparator;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @Export("GrandExchangeEvents_quantityComparator")
    public static Comparator GrandExchangeEvents_quantityComparator;
-   @ObfuscatedName("aj")
+   @ObfuscatedName("la")
+   @ObfuscatedGetter(
+      intValue = 1330093309
+   )
+   @Export("oculusOrbFocalPointY")
+   static int oculusOrbFocalPointY;
+   @ObfuscatedName("at")
    @Export("events")
    public final List events;
 
@@ -37,7 +41,7 @@ public class GrandExchangeEvents {
    }
 
    @ObfuscatedSignature(
-      descriptor = "(Lsy;Z)V",
+      descriptor = "(Ltz;Z)V",
       garbageValue = "1"
    )
    public GrandExchangeEvents(Buffer var1, boolean var2) {
@@ -59,10 +63,10 @@ public class GrandExchangeEvents {
 
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
       descriptor = "(Ljava/util/Comparator;ZI)V",
-      garbageValue = "1953519779"
+      garbageValue = "701499603"
    )
    @Export("sort")
    public void sort(Comparator var1, boolean var2) {
@@ -74,33 +78,26 @@ public class GrandExchangeEvents {
 
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ac")
    @ObfuscatedSignature(
-      descriptor = "([BI)Ljava/lang/String;",
-      garbageValue = "370211652"
+      descriptor = "(IIIB)I",
+      garbageValue = "93"
    )
-   public static String method6539(byte[] var0) {
-      return ClientPreferences.method2537(var0, 0, var0.length);
-   }
-
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(Lsy;II)Ljava/lang/String;",
-      garbageValue = "204170492"
-   )
-   static String method6535(Buffer var0, int var1) {
-      try {
-         int var2 = var0.readUShortSmart();
-         if (var2 > var1) {
-            var2 = var1;
-         }
-
-         byte[] var3 = new byte[var2];
-         var0.offset += class315.huffman.decompress(var0.array, var0.offset, var3, 0, var2);
-         String var4 = GrandExchangeOfferUnitPriceComparator.decodeStringCp1252(var3, 0, var2);
-         return var4;
-      } catch (Exception var6) {
-         return "Cabbage";
-      }
+   static final int method6803(int var0, int var1, int var2) {
+      int var3 = var0 / var2;
+      int var4 = var0 & var2 - 1;
+      int var5 = var1 / var2;
+      int var6 = var1 & var2 - 1;
+      int var7 = class464.method8328(var3, var5);
+      int var8 = class464.method8328(var3 + 1, var5);
+      int var9 = class464.method8328(var3, var5 + 1);
+      int var10 = class464.method8328(var3 + 1, var5 + 1);
+      int var12 = 65536 - Rasterizer3D.Rasterizer3D_cosine[var4 * 1024 / var2] >> 1;
+      int var11 = ((65536 - var12) * var7 >> 16) + (var12 * var8 >> 16);
+      int var14 = 65536 - Rasterizer3D.Rasterizer3D_cosine[var4 * 1024 / var2] >> 1;
+      int var13 = ((65536 - var14) * var9 >> 16) + (var14 * var10 >> 16);
+      int var16 = 65536 - Rasterizer3D.Rasterizer3D_cosine[var6 * 1024 / var2] >> 1;
+      int var15 = ((65536 - var16) * var11 >> 16) + (var13 * var16 >> 16);
+      return var15;
    }
 }

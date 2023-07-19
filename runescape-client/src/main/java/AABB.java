@@ -1,52 +1,45 @@
-import java.awt.Component;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ie")
+@ObfuscatedName("ib")
 @Implements("AABB")
 public class AABB {
-   @ObfuscatedName("fn")
-   @ObfuscatedSignature(
-      descriptor = "Lmx;"
-   )
-   @Export("archive10")
-   static Archive archive10;
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 532233349
+      intValue = -815710187
    )
    @Export("xMid")
    int xMid;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = -2038217369
+      intValue = -1622504827
    )
    @Export("yMid")
    int yMid;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = -2099700903
+      intValue = -935812263
    )
    @Export("zMid")
    int zMid;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -1231347425
+      intValue = 717076899
    )
    @Export("xMidOffset")
    int xMidOffset;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = 1061110137
+      intValue = -120678637
    )
    @Export("yMidOffset")
    int yMidOffset;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedGetter(
-      intValue = -290660215
+      intValue = -877928513
    )
    @Export("zMidOffset")
    int zMidOffset;
@@ -60,44 +53,98 @@ public class AABB {
       this.zMidOffset = var6;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(Ljava/awt/Component;I)V",
-      garbageValue = "-984780725"
+      descriptor = "(IIIII)I",
+      garbageValue = "2095830606"
    )
-   static void method4546(Component var0) {
-      var0.addMouseListener(MouseHandler.MouseHandler_instance);
-      var0.addMouseMotionListener(MouseHandler.MouseHandler_instance);
-      var0.addFocusListener(MouseHandler.MouseHandler_instance);
+   static final int method4705(int var0, int var1, int var2, int var3) {
+      return var2 * var1 - var3 * var0 >> 16;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;Lrz;I)Lrz;",
-      garbageValue = "1598994640"
+      descriptor = "([BIIIIIIIII[Lic;B)V",
+      garbageValue = "0"
    )
-   @Export("readStringIntParameters")
-   static final IterableNodeHashTable readStringIntParameters(Buffer var0, IterableNodeHashTable var1) {
-      int var2 = var0.readUnsignedByte();
-      int var3;
-      if (var1 == null) {
-         var3 = WorldMapLabelSize.method4793(var2);
-         var1 = new IterableNodeHashTable(var3);
+   static final void method4706(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, CollisionMap[] var10) {
+      int var12;
+      for(int var11 = 0; var11 < 8; ++var11) {
+         for(var12 = 0; var12 < 8; ++var12) {
+            if (var11 + var2 > 0 && var11 + var2 < 103 && var3 + var12 > 0 && var3 + var12 < 103) {
+               int[] var10000 = var10[var1].flags[var11 + var2];
+               var10000[var3 + var12] &= -16777217;
+            }
+         }
       }
 
-      for(var3 = 0; var3 < var2; ++var3) {
-         boolean var4 = var0.readUnsignedByte() == 1;
-         int var5 = var0.readMedium();
-         Object var6;
-         if (var4) {
-            var6 = new ObjectNode(var0.readStringCp1252NullTerminated());
+      Buffer var24 = new Buffer(var0);
+
+      for(var12 = 0; var12 < 4; ++var12) {
+         for(int var13 = 0; var13 < 64; ++var13) {
+            for(int var14 = 0; var14 < 64; ++var14) {
+               if (var12 == var4 && var13 >= var5 && var13 < var5 + 8 && var14 >= var6 && var14 < var6 + 8) {
+                  int var15 = var2 + ModeWhere.method6929(var13 & 7, var14 & 7, var7);
+                  int var18 = var13 & 7;
+                  int var19 = var14 & 7;
+                  int var20 = var7 & 3;
+                  int var17;
+                  if (var20 == 0) {
+                     var17 = var19;
+                  } else if (var20 == 1) {
+                     var17 = 7 - var18;
+                  } else if (var20 == 2) {
+                     var17 = 7 - var19;
+                  } else {
+                     var17 = var18;
+                  }
+
+                  int var21 = var17 + var3;
+                  int var22 = (var13 & 7) + var8 + var2;
+                  int var23 = var3 + (var14 & 7) + var9;
+                  DevicePcmPlayerProvider.loadTerrain(var24, var1, var15, var21, var22, var23, var7);
+               } else {
+                  DevicePcmPlayerProvider.loadTerrain(var24, 0, -1, -1, 0, 0, 0);
+               }
+            }
+         }
+      }
+
+   }
+
+   @ObfuscatedName("go")
+   @ObfuscatedSignature(
+      descriptor = "(I)Lse;",
+      garbageValue = "1468482065"
+   )
+   @Export("getWorldMap")
+   static WorldMap getWorldMap() {
+      return ScriptFrame.worldMap;
+   }
+
+   @ObfuscatedName("iy")
+   @ObfuscatedSignature(
+      descriptor = "(Ljava/lang/String;ZI)V",
+      garbageValue = "1962397573"
+   )
+   @Export("drawLoadingMessage")
+   static final void drawLoadingMessage(String var0, boolean var1) {
+      if (Client.showLoadingMessages) {
+         byte var2 = 4;
+         int var3 = var2 + 6;
+         int var4 = var2 + 6;
+         int var5 = class404.fontPlain12.lineWidth(var0, 250);
+         int var6 = class404.fontPlain12.lineCount(var0, 250) * 13;
+         Rasterizer2D.Rasterizer2D_fillRectangle(var3 - var2, var4 - var2, var5 + var2 + var2, var2 + var6 + var2, 0);
+         Rasterizer2D.Rasterizer2D_drawRectangle(var3 - var2, var4 - var2, var2 + var5 + var2, var2 + var2 + var6, 16777215);
+         class404.fontPlain12.drawLines(var0, var3, var4, var5, var6, 16777215, -1, 1, 1, 0);
+         class20.method305(var3 - var2, var4 - var2, var2 + var5 + var2, var6 + var2 + var2);
+         if (var1) {
+            WorldMapSectionType.rasterProvider.drawFull(0, 0);
          } else {
-            var6 = new IntegerNode(var0.readInt());
+            class330.method6526(var3, var4, var5, var6);
          }
 
-         var1.put((Node)var6, (long)var5);
       }
-
-      return var1;
    }
 }

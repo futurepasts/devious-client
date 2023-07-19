@@ -1,32 +1,38 @@
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rd")
-final class class466 implements class463 {
-   @ObfuscatedName("aj")
+@ObfuscatedName("rw")
+public class class466 extends class468 {
+   @ObfuscatedName("fw")
    @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/Object;Lsy;I)V",
-      garbageValue = "-1509130344"
+      descriptor = "Lny;"
    )
-   public void vmethod8486(Object var1, Buffer var2) {
-      this.method8459((Long)var1, var2);
+   static Archive field4812;
+   @ObfuscatedName("at")
+   @ObfuscatedGetter(
+      intValue = 770879393
+   )
+   int field4811 = 0;
+   @ObfuscatedName("an")
+   @ObfuscatedGetter(
+      intValue = -1679615751
+   )
+   int field4810 = 0;
+
+   public class466(int var1, int var2, int var3, int var4) {
+      super(var3, var4);
+      this.field4811 = var1;
+      this.field4810 = var2;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;B)Ljava/lang/Object;",
-      garbageValue = "0"
+      descriptor = "(B)I",
+      garbageValue = "-29"
    )
-   public Object vmethod8485(Buffer var1) {
-      return var1.readLong();
-   }
-
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/Long;Lsy;I)V",
-      garbageValue = "304937837"
-   )
-   void method8459(Long var1, Buffer var2) {
-      var2.writeLong(var1);
+   public int method8343() {
+      double var1 = this.method8361();
+      return (int)Math.round(var1 * (double)(this.field4810 - this.field4811) + (double)this.field4811);
    }
 }

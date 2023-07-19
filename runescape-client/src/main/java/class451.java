@@ -1,56 +1,67 @@
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.Map;
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rv")
-public class class451 {
-   @ObfuscatedName("aj")
-   public final Object field4798;
-   @ObfuscatedName("al")
-   public final Object field4799;
+@ObfuscatedName("rb")
+public class class451 implements class449 {
+   @ObfuscatedName("ax")
+   @ObfuscatedGetter(
+      intValue = -1220225583
+   )
+   @Export("clientType")
+   public static int clientType;
+   @ObfuscatedName("at")
+   final Map field4723;
 
-   public class451(Object var1, Object var2) {
-      this.field4798 = var1;
-      this.field4799 = var2;
+   public class451(Map var1) {
+      this.field4723 = var1;
    }
 
-   public boolean equals(Object var1) {
-      if (var1 != null && var1 instanceof class451) {
-         class451 var2 = (class451)var1;
-         if (this.field4798 == null) {
-            if (var2.field4798 != null) {
-               return false;
-            }
-         } else if (!this.field4798.equals(var2.field4798)) {
-            return false;
-         }
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(I)Lro;",
+      garbageValue = "1201915469"
+   )
+   public class448 vmethod8254() {
+      return null;
+   }
 
-         if (this.field4799 == null) {
-            if (var2.field4799 != null) {
-               return false;
-            }
-         } else if (!this.field4799.equals(var2.field4799)) {
-            return false;
-         }
+   @ObfuscatedName("an")
+   @ObfuscatedSignature(
+      descriptor = "(I)[B",
+      garbageValue = "-2049750665"
+   )
+   public byte[] vmethod8248() throws UnsupportedEncodingException {
+      return this.method8249().getBytes("UTF-8");
+   }
 
-         return true;
+   @ObfuscatedName("ab")
+   @ObfuscatedSignature(
+      descriptor = "(I)Ljava/lang/String;",
+      garbageValue = "-1921995053"
+   )
+   public String method8249() throws UnsupportedEncodingException {
+      StringBuilder var1 = new StringBuilder();
+      Iterator var2 = this.field4723.entrySet().iterator();
+
+      while(var2.hasNext()) {
+         Map.Entry var3 = (Map.Entry)var2.next();
+         String var4 = URLEncoder.encode((String)var3.getKey(), "UTF-8");
+         String var5 = URLEncoder.encode((String)var3.getValue(), "UTF-8");
+         var1.append(var4).append("=").append(var5).append("&");
+      }
+
+      if (var1.length() == 0) {
+         return "";
       } else {
-         return false;
+         var1.deleteCharAt(var1.length() - 1);
+         var1.insert(0, "?");
+         return var1.toString();
       }
-   }
-
-   public String toString() {
-      return this.field4798 + ", " + this.field4799;
-   }
-
-   public int hashCode() {
-      int var1 = 0;
-      if (this.field4798 != null) {
-         var1 += this.field4798.hashCode();
-      }
-
-      if (this.field4799 != null) {
-         var1 += 31 * this.field4799.hashCode();
-      }
-
-      return var1;
    }
 }

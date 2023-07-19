@@ -7,162 +7,165 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("dh")
 @Implements("Player")
 public final class Player extends Actor {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("ap")
+   @Export("Tiles_shapes")
+   static byte[][][] Tiles_shapes;
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Ltj;"
+      descriptor = "Lun;"
    )
    @Export("username")
    Username username;
-   @ObfuscatedName("al")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Llc;"
+      descriptor = "Lmk;"
    )
    @Export("appearance")
    PlayerComposition appearance;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -2104357805
+      intValue = 1366672705
    )
    @Export("headIconPk")
    int headIconPk = -1;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = -713795725
+      intValue = 1008836279
    )
    @Export("headIconPrayer")
    int headIconPrayer = -1;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @Export("actions")
    String[] actions = new String[3];
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = -1834899421
+      intValue = 1188560567
    )
    @Export("combatLevel")
    int combatLevel;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = 1617887063
+      intValue = -2012563941
    )
    @Export("skillLevel")
    int skillLevel;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = 707796129
+      intValue = 248170849
    )
    @Export("tileHeight")
    int tileHeight;
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @ObfuscatedGetter(
-      intValue = -1038824357
+      intValue = 716052611
    )
    @Export("animationCycleStart")
    int animationCycleStart;
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aa")
    @ObfuscatedGetter(
-      intValue = -829831383
+      intValue = -1825194637
    )
    @Export("animationCycleEnd")
    int animationCycleEnd;
-   @ObfuscatedName("as")
+   @ObfuscatedName("aj")
    @ObfuscatedGetter(
-      intValue = -907378149
+      intValue = 1980359243
    )
-   int field1095;
-   @ObfuscatedName("ay")
+   int field1107;
+   @ObfuscatedName("ad")
    @ObfuscatedGetter(
-      intValue = -1410495185
+      intValue = 1434270451
    )
    @Export("tileHeight2")
    int tileHeight2;
-   @ObfuscatedName("am")
+   @ObfuscatedName("ac")
    @ObfuscatedGetter(
-      intValue = -130242965
+      intValue = 1332745825
    )
-   int field1097;
-   @ObfuscatedName("az")
+   int field1122;
+   @ObfuscatedName("ag")
    @ObfuscatedSignature(
-      descriptor = "Lix;"
+      descriptor = "Ljd;"
    )
    @Export("model0")
    Model model0;
-   @ObfuscatedName("ae")
+   @ObfuscatedName("ar")
    @ObfuscatedGetter(
-      intValue = 875369639
+      intValue = -1142394889
    )
    @Export("minX")
    int minX;
-   @ObfuscatedName("au")
+   @ObfuscatedName("ah")
    @ObfuscatedGetter(
-      intValue = 1267650567
+      intValue = -1217084697
    )
    @Export("minY")
    int minY;
-   @ObfuscatedName("ag")
+   @ObfuscatedName("az")
    @ObfuscatedGetter(
-      intValue = -331432963
+      intValue = 169941669
    )
    @Export("maxX")
    int maxX;
-   @ObfuscatedName("at")
+   @ObfuscatedName("au")
    @ObfuscatedGetter(
-      intValue = 1286990151
+      intValue = -902424909
    )
    @Export("maxY")
    int maxY;
-   @ObfuscatedName("af")
+   @ObfuscatedName("ai")
    @Export("isUnanimated")
    boolean isUnanimated;
-   @ObfuscatedName("ai")
+   @ObfuscatedName("aq")
    @ObfuscatedGetter(
-      intValue = 410341295
+      intValue = -642589407
    )
    @Export("team")
    int team;
    @ObfuscatedName("aw")
    @Export("isHidden")
    boolean isHidden;
-   @ObfuscatedName("aa")
+   @ObfuscatedName("ay")
    @ObfuscatedGetter(
-      intValue = 805568963
+      intValue = -1141765425
    )
    @Export("plane")
    int plane;
-   @ObfuscatedName("ah")
+   @ObfuscatedName("al")
    @ObfuscatedGetter(
-      intValue = -582895361
+      intValue = -1822002451
    )
    @Export("index")
    int index;
-   @ObfuscatedName("ad")
+   @ObfuscatedName("am")
    @ObfuscatedSignature(
-      descriptor = "Lpf;"
+      descriptor = "Lqh;"
    )
    @Export("isFriendTriBool")
    TriBool isFriendTriBool;
-   @ObfuscatedName("bm")
+   @ObfuscatedName("bs")
    @ObfuscatedSignature(
-      descriptor = "Lpf;"
+      descriptor = "Lqh;"
    )
    @Export("isInFriendsChat")
    TriBool isInFriendsChat;
-   @ObfuscatedName("bv")
+   @ObfuscatedName("bc")
    @ObfuscatedSignature(
-      descriptor = "Lpf;"
+      descriptor = "Lqh;"
    )
    @Export("isInClanChat")
    TriBool isInClanChat;
+   @ObfuscatedName("bj")
+   boolean field1124;
    @ObfuscatedName("bo")
-   boolean field1111;
-   @ObfuscatedName("bs")
    @ObfuscatedGetter(
-      intValue = -471155365
+      intValue = 1070117953
    )
    @Export("tileX")
    int tileX;
-   @ObfuscatedName("bg")
+   @ObfuscatedName("bq")
    @ObfuscatedGetter(
-      intValue = -991852499
+      intValue = 1834042161
    )
    @Export("tileY")
    int tileY;
@@ -182,13 +185,13 @@ public final class Player extends Actor {
       this.isFriendTriBool = TriBool.TriBool_unknown;
       this.isInFriendsChat = TriBool.TriBool_unknown;
       this.isInClanChat = TriBool.TriBool_unknown;
-      this.field1111 = false;
+      this.field1124 = false;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)V",
-      garbageValue = "1240368093"
+      descriptor = "(Ltz;B)V",
+      garbageValue = "0"
    )
    @Export("read")
    final void read(Buffer var1) {
@@ -217,7 +220,7 @@ public final class Player extends Actor {
             }
 
             if (var5[var6] >= 512) {
-               var9 = ParamComposition.ItemDefinition_get(var5[var6] - 512).team;
+               var9 = class300.ItemDefinition_get(var5[var6] - 512).team;
                if (var9 != 0) {
                   this.team = var9;
                }
@@ -225,15 +228,30 @@ public final class Player extends Actor {
          }
       }
 
-      int[] var12 = new int[5];
+      int[] var13 = null;
+      if (Client.field512 >= 213) {
+         var13 = new int[12];
 
-      for(var7 = 0; var7 < 5; ++var7) {
-         var8 = var1.readUnsignedByte();
-         if (var8 < 0 || var8 >= CollisionMap.field2315[var7].length) {
-            var8 = 0;
+         for(var7 = 0; var7 < 12; ++var7) {
+            var8 = var1.readUnsignedByte();
+            if (var8 == 0) {
+               var13[var7] = 0;
+            } else {
+               var9 = var1.readUnsignedByte();
+               var13[var7] = var9 + (var8 << 8);
+            }
+         }
+      }
+
+      int[] var14 = new int[5];
+
+      for(var8 = 0; var8 < 5; ++var8) {
+         var9 = var1.readUnsignedByte();
+         if (var9 < 0 || var9 >= class13.field65[var8].length) {
+            var9 = 0;
          }
 
-         var12[var7] = var8;
+         var14[var8] = var9;
       }
 
       super.idleSequence = var1.readUnsignedShort();
@@ -272,12 +290,12 @@ public final class Player extends Actor {
          super.runSequence = -1;
       }
 
-      this.username = new Username(var1.readStringCp1252NullTerminated(), Occluder.loginType);
+      this.username = new Username(var1.readStringCp1252NullTerminated(), WorldMapScaleHandler.loginType);
       this.clearIsFriend();
       this.clearIsInFriendsChat();
-      this.method2305();
-      if (this == BuddyRankComparator.localPlayer) {
-         RunException.localPlayerName = this.username.getName();
+      this.method2290();
+      if (this == Projectile.localPlayer) {
+         RunException.field5176 = this.username.getName();
       }
 
       this.combatLevel = var1.readUnsignedByte();
@@ -287,46 +305,46 @@ public final class Player extends Actor {
          this.isHidden = false;
       }
 
-      PlayerCompositionColorTextureOverride[] var13 = null;
-      boolean var15 = false;
-      var9 = var1.readUnsignedShort();
-      var15 = (var9 >> 15 & 1) == 1;
-      int var10;
-      if (var9 > 0 && var9 != 32768) {
-         var13 = new PlayerCompositionColorTextureOverride[12];
+      PlayerCompositionColorTextureOverride[] var15 = null;
+      boolean var17 = false;
+      int var10 = var1.readUnsignedShort();
+      var17 = (var10 >> 15 & 1) == 1;
+      int var11;
+      if (var10 > 0 && var10 != 32768) {
+         var15 = new PlayerCompositionColorTextureOverride[12];
 
-         for(var10 = 0; var10 < 12; ++var10) {
-            int var11 = var9 >> 12 - var10 & 1;
-            if (var11 == 1) {
-               var13[var10] = PlayerComposition.method5812(var5[var10] - 512, var1);
+         for(var11 = 0; var11 < 12; ++var11) {
+            int var12 = var10 >> 12 - var11 & 1;
+            if (var12 == 1) {
+               var15[var11] = class161.method3332(var5[var11] - 512, var1);
             }
          }
       }
 
-      for(var10 = 0; var10 < 3; ++var10) {
-         this.actions[var10] = var1.readStringCp1252NullTerminated();
+      for(var11 = 0; var11 < 3; ++var11) {
+         this.actions[var11] = var1.readStringCp1252NullTerminated();
       }
 
-      int var14 = var1.readUnsignedByte();
+      int var16 = var1.readUnsignedByte();
       if (this.appearance == null) {
          this.appearance = new PlayerComposition();
       }
 
-      this.appearance.method5792(var5, var13, var15, var12, var2, var4, var14);
+      this.appearance.method6010(var13, var5, var15, var17, var14, var2, var4, var16);
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(I)Lix;",
-      garbageValue = "-1998422213"
+      descriptor = "(I)Ljd;",
+      garbageValue = "-1953039490"
    )
    @Export("getModel")
    protected final Model getModel() {
       if (this.appearance == null) {
          return null;
       } else {
-         SequenceDefinition var1 = super.sequence != -1 && super.sequenceDelay == 0 ? Coord.SequenceDefinition_get(super.sequence) : null;
-         SequenceDefinition var2 = super.movementSequence == -1 || this.isUnanimated || super.movementSequence == super.idleSequence && var1 != null ? null : Coord.SequenceDefinition_get(super.movementSequence);
+         SequenceDefinition var1 = super.sequence != -1 && super.sequenceDelay == 0 ? WorldMapLabelSize.SequenceDefinition_get(super.sequence) : null;
+         SequenceDefinition var2 = super.movementSequence == -1 || this.isUnanimated || super.idleSequence == super.movementSequence && var1 != null ? null : WorldMapLabelSize.SequenceDefinition_get(super.movementSequence);
          Model var3 = this.appearance.getModel(var1, super.sequenceFrame, var2, super.movementFrame);
          if (var3 == null) {
             return null;
@@ -334,15 +352,8 @@ public final class Player extends Actor {
             var3.calculateBoundsCylinder();
             super.defaultHeight = var3.height;
             int var4 = var3.indicesCount;
-            Model var5;
-            Model[] var6;
-            if (!this.isUnanimated && super.spotAnimation != -1 && super.spotAnimationFrame != -1) {
-               var5 = DevicePcmPlayerProvider.SpotAnimationDefinition_get(super.spotAnimation).getModel(super.spotAnimationFrame);
-               if (var5 != null) {
-                  var5.offsetBy(0, -super.spotAnimationHeight, 0);
-                  var6 = new Model[]{var3, var5};
-                  var3 = new Model(var6, 2);
-               }
+            if (!this.isUnanimated) {
+               var3 = this.method2366(var3);
             }
 
             if (!this.isUnanimated && this.model0 != null) {
@@ -351,8 +362,8 @@ public final class Player extends Actor {
                }
 
                if (Client.cycle >= this.animationCycleStart && Client.cycle < this.animationCycleEnd) {
-                  var5 = this.model0;
-                  var5.offsetBy(this.field1095 * 4096 - super.x, this.tileHeight2 - this.tileHeight, this.field1097 * 4096 - super.y);
+                  Model var5 = this.model0;
+                  var5.offsetBy(this.field1107 * 4096 - super.x, this.tileHeight2 - this.tileHeight, this.field1122 * 4096 - super.y);
                   if (super.orientation == 512) {
                      var5.rotateY90Ccw();
                      var5.rotateY90Ccw();
@@ -364,7 +375,7 @@ public final class Player extends Actor {
                      var5.rotateY90Ccw();
                   }
 
-                  var6 = new Model[]{var3, var5};
+                  Model[] var6 = new Model[]{var3, var5};
                   var3 = new Model(var6, 2);
                   if (super.orientation == 512) {
                      var5.rotateY90Ccw();
@@ -377,17 +388,17 @@ public final class Player extends Actor {
                      var5.rotateY90Ccw();
                   }
 
-                  var5.offsetBy(super.x - this.field1095 * 4096, this.tileHeight - this.tileHeight2, super.y - this.field1097 * 4096);
+                  var5.offsetBy(super.x - this.field1107 * 4096, this.tileHeight - this.tileHeight2, super.y - this.field1122 * 4096);
                }
             }
 
             var3.isSingleTile = true;
-            if (super.field1206 != 0 && Client.cycle >= super.field1201 && Client.cycle < super.field1159) {
-               var3.overrideHue = super.field1203;
-               var3.overrideSaturation = super.field1185;
-               var3.overrideLuminance = super.field1165;
-               var3.overrideAmount = super.field1206;
-               var3.field2725 = (short)var4;
+            if (super.field1217 != 0 && Client.cycle >= super.field1170 && Client.cycle < super.field1213) {
+               var3.overrideHue = super.field1164;
+               var3.overrideSaturation = super.field1215;
+               var3.overrideLuminance = super.field1196;
+               var3.overrideAmount = super.field1217;
+               var3.field2761 = (short)var4;
             } else {
                var3.overrideAmount = 0;
             }
@@ -397,10 +408,10 @@ public final class Player extends Actor {
       }
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(B)Z",
-      garbageValue = "86"
+      descriptor = "(I)Z",
+      garbageValue = "62243914"
    )
    @Export("isFriend")
    boolean isFriend() {
@@ -411,30 +422,30 @@ public final class Player extends Actor {
       return this.isFriendTriBool == TriBool.TriBool_true;
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "95"
+      descriptor = "(I)V",
+      garbageValue = "1446447522"
    )
    @Export("clearIsFriend")
    void clearIsFriend() {
       this.isFriendTriBool = TriBool.TriBool_unknown;
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
       descriptor = "(B)V",
-      garbageValue = "2"
+      garbageValue = "0"
    )
    @Export("checkIsFriend")
    void checkIsFriend() {
-      this.isFriendTriBool = class6.friendSystem.isFriendAndHasWorld(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
+      this.isFriendTriBool = ApproximateRouteStrategy.friendSystem.isFriendAndHasWorld(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ae")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "-124834401"
+      descriptor = "(B)Z",
+      garbageValue = "15"
    )
    @Export("isFriendsChatMember")
    boolean isFriendsChatMember() {
@@ -445,35 +456,35 @@ public final class Player extends Actor {
       return this.isInFriendsChat == TriBool.TriBool_true;
    }
 
-   @ObfuscatedName("ap")
+   @ObfuscatedName("af")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "1990954496"
+      descriptor = "(B)V",
+      garbageValue = "-28"
    )
    @Export("clearIsInFriendsChat")
    void clearIsInFriendsChat() {
       this.isInFriendsChat = TriBool.TriBool_unknown;
    }
 
-   @ObfuscatedName("ar")
+   @ObfuscatedName("ao")
    @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "935675147"
+      descriptor = "(B)V",
+      garbageValue = "88"
    )
    @Export("updateIsInFriendsChat")
    void updateIsInFriendsChat() {
-      this.isInFriendsChat = ReflectionCheck.friendsChat != null && ReflectionCheck.friendsChat.contains(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
+      this.isInFriendsChat = class406.friendsChat != null && class406.friendsChat.contains(this.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
    }
 
-   @ObfuscatedName("ak")
+   @ObfuscatedName("aa")
    @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "16307"
+      descriptor = "(I)V",
+      garbageValue = "260673707"
    )
    @Export("updateIsInClanChat")
    void updateIsInClanChat() {
       for(int var1 = 0; var1 < 4; ++var1) {
-         if (Client.currentClanSettings[var1] != null && Client.currentClanSettings[var1].method3255(this.username.getName()) != -1 && var1 != 2) {
+         if (Client.currentClanSettings[var1] != null && Client.currentClanSettings[var1].method3200(this.username.getName()) != -1 && var1 != 2) {
             this.isInClanChat = TriBool.TriBool_true;
             return;
          }
@@ -482,19 +493,19 @@ public final class Player extends Actor {
       this.isInClanChat = TriBool.TriBool_false;
    }
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aj")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "-1603914179"
+      garbageValue = "1545837402"
    )
-   void method2305() {
+   void method2290() {
       this.isInClanChat = TriBool.TriBool_unknown;
    }
 
-   @ObfuscatedName("as")
+   @ObfuscatedName("ad")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "1596852971"
+      descriptor = "(B)Z",
+      garbageValue = "-124"
    )
    @Export("isClanMember")
    boolean isClanMember() {
@@ -505,34 +516,34 @@ public final class Player extends Actor {
       return this.isInClanChat == TriBool.TriBool_true;
    }
 
-   @ObfuscatedName("ay")
+   @ObfuscatedName("ac")
    @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "89"
+      descriptor = "(I)I",
+      garbageValue = "-52698941"
    )
    @Export("transformedSize")
    int transformedSize() {
-      return this.appearance != null && this.appearance.npcTransformId != -1 ? class188.getNpcDefinition(this.appearance.npcTransformId).size : 1;
+      return this.appearance != null && this.appearance.npcTransformId != -1 ? Bounds.getNpcDefinition(this.appearance.npcTransformId).size : 1;
    }
 
-   @ObfuscatedName("am")
+   @ObfuscatedName("ag")
    @ObfuscatedSignature(
-      descriptor = "(IILis;I)V",
-      garbageValue = "467719152"
+      descriptor = "(IILie;I)V",
+      garbageValue = "2094470882"
    )
-   final void method2336(int var1, int var2, class211 var3) {
-      if (super.sequence != -1 && Coord.SequenceDefinition_get(super.sequence).field2255 == 1) {
+   final void method2301(int var1, int var2, class216 var3) {
+      if (super.sequence != -1 && WorldMapLabelSize.SequenceDefinition_get(super.sequence).field2274 == 1) {
          super.sequence = -1;
       }
 
-      this.method2362();
+      this.method2375();
       if (var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104) {
          if (super.pathX[0] >= 0 && super.pathX[0] < 104 && super.pathY[0] >= 0 && super.pathY[0] < 104) {
-            if (var3 == class211.field2335) {
-               class269.method5379(this, var1, var2, class211.field2335);
+            if (var3 == class216.field2396) {
+               PlayerComposition.method6009(this, var1, var2, class216.field2396);
             }
 
-            this.method2309(var1, var2, var3);
+            this.method2296(var1, var2, var3);
          } else {
             this.resetPath(var1, var2);
          }
@@ -542,29 +553,29 @@ public final class Player extends Actor {
 
    }
 
-   @ObfuscatedName("az")
+   @ObfuscatedName("ar")
    @ObfuscatedSignature(
-      descriptor = "(IIB)V",
-      garbageValue = "-90"
+      descriptor = "(III)V",
+      garbageValue = "1799040998"
    )
    @Export("resetPath")
    void resetPath(int var1, int var2) {
       super.pathLength = 0;
-      super.field1215 = 0;
-      super.field1214 = 0;
+      super.field1226 = 0;
+      super.field1225 = 0;
       super.pathX[0] = var1;
       super.pathY[0] = var2;
       int var3 = this.transformedSize();
-      super.x = var3 * 64 + super.pathX[0] * 128;
+      super.x = super.pathX[0] * 128 + var3 * 64;
       super.y = super.pathY[0] * 128 + var3 * 64;
    }
 
-   @ObfuscatedName("ae")
+   @ObfuscatedName("ah")
    @ObfuscatedSignature(
-      descriptor = "(IILis;S)V",
-      garbageValue = "-3935"
+      descriptor = "(IILie;I)V",
+      garbageValue = "-1805329488"
    )
-   final void method2309(int var1, int var2, class211 var3) {
+   final void method2296(int var1, int var2, class216 var3) {
       if (super.pathLength < 9) {
          ++super.pathLength;
       }
@@ -580,64 +591,37 @@ public final class Player extends Actor {
       super.pathTraversed[0] = var3;
    }
 
-   @ObfuscatedName("au")
+   @ObfuscatedName("az")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "-1187706422"
+      descriptor = "(B)Z",
+      garbageValue = "11"
    )
    @Export("isVisible")
    final boolean isVisible() {
       return this.appearance != null;
    }
 
-   @ObfuscatedName("gf")
+   @ObfuscatedName("je")
    @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-1116085058"
+      descriptor = "(I)V",
+      garbageValue = "-1085648107"
    )
-   @Export("forceDisconnect")
-   static final void forceDisconnect(int var0) {
-      class278.logOut();
-      switch (var0) {
-         case 1:
-            class14.method173(24);
-            Tile.setLoginResponseString("", "You were disconnected from the server.", "");
-            break;
-         case 2:
-            class14.method173(24);
-            Tile.setLoginResponseString("The game servers are currently being updated.", "Please wait a few minutes and try again.", "");
-      }
-
+   static void method2340() {
+      Client.menuOptionsCount = 0;
+      Client.isMenuOpen = false;
    }
 
-   @ObfuscatedName("kq")
+   @ObfuscatedName("mj")
    @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;Lmy;I)Ljava/lang/String;",
-      garbageValue = "-1754511416"
+      descriptor = "(I)V",
+      garbageValue = "-1840896945"
    )
-   static String method2340(String var0, Widget var1) {
-      if (var0.indexOf("%") != -1) {
-         for(int var2 = 1; var2 <= 5; ++var2) {
-            while(true) {
-               int var3 = var0.indexOf("%" + var2);
-               if (var3 == -1) {
-                  break;
-               }
-
-               String var4 = var0.substring(0, var3);
-               int var6 = Language.method6661(var1, var2 - 1);
-               String var5;
-               if (var6 < 999999999) {
-                  var5 = Integer.toString(var6);
-               } else {
-                  var5 = "*";
-               }
-
-               var0 = var4 + var5 + var0.substring(var3 + 2);
-            }
-         }
+   @Export("FriendSystem_invalidateIgnoreds")
+   static final void FriendSystem_invalidateIgnoreds() {
+      PendingSpawn.method2353();
+      if (class406.friendsChat != null) {
+         class406.friendsChat.invalidateIgnoreds();
       }
 
-      return var0;
    }
 }

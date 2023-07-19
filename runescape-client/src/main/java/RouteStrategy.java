@@ -4,35 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ip")
+@ObfuscatedName("ig")
 @Implements("RouteStrategy")
 public abstract class RouteStrategy {
-   @ObfuscatedName("ct")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 662591573
-   )
-   static int field2330;
-   @ObfuscatedName("aj")
-   @ObfuscatedGetter(
-      intValue = -1075309893
+      intValue = 59947595
    )
    @Export("approxDestinationX")
    public int approxDestinationX;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 579867739
+      intValue = -662612897
    )
    @Export("approxDestinationY")
    public int approxDestinationY;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = -1252836685
+      intValue = -1804274713
    )
    @Export("approxDestinationSizeX")
    public int approxDestinationSizeX;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -2146683721
+      intValue = -584396795
    )
    @Export("approxDestinationSizeY")
    public int approxDestinationSizeY;
@@ -40,48 +35,32 @@ public abstract class RouteStrategy {
    protected RouteStrategy() {
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(IIILiz;B)Z",
-      garbageValue = "1"
+      descriptor = "(IIILic;B)Z",
+      garbageValue = "-38"
    )
    @Export("hasArrived")
    protected abstract boolean hasArrived(int var1, int var2, int var3, CollisionMap var4);
 
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ls")
    @ObfuscatedSignature(
-      descriptor = "(IIZI)Ljava/lang/String;",
-      garbageValue = "-1339770799"
+      descriptor = "(IIIIIIIS)V",
+      garbageValue = "246"
    )
-   static String method4142(int var0, int var1, boolean var2) {
-      if (var1 >= 2 && var1 <= 36) {
-         if (var2 && var0 >= 0) {
-            int var3 = 2;
-
-            for(int var4 = var0 / var1; var4 != 0; ++var3) {
-               var4 /= var1;
-            }
-
-            char[] var5 = new char[var3];
-            var5[0] = '+';
-
-            for(int var6 = var3 - 1; var6 > 0; --var6) {
-               int var7 = var0;
-               var0 /= var1;
-               int var8 = var7 - var0 * var1;
-               if (var8 >= 10) {
-                  var5[var6] = (char)(var8 + 87);
-               } else {
-                  var5[var6] = (char)(var8 + 48);
-               }
-            }
-
-            return new String(var5);
-         } else {
-            return Integer.toString(var0, var1);
-         }
-      } else {
-         throw new IllegalArgumentException("" + var1);
+   @Export("updateRootInterface")
+   static final void updateRootInterface(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+      if (Client.loadInterface(var0)) {
+         UserComparator3.updateInterface(class16.Widget_interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6);
       }
+   }
+
+   @ObfuscatedName("ne")
+   @ObfuscatedSignature(
+      descriptor = "(I)Z",
+      garbageValue = "972113387"
+   )
+   public static boolean method4214() {
+      return Client.staffModLevel >= 2;
    }
 }

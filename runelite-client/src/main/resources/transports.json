@@ -26498,21 +26498,6 @@
   },
   {
     "source": {
-      "x": 2461,
-      "y": 3382,
-      "plane": 0
-    },
-    "destination": {
-      "x": 2461,
-      "y": 3385,
-      "plane": 0
-    },
-    "action": "Open",
-    "objectId": 190,
-    "requirements": {}
-  },
-  {
-    "source": {
       "x": 2462,
       "y": 3385,
       "plane": 0
@@ -26529,42 +26514,12 @@
   {
     "source": {
       "x": 2460,
-      "y": 3382,
-      "plane": 0
-    },
-    "destination": {
-      "x": 2461,
-      "y": 3385,
-      "plane": 0
-    },
-    "action": "Open",
-    "objectId": 190,
-    "requirements": {}
-  },
-  {
-    "source": {
-      "x": 2460,
       "y": 3385,
       "plane": 0
     },
     "destination": {
       "x": 2461,
       "y": 3382,
-      "plane": 0
-    },
-    "action": "Open",
-    "objectId": 190,
-    "requirements": {}
-  },
-  {
-    "source": {
-      "x": 2462,
-      "y": 3382,
-      "plane": 0
-    },
-    "destination": {
-      "x": 2461,
-      "y": 3385,
       "plane": 0
     },
     "action": "Open",
@@ -66911,8 +66866,8 @@
       "y": 3497,
       "plane": 0
     },
-    "action": "Climb-up",
-    "objectId": 16450,
+    "action": "Climb-down",
+    "objectId": 16556,
     "requirements": {}
   },
   {
@@ -66926,8 +66881,8 @@
       "y": 3498,
       "plane": 2
     },
-    "action": "Climb-down",
-    "objectId": 16556,
+    "action": "Climb-up",
+    "objectId": 16450,
     "requirements": {}
   },
   {
@@ -68946,13 +68901,13 @@
   },
   {
     "source": {
-      "x": 2561,
-      "y": 2865,
+      "x": 2555,
+      "y": 2857,
       "plane": 0
     },
     "destination": {
-      "x": 2561,
-      "y": 2868,
+      "x": 2555,
+      "y": 2854,
       "plane": 1
     },
     "action": "Climb-up",
@@ -68961,13 +68916,13 @@
   },
   {
     "source": {
-      "x": 2561,
-      "y": 2868,
+      "x": 2555,
+      "y": 2854,
       "plane": 1
     },
     "destination": {
-      "x": 2561,
-      "y": 2865,
+      "x": 2555,
+      "y": 2857,
       "plane": 0
     },
     "action": "Climb-down",
@@ -73000,6 +72955,14 @@
           "amount": 10
         }
       ],
+      "varRequirements": [
+        {
+          "comparison": "LESS_THAN",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
@@ -73035,6 +72998,14 @@
           "amount": 10
         }
       ],
+      "varRequirements": [
+        {
+          "comparison": "LESS_THAN",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
@@ -73068,6 +73039,14 @@
             995
           ],
           "amount": 10
+        }
+      ],
+      "varRequirements": [
+        {
+          "comparison": "LESS_THAN",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
         }
       ],
       "questRequirements": [
@@ -73105,6 +73084,14 @@
           "amount": 10
         }
       ],
+      "varRequirements": [
+        {
+          "comparison": "LESS_THAN",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
@@ -73128,13 +73115,22 @@
       "plane": 0
     },
     "action": "Open",
-    "objectId": 44598,
+    "objectId": 44599,
     "requirements": {
+      "varRequirements": [
+        {
+          "comparison": "GREATER_THAN_EQUAL",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
           "states": [
-            "FINISHED"
+            "FINISHED",
+            "IN_PROGRESS"
           ]
         }
       ]
@@ -73152,13 +73148,22 @@
       "plane": 0
     },
     "action": "Open",
-    "objectId": 44598,
+    "objectId": 44599,
     "requirements": {
+      "varRequirements": [
+        {
+          "comparison": "GREATER_THAN_EQUAL",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
           "states": [
-            "FINISHED"
+            "FINISHED",
+            "IN_PROGRESS"
           ]
         }
       ]
@@ -73178,11 +73183,20 @@
     "action": "Open",
     "objectId": 44598,
     "requirements": {
+      "varRequirements": [
+        {
+          "comparison": "GREATER_THAN_EQUAL",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
           "states": [
-            "FINISHED"
+            "FINISHED",
+            "IN_PROGRESS"
           ]
         }
       ]
@@ -73202,11 +73216,20 @@
     "action": "Open",
     "objectId": 44598,
     "requirements": {
+      "varRequirements": [
+        {
+          "comparison": "GREATER_THAN_EQUAL",
+          "type": "VARP",
+          "var": 273,
+          "value": 100
+        }
+      ],
       "questRequirements": [
         {
           "quest": "PRINCE_ALI_RESCUE",
           "states": [
-            "FINISHED"
+            "FINISHED",
+            "IN_PROGRESS"
           ]
         }
       ]

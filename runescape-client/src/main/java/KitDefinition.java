@@ -7,70 +7,71 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("hv")
 @Implements("KitDefinition")
 public class KitDefinition extends DualNode {
-   @ObfuscatedName("al")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lnq;"
+   )
+   @Export("KitDefinition_archive")
+   static AbstractArchive KitDefinition_archive;
+   @ObfuscatedName("an")
+   @ObfuscatedSignature(
+      descriptor = "Lnq;"
    )
    @Export("KitDefinition_modelsArchive")
-   public static AbstractArchive KitDefinition_modelsArchive;
-   @ObfuscatedName("ac")
+   static AbstractArchive KitDefinition_modelsArchive;
+   @ObfuscatedName("av")
    @ObfuscatedGetter(
-      intValue = 1091197995
+      intValue = -466540867
    )
    @Export("KitDefinition_fileCount")
    public static int KitDefinition_fileCount;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "Lkt;"
+      descriptor = "Llf;"
    )
    @Export("KitDefinition_cached")
-   static EvictingDualNodeHashTable KitDefinition_cached = new EvictingDualNodeHashTable(64);
-   @ObfuscatedName("az")
+   public static EvictingDualNodeHashTable KitDefinition_cached = new EvictingDualNodeHashTable(64);
+   @ObfuscatedName("ti")
    @ObfuscatedSignature(
-      descriptor = "Lsp;"
+      descriptor = "Lbe;"
    )
-   static IndexedSprite field1941;
-   @ObfuscatedName("qk")
-   @ObfuscatedSignature(
-      descriptor = "Lrw;"
-   )
-   @Export("HitSplatDefinition_cachedSprites")
-   static class462 HitSplatDefinition_cachedSprites;
-   @ObfuscatedName("an")
+   @Export("pcmStreamMixer")
+   static PcmStreamMixer pcmStreamMixer;
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = -508884005
+      intValue = -1003257865
    )
    @Export("bodypartID")
    public int bodypartID = -1;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @Export("models2")
    int[] models2;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @Export("recolorFrom")
    short[] recolorFrom;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @Export("recolorTo")
    short[] recolorTo;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @Export("retextureFrom")
    short[] retextureFrom;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @Export("retextureTo")
    short[] retextureTo;
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @Export("models")
    int[] models = new int[]{-1, -1, -1, -1, -1};
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aa")
    @Export("nonSelectable")
    public boolean nonSelectable = false;
 
    KitDefinition() {
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)V",
-      garbageValue = "-436445916"
+      descriptor = "(Ltz;B)V",
+      garbageValue = "-25"
    )
    @Export("decode")
    void decode(Buffer var1) {
@@ -84,10 +85,10 @@ public class KitDefinition extends DualNode {
       }
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;II)V",
-      garbageValue = "-220480988"
+      descriptor = "(Ltz;IB)V",
+      garbageValue = "66"
    )
    @Export("decodeNext")
    void decodeNext(Buffer var1, int var2) {
@@ -130,10 +131,10 @@ public class KitDefinition extends DualNode {
 
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "2143068501"
+      descriptor = "(B)Z",
+      garbageValue = "-16"
    )
    @Export("ready")
    public boolean ready() {
@@ -152,10 +153,10 @@ public class KitDefinition extends DualNode {
       }
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "(I)Liu;",
-      garbageValue = "845408563"
+      descriptor = "(I)Lit;",
+      garbageValue = "1319978178"
    )
    @Export("getModelData")
    public ModelData getModelData() {
@@ -192,12 +193,12 @@ public class KitDefinition extends DualNode {
       }
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
       descriptor = "(I)Z",
-      garbageValue = "751474710"
+      garbageValue = "1299723731"
    )
-   public boolean method3608() {
+   public boolean method3619() {
       boolean var1 = true;
 
       for(int var2 = 0; var2 < 5; ++var2) {
@@ -209,10 +210,10 @@ public class KitDefinition extends DualNode {
       return var1;
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
-      descriptor = "(I)Liu;",
-      garbageValue = "1250407015"
+      descriptor = "(B)Lit;",
+      garbageValue = "0"
    )
    @Export("getKitDefinitionModels")
    public ModelData getKitDefinitionModels() {

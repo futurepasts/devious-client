@@ -4,41 +4,31 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mk")
+@ObfuscatedName("nd")
 @Implements("ArchiveDiskAction")
 public class ArchiveDiskAction extends Node {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 407589317
+      intValue = -112889395
    )
    @Export("type")
    int type;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @Export("data")
-   byte[] data;
-   @ObfuscatedName("ac")
+   public byte[] data;
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Lpv;"
+      descriptor = "Lqc;"
    )
    @Export("archiveDisk")
-   ArchiveDisk archiveDisk;
-   @ObfuscatedName("ab")
+   public ArchiveDisk archiveDisk;
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "Lmx;"
+      descriptor = "Lny;"
    )
    @Export("archive")
-   Archive archive;
+   public Archive archive;
 
    ArchiveDiskAction() {
-   }
-
-   @ObfuscatedName("ar")
-   @ObfuscatedSignature(
-      descriptor = "(CI)Z",
-      garbageValue = "-1494106242"
-   )
-   @Export("isCharAlphabetic")
-   public static boolean isCharAlphabetic(char var0) {
-      return var0 >= 'A' && var0 <= 'Z' || var0 >= 'a' && var0 <= 'z';
    }
 }

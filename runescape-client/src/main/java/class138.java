@@ -1,75 +1,70 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("fb")
-public class class138 extends class140 {
-   @ObfuscatedName("aj")
+@ObfuscatedName("fw")
+public enum class138 implements MouseWheel {
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "Lfw;"
+   )
+   field1607(1, 0),
+   @ObfuscatedName("an")
+   @ObfuscatedSignature(
+      descriptor = "Lfw;"
+   )
+   field1606(0, 1),
+   @ObfuscatedName("av")
+   @ObfuscatedSignature(
+      descriptor = "Lfw;"
+   )
+   field1608(2, 2),
+   @ObfuscatedName("as")
+   @ObfuscatedSignature(
+      descriptor = "Lfw;"
+   )
+   field1609(4, 3),
+   @ObfuscatedName("ax")
+   @ObfuscatedSignature(
+      descriptor = "Lfw;"
+   )
+   field1610(3, 4);
+
+   @ObfuscatedName("ap")
    @ObfuscatedGetter(
-      longValue = 5970519739755097027L
+      intValue = -2124771113
    )
-   long field1610;
-   @ObfuscatedName("al")
-   String field1608;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lfo;"
+   public final int field1611;
+   @ObfuscatedName("ab")
+   @ObfuscatedGetter(
+      intValue = 516056089
    )
-   final class143 this$0;
+   @Export("id")
+   final int id;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lfo;)V"
-   )
-   class138(class143 var1) {
-      this.this$0 = var1;
-      this.field1610 = -1L;
-      this.field1608 = null;
+   class138(int var3, int var4) {
+      this.field1611 = var3;
+      this.id = var4;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)V",
-      garbageValue = "-1979280996"
+      descriptor = "(B)I",
+      garbageValue = "-14"
    )
-   void vmethod3361(Buffer var1) {
-      if (var1.readUnsignedByte() != 255) {
-         --var1.offset;
-         this.field1610 = var1.readLong();
-      }
-
-      this.field1608 = var1.readStringCp1252NullTerminatedOrNull();
+   @Export("rsOrdinal")
+   public int rsOrdinal() {
+      return this.id;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("kb")
    @ObfuscatedSignature(
-      descriptor = "(Lfi;B)V",
-      garbageValue = "29"
+      descriptor = "(Ljava/lang/String;Ljava/lang/String;IIIII)V",
+      garbageValue = "-1617334204"
    )
-   void vmethod3362(ClanSettings var1) {
-      var1.method3199(this.field1610, this.field1608, 0);
-   }
-
-   @ObfuscatedName("bc")
-   @ObfuscatedSignature(
-      descriptor = "(ILcv;ZI)I",
-      garbageValue = "1640153201"
-   )
-   static int method3096(int var0, Script var1, boolean var2) {
-      if (var0 == ScriptOpcodes.LOGOUT) {
-         Client.logoutTimer = 250;
-         return 1;
-      } else {
-         return 2;
-      }
-   }
-
-   @ObfuscatedName("gp")
-   @ObfuscatedSignature(
-      descriptor = "(I)J",
-      garbageValue = "-959228999"
-   )
-   static long method3095() {
-      return Client.field671;
+   @Export("insertMenuItemNoShift")
+   public static final void insertMenuItemNoShift(String var0, String var1, int var2, int var3, int var4, int var5) {
+      WorldMapID.insertMenuItem(var0, var1, var2, var3, var4, var5, -1, false);
    }
 }

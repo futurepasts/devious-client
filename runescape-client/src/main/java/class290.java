@@ -1,39 +1,58 @@
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lr")
+@ObfuscatedName("la")
 public class class290 {
-   @ObfuscatedName("ao")
+   @ObfuscatedName("tv")
    @ObfuscatedSignature(
-      descriptor = "Lne;"
+      descriptor = "Lbi;"
    )
-   @Export("ItemDefinition_archive")
-   public static AbstractArchive ItemDefinition_archive;
-   @ObfuscatedName("ff")
-   @ObfuscatedSignature(
-      descriptor = "Lmx;"
-   )
-   @Export("archive7")
-   static Archive archive7;
-   @ObfuscatedName("gr")
-   @ObfuscatedGetter(
-      intValue = 1176851199
-   )
-   @Export("worldPort")
-   static int worldPort;
+   @Export("pcmPlayer1")
+   static PcmPlayer pcmPlayer1;
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aj")
    @ObfuscatedSignature(
-      descriptor = "(IB)Ljava/lang/String;",
-      garbageValue = "1"
+      descriptor = "(Ljava/lang/String;S)Ljava/lang/String;",
+      garbageValue = "-6836"
    )
-   static final String method5488(int var0) {
-      if (var0 < 100000) {
-         return "<col=ffff00>" + var0 + "</col>";
-      } else {
-         return var0 < 10000000 ? "<col=ffffff>" + var0 / 1000 + "K" + "</col>" : "<col=00ff80>" + var0 / 1000000 + "M" + "</col>";
+   public static String method5660(String var0) {
+      int var1 = var0.length();
+      char[] var2 = new char[var1];
+      byte var3 = 2;
+
+      for(int var4 = 0; var4 < var1; ++var4) {
+         char var5 = var0.charAt(var4);
+         if (var3 == 0) {
+            var5 = Character.toLowerCase(var5);
+         } else if (var3 == 2 || Character.isUpperCase(var5)) {
+            char var6;
+            if (var5 != 181 && var5 != 402) {
+               var6 = Character.toTitleCase(var5);
+            } else {
+               var6 = var5;
+            }
+
+            var5 = var6;
+         }
+
+         if (Character.isLetter(var5)) {
+            var3 = 0;
+         } else if (var5 != '.' && var5 != '?' && var5 != '!') {
+            if (Character.isSpaceChar(var5)) {
+               if (var3 != 2) {
+                  var3 = 1;
+               }
+            } else {
+               var3 = 1;
+            }
+         } else {
+            var3 = 2;
+         }
+
+         var2[var4] = var5;
       }
+
+      return new String(var2);
    }
 }

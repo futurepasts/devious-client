@@ -1,43 +1,41 @@
+import java.io.IOException;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kg")
+@ObfuscatedName("ku")
 @Implements("WorldMapCacheName")
 public class WorldMapCacheName {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "Lkg;"
+      descriptor = "Lku;"
    )
-   public static final WorldMapCacheName field3019 = new WorldMapCacheName("details");
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "Lkg;"
-   )
-   public static final WorldMapCacheName field3014 = new WorldMapCacheName("compositemap");
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Lkg;"
-   )
-   public static final WorldMapCacheName field3016 = new WorldMapCacheName("compositetexture");
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "Lkg;"
-   )
-   static final WorldMapCacheName field3013 = new WorldMapCacheName("area");
+   public static final WorldMapCacheName field3049 = new WorldMapCacheName("details");
    @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "Lkg;"
+      descriptor = "Lku;"
    )
-   public static final WorldMapCacheName field3017 = new WorldMapCacheName("labels");
-   @ObfuscatedName("sl")
+   public static final WorldMapCacheName field3044 = new WorldMapCacheName("compositemap");
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "Lfi;"
+      descriptor = "Lku;"
    )
-   @Export("guestClanSettings")
-   static ClanSettings guestClanSettings;
-   @ObfuscatedName("ao")
+   public static final WorldMapCacheName field3045 = new WorldMapCacheName("compositetexture");
+   @ObfuscatedName("as")
+   @ObfuscatedSignature(
+      descriptor = "Lku;"
+   )
+   static final WorldMapCacheName field3046 = new WorldMapCacheName("area");
+   @ObfuscatedName("ax")
+   @ObfuscatedSignature(
+      descriptor = "Lku;"
+   )
+   public static final WorldMapCacheName field3047 = new WorldMapCacheName("labels");
+   @ObfuscatedName("jy")
+   @Export("regionMapArchiveIds")
+   static int[] regionMapArchiveIds;
+   @ObfuscatedName("ap")
    @Export("name")
    public final String name;
 
@@ -45,13 +43,31 @@ public class WorldMapCacheName {
       this.name = var1;
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "295942057"
+      descriptor = "(I)[B",
+      garbageValue = "1038180461"
    )
-   public static boolean method5296() {
-      ReflectionCheck var0 = (ReflectionCheck)class36.reflectionChecks.last();
-      return var0 != null;
+   public static byte[] method5532() {
+      byte[] var0 = new byte[24];
+
+      try {
+         JagexCache.JagexCache_randomDat.seek(0L);
+         JagexCache.JagexCache_randomDat.readFully(var0);
+
+         int var1;
+         for(var1 = 0; var1 < 24 && var0[var1] == 0; ++var1) {
+         }
+
+         if (var1 >= 24) {
+            throw new IOException();
+         }
+      } catch (Exception var4) {
+         for(int var2 = 0; var2 < 24; ++var2) {
+            var0[var2] = -1;
+         }
+      }
+
+      return var0;
    }
 }

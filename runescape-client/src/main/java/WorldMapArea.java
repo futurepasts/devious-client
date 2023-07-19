@@ -6,74 +6,74 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jw")
+@ObfuscatedName("ji")
 @Implements("WorldMapArea")
 public class WorldMapArea {
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 1364779187
+      intValue = -821361313
    )
    @Export("id")
    int id = -1;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @Export("internalName")
    String internalName;
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @Export("externalName")
    String externalName;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = -861936449
+      intValue = 555090607
    )
    @Export("backGroundColor")
    int backGroundColor = -1;
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedGetter(
-      intValue = -1914508313
+      intValue = -9571317
    )
    @Export("zoom")
    int zoom = -1;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "Llt;"
+      descriptor = "Lmg;"
    )
    @Export("origin")
    Coord origin = null;
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedGetter(
-      intValue = 1244824785
+      intValue = -2109766823
    )
    @Export("regionLowX")
    int regionLowX = Integer.MAX_VALUE;
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = -609305437
+      intValue = -153877805
    )
    @Export("regionHighX")
    int regionHighX = 0;
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = -1790684409
+      intValue = 1562810187
    )
    @Export("regionLowY")
    int regionLowY = Integer.MAX_VALUE;
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = 1015122273
+      intValue = 1232808299
    )
    @Export("regionHighY")
    int regionHighY = 0;
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @Export("isMain")
    boolean isMain = false;
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aa")
    @Export("sections")
    LinkedList sections;
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;IB)V",
-      garbageValue = "70"
+      descriptor = "(Ltz;IB)V",
+      garbageValue = "36"
    )
    @Export("read")
    public void read(Buffer var1, int var2) {
@@ -95,41 +95,42 @@ public class WorldMapArea {
       this.setBounds();
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(Lsy;I)Lkd;",
-      garbageValue = "1493006035"
+      descriptor = "(Ltz;I)Lkg;",
+      garbageValue = "1317289511"
    )
    @Export("readWorldMapSection")
    WorldMapSection readWorldMapSection(Buffer var1) {
       int var2 = var1.readUnsignedByte();
-      WorldMapSectionType var3 = (WorldMapSectionType)SpriteMask.findEnumerated(WorldMapSectionType.method5187(), var2);
-      Object var4 = null;
-      switch (var3.type) {
+      WorldMapSectionType[] var3 = new WorldMapSectionType[]{WorldMapSectionType.WORLDMAPSECTIONTYPE0, WorldMapSectionType.WORLDMAPSECTIONTYPE1, WorldMapSectionType.WORLDMAPSECTIONTYPE2, WorldMapSectionType.WORLDMAPSECTIONTYPE3};
+      WorldMapSectionType var4 = (WorldMapSectionType)GameObject.findEnumerated(var3, var2);
+      Object var5 = null;
+      switch (var4.type) {
          case 0:
-            var4 = new class248();
+            var5 = new WorldMapSection2();
             break;
          case 1:
-            var4 = new WorldMapSection1();
+            var5 = new class259();
             break;
          case 2:
-            var4 = new WorldMapSection0();
+            var5 = new WorldMapSection1();
             break;
          case 3:
-            var4 = new WorldMapSection2();
+            var5 = new WorldMapSection0();
             break;
          default:
             throw new IllegalStateException("");
       }
 
-      ((WorldMapSection)var4).read(var1);
-      return (WorldMapSection)var4;
+      ((WorldMapSection)var5).read(var1);
+      return (WorldMapSection)var5;
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(IIII)Z",
-      garbageValue = "-1950894227"
+      descriptor = "(IIIS)Z",
+      garbageValue = "128"
    )
    @Export("containsCoord")
    public boolean containsCoord(int var1, int var2, int var3) {
@@ -147,10 +148,10 @@ public class WorldMapArea {
       return true;
    }
 
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedSignature(
       descriptor = "(III)Z",
-      garbageValue = "-375705273"
+      garbageValue = "-346531447"
    )
    @Export("containsPosition")
    public boolean containsPosition(int var1, int var2) {
@@ -178,10 +179,10 @@ public class WorldMapArea {
       }
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("ax")
    @ObfuscatedSignature(
       descriptor = "(IIII)[I",
-      garbageValue = "1460236922"
+      garbageValue = "-1705163637"
    )
    @Export("position")
    public int[] position(int var1, int var2, int var3) {
@@ -199,10 +200,10 @@ public class WorldMapArea {
       return var5.getBorderTileLengths(var1, var2, var3);
    }
 
-   @ObfuscatedName("ao")
+   @ObfuscatedName("ap")
    @ObfuscatedSignature(
-      descriptor = "(III)Llt;",
-      garbageValue = "-1410281579"
+      descriptor = "(III)Lmg;",
+      garbageValue = "1030783725"
    )
    @Export("coord")
    public Coord coord(int var1, int var2) {
@@ -220,10 +221,10 @@ public class WorldMapArea {
       return var4.coord(var1, var2);
    }
 
-   @ObfuscatedName("av")
+   @ObfuscatedName("ab")
    @ObfuscatedSignature(
       descriptor = "(I)V",
-      garbageValue = "1716718867"
+      garbageValue = "-1001248381"
    )
    @Export("setBounds")
    void setBounds() {
@@ -236,181 +237,232 @@ public class WorldMapArea {
 
    }
 
-   @ObfuscatedName("aq")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
       descriptor = "(B)I",
-      garbageValue = "-1"
+      garbageValue = "-100"
    )
    @Export("getId")
    public int getId() {
       return this.id;
    }
 
-   @ObfuscatedName("ap")
+   @ObfuscatedName("ae")
    @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "10996936"
+      descriptor = "(B)Z",
+      garbageValue = "0"
    )
    @Export("getIsMain")
    public boolean getIsMain() {
       return this.isMain;
    }
 
-   @ObfuscatedName("ar")
+   @ObfuscatedName("af")
    @ObfuscatedSignature(
       descriptor = "(B)Ljava/lang/String;",
-      garbageValue = "-65"
+      garbageValue = "76"
    )
    @Export("getInternalName")
    public String getInternalName() {
       return this.internalName;
    }
 
-   @ObfuscatedName("ak")
+   @ObfuscatedName("ao")
    @ObfuscatedSignature(
       descriptor = "(B)Ljava/lang/String;",
-      garbageValue = "94"
+      garbageValue = "51"
    )
    @Export("getExternalName")
    public String getExternalName() {
       return this.externalName;
    }
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("aa")
    @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "570565152"
+      descriptor = "(B)I",
+      garbageValue = "-52"
    )
    @Export("getBackGroundColor")
    int getBackGroundColor() {
       return this.backGroundColor;
    }
 
-   @ObfuscatedName("as")
+   @ObfuscatedName("aj")
    @ObfuscatedSignature(
       descriptor = "(I)I",
-      garbageValue = "-1040127358"
+      garbageValue = "522808671"
    )
    @Export("getZoom")
    public int getZoom() {
       return this.zoom;
    }
 
-   @ObfuscatedName("ay")
+   @ObfuscatedName("ad")
    @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "1"
+      descriptor = "(I)I",
+      garbageValue = "1080892519"
    )
    @Export("getRegionLowX")
    public int getRegionLowX() {
       return this.regionLowX;
    }
 
-   @ObfuscatedName("am")
+   @ObfuscatedName("ac")
    @ObfuscatedSignature(
       descriptor = "(I)I",
-      garbageValue = "632784773"
+      garbageValue = "2122048813"
    )
    @Export("getRegionHighX")
    public int getRegionHighX() {
       return this.regionHighX;
    }
 
-   @ObfuscatedName("az")
+   @ObfuscatedName("ag")
    @ObfuscatedSignature(
-      descriptor = "(S)I",
-      garbageValue = "-7674"
+      descriptor = "(I)I",
+      garbageValue = "-1014645029"
    )
    @Export("getRegionLowY")
    public int getRegionLowY() {
       return this.regionLowY;
    }
 
-   @ObfuscatedName("ae")
+   @ObfuscatedName("ar")
    @ObfuscatedSignature(
       descriptor = "(I)I",
-      garbageValue = "1770419527"
+      garbageValue = "-1702826523"
    )
    @Export("getRegionHighY")
    public int getRegionHighY() {
       return this.regionHighY;
    }
 
-   @ObfuscatedName("au")
+   @ObfuscatedName("ah")
    @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "689611916"
+      descriptor = "(B)I",
+      garbageValue = "2"
    )
    @Export("getOriginX")
    public int getOriginX() {
       return this.origin.x;
    }
 
-   @ObfuscatedName("ag")
+   @ObfuscatedName("az")
    @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "0"
+      descriptor = "(I)I",
+      garbageValue = "1035011114"
    )
    @Export("getOriginPlane")
    public int getOriginPlane() {
       return this.origin.plane;
    }
 
-   @ObfuscatedName("at")
+   @ObfuscatedName("au")
    @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "10"
+      descriptor = "(I)I",
+      garbageValue = "-813728015"
    )
    @Export("getOriginY")
    public int getOriginY() {
       return this.origin.y;
    }
 
-   @ObfuscatedName("af")
+   @ObfuscatedName("ai")
    @ObfuscatedSignature(
-      descriptor = "(I)Llt;",
-      garbageValue = "631641282"
+      descriptor = "(I)Lmg;",
+      garbageValue = "-921903301"
    )
    @Export("getOrigin")
    public Coord getOrigin() {
       return new Coord(this.origin);
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(B)[Lln;",
-      garbageValue = "6"
+      descriptor = "(CB)B",
+      garbageValue = "14"
    )
-   static LoginPacket[] method4920() {
-      return new LoginPacket[]{LoginPacket.field3285, LoginPacket.field3286, LoginPacket.field3284, LoginPacket.field3288, LoginPacket.field3289, LoginPacket.field3290};
-   }
-
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "(Lsn;IIII)V",
-      garbageValue = "-553024587"
-   )
-   static void method4918(SpritePixels var0, int var1, int var2, int var3) {
-      WorldMapRegion.WorldMapRegion_cachedSprites.put(var0, class122.method2891(var1, var2, var3), var0.pixels.length * 4);
-   }
-
-   @ObfuscatedName("me")
-   @ObfuscatedSignature(
-      descriptor = "(IIZB)V",
-      garbageValue = "69"
-   )
-   static final void method4919(int var0, int var1, boolean var2) {
-      if (Client.currentClanChannels[var0] != null) {
-         if (var1 >= 0 && var1 < Client.currentClanChannels[var0].method3329()) {
-            ClanChannelMember var3 = (ClanChannelMember)Client.currentClanChannels[var0].members.get(var1);
-            PacketBufferNode var4 = UserComparator9.getPacketBufferNode(ClientPacket.field3145, Client.packetWriter.isaacCipher);
-            var4.packetBuffer.writeByte(4 + WorldMapLabel.stringCp1252NullTerminatedByteSize(var3.username.getName()));
-            var4.packetBuffer.writeByte(var0);
-            var4.packetBuffer.writeShort(var1);
-            var4.packetBuffer.writeBoolean(var2);
-            var4.packetBuffer.writeStringCp1252NullTerminated(var3.username.getName());
-            Client.packetWriter.addNode(var4);
-         }
+   @Export("charToByteCp1252")
+   public static byte charToByteCp1252(char var0) {
+      byte var1;
+      if (var0 > 0 && var0 < 128 || var0 >= 160 && var0 <= 255) {
+         var1 = (byte)var0;
+      } else if (var0 == 8364) {
+         var1 = -128;
+      } else if (var0 == 8218) {
+         var1 = -126;
+      } else if (var0 == 402) {
+         var1 = -125;
+      } else if (var0 == 8222) {
+         var1 = -124;
+      } else if (var0 == 8230) {
+         var1 = -123;
+      } else if (var0 == 8224) {
+         var1 = -122;
+      } else if (var0 == 8225) {
+         var1 = -121;
+      } else if (var0 == 710) {
+         var1 = -120;
+      } else if (var0 == 8240) {
+         var1 = -119;
+      } else if (var0 == 352) {
+         var1 = -118;
+      } else if (var0 == 8249) {
+         var1 = -117;
+      } else if (var0 == 338) {
+         var1 = -116;
+      } else if (var0 == 381) {
+         var1 = -114;
+      } else if (var0 == 8216) {
+         var1 = -111;
+      } else if (var0 == 8217) {
+         var1 = -110;
+      } else if (var0 == 8220) {
+         var1 = -109;
+      } else if (var0 == 8221) {
+         var1 = -108;
+      } else if (var0 == 8226) {
+         var1 = -107;
+      } else if (var0 == 8211) {
+         var1 = -106;
+      } else if (var0 == 8212) {
+         var1 = -105;
+      } else if (var0 == 732) {
+         var1 = -104;
+      } else if (var0 == 8482) {
+         var1 = -103;
+      } else if (var0 == 353) {
+         var1 = -102;
+      } else if (var0 == 8250) {
+         var1 = -101;
+      } else if (var0 == 339) {
+         var1 = -100;
+      } else if (var0 == 382) {
+         var1 = -98;
+      } else if (var0 == 376) {
+         var1 = -97;
+      } else {
+         var1 = 63;
       }
+
+      return var1;
+   }
+
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(ILqc;Lny;I)V",
+      garbageValue = "1736971993"
+   )
+   static void method5170(int var0, ArchiveDisk var1, Archive var2) {
+      ArchiveDiskAction var3 = new ArchiveDiskAction();
+      var3.type = 1;
+      var3.key = (long)var0;
+      var3.archiveDisk = var1;
+      var3.archive = var2;
+      synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
+         ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var3);
+      }
+
+      class300.method5686();
    }
 }

@@ -4,84 +4,83 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("do")
+@ObfuscatedName("dr")
 @Implements("TileItem")
 public final class TileItem extends Renderable {
-   @ObfuscatedName("ap")
+   @ObfuscatedName("at")
    @ObfuscatedGetter(
-      intValue = 1417914255
-   )
-   static int field1314;
-   @ObfuscatedName("as")
-   @Export("Tiles_hueMultiplier")
-   static int[] Tiles_hueMultiplier;
-   @ObfuscatedName("aj")
-   @ObfuscatedGetter(
-      intValue = -126580705
+      intValue = 1431528945
    )
    @Export("id")
    int id;
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 1272655955
+      intValue = -1218362609
    )
    @Export("quantity")
    int quantity;
-   @ObfuscatedName("ab")
+   @ObfuscatedName("as")
    @ObfuscatedGetter(
-      intValue = 1678180761
+      intValue = 788664885
    )
-   int field1317 = 31;
+   int field1314 = 31;
 
    TileItem() {
    }
 
-   @ObfuscatedName("aj")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
       descriptor = "(II)V",
-      garbageValue = "2082293600"
+      garbageValue = "1751557649"
    )
-   void method2649(int var1) {
-      this.field1317 = var1;
+   void method2651(int var1) {
+      this.field1314 = var1;
    }
 
-   @ObfuscatedName("al")
+   @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(I)Lix;",
-      garbageValue = "-1998422213"
+      descriptor = "(I)Ljd;",
+      garbageValue = "-1953039490"
    )
    @Export("getModel")
    protected final Model getModel() {
-      return ParamComposition.ItemDefinition_get(this.id).getModel(this.quantity);
+      return class300.ItemDefinition_get(this.id).getModel(this.quantity);
    }
 
-   @ObfuscatedName("ac")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      descriptor = "(II)Z",
-      garbageValue = "1678542179"
+      descriptor = "(IB)Z",
+      garbageValue = "-52"
    )
-   boolean method2651(int var1) {
+   boolean method2661(int var1) {
       if (var1 >= 0 && var1 <= 4) {
-         return (this.field1317 & 1 << var1) != 0;
+         return (this.field1314 & 1 << var1) != 0;
       } else {
          return true;
       }
    }
 
+   @ObfuscatedName("at")
+   @ObfuscatedSignature(
+      descriptor = "(IB)Z",
+      garbageValue = "1"
+   )
+   @Export("isWorldMapEvent")
+   public static boolean isWorldMapEvent(int var0) {
+      return var0 == 10 || var0 == 11 || var0 == 12 || var0 == 13 || var0 == 14 || var0 == 15 || var0 == 16 || var0 == 17;
+   }
+
    @ObfuscatedName("an")
    @ObfuscatedSignature(
-      descriptor = "(IB)V",
-      garbageValue = "112"
+      descriptor = "(B)V",
+      garbageValue = "8"
    )
-   @Export("clearItemContainer")
-   static void clearItemContainer(int var0) {
-      ItemContainer var1 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
-      if (var1 != null) {
-         for(int var2 = 0; var2 < var1.ids.length; ++var2) {
-            var1.ids[var2] = -1;
-            var1.quantities[var2] = 0;
+   static void method2662() {
+      for(ObjectSound var0 = (ObjectSound)ObjectSound.objectSounds.last(); var0 != null; var0 = (ObjectSound)ObjectSound.objectSounds.previous()) {
+         if (var0.obj != null) {
+            var0.set();
          }
-
       }
+
    }
 }

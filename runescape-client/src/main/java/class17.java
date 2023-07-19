@@ -8,29 +8,36 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("au")
+@ObfuscatedName("ah")
 class class17 implements SSLSession {
-   @ObfuscatedName("am")
-   static int[][][] field88;
+   @ObfuscatedName("fs")
+   @ObfuscatedSignature(
+      descriptor = "Lny;"
+   )
+   @Export("archive15")
+   static Archive archive15;
+   @ObfuscatedName("gm")
+   @Export("worldHost")
+   static String worldHost;
    // $FF: synthetic field
    @ObfuscatedSignature(
-      descriptor = "Las;"
+      descriptor = "Laj;"
    )
    final class12 this$1;
 
    @ObfuscatedSignature(
-      descriptor = "(Las;)V"
+      descriptor = "(Laj;)V"
    )
    class17(class12 var1) {
       this.this$1 = var1;
    }
 
-   public Object getValue(String var1) {
+   public Certificate[] getLocalCertificates() {
       throw new UnsupportedOperationException();
    }
 
-   public String getCipherSuite() {
-      throw new UnsupportedOperationException();
+   public int getApplicationBufferSize() {
+      return 0;
    }
 
    public long getCreationTime() {
@@ -41,11 +48,7 @@ class class17 implements SSLSession {
       throw new UnsupportedOperationException();
    }
 
-   public long getLastAccessedTime() {
-      throw new UnsupportedOperationException();
-   }
-
-   public Certificate[] getLocalCertificates() {
+   public Principal getLocalPrincipal() {
       throw new UnsupportedOperationException();
    }
 
@@ -53,27 +56,31 @@ class class17 implements SSLSession {
       throw new UnsupportedOperationException();
    }
 
-   public Principal getLocalPrincipal() {
-      throw new UnsupportedOperationException();
-   }
-
-   public Certificate[] getPeerCertificates() throws SSLPeerUnverifiedException {
-      return this.this$1.field61;
-   }
-
    public X509Certificate[] getPeerCertificateChain() throws SSLPeerUnverifiedException {
       return null;
    }
 
-   public int getPeerPort() {
-      return 0;
+   public Certificate[] getPeerCertificates() throws SSLPeerUnverifiedException {
+      return this.this$1.field59;
    }
 
-   public SSLSessionContext getSessionContext() {
+   public String getPeerHost() {
       throw new UnsupportedOperationException();
    }
 
-   public String getProtocol() {
+   public String getCipherSuite() {
+      throw new UnsupportedOperationException();
+   }
+
+   public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
+      return null;
+   }
+
+   public void removeValue(String var1) {
+      throw new UnsupportedOperationException();
+   }
+
+   public SSLSessionContext getSessionContext() {
       throw new UnsupportedOperationException();
    }
 
@@ -93,89 +100,163 @@ class class17 implements SSLSession {
       throw new UnsupportedOperationException();
    }
 
-   public void removeValue(String var1) {
-      throw new UnsupportedOperationException();
-   }
-
-   public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
-      return null;
-   }
-
-   public int getApplicationBufferSize() {
+   public int getPeerPort() {
       return 0;
    }
 
-   public String getPeerHost() {
+   public long getLastAccessedTime() {
       throw new UnsupportedOperationException();
    }
 
-   @ObfuscatedName("aj")
+   public Object getValue(String var1) {
+      throw new UnsupportedOperationException();
+   }
+
+   public String getProtocol() {
+      throw new UnsupportedOperationException();
+   }
+
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      descriptor = "(II)I",
-      garbageValue = "-956668575"
+      descriptor = "(Lnq;S)V",
+      garbageValue = "17225"
    )
-   @Export("getVarbit")
-   public static int getVarbit(int var0) {
-      VarbitComposition var2 = (VarbitComposition)VarbitComposition.VarbitDefinition_cached.get((long)var0);
-      VarbitComposition var1;
-      if (var2 != null) {
-         var1 = var2;
+   public static void method244(AbstractArchive var0) {
+      StructComposition.StructDefinition_archive = var0;
+   }
+
+   @ObfuscatedName("ab")
+   @ObfuscatedSignature(
+      descriptor = "(I)Lcc;",
+      garbageValue = "1813917490"
+   )
+   @Export("worldListStart")
+   static World worldListStart() {
+      World.World_listCount = 0;
+      return class171.getNextWorldListWorld();
+   }
+
+   @ObfuscatedName("iw")
+   @ObfuscatedSignature(
+      descriptor = "(B)I",
+      garbageValue = "-1"
+   )
+   static final int method269() {
+      if (class10.clientPreferences.method2434()) {
+         return Clock.Client_plane;
       } else {
-         byte[] var3 = VarbitComposition.VarbitDefinition_archive.takeFile(14, var0);
-         var2 = new VarbitComposition();
-         if (var3 != null) {
-            var2.decode(new Buffer(var3));
+         int var0 = 3;
+         if (MusicPatchNode.cameraPitch < 310) {
+            int var1;
+            int var2;
+            if (Client.oculusOrbState == 1) {
+               var1 = ModeWhere.oculusOrbFocalPointX >> 7;
+               var2 = GrandExchangeEvents.oculusOrbFocalPointY >> 7;
+            } else {
+               var1 = Projectile.localPlayer.x >> 7;
+               var2 = Projectile.localPlayer.y >> 7;
+            }
+
+            int var3 = class208.cameraX >> 7;
+            int var4 = ByteArrayPool.cameraZ >> 7;
+            if (var3 < 0 || var4 < 0 || var3 >= 104 || var4 >= 104) {
+               return Clock.Client_plane;
+            }
+
+            if (var1 < 0 || var2 < 0 || var1 >= 104 || var2 >= 104) {
+               return Clock.Client_plane;
+            }
+
+            if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
+               var0 = Clock.Client_plane;
+            }
+
+            int var5;
+            if (var1 > var3) {
+               var5 = var1 - var3;
+            } else {
+               var5 = var3 - var1;
+            }
+
+            int var6;
+            if (var2 > var4) {
+               var6 = var2 - var4;
+            } else {
+               var6 = var4 - var2;
+            }
+
+            int var7;
+            int var8;
+            if (var5 > var6) {
+               var7 = var6 * 65536 / var5;
+               var8 = 32768;
+
+               while(var3 != var1) {
+                  if (var3 < var1) {
+                     ++var3;
+                  } else if (var3 > var1) {
+                     --var3;
+                  }
+
+                  if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
+                     var0 = Clock.Client_plane;
+                  }
+
+                  var8 += var7;
+                  if (var8 >= 65536) {
+                     var8 -= 65536;
+                     if (var4 < var2) {
+                        ++var4;
+                     } else if (var4 > var2) {
+                        --var4;
+                     }
+
+                     if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
+                        var0 = Clock.Client_plane;
+                     }
+                  }
+               }
+            } else if (var6 > 0) {
+               var7 = var5 * 65536 / var6;
+               var8 = 32768;
+
+               while(var4 != var2) {
+                  if (var4 < var2) {
+                     ++var4;
+                  } else if (var4 > var2) {
+                     --var4;
+                  }
+
+                  if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
+                     var0 = Clock.Client_plane;
+                  }
+
+                  var8 += var7;
+                  if (var8 >= 65536) {
+                     var8 -= 65536;
+                     if (var3 < var1) {
+                        ++var3;
+                     } else if (var3 > var1) {
+                        --var3;
+                     }
+
+                     if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
+                        var0 = Clock.Client_plane;
+                     }
+                  }
+               }
+            }
          }
 
-         VarbitComposition.VarbitDefinition_cached.put(var2, (long)var0);
-         var1 = var2;
+         if (Projectile.localPlayer.x >= 0 && Projectile.localPlayer.y >= 0 && Projectile.localPlayer.x < 13312 && Projectile.localPlayer.y < 13312) {
+            if ((Tiles.Tiles_renderFlags[Clock.Client_plane][Projectile.localPlayer.x >> 7][Projectile.localPlayer.y >> 7] & 4) != 0) {
+               var0 = Clock.Client_plane;
+            }
+
+            return var0;
+         } else {
+            return Clock.Client_plane;
+         }
       }
-
-      int var7 = var1.baseVar;
-      int var4 = var1.startBit;
-      int var5 = var1.endBit;
-      int var6 = Varps.Varps_masks[var5 - var4];
-      return Varps.Varps_main[var7] >> var4 & var6;
-   }
-
-   @ObfuscatedName("mh")
-   @ObfuscatedSignature(
-      descriptor = "(Lde;ZB)V",
-      garbageValue = "-59"
-   )
-   @Export("closeInterface")
-   static final void closeInterface(InterfaceParent var0, boolean var1) {
-      int var2 = var0.group;
-      int var3 = (int)var0.key;
-      var0.remove();
-      if (var1) {
-         class289.method5486(var2);
-      }
-
-      class211.method4147(var2);
-      Widget var4 = WorldMapSection1.getWidget(var3);
-      if (var4 != null) {
-         class69.invalidateWidget(var4);
-      }
-
-      if (Client.rootInterface != -1) {
-         NPCComposition.runIntfCloseListeners(Client.rootInterface, 1);
-      }
-
-   }
-
-   @ObfuscatedName("ng")
-   @ObfuscatedSignature(
-      descriptor = "(Lsy;II)V",
-      garbageValue = "1277645659"
-   )
-   static void method255(Buffer var0, int var1) {
-      byte[] var2 = var0.array;
-      if (Client.randomDatData == null) {
-         Client.randomDatData = new byte[24];
-      }
-
-      class380.writeRandomDat(var2, var1, Client.randomDatData, 0, 24);
-      class70.method2049(var0, var1);
    }
 }
