@@ -1,90 +1,90 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kt")
+@ObfuscatedName("kl")
 @Implements("WorldMapEvent")
 public class WorldMapEvent {
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = 251627885
-   )
-   @Export("mapElement")
-   public int mapElement;
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Lmg;"
-   )
-   @Export("coord1")
-   public Coord coord1;
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Lmg;"
-   )
-   @Export("coord2")
-   public Coord coord2;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = 397416983
+	)
+	@Export("mapElement")
+	public int mapElement;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lmc;"
+	)
+	@Export("coord1")
+	public Coord coord1;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lmc;"
+	)
+	@Export("coord2")
+	public Coord coord2;
 
-   @ObfuscatedSignature(
-      descriptor = "(ILmg;Lmg;)V"
-   )
-   public WorldMapEvent(int var1, Coord var2, Coord var3) {
-      this.mapElement = var1;
-      this.coord1 = var2;
-      this.coord2 = var3;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(ILmc;Lmc;)V"
+	)
+	public WorldMapEvent(int var1, Coord var2, Coord var3) {
+		this.mapElement = var1;
+		this.coord1 = var2;
+		this.coord2 = var3;
+	}
 
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "(I)[Ltm;",
-      garbageValue = "-20344614"
-   )
-   static SpritePixels[] method5600() {
-      SpritePixels[] var0 = new SpritePixels[class515.SpriteBuffer_spriteCount];
+	@ObfuscatedName("nm")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "307364041"
+	)
+	@Export("setMusicVolume")
+	static final void setMusicVolume(int var0) {
+		var0 = Math.min(Math.max(var0, 0), 255);
+		if (var0 != class449.clientPreferences.method2451()) {
+			label42: {
+				if (class449.clientPreferences.method2451() == 0) {
+					boolean var1 = !class305.field3405.isEmpty();
+					if (var1) {
+						Archive var2 = class385.archive6;
+						if (!class305.field3405.isEmpty()) {
+							ArrayList var3 = new ArrayList();
+							Iterator var4 = class305.field3405.iterator();
 
-      for(int var1 = 0; var1 < class515.SpriteBuffer_spriteCount; ++var1) {
-         SpritePixels var2 = var0[var1] = new SpritePixels();
-         var2.width = class330.SpriteBuffer_spriteWidth;
-         var2.height = class489.SpriteBuffer_spriteHeight;
-         var2.xOffset = class515.SpriteBuffer_xOffsets[var1];
-         var2.yOffset = class402.SpriteBuffer_yOffsets[var1];
-         var2.subWidth = class515.SpriteBuffer_spriteWidths[var1];
-         var2.subHeight = class515.SpriteBuffer_spriteHeights[var1];
-         int var3 = var2.subWidth * var2.subHeight;
-         byte[] var4 = class515.SpriteBuffer_pixels[var1];
-         var2.pixels = new int[var3];
+							while (var4.hasNext()) {
+								MusicSong var5 = (MusicSong)var4.next();
+								var5.field3518 = false;
+								var5.field3516 = false;
+								var5.field3524 = false;
+								var5.field3519 = false;
+								var5.musicTrackArchive = var2;
+								var5.musicTrackVolume = var0;
+								var5.field3510 = 0.0F;
+								var3.add(var5);
+							}
 
-         for(int var5 = 0; var5 < var3; ++var5) {
-            var2.pixels[var5] = class515.SpriteBuffer_spritePalette[var4[var5] & 255];
-         }
-      }
+							class53.method1097(var3, class305.musicPlayerStatus, class305.field3409, class305.field3410, class305.field3401, false);
+						}
 
-      TextureProvider.method4758();
-      return var0;
-   }
+						Client.playingJingle = false;
+						break label42;
+					}
+				}
 
-   @ObfuscatedName("nl")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-1864251728"
-   )
-   static void method5599() {
-      for(int var0 = 0; var0 < Client.field800.size(); ++var0) {
-         int var2 = (Integer)Client.field800.get(var0);
-         class136 var3 = HealthBar.method2553(var2);
-         int var1;
-         if (var3 == null) {
-            var1 = 2;
-         } else {
-            var1 = var3.method3051() ? 0 : 1;
-         }
+				if (var0 == 0) {
+					Script.method2180(0, 0);
+					Client.playingJingle = false;
+				} else {
+					class300.method5718(var0);
+				}
+			}
 
-         if (var1 != 2) {
-            Client.field800.remove(var0);
-            --var0;
-         }
-      }
+			class449.clientPreferences.method2458(var0);
+		}
 
-   }
+	}
 }

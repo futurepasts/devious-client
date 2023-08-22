@@ -3,85 +3,91 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dq")
+@ObfuscatedName("dk")
 public enum class90 implements MouseWheel {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1091(0, -1),
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1090(1, 2),
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1096(2, 3),
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1092(3, 4),
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1093(4, 5),
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1094(5, 6);
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Ldk;"
+	)
+	field1126(0, -1),
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Ldk;"
+	)
+	field1118(1, 2),
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Ldk;"
+	)
+	field1119(2, 3),
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Ldk;"
+	)
+	field1121(3, 4),
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Ldk;"
+	)
+	field1125(4, 5),
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "Ldk;"
+	)
+	field1122(5, 6);
 
-   @ObfuscatedName("ab")
-   @ObfuscatedGetter(
-      intValue = -599705559
-   )
-   final int field1095;
-   @ObfuscatedName("ak")
-   @ObfuscatedGetter(
-      intValue = 2044227431
-   )
-   final int field1089;
+	@ObfuscatedName("bg")
+	@ObfuscatedSignature(
+		descriptor = "Lrb;"
+	)
+	static Bounds field1117;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = 1055124911
+	)
+	final int field1123;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = 178610013
+	)
+	final int field1124;
 
-   class90(int var3, int var4) {
-      this.field1095 = var3;
-      this.field1089 = var4;
-   }
+	class90(int var3, int var4) {
+		this.field1123 = var3;
+		this.field1124 = var4;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "-14"
-   )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.field1089;
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "41"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1124;
+	}
 
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-190718887"
-   )
-   public static void method2280() {
-      DbTableType.DBTableType_cache.clear();
-   }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Lhw;",
+		garbageValue = "0"
+	)
+	@Export("getNpcDefinition")
+	public static NPCComposition getNpcDefinition(int var0) {
+		NPCComposition var1 = (NPCComposition)NPCComposition.NpcDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = NPCComposition.NpcDefinition_archive.takeFile(9, var0);
+			var1 = new NPCComposition();
+			var1.id = var0;
+			if (var2 != null) {
+				var1.decode(new Buffer(var2));
+			}
 
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "(II)Ley;",
-      garbageValue = "1399066247"
-   )
-   static class127 method2279(int var0) {
-      class127 var1 = (class127)GameObject.findEnumerated(ObjectSound.method1875(), var0);
-      if (var1 == null) {
-         var1 = class127.field1494;
-      }
-
-      return var1;
-   }
+			var1.postDecode();
+			NPCComposition.NpcDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
+	}
 }

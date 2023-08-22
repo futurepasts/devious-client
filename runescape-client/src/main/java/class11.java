@@ -4,7 +4,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.LinkedList;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import org.bouncycastle.crypto.tls.Certificate;
@@ -12,145 +11,125 @@ import org.bouncycastle.crypto.tls.CertificateRequest;
 import org.bouncycastle.crypto.tls.TlsAuthentication;
 import org.bouncycastle.crypto.tls.TlsCredentials;
 
-@ObfuscatedName("aa")
+@ObfuscatedName("aq")
 class class11 implements TlsAuthentication {
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = 706410807
-   )
-   @Export("WorldMapElement_count")
-   public static int WorldMapElement_count;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lad;"
-   )
-   final class13 this$2;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lan;"
+	)
+	final class13 this$2;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lad;)V"
-   )
-   class11(class13 var1) {
-      this.this$2 = var1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lan;)V"
+	)
+	class11(class13 var1) {
+		this.this$2 = var1;
+	}
 
-   public void notifyServerCertificate(Certificate var1) throws IOException {
-      try {
-         CertificateFactory var2 = CertificateFactory.getInstance("X.509");
-         LinkedList var3 = new LinkedList();
-         org.bouncycastle.asn1.x509.Certificate[] var4 = var1.getCertificateList();
+	public void notifyServerCertificate(Certificate var1) throws IOException {
+		try {
+			CertificateFactory var2 = CertificateFactory.getInstance("X.509");
+			LinkedList var3 = new LinkedList();
+			org.bouncycastle.asn1.x509.Certificate[] var4 = var1.getCertificateList();
 
-         for(int var5 = 0; var5 < var4.length; ++var5) {
-            org.bouncycastle.asn1.x509.Certificate var6 = var4[var5];
-            var3.add(var2.generateCertificate(new ByteArrayInputStream(var6.getEncoded())));
-         }
+			for (int var5 = 0; var5 < var4.length; ++var5) {
+				org.bouncycastle.asn1.x509.Certificate var6 = var4[var5];
+				var3.add(var2.generateCertificate(new ByteArrayInputStream(var6.getEncoded())));
+			}
 
-         this.this$2.this$1.field59 = (java.security.cert.Certificate[])((java.security.cert.Certificate[])var3.toArray(new java.security.cert.Certificate[0]));
-      } catch (CertificateException var7) {
-         throw new IOException(var7);
-      }
-   }
+			this.this$2.this$1.field63 = (java.security.cert.Certificate[])((java.security.cert.Certificate[])var3.toArray(new java.security.cert.Certificate[0]));
+		} catch (CertificateException var7) {
+			throw new IOException(var7);
+		}
+	}
 
-   public TlsCredentials getClientCredentials(CertificateRequest var1) throws IOException {
-      return null;
-   }
+	public TlsCredentials getClientCredentials(CertificateRequest var1) throws IOException {
+		return null;
+	}
 
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "(Lba;I)V",
-      garbageValue = "-790604853"
-   )
-   static void method105(GameEngine var0) {
-      class211 var1 = class350.method6624();
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "([BIII)Ljava/lang/String;",
+		garbageValue = "591994113"
+	)
+	public static String method97(byte[] var0, int var1, int var2) {
+		StringBuilder var3 = new StringBuilder();
 
-      while(var1.method4133()) {
-         if (var1.field2349 == 13) {
-            class9.method66();
-            return;
-         }
+		for (int var4 = var1; var4 < var2 + var1; var4 += 3) {
+			int var5 = var0[var4] & 255;
+			var3.append(class385.field4428[var5 >>> 2]);
+			if (var4 < var2 - 1) {
+				int var6 = var0[var4 + 1] & 255;
+				var3.append(class385.field4428[(var5 & 3) << 4 | var6 >>> 4]);
+				if (var4 < var2 - 2) {
+					int var7 = var0[var4 + 2] & 255;
+					var3.append(class385.field4428[(var6 & 15) << 2 | var7 >>> 6]).append(class385.field4428[var7 & 63]);
+				} else {
+					var3.append(class385.field4428[(var6 & 15) << 2]).append("=");
+				}
+			} else {
+				var3.append(class385.field4428[(var5 & 3) << 4]).append("==");
+			}
+		}
 
-         if (var1.field2349 == 96) {
-            if (Login.worldSelectPage > 0 && class299.worldSelectLeftSprite != null) {
-               --Login.worldSelectPage;
-            }
-         } else if (var1.field2349 == 97 && Login.worldSelectPage < Login.worldSelectPagesCount && class128.worldSelectRightSprite != null) {
-            ++Login.worldSelectPage;
-         }
-      }
+		return var3.toString();
+	}
 
-      if (MouseHandler.MouseHandler_lastButton == 1 || !class305.mouseCam && MouseHandler.MouseHandler_lastButton == 4) {
-         int var2 = Login.xPadding + 280;
-         if (MouseHandler.MouseHandler_lastPressedX >= var2 && MouseHandler.MouseHandler_lastPressedX <= var2 + 14 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(0, 0);
-            return;
-         }
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(S)V",
+		garbageValue = "18671"
+	)
+	static final void method96() {
+		if (!ViewportMouse.ViewportMouse_false0) {
+			int var0 = Scene.Scene_cameraPitchSine;
+			int var1 = Scene.Scene_cameraPitchCosine;
+			int var2 = Scene.Scene_cameraYawSine;
+			int var3 = Scene.Scene_cameraYawCosine;
+			byte var4 = 50;
+			short var5 = 3500;
+			int var6 = (ViewportMouse.ViewportMouse_x - Rasterizer3D.getClipMidX()) * var4 / Rasterizer3D.get3dZoom();
+			int var7 = (ViewportMouse.ViewportMouse_y - Rasterizer3D.getClipMidY()) * var4 / Rasterizer3D.get3dZoom();
+			int var8 = (ViewportMouse.ViewportMouse_x - Rasterizer3D.getClipMidX()) * var5 / Rasterizer3D.get3dZoom();
+			int var9 = (ViewportMouse.ViewportMouse_y - Rasterizer3D.getClipMidY()) * var5 / Rasterizer3D.get3dZoom();
+			int var10 = class33.method492(var7, var4, var1, var0);
+			int var11 = var4 * var1 - var0 * var7 >> 16;
+			var7 = var10;
+			var10 = class33.method492(var9, var5, var1, var0);
+			int var12 = var5 * var1 - var0 * var9 >> 16;
+			var9 = var10;
+			var10 = Tiles.method2241(var6, var11, var3, var2);
+			int var13 = ClanChannelMember.method3121(var6, var11, var3, var2);
+			var6 = var10;
+			var10 = Tiles.method2241(var8, var12, var3, var2);
+			int var14 = ClanChannelMember.method3121(var8, var12, var3, var2);
+			ViewportMouse.field2779 = (var10 + var6) / 2;
+			ViewportMouse.field2793 = (var7 + var9) / 2;
+			ViewportMouse.field2785 = (var13 + var14) / 2;
+			class261.field2967 = (var10 - var6) / 2;
+			ViewportMouse.field2781 = (var9 - var7) / 2;
+			Frames.field2642 = (var14 - var13) / 2;
+			ViewportMouse.field2787 = Math.abs(class261.field2967);
+			class7.field25 = Math.abs(ViewportMouse.field2781);
+			class30.field167 = Math.abs(Frames.field2642);
+		}
+	}
 
-         if (MouseHandler.MouseHandler_lastPressedX >= var2 + 15 && MouseHandler.MouseHandler_lastPressedX <= var2 + 80 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(0, 1);
-            return;
-         }
+	@ObfuscatedName("ni")
+	@ObfuscatedSignature(
+		descriptor = "(Lmi;IIII)V",
+		garbageValue = "1018529135"
+	)
+	@Export("drawCompass")
+	static final void drawCompass(Widget var0, int var1, int var2, int var3) {
+		SpriteMask var4 = var0.getSpriteMask(false);
+		if (var4 != null) {
+			if (Client.minimapState < 3) {
+				Client.compass.drawRotatedMaskedCenteredAround(var1, var2, var4.width, var4.height, 25, 25, Client.camAngleY, 256, var4.xStarts, var4.xWidths);
+			} else {
+				Rasterizer2D.Rasterizer2D_fillMaskedRectangle(var1, var2, 0, var4.xStarts, var4.xWidths);
+			}
 
-         int var3 = Login.xPadding + 390;
-         if (MouseHandler.MouseHandler_lastPressedX >= var3 && MouseHandler.MouseHandler_lastPressedX <= var3 + 14 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(1, 0);
-            return;
-         }
-
-         if (MouseHandler.MouseHandler_lastPressedX >= var3 + 15 && MouseHandler.MouseHandler_lastPressedX <= var3 + 80 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(1, 1);
-            return;
-         }
-
-         int var4 = Login.xPadding + 500;
-         if (MouseHandler.MouseHandler_lastPressedX >= var4 && MouseHandler.MouseHandler_lastPressedX <= var4 + 14 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(2, 0);
-            return;
-         }
-
-         if (MouseHandler.MouseHandler_lastPressedX >= var4 + 15 && MouseHandler.MouseHandler_lastPressedX <= var4 + 80 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(2, 1);
-            return;
-         }
-
-         int var5 = Login.xPadding + 610;
-         if (MouseHandler.MouseHandler_lastPressedX >= var5 && MouseHandler.MouseHandler_lastPressedX <= var5 + 14 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(3, 0);
-            return;
-         }
-
-         if (MouseHandler.MouseHandler_lastPressedX >= var5 + 15 && MouseHandler.MouseHandler_lastPressedX <= var5 + 80 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedY <= 18) {
-            ScriptFrame.changeWorldSelectSorting(3, 1);
-            return;
-         }
-
-         if (MouseHandler.MouseHandler_lastPressedX >= Login.xPadding + 708 && MouseHandler.MouseHandler_lastPressedY >= 4 && MouseHandler.MouseHandler_lastPressedX <= Login.xPadding + 708 + 50 && MouseHandler.MouseHandler_lastPressedY <= 20) {
-            class9.method66();
-            return;
-         }
-
-         if (Login.hoveredWorldIndex != -1) {
-            World var6 = World.World_worlds[Login.hoveredWorldIndex];
-            class14.changeWorld(var6);
-            class9.method66();
-            return;
-         }
-
-         if (Login.worldSelectPage > 0 && class299.worldSelectLeftSprite != null && MouseHandler.MouseHandler_lastPressedX >= 0 && MouseHandler.MouseHandler_lastPressedX <= class299.worldSelectLeftSprite.subWidth && MouseHandler.MouseHandler_lastPressedY >= WorldMapID.canvasHeight / 2 - 50 && MouseHandler.MouseHandler_lastPressedY <= WorldMapID.canvasHeight / 2 + 50) {
-            --Login.worldSelectPage;
-         }
-
-         if (Login.worldSelectPage < Login.worldSelectPagesCount && class128.worldSelectRightSprite != null && MouseHandler.MouseHandler_lastPressedX >= class448.canvasWidth - class128.worldSelectRightSprite.subWidth - 5 && MouseHandler.MouseHandler_lastPressedX <= class448.canvasWidth && MouseHandler.MouseHandler_lastPressedY >= WorldMapID.canvasHeight / 2 - 50 && MouseHandler.MouseHandler_lastPressedY <= WorldMapID.canvasHeight / 2 + 50) {
-            ++Login.worldSelectPage;
-         }
-      }
-
-   }
-
-   @ObfuscatedName("br")
-   @ObfuscatedSignature(
-      descriptor = "(ILdd;ZB)I",
-      garbageValue = "-109"
-   )
-   static int method111(int var0, Script var1, boolean var2) {
-      return 2;
-   }
+		}
+	}
 }

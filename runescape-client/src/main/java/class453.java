@@ -1,33 +1,54 @@
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rt")
-public class class453 {
-   @ObfuscatedName("aj")
-   static final int[] field4735 = new int[2048];
-   @ObfuscatedName("ad")
-   static final int[] field4733 = new int[2048];
+@ObfuscatedName("rq")
+public enum class453 implements MouseWheel {
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lrq;"
+	)
+	field4764(0, 1),
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lrq;"
+	)
+	field4762(2, 2),
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lrq;"
+	)
+	field4765(3, 3),
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lrq;"
+	)
+	field4763(1, 10);
 
-   static {
-      double var0 = 0.0030679615757712823;
+	@ObfuscatedName("ac")
+	@ObfuscatedGetter(
+		intValue = 1675057501
+	)
+	final int field4761;
+	@ObfuscatedName("ai")
+	@ObfuscatedGetter(
+		intValue = -726522981
+	)
+	final int field4766;
 
-      for(int var2 = 0; var2 < 2048; ++var2) {
-         field4735[var2] = (int)(65536.0 * Math.sin((double)var2 * var0));
-         field4733[var2] = (int)(65536.0 * Math.cos((double)var2 * var0));
-      }
+	class453(int var3, int var4) {
+		this.field4761 = var3;
+		this.field4766 = var4;
+	}
 
-   }
-
-   @ObfuscatedName("lg")
-   @ObfuscatedSignature(
-      descriptor = "(IIB)V",
-      garbageValue = "-27"
-   )
-   @Export("runIntfCloseListeners")
-   static final void runIntfCloseListeners(int var0, int var1) {
-      if (Client.loadInterface(var0)) {
-         class210.runComponentCloseListeners(class16.Widget_interfaceComponents[var0], var1);
-      }
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "41"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field4766;
+	}
 }

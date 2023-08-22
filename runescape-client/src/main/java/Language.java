@@ -5,334 +5,224 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oj")
+@ObfuscatedName("on")
 @Implements("Language")
 public class Language implements MouseWheel {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_EN")
-   public static final Language Language_EN;
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_DE")
-   static final Language Language_DE;
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_FR")
-   public static final Language Language_FR;
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_PT")
-   static final Language Language_PT;
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_NL")
-   static final Language Language_NL;
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_ES")
-   public static final Language Language_ES;
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "Loj;"
-   )
-   @Export("Language_ES_MX")
-   static final Language Language_ES_MX;
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "[Loj;"
-   )
-   @Export("Language_valuesOrdered")
-   public static final Language[] Language_valuesOrdered;
-   @ObfuscatedName("fo")
-   @ObfuscatedSignature(
-      descriptor = "Lny;"
-   )
-   static Archive field4347;
-   @ObfuscatedName("gd")
-   @ObfuscatedSignature(
-      descriptor = "Lny;"
-   )
-   @Export("archive17")
-   static Archive archive17;
-   @ObfuscatedName("ak")
-   final String field4346;
-   @ObfuscatedName("ae")
-   @Export("language")
-   final String language;
-   @ObfuscatedName("af")
-   @ObfuscatedGetter(
-      intValue = -72393847
-   )
-   @Export("id")
-   final int id;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_EN")
+	public static final Language Language_EN;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_DE")
+	static final Language Language_DE;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_FR")
+	public static final Language Language_FR;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_PT")
+	static final Language Language_PT;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_NL")
+	static final Language Language_NL;
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_ES")
+	public static final Language Language_ES;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Lon;"
+	)
+	@Export("Language_ES_MX")
+	static final Language Language_ES_MX;
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "[Lon;"
+	)
+	@Export("Language_valuesOrdered")
+	static final Language[] Language_valuesOrdered;
+	@ObfuscatedName("bv")
+	@ObfuscatedSignature(
+		descriptor = "Lnu;"
+	)
+	@Export("Widget_spritesArchive")
+	public static AbstractArchive Widget_spritesArchive;
+	@ObfuscatedName("cs")
+	@ObfuscatedSignature(
+		descriptor = "Lsl;"
+	)
+	@Export("loginType")
+	static LoginType loginType;
+	@ObfuscatedName("ap")
+	final String field4382;
+	@ObfuscatedName("aa")
+	@Export("language")
+	final String language;
+	@ObfuscatedName("af")
+	@ObfuscatedGetter(
+		intValue = 459816573
+	)
+	@Export("id")
+	final int id;
 
-   static {
-      Language_EN = new Language("EN", "en", "English", ModeWhere.field4356, 0, "GB");
-      Language_DE = new Language("DE", "de", "German", ModeWhere.field4356, 1, "DE");
-      Language_FR = new Language("FR", "fr", "French", ModeWhere.field4356, 2, "FR");
-      Language_PT = new Language("PT", "pt", "Portuguese", ModeWhere.field4356, 3, "BR");
-      Language_NL = new Language("NL", "nl", "Dutch", ModeWhere.field4372, 4, "NL");
-      Language_ES = new Language("ES", "es", "Spanish", ModeWhere.field4372, 5, "ES");
-      Language_ES_MX = new Language("ES_MX", "es-mx", "Spanish (Latin American)", ModeWhere.field4356, 6, "MX");
-      Language[] var0 = new Language[]{Language_ES, Language_DE, Language_FR, Language_ES_MX, Language_NL, Language_PT, Language_EN};
-      Language_valuesOrdered = new Language[var0.length];
-      Language[] var2 = var0;
+	static {
+		Language_EN = new Language("EN", "en", "English", ModeWhere.field4393, 0, "GB");
+		Language_DE = new Language("DE", "de", "German", ModeWhere.field4393, 1, "DE");
+		Language_FR = new Language("FR", "fr", "French", ModeWhere.field4393, 2, "FR");
+		Language_PT = new Language("PT", "pt", "Portuguese", ModeWhere.field4393, 3, "BR");
+		Language_NL = new Language("NL", "nl", "Dutch", ModeWhere.field4406, 4, "NL");
+		Language_ES = new Language("ES", "es", "Spanish", ModeWhere.field4406, 5, "ES");
+		Language_ES_MX = new Language("ES_MX", "es-mx", "Spanish (Latin American)", ModeWhere.field4393, 6, "MX");
+		Language[] var0 = method6939();
+		Language_valuesOrdered = new Language[var0.length];
+		Language[] var1 = var0;
 
-      for(int var3 = 0; var3 < var2.length; ++var3) {
-         Language var4 = var2[var3];
-         if (Language_valuesOrdered[var4.id] != null) {
-            throw new IllegalStateException();
-         }
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			Language var3 = var1[var2];
+			if (Language_valuesOrdered[var3.id] != null) {
+				throw new IllegalStateException();
+			}
 
-         Language_valuesOrdered[var4.id] = var4;
-      }
+			Language_valuesOrdered[var3.id] = var3;
+		}
 
-   }
+	}
 
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Loo;ILjava/lang/String;)V"
-   )
-   Language(String var1, String var2, String var3, ModeWhere var4, int var5, String var6) {
-      this.field4346 = var1;
-      this.language = var2;
-      this.id = var5;
-      if (var6 != null) {
-         new Locale(var2.substring(0, 2), var6);
-      } else {
-         new Locale(var2.substring(0, 2));
-      }
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Loe;ILjava/lang/String;)V"
+	)
+	Language(String var1, String var2, String var3, ModeWhere var4, int var5, String var6) {
+		this.field4382 = var1;
+		this.language = var2;
+		this.id = var5;
+		if (var6 != null) {
+			new Locale(var2.substring(0, 2), var6);
+		} else {
+			new Locale(var2.substring(0, 2));
+		}
 
-   }
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "-14"
-   )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.id;
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "41"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.id;
+	}
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(I)Ljava/lang/String;",
-      garbageValue = "-333567172"
-   )
-   @Export("getLanguage")
-   String getLanguage() {
-      return this.language;
-   }
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "82"
+	)
+	@Export("getLanguage")
+	String getLanguage() {
+		return this.language;
+	}
 
-   public String toString() {
-      return this.getLanguage().toLowerCase(Locale.ENGLISH);
-   }
+	public String toString() {
+		return this.getLanguage().toLowerCase(Locale.ENGLISH);
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "([BIIB)Ljava/lang/String;",
-      garbageValue = "55"
-   )
-   public static String method6915(byte[] var0, int var1, int var2) {
-      char[] var3 = new char[var2];
-      int var4 = 0;
-      int var5 = var1;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Lon;",
+		garbageValue = "-905836833"
+	)
+	static Language[] method6939() {
+		return new Language[]{Language_ES, Language_DE, Language_FR, Language_ES_MX, Language_NL, Language_EN, Language_PT};
+	}
 
-      int var8;
-      for(int var6 = var2 + var1; var5 < var6; var3[var4++] = (char)var8) {
-         int var7 = var0[var5++] & 255;
-         if (var7 < 128) {
-            if (var7 == 0) {
-               var8 = 65533;
-            } else {
-               var8 = var7;
-            }
-         } else if (var7 < 192) {
-            var8 = 65533;
-         } else if (var7 < 224) {
-            if (var5 < var6 && (var0[var5] & 192) == 128) {
-               var8 = (var7 & 31) << 6 | var0[var5++] & 63;
-               if (var8 < 128) {
-                  var8 = 65533;
-               }
-            } else {
-               var8 = 65533;
-            }
-         } else if (var7 < 240) {
-            if (var5 + 1 < var6 && (var0[var5] & 192) == 128 && (var0[var5 + 1] & 192) == 128) {
-               var8 = (var7 & 15) << 12 | (var0[var5++] & 63) << 6 | var0[var5++] & 63;
-               if (var8 < 2048) {
-                  var8 = 65533;
-               }
-            } else {
-               var8 = 65533;
-            }
-         } else if (var7 < 248) {
-            if (var5 + 2 < var6 && (var0[var5] & 192) == 128 && (var0[var5 + 1] & 192) == 128 && (var0[var5 + 2] & 192) == 128) {
-               var8 = (var7 & 7) << 18 | (var0[var5++] & 63) << 12 | (var0[var5++] & 63) << 6 | var0[var5++] & 63;
-               if (var8 >= 65536 && var8 <= 1114111) {
-                  var8 = 65533;
-               } else {
-                  var8 = 65533;
-               }
-            } else {
-               var8 = 65533;
-            }
-         } else {
-            var8 = 65533;
-         }
-      }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "66381547"
+	)
+	static void method6952() {
+		Tiles.Tiles_minPlane = 99;
+		Tiles.Tiles_underlays = new short[4][104][104];
+		class227.Tiles_overlays = new short[4][104][104];
+		class172.Tiles_shapes = new byte[4][104][104];
+		ModelData0.field2833 = new byte[4][104][104];
+		BufferedNetSocket.field4679 = new int[4][105][105];
+		class217.Tiles_underlays2 = new byte[4][105][105];
+		class162.field1794 = new int[105][105];
+		Fonts.Tiles_hue = new int[104];
+		class466.Tiles_saturation = new int[104];
+		Tiles.Tiles_lightness = new int[104];
+		class128.Tiles_hueMultiplier = new int[104];
+		Interpreter.field888 = new int[104];
+	}
 
-      return new String(var3, 0, var4);
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lon;",
+		garbageValue = "-695535703"
+	)
+	public static Language method6938(int var0) {
+		return var0 >= 0 && var0 < Language_valuesOrdered.length ? Language_valuesOrdered[var0] : null;
+	}
 
-   @ObfuscatedName("kt")
-   @ObfuscatedSignature(
-      descriptor = "(Lde;IIIB)V",
-      garbageValue = "-21"
-   )
-   @Export("addNpcToMenu")
-   static final void addNpcToMenu(NPC var0, int var1, int var2, int var3) {
-      NPCComposition var4 = var0.definition;
-      if (Client.menuOptionsCount < 400) {
-         if (var4.transforms != null) {
-            var4 = var4.transform();
-         }
+	@ObfuscatedName("lf")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIIB)V",
+		garbageValue = "56"
+	)
+	static final void method6953(int var0, int var1, int var2, int var3, int var4, int var5) {
+		int var6 = var2 - var0;
+		int var7 = var3 - var1;
+		int var8 = var6 >= 0 ? var6 : -var6;
+		int var9 = var7 >= 0 ? var7 : -var7;
+		int var10 = var8;
+		if (var8 < var9) {
+			var10 = var9;
+		}
 
-         if (var4 != null) {
-            if (var4.isInteractable) {
-               if (!var4.isFollower || Client.followerIndex == var1) {
-                  String var5 = var0.method2558();
-                  int var6;
-                  int var9;
-                  if (var4.combatLevel != 0 && var0.field1227 != 0) {
-                     var6 = var0.field1227 != -1 ? var0.field1227 : var4.combatLevel;
-                     var9 = Projectile.localPlayer.combatLevel;
-                     int var10 = var9 - var6;
-                     String var8;
-                     if (var10 < -9) {
-                        var8 = Strings.colorStartTag(16711680);
-                     } else if (var10 < -6) {
-                        var8 = Strings.colorStartTag(16723968);
-                     } else if (var10 < -3) {
-                        var8 = Strings.colorStartTag(16740352);
-                     } else if (var10 < 0) {
-                        var8 = Strings.colorStartTag(16756736);
-                     } else if (var10 > 9) {
-                        var8 = Strings.colorStartTag(65280);
-                     } else if (var10 > 6) {
-                        var8 = Strings.colorStartTag(4259584);
-                     } else if (var10 > 3) {
-                        var8 = Strings.colorStartTag(8453888);
-                     } else if (var10 > 0) {
-                        var8 = Strings.colorStartTag(12648192);
-                     } else {
-                        var8 = Strings.colorStartTag(16776960);
-                     }
+		if (var10 != 0) {
+			int var11 = (var6 << 16) / var10;
+			int var12 = (var7 << 16) / var10;
+			if (var12 <= var11) {
+				var11 = -var11;
+			} else {
+				var12 = -var12;
+			}
 
-                     var5 = var5 + var8 + " " + " (" + "level-" + var6 + ")";
-                  }
-
-                  if (var4.isFollower && Client.followerOpsLowPriority) {
-                     class138.insertMenuItemNoShift("Examine", Strings.colorStartTag(16776960) + var5, 1003, var1, var2, var3);
-                  }
-
-                  if (Client.isItemSelected == 1) {
-                     class138.insertMenuItemNoShift("Use", Client.field667 + " " + "->" + " " + Strings.colorStartTag(16776960) + var5, 7, var1, var2, var3);
-                  } else if (Client.isSpellSelected) {
-                     if ((class125.selectedSpellFlags & 2) == 2) {
-                        class138.insertMenuItemNoShift(Client.selectedSpellActionName, Client.selectedSpellName + " " + "->" + " " + Strings.colorStartTag(16776960) + var5, 8, var1, var2, var3);
-                     }
-                  } else {
-                     var6 = var4.isFollower && Client.followerOpsLowPriority ? 2000 : 0;
-                     String[] var7 = var4.actions;
-                     int var11;
-                     if (var7 != null) {
-                        for(var11 = 4; var11 >= 0; --var11) {
-                           if (var0.method2577(var11) && var7[var11] != null && !var7[var11].equalsIgnoreCase("Attack")) {
-                              var9 = 0;
-                              if (var11 == 0) {
-                                 var9 = var6 + 9;
-                              }
-
-                              if (var11 == 1) {
-                                 var9 = var6 + 10;
-                              }
-
-                              if (var11 == 2) {
-                                 var9 = var6 + 11;
-                              }
-
-                              if (var11 == 3) {
-                                 var9 = var6 + 12;
-                              }
-
-                              if (var11 == 4) {
-                                 var9 = var6 + 13;
-                              }
-
-                              class138.insertMenuItemNoShift(var7[var11], Strings.colorStartTag(16776960) + var5, var9, var1, var2, var3);
-                           }
-                        }
-                     }
-
-                     if (var7 != null) {
-                        for(var11 = 4; var11 >= 0; --var11) {
-                           if (var0.method2577(var11) && var7[var11] != null && var7[var11].equalsIgnoreCase("Attack")) {
-                              short var12 = 0;
-                              if (Client.npcAttackOption != AttackOption.AttackOption_hidden) {
-                                 if (Client.npcAttackOption == AttackOption.AttackOption_alwaysRightClick || AttackOption.AttackOption_dependsOnCombatLevels == Client.npcAttackOption && var4.combatLevel > Projectile.localPlayer.combatLevel) {
-                                    var12 = 2000;
-                                 }
-
-                                 var9 = 0;
-                                 if (var11 == 0) {
-                                    var9 = var12 + 9;
-                                 }
-
-                                 if (var11 == 1) {
-                                    var9 = var12 + 10;
-                                 }
-
-                                 if (var11 == 2) {
-                                    var9 = var12 + 11;
-                                 }
-
-                                 if (var11 == 3) {
-                                    var9 = var12 + 12;
-                                 }
-
-                                 if (var11 == 4) {
-                                    var9 = var12 + 13;
-                                 }
-
-                                 class138.insertMenuItemNoShift(var7[var11], Strings.colorStartTag(16776960) + var5, var9, var1, var2, var3);
-                              }
-                           }
-                        }
-                     }
-
-                     if (!var4.isFollower || !Client.followerOpsLowPriority) {
-                        class138.insertMenuItemNoShift("Examine", Strings.colorStartTag(16776960) + var5, 1003, var1, var2, var3);
-                     }
-                  }
-
-               }
-            }
-         }
-      }
-   }
+			int var13 = var5 * var12 >> 17;
+			int var14 = var5 * var12 + 1 >> 17;
+			int var15 = var5 * var11 >> 17;
+			int var16 = var5 * var11 + 1 >> 17;
+			var0 -= Rasterizer2D.Rasterizer2D_xClipStart;
+			var1 -= Rasterizer2D.Rasterizer2D_yClipStart;
+			int var17 = var0 + var13;
+			int var18 = var0 - var14;
+			int var19 = var0 + var6 - var14;
+			int var20 = var0 + var13 + var6;
+			int var21 = var15 + var1;
+			int var22 = var1 - var16;
+			int var23 = var7 + var1 - var16;
+			int var24 = var15 + var7 + var1;
+			Rasterizer3D.method4393(var17, var18, var19);
+			Rasterizer3D.method4455(var21, var22, var23, var17, var18, var19, 0.0F, 0.0F, 0.0F, var4);
+			Rasterizer3D.method4393(var17, var19, var20);
+			Rasterizer3D.method4455(var21, var23, var24, var17, var19, var20, 0.0F, 0.0F, 0.0F, var4);
+		}
+	}
 }

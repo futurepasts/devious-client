@@ -1,55 +1,51 @@
-import java.awt.FontMetrics;
-import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fc")
-class class133 implements Callable {
-   @ObfuscatedName("bj")
-   @Export("loginScreenFontMetrics")
-   static FontMetrics loginScreenFontMetrics;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lfz;"
-   )
-   final class136 this$0;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Ltz;"
-   )
-   final Buffer val$p;
-   // $FF: synthetic field
-   final int val$version;
+@ObfuscatedName("fl")
+public class class133 implements class124 {
+	@ObfuscatedName("kc")
+	@ObfuscatedGetter(
+		intValue = 912731593
+	)
+	@Export("cameraY")
+	static int cameraY;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lfz;Ltz;I)V"
-   )
-   class133(class136 var1, Buffer var2, int var3) {
-      this.this$0 = var1;
-      this.val$p = var2;
-      this.val$version = var3;
-   }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Ldh;",
+		garbageValue = "47"
+	)
+	@Export("getScript")
+	static Script getScript(int var0) {
+		Script var1 = (Script)Script.Script_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = GrandExchangeOffer.archive12.takeFile(var0, 0);
+			if (var2 == null) {
+				return null;
+			} else {
+				var1 = HitSplatDefinition.newScript(var2);
+				Script.Script_cached.put(var1, (long)var0);
+				return var1;
+			}
+		}
+	}
 
-   public Object call() {
-      this.this$0.method3069(this.val$p, this.val$version);
-      return null;
-   }
+	@ObfuscatedName("hw")
+	@ObfuscatedSignature(
+		descriptor = "(IZZZZI)Lnk;",
+		garbageValue = "1423183196"
+	)
+	@Export("newArchive")
+	static Archive newArchive(int var0, boolean var1, boolean var2, boolean var3, boolean var4) {
+		ArchiveDisk var5 = null;
+		if (JagexCache.JagexCache_dat2File != null) {
+			var5 = new ArchiveDisk(var0, JagexCache.JagexCache_dat2File, WallDecoration.JagexCache_idxFiles[var0], 1000000);
+		}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Lnq;I)V",
-      garbageValue = "-1175904330"
-   )
-   public static void method3038(AbstractArchive var0) {
-   }
-
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(II)Z",
-      garbageValue = "619467586"
-   )
-   public static boolean method3039(int var0) {
-      return var0 >= WorldMapDecorationType.field3801.id && var0 <= WorldMapDecorationType.field3786.id || var0 == WorldMapDecorationType.field3799.id;
-   }
+		return new Archive(var5, class6.masterDisk, class308.field3462, var0, var1, var2, var3, var4);
+	}
 }

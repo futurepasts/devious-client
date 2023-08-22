@@ -4,259 +4,206 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSessionContext;
 import javax.security.cert.X509Certificate;
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ah")
+@ObfuscatedName("am")
 class class17 implements SSLSession {
-   @ObfuscatedName("fs")
-   @ObfuscatedSignature(
-      descriptor = "Lny;"
-   )
-   @Export("archive15")
-   static Archive archive15;
-   @ObfuscatedName("gm")
-   @Export("worldHost")
-   static String worldHost;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Laj;"
-   )
-   final class12 this$1;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lal;"
+	)
+	final class12 this$1;
 
-   @ObfuscatedSignature(
-      descriptor = "(Laj;)V"
-   )
-   class17(class12 var1) {
-      this.this$1 = var1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lal;)V"
+	)
+	class17(class12 var1) {
+		this.this$1 = var1;
+	}
 
-   public Certificate[] getLocalCertificates() {
-      throw new UnsupportedOperationException();
-   }
+	public void removeValue(String var1) {
+		throw new UnsupportedOperationException();
+	}
 
-   public int getApplicationBufferSize() {
-      return 0;
-   }
+	public String getCipherSuite() {
+		throw new UnsupportedOperationException();
+	}
 
-   public long getCreationTime() {
-      throw new UnsupportedOperationException();
-   }
+	public byte[] getId() {
+		throw new UnsupportedOperationException();
+	}
 
-   public byte[] getId() {
-      throw new UnsupportedOperationException();
-   }
+	public long getLastAccessedTime() {
+		throw new UnsupportedOperationException();
+	}
 
-   public Principal getLocalPrincipal() {
-      throw new UnsupportedOperationException();
-   }
+	public Certificate[] getLocalCertificates() {
+		throw new UnsupportedOperationException();
+	}
 
-   public int getPacketBufferSize() {
-      throw new UnsupportedOperationException();
-   }
+	public Certificate[] getPeerCertificates() throws SSLPeerUnverifiedException {
+		return this.this$1.field63;
+	}
 
-   public X509Certificate[] getPeerCertificateChain() throws SSLPeerUnverifiedException {
-      return null;
-   }
+	public int getPacketBufferSize() {
+		throw new UnsupportedOperationException();
+	}
 
-   public Certificate[] getPeerCertificates() throws SSLPeerUnverifiedException {
-      return this.this$1.field59;
-   }
+	public X509Certificate[] getPeerCertificateChain() throws SSLPeerUnverifiedException {
+		return null;
+	}
 
-   public String getPeerHost() {
-      throw new UnsupportedOperationException();
-   }
+	public String getPeerHost() {
+		throw new UnsupportedOperationException();
+	}
 
-   public String getCipherSuite() {
-      throw new UnsupportedOperationException();
-   }
+	public int getPeerPort() {
+		return 0;
+	}
 
-   public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
-      return null;
-   }
+	public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
+		return null;
+	}
 
-   public void removeValue(String var1) {
-      throw new UnsupportedOperationException();
-   }
+	public String getProtocol() {
+		throw new UnsupportedOperationException();
+	}
 
-   public SSLSessionContext getSessionContext() {
-      throw new UnsupportedOperationException();
-   }
+	public SSLSessionContext getSessionContext() {
+		throw new UnsupportedOperationException();
+	}
 
-   public String[] getValueNames() {
-      throw new UnsupportedOperationException();
-   }
+	public String[] getValueNames() {
+		throw new UnsupportedOperationException();
+	}
 
-   public void invalidate() {
-      throw new UnsupportedOperationException();
-   }
+	public void invalidate() {
+		throw new UnsupportedOperationException();
+	}
 
-   public boolean isValid() {
-      throw new UnsupportedOperationException();
-   }
+	public void putValue(String var1, Object var2) {
+		throw new UnsupportedOperationException();
+	}
 
-   public void putValue(String var1, Object var2) {
-      throw new UnsupportedOperationException();
-   }
+	public boolean isValid() {
+		throw new UnsupportedOperationException();
+	}
 
-   public int getPeerPort() {
-      return 0;
-   }
+	public long getCreationTime() {
+		throw new UnsupportedOperationException();
+	}
 
-   public long getLastAccessedTime() {
-      throw new UnsupportedOperationException();
-   }
+	public Principal getLocalPrincipal() {
+		throw new UnsupportedOperationException();
+	}
 
-   public Object getValue(String var1) {
-      throw new UnsupportedOperationException();
-   }
+	public Object getValue(String var1) {
+		throw new UnsupportedOperationException();
+	}
 
-   public String getProtocol() {
-      throw new UnsupportedOperationException();
-   }
+	public int getApplicationBufferSize() {
+		return 0;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Lnq;S)V",
-      garbageValue = "17225"
-   )
-   public static void method244(AbstractArchive var0) {
-      StructComposition.StructDefinition_archive = var0;
-   }
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(IIIII)V",
+		garbageValue = "-1226855140"
+	)
+	static final void method265(int var0, int var1, int var2, int var3) {
+		for (int var4 = var1; var4 <= var3 + var1; ++var4) {
+			for (int var5 = var0; var5 <= var0 + var2; ++var5) {
+				if (var5 >= 0 && var5 < 104 && var4 >= 0 && var4 < 104) {
+					class217.Tiles_underlays2[0][var5][var4] = 127;
+					if (var0 == var5 && var5 > 0) {
+						Tiles.Tiles_heights[0][var5][var4] = Tiles.Tiles_heights[0][var5 - 1][var4];
+					}
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(I)Lcc;",
-      garbageValue = "1813917490"
-   )
-   @Export("worldListStart")
-   static World worldListStart() {
-      World.World_listCount = 0;
-      return class171.getNextWorldListWorld();
-   }
+					if (var0 + var2 == var5 && var5 < 103) {
+						Tiles.Tiles_heights[0][var5][var4] = Tiles.Tiles_heights[0][var5 + 1][var4];
+					}
 
-   @ObfuscatedName("iw")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "-1"
-   )
-   static final int method269() {
-      if (class10.clientPreferences.method2434()) {
-         return Clock.Client_plane;
-      } else {
-         int var0 = 3;
-         if (MusicPatchNode.cameraPitch < 310) {
-            int var1;
-            int var2;
-            if (Client.oculusOrbState == 1) {
-               var1 = ModeWhere.oculusOrbFocalPointX >> 7;
-               var2 = GrandExchangeEvents.oculusOrbFocalPointY >> 7;
-            } else {
-               var1 = Projectile.localPlayer.x >> 7;
-               var2 = Projectile.localPlayer.y >> 7;
-            }
+					if (var4 == var1 && var4 > 0) {
+						Tiles.Tiles_heights[0][var5][var4] = Tiles.Tiles_heights[0][var5][var4 - 1];
+					}
 
-            int var3 = class208.cameraX >> 7;
-            int var4 = ByteArrayPool.cameraZ >> 7;
-            if (var3 < 0 || var4 < 0 || var3 >= 104 || var4 >= 104) {
-               return Clock.Client_plane;
-            }
+					if (var3 + var1 == var4 && var4 < 103) {
+						Tiles.Tiles_heights[0][var5][var4] = Tiles.Tiles_heights[0][var5][var4 + 1];
+					}
+				}
+			}
+		}
 
-            if (var1 < 0 || var2 < 0 || var1 >= 104 || var2 >= 104) {
-               return Clock.Client_plane;
-            }
+	}
 
-            if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
-               var0 = Clock.Client_plane;
-            }
+	@ObfuscatedName("ko")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "-1087980755"
+	)
+	static final void method262(int var0) {
+		int[] var1 = AbstractUserComparator.sceneMinimapSprite.pixels;
+		int var2 = var1.length;
 
-            int var5;
-            if (var1 > var3) {
-               var5 = var1 - var3;
-            } else {
-               var5 = var3 - var1;
-            }
+		int var3;
+		for (var3 = 0; var3 < var2; ++var3) {
+			var1[var3] = 0;
+		}
 
-            int var6;
-            if (var2 > var4) {
-               var6 = var2 - var4;
-            } else {
-               var6 = var4 - var2;
-            }
+		int var4;
+		int var5;
+		for (var3 = 1; var3 < 103; ++var3) {
+			var4 = (103 - var3) * 2048 + 24628;
 
-            int var7;
-            int var8;
-            if (var5 > var6) {
-               var7 = var6 * 65536 / var5;
-               var8 = 32768;
+			for (var5 = 1; var5 < 103; ++var5) {
+				if ((Tiles.Tiles_renderFlags[var0][var5][var3] & 24) == 0) {
+					class130.scene.drawTileMinimap(var1, var4, 512, var0, var5, var3);
+				}
 
-               while(var3 != var1) {
-                  if (var3 < var1) {
-                     ++var3;
-                  } else if (var3 > var1) {
-                     --var3;
-                  }
+				if (var0 < 3 && (Tiles.Tiles_renderFlags[var0 + 1][var5][var3] & 8) != 0) {
+					class130.scene.drawTileMinimap(var1, var4, 512, var0 + 1, var5, var3);
+				}
 
-                  if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
-                     var0 = Clock.Client_plane;
-                  }
+				var4 += 4;
+			}
+		}
 
-                  var8 += var7;
-                  if (var8 >= 65536) {
-                     var8 -= 65536;
-                     if (var4 < var2) {
-                        ++var4;
-                     } else if (var4 > var2) {
-                        --var4;
-                     }
+		var3 = (238 + (int)(Math.random() * 20.0D) - 10 << 16) + (238 + (int)(Math.random() * 20.0D) - 10 << 8) + (238 + (int)(Math.random() * 20.0D) - 10);
+		var4 = 238 + (int)(Math.random() * 20.0D) - 10 << 16;
+		AbstractUserComparator.sceneMinimapSprite.setRaster();
 
-                     if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
-                        var0 = Clock.Client_plane;
-                     }
-                  }
-               }
-            } else if (var6 > 0) {
-               var7 = var5 * 65536 / var6;
-               var8 = 32768;
+		int var6;
+		for (var5 = 1; var5 < 103; ++var5) {
+			for (var6 = 1; var6 < 103; ++var6) {
+				if ((Tiles.Tiles_renderFlags[var0][var6][var5] & 24) == 0) {
+					class102.drawObject(var0, var6, var5, var3, var4);
+				}
 
-               while(var4 != var2) {
-                  if (var4 < var2) {
-                     ++var4;
-                  } else if (var4 > var2) {
-                     --var4;
-                  }
+				if (var0 < 3 && (Tiles.Tiles_renderFlags[var0 + 1][var6][var5] & 8) != 0) {
+					class102.drawObject(var0 + 1, var6, var5, var3, var4);
+				}
+			}
+		}
 
-                  if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
-                     var0 = Clock.Client_plane;
-                  }
+		Client.mapIconCount = 0;
 
-                  var8 += var7;
-                  if (var8 >= 65536) {
-                     var8 -= 65536;
-                     if (var3 < var1) {
-                        ++var3;
-                     } else if (var3 > var1) {
-                        --var3;
-                     }
+		for (var5 = 0; var5 < 104; ++var5) {
+			for (var6 = 0; var6 < 104; ++var6) {
+				long var7 = class130.scene.getFloorDecorationTag(HealthBar.Client_plane, var5, var6);
+				if (0L != var7) {
+					int var9 = InvDefinition.Entity_unpackID(var7);
+					int var10 = WorldMapElement.getObjectDefinition(var9).mapIconId;
+					if (var10 >= 0 && class138.WorldMapElement_get(var10).field1950) {
+						Client.mapIcons[Client.mapIconCount] = class138.WorldMapElement_get(var10).getSpriteBool(false);
+						Client.mapIconXs[Client.mapIconCount] = var5;
+						Client.mapIconYs[Client.mapIconCount] = var6;
+						++Client.mapIconCount;
+					}
+				}
+			}
+		}
 
-                     if ((Tiles.Tiles_renderFlags[Clock.Client_plane][var3][var4] & 4) != 0) {
-                        var0 = Clock.Client_plane;
-                     }
-                  }
-               }
-            }
-         }
-
-         if (Projectile.localPlayer.x >= 0 && Projectile.localPlayer.y >= 0 && Projectile.localPlayer.x < 13312 && Projectile.localPlayer.y < 13312) {
-            if ((Tiles.Tiles_renderFlags[Clock.Client_plane][Projectile.localPlayer.x >> 7][Projectile.localPlayer.y >> 7] & 4) != 0) {
-               var0 = Clock.Client_plane;
-            }
-
-            return var0;
-         } else {
-            return Clock.Client_plane;
-         }
-      }
-   }
+		AttackOption.rasterProvider.apply();
+	}
 }

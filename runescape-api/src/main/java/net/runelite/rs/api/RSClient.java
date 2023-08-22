@@ -29,6 +29,7 @@ import net.runelite.api.Client;
 import net.runelite.api.Deque;
 import net.runelite.api.ModelData;
 import net.runelite.api.SpritePixels;
+import net.runelite.api.WidgetNode;
 import net.runelite.api.World;
 import net.runelite.api.clan.ClanRank;
 import net.runelite.api.clan.ClanSettings;
@@ -39,6 +40,7 @@ import net.runelite.mapping.Construct;
 import net.runelite.mapping.Import;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Map;
 
 public interface RSClient extends RSGameEngine, Client
@@ -424,6 +426,12 @@ public interface RSClient extends RSGameEngine, Client
 	@Override
 	int[] getWidgetPositionsY();
 
+	@Import("rootWidgetWidths")
+	int[] getWidgetWidths();
+
+	@Import("rootWidgetHeights")
+	int[] getWidgetHeights();
+
 	@Import("mouseCam")
 	boolean isMouseCam();
 
@@ -513,6 +521,21 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("archive12")
 	@Override
 	RSArchive getIndexScripts();
+
+	@Construct
+	RSInterfaceParent newInterfaceParent();
+
+	@Import("loadInterface")
+	boolean loadInterface(int interfaceId);
+
+	@Import("openInterface")
+	WidgetNode openRSInterface(int componentId, int interfaceId, int modalMode);
+
+	@Import("closeInterface")
+	void closeRSInterface(WidgetNode interfaceNode, boolean unload);
+
+	@Import("runComponentCloseListeners")
+	void runComponentCloseListeners(Widget[] var0, int var1);
 
 	@Import("widgetFlags")
 	@Override
@@ -1182,19 +1205,10 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("decimator")
 	RSDecimator getSoundEffectResampler();
 
-	@Import("musicTrackVolume")
-	void setMusicTrackVolume(int volume);
-
 	@Import("viewportWalking")
 	void setViewportWalking(boolean viewportWalking);
 
 	void playMusicTrack(int var0, RSAbstractArchive var1, int var2, int var3, int var4, boolean var5);
-
-	@Import("midiPcmStream")
-	RSMidiPcmStream getMidiPcmStream();
-
-	@Import("currentTrackGroupId")
-	int getCurrentTrackGroupId();
 
 	@Import("crossSprites")
 	@Override
@@ -1359,26 +1373,14 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("playingJingle")
 	boolean isPlayingJingle();
 
-	@Import("musicTrackGroupId")
-	int getMusicCurrentTrackId();
+	@Import("musicSongs")
+	ArrayList<RSMusicSong> getMusicSongs();
+
+	@Import("setMusicVolume")
+	void setRSMusicVolume(int var0);
 
 	@Import("musicPlayerStatus")
 	void setMusicPlayerStatus(int var0);
-
-	@Import("musicTrackArchive")
-	void setMusicTrackArchive(RSAbstractArchive var0);
-
-	@Import("musicTrackGroupId")
-	void setMusicTrackGroupId(int var0);
-
-	@Import("musicTrackFileId")
-	void setMusicTrackFileId(int var0);
-
-	@Import("musicTrackBoolean")
-	void setMusicTrackBoolean(boolean var0);
-
-	@Import("pcmSampleLength")
-	void setPcmSampleLength(int var0);
 
 	@Import("changedVarps")
 	int[] getChangedVarps();
@@ -1653,6 +1655,9 @@ public interface RSClient extends RSGameEngine, Client
 	@Construct
 	RSEvictingDualNodeHashTable newEvictingDualNodeHashTable(int var1);
 
+	@Import("getDbTable")
+	RSDbTable getDbTable(int var0);
+
 	@Import("getDbTableType")
 	RSDbTableType getDbTableType(int var0);
 
@@ -1661,6 +1666,18 @@ public interface RSClient extends RSGameEngine, Client
 
 	@Import("graphicsCycle")
 	int getGraphicsCycle();
+
+	@Import("openMenu")
+	void openMenu(int mouseX, int mouseY);
+
+	@Import("clips")
+	RSClips getClips();
+
+	@Import("modelDataArray")
+	RSModelData[] getModelDataArray();
+
+	@Import("validRootWidgets")
+	boolean[] getValidRootWidgets();
 
 	/*
 	Unethical

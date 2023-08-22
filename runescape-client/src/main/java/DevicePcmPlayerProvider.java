@@ -3,94 +3,116 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("aw")
+@ObfuscatedName("aj")
 @Implements("DevicePcmPlayerProvider")
 public class DevicePcmPlayerProvider implements class51 {
-   DevicePcmPlayerProvider() {
-   }
+	DevicePcmPlayerProvider() {
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)Lbi;",
-      garbageValue = "-1314025679"
-   )
-   @Export("player")
-   public PcmPlayer player() {
-      return new DevicePcmPlayer();
-   }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(B)Lbb;",
+		garbageValue = "74"
+	)
+	@Export("player")
+	public PcmPlayer player() {
+		return new DevicePcmPlayer();
+	}
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(Ltz;IIIIIIB)V",
-      garbageValue = "1"
-   )
-   @Export("loadTerrain")
-   static final void loadTerrain(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-      int var7;
-      if (class169.method3438(var1, var2, var3)) {
-         Tiles.Tiles_renderFlags[var1][var2][var3] = 0;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lub;",
+		garbageValue = "13212181"
+	)
+	public static PrivateChatMode method317(int var0) {
+		PrivateChatMode[] var1 = BufferedNetSocket.method8052();
 
-         while(true) {
-            var7 = var0.readUnsignedShort();
-            if (var7 == 0) {
-               if (var1 == 0) {
-                  Tiles.Tiles_heights[0][var2][var3] = -class107.method2701(var4 + 932731, var5 + 556238) * 8;
-               } else {
-                  Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - 240;
-               }
-               break;
-            }
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			PrivateChatMode var3 = var1[var2];
+			if (var0 == var3.field5246) {
+				return var3;
+			}
+		}
 
-            if (var7 == 1) {
-               int var8 = var0.readUnsignedByte();
-               if (var8 == 1) {
-                  var8 = 0;
-               }
+		return null;
+	}
 
-               if (var1 == 0) {
-                  Tiles.Tiles_heights[0][var2][var3] = -var8 * 8;
-               } else {
-                  Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - var8 * 8;
-               }
-               break;
-            }
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/CharSequence;IZB)I",
+		garbageValue = "-2"
+	)
+	public static int method316(CharSequence var0, int var1, boolean var2) {
+		if (var1 >= 2 && var1 <= 36) {
+			boolean var3 = false;
+			boolean var4 = false;
+			int var5 = 0;
+			int var6 = var0.length();
 
-            if (var7 <= 49) {
-               class74.Tiles_overlays[var1][var2][var3] = (short)var0.readShort();
-               Player.Tiles_shapes[var1][var2][var3] = (byte)((var7 - 2) / 4);
-               Tiles.field1018[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3);
-            } else if (var7 <= 81) {
-               Tiles.Tiles_renderFlags[var1][var2][var3] = (byte)(var7 - 49);
-            } else {
-               FaceNormal.Tiles_underlays[var1][var2][var3] = (short)(var7 - 81);
-            }
-         }
-      } else {
-         while(true) {
-            var7 = var0.readUnsignedShort();
-            if (var7 == 0) {
-               break;
-            }
+			for (int var7 = 0; var7 < var6; ++var7) {
+				char var8 = var0.charAt(var7);
+				if (var7 == 0) {
+					if (var8 == '-') {
+						var3 = true;
+						continue;
+					}
 
-            if (var7 == 1) {
-               var0.readUnsignedByte();
-               break;
-            }
+					if (var8 == '+') {
+						continue;
+					}
+				}
 
-            if (var7 <= 49) {
-               var0.readShort();
-            }
-         }
-      }
+				int var10;
+				if (var8 >= '0' && var8 <= '9') {
+					var10 = var8 - '0';
+				} else if (var8 >= 'A' && var8 <= 'Z') {
+					var10 = var8 - '7';
+				} else {
+					if (var8 < 'a' || var8 > 'z') {
+						throw new NumberFormatException();
+					}
 
-   }
+					var10 = var8 - 'W';
+				}
 
-   @ObfuscatedName("bt")
-   @ObfuscatedSignature(
-      descriptor = "(ILdd;ZI)I",
-      garbageValue = "-612230964"
-   )
-   static int method316(int var0, Script var1, boolean var2) {
-      return 2;
-   }
+				if (var10 >= var1) {
+					throw new NumberFormatException();
+				}
+
+				if (var3) {
+					var10 = -var10;
+				}
+
+				int var9 = var10 + var5 * var1;
+				if (var9 / var1 != var5) {
+					throw new NumberFormatException();
+				}
+
+				var5 = var9;
+				var4 = true;
+			}
+
+			if (!var4) {
+				throw new NumberFormatException();
+			} else {
+				return var5;
+			}
+		} else {
+			throw new IllegalArgumentException("" + var1);
+		}
+	}
+
+	@ObfuscatedName("kg")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIB)V",
+		garbageValue = "41"
+	)
+	static final void method318(int var0, int var1, int var2, int var3) {
+		for (int var4 = 0; var4 < Client.rootWidgetCount; ++var4) {
+			if (Client.rootWidgetWidths[var4] + Client.rootWidgetXs[var4] > var0 && Client.rootWidgetXs[var4] < var0 + var2 && Client.rootWidgetHeights[var4] + Client.rootWidgetYs[var4] > var1 && Client.rootWidgetYs[var4] < var3 + var1) {
+				Client.field749[var4] = true;
+			}
+		}
+
+	}
 }

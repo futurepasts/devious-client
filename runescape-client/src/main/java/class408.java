@@ -1,67 +1,117 @@
-import java.util.Comparator;
-import java.util.Map;
+import java.util.Iterator;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pm")
-class class408 implements Comparator {
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lpj;"
-   )
-   final class407 this$0;
+@ObfuscatedName("pp")
+public class class408 extends SongTask {
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lnu;"
+	)
+	AbstractArchive field4527;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lnu;"
+	)
+	AbstractArchive field4528;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lnu;"
+	)
+	AbstractArchive field4530;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lpj;)V"
-   )
-   class408(class407 var1) {
-      this.this$0 = var1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lpm;Lnu;Lnu;Lnu;)V"
+	)
+	public class408(SongTask var1, AbstractArchive var2, AbstractArchive var3, AbstractArchive var4) {
+		super(var1);
+		this.field4527 = var2;
+		this.field4528 = var3;
+		this.field4530 = var4;
+		super.field4523 = "LoadSongTask";
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;I)I",
-      garbageValue = "1421575480"
-   )
-   int method7679(Map.Entry var1, Map.Entry var2) {
-      return ((Float)var2.getValue()).compareTo((Float)var1.getValue());
-   }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "1604030758"
+	)
+	public boolean vmethod7621() {
+		int var1 = 0;
+		Iterator var2 = class305.musicSongs.iterator();
 
-   public int compare(Object var1, Object var2) {
-      return this.method7679((Map.Entry)var1, (Map.Entry)var2);
-   }
+		while (true) {
+			while (var2.hasNext()) {
+				MusicSong var3 = (MusicSong)var2.next();
+				if (var3 != null && var3.midiPcmStream.field3443 > 1 && var3.midiPcmStream.method5788()) {
+					this.method7601("Attempted to load patches of already loading midiplayer!");
+					return true;
+				}
 
-   public boolean equals(Object var1) {
-      return super.equals(var1);
-   }
+				if (var3 != null && !var3.field3516) {
+					try {
+						if (var3.musicTrackArchive != null && var3.musicTrackGroupId != -1 && var3.musicTrackFileId != -1) {
+							if (var3.field3522 == null) {
+								var3.field3522 = MusicTrack.readTrack(var3.musicTrackArchive, var3.musicTrackGroupId, var3.musicTrackFileId);
+								if (var3.field3522 == null) {
+									continue;
+								}
+							}
 
-   @ObfuscatedName("hl")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-8"
-   )
-   static final void method7686() {
-      ApproximateRouteStrategy.method1186(UserComparator8.field1415, WallDecoration.field2828, Clock.field1883);
-      InvDefinition.method3561(Clock.field1884, class53.field368);
-      if (UserComparator8.field1415 == class208.cameraX && WallDecoration.field2828 == class152.cameraY && Clock.field1883 == ByteArrayPool.cameraZ && Clock.field1884 == MusicPatchNode.cameraPitch && class53.field368 == class291.cameraYaw) {
-         Client.field691 = false;
-         Client.isCameraLocked = false;
-         Client.field764 = false;
-         Client.field725 = false;
-         HealthBarUpdate.field1233 = 0;
-         class137.field1605 = 0;
-         HitSplatDefinition.field2142 = 0;
-         BufferedSource.field4636 = 0;
-         class209.field2322 = 0;
-         LoginScreenAnimation.field1255 = 0;
-         UserComparator4.field1410 = 0;
-         class126.field1469 = 0;
-         class217.field2401 = 0;
-         class85.field1044 = 0;
-         Client.field540 = null;
-         Client.field769 = null;
-         Client.field768 = null;
-      }
+							if (var3.field3521 == null) {
+								var3.field3521 = new SoundCache(this.field4530, this.field4528);
+							}
 
-   }
+							if (var3.midiPcmStream.method5781(var3.field3522, this.field4527, var3.field3521)) {
+								++var1;
+								var3.field3516 = true;
+								var3.midiPcmStream.method5782();
+							}
+						} else {
+							++var1;
+						}
+					} catch (Exception var5) {
+						Messages.RunException_sendStackTrace((String)null, var5);
+						this.method7601(var5.getMessage());
+						return true;
+					}
+				} else {
+					++var1;
+				}
+			}
+
+			if (var1 == class305.musicSongs.size()) {
+				return true;
+			}
+
+			return false;
+		}
+	}
+
+	@ObfuscatedName("nr")
+	@ObfuscatedSignature(
+		descriptor = "(IIIILui;Lme;I)V",
+		garbageValue = "-1567258086"
+	)
+	@Export("worldToMinimap")
+	static final void worldToMinimap(int var0, int var1, int var2, int var3, SpritePixels var4, SpriteMask var5) {
+		int var6 = var3 * var3 + var2 * var2;
+		if (var6 > 4225 && var6 < 90000) {
+			int var7 = Client.camAngleY & 2047;
+			int var8 = Rasterizer3D.Rasterizer3D_sine[var7];
+			int var9 = Rasterizer3D.Rasterizer3D_cosine[var7];
+			int var10 = var3 * var8 + var9 * var2 >> 16;
+			int var11 = var3 * var9 - var8 * var2 >> 16;
+			double var12 = Math.atan2((double)var10, (double)var11);
+			int var14 = var5.width / 2 - 25;
+			int var15 = (int)(Math.sin(var12) * (double)var14);
+			int var16 = (int)(Math.cos(var12) * (double)var14);
+			byte var17 = 20;
+			class167.redHintArrowSprite.method9488(var15 + (var0 + var5.width / 2 - var17 / 2), var5.height / 2 + var1 - var17 / 2 - var16 - 10, var17, var17, 15, 15, var12, 256);
+		} else {
+			class210.drawSpriteOnMinimap(var0, var1, var2, var3, var4, var5);
+		}
+
+	}
 }

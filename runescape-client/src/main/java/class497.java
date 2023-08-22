@@ -1,56 +1,80 @@
-import java.net.URL;
-import net.runelite.mapping.Export;
+import java.util.Iterator;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("tc")
-public class class497 {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "-1647907932"
-   )
-   @Export("loadWorlds")
-   static boolean loadWorlds() {
-      try {
-         if (World.World_request == null) {
-            World.World_request = class47.urlRequester.request(new URL(FillMode.field5098));
-         } else if (World.World_request.isDone()) {
-            byte[] var0 = World.World_request.getResponse();
-            Buffer var1 = new Buffer(var0);
-            var1.readInt();
-            World.World_count = var1.readUnsignedShort();
-            World.World_worlds = new World[World.World_count];
+@ObfuscatedName("th")
+public class class497 extends class455 implements class283 {
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lnu;"
+	)
+	final AbstractArchive field5020;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lkg;"
+	)
+	final DemotingHashTable field5021;
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = -1843835189
+	)
+	final int field5019;
 
-            World var3;
-            for(int var2 = 0; var2 < World.World_count; var3.index = var2++) {
-               var3 = World.World_worlds[var2] = new World();
-               var3.id = var1.readUnsignedShort();
-               var3.properties = var1.readInt();
-               var3.host = var1.readStringCp1252NullTerminated();
-               var3.activity = var1.readStringCp1252NullTerminated();
-               var3.location = var1.readUnsignedByte();
-               var3.population = var1.readShort();
-            }
+	@ObfuscatedSignature(
+		descriptor = "(Lns;ILon;Lnu;)V"
+	)
+	public class497(StudioGame var1, int var2, Language var3, AbstractArchive var4) {
+		super(var1, var3, var4 != null ? var4.getGroupFileCount(var2) : 0);
+		this.field5021 = new DemotingHashTable(64);
+		this.field5020 = var4;
+		this.field5019 = var2;
+	}
 
-            ClanChannel.sortWorlds(World.World_worlds, 0, World.World_worlds.length - 1, World.World_sortOption1, World.World_sortOption2);
-            World.World_request = null;
-            return true;
-         }
-      } catch (Exception var4) {
-         var4.printStackTrace();
-         World.World_request = null;
-      }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Lrv;",
+		garbageValue = "-32"
+	)
+	protected class457 vmethod8872(int var1) {
+		synchronized(this.field5021) {
+			class456 var2 = (class456)this.field5021.get((long)var1);
+			if (var2 == null) {
+				var2 = this.method8878(var1);
+				this.field5021.method5639(var2, (long)var1);
+			}
 
-      return false;
-   }
+			return var2;
+		}
+	}
 
-   @ObfuscatedName("id")
-   @ObfuscatedSignature(
-      descriptor = "(B)Z",
-      garbageValue = "18"
-   )
-   static boolean method8848() {
-      return (Client.drawPlayerNames & 4) != 0;
-   }
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Lrg;",
+		garbageValue = "-117"
+	)
+	class456 method8878(int var1) {
+		byte[] var2 = this.field5020.takeFile(this.field5019, var1);
+		class456 var3 = new class456(var1);
+		if (var2 != null) {
+			var3.method8310(new Buffer(var2));
+		}
+
+		return var3;
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "322447059"
+	)
+	public void method8874() {
+		synchronized(this.field5021) {
+			this.field5021.clear();
+		}
+	}
+
+	public Iterator iterator() {
+		return new class496(this);
+	}
 }

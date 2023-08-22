@@ -1,5 +1,9 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("lh")
-public interface class292 {
+@ObfuscatedName("lp")
+public class class292 {
+	@ObfuscatedName("gs")
+	@Export("worldHost")
+	static String worldHost;
 }

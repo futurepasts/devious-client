@@ -1,108 +1,161 @@
 import java.util.concurrent.locks.ReentrantLock;
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("br")
+@ObfuscatedName("bx")
 public class class47 {
-   @ObfuscatedName("iw")
-   @ObfuscatedSignature(
-      descriptor = "Lea;"
-   )
-   @Export("urlRequester")
-   static UrlRequester urlRequester;
-   @ObfuscatedName("jl")
-   @ObfuscatedSignature(
-      descriptor = "[Ltj;"
-   )
-   @Export("mapSceneSprites")
-   static IndexedSprite[] mapSceneSprites;
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Lca;"
-   )
-   VorbisSample field333;
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Lbp;"
-   )
-   RawSound field332;
-   @ObfuscatedName("av")
-   ReentrantLock field331;
+	@ObfuscatedName("bk")
+	@ObfuscatedSignature(
+		descriptor = "Lnu;"
+	)
+	public static AbstractArchive field352;
+	@ObfuscatedName("jr")
+	@ObfuscatedGetter(
+		intValue = 1819265849
+	)
+	@Export("baseY")
+	static int baseY;
+	@ObfuscatedName("ra")
+	@ObfuscatedSignature(
+		descriptor = "Lth;"
+	)
+	@Export("HitSplatDefinition_cachedSprites")
+	static class497 HitSplatDefinition_cachedSprites;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lcm;"
+	)
+	VorbisSample field354;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lbu;"
+	)
+	RawSound field348;
+	@ObfuscatedName("ao")
+	ReentrantLock field349;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lca;Lbp;)V"
-   )
-   class47(VorbisSample var1, RawSound var2) {
-      this.field333 = var1;
-      this.field332 = var2;
-      this.field331 = new ReentrantLock();
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lcm;Lbu;)V"
+	)
+	class47(VorbisSample var1, RawSound var2) {
+		this.field354 = var1;
+		this.field348 = var2;
+		this.field349 = new ReentrantLock();
+	}
 
-   @ObfuscatedName("ah")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-1898758545"
-   )
-   static void method844() {
-      class390.method7249(24);
-      class478.setLoginResponseString("The game servers are currently being updated.", "Please wait a few minutes and try again.", "");
-   }
+	@ObfuscatedName("ly")
+	@ObfuscatedSignature(
+		descriptor = "(IIIILjava/lang/String;I)V",
+		garbageValue = "997098077"
+	)
+	@Export("widgetDefaultMenuAction")
+	static void widgetDefaultMenuAction(int var0, int var1, int var2, int var3, String var4) {
+		Widget var5 = SoundCache.getWidgetChild(var1, var2);
+		if (var5 != null) {
+			if (var5.onOp != null) {
+				ScriptEvent var6 = new ScriptEvent();
+				var6.widget = var5;
+				var6.opIndex = var0;
+				var6.targetName = var4;
+				var6.args = var5.onOp;
+				WorldMapSection1.runScriptEvent(var6);
+			}
 
-   @ObfuscatedName("cu")
-   @ObfuscatedSignature(
-      descriptor = "(ILdd;ZB)I",
-      garbageValue = "-53"
-   )
-   static int method843(int var0, Script var1, boolean var2) {
-      return 2;
-   }
+			boolean var11 = true;
+			if (var5.contentType > 0) {
+				var11 = Bounds.method8135(var5);
+			}
 
-   @ObfuscatedName("kv")
-   @ObfuscatedSignature(
-      descriptor = "(ILjava/lang/String;I)V",
-      garbageValue = "-1940419951"
-   )
-   static void method845(int var0, String var1) {
-      int var2 = Players.Players_count;
-      int[] var3 = Players.Players_indices;
-      boolean var4 = false;
-      Username var5 = new Username(var1, WorldMapScaleHandler.loginType);
+			if (var11) {
+				int var8 = NpcOverrides.getWidgetFlags(var5);
+				int var9 = var0 - 1;
+				boolean var7 = (var8 >> var9 + 1 & 1) != 0;
+				if (var7) {
+					PacketBufferNode var10;
+					if (var0 == 1) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON1, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
 
-      for(int var6 = 0; var6 < var2; ++var6) {
-         Player var7 = Client.players[var3[var6]];
-         if (var7 != null && var7 != Projectile.localPlayer && var7.username != null && var7.username.equals(var5)) {
-            PacketBufferNode var8;
-            if (var0 == 1) {
-               var8 = ObjectComposition.getPacketBufferNode(ClientPacket.OPPLAYER1, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeByteSub(0);
-               var8.packetBuffer.writeShortAdd(var3[var6]);
-               Client.packetWriter.addNode(var8);
-            } else if (var0 == 4) {
-               var8 = ObjectComposition.getPacketBufferNode(ClientPacket.OPPLAYER4, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeShortLE(var3[var6]);
-               var8.packetBuffer.writeByteAdd(0);
-               Client.packetWriter.addNode(var8);
-            } else if (var0 == 6) {
-               var8 = ObjectComposition.getPacketBufferNode(ClientPacket.OPPLAYER6, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeByteNeg(0);
-               var8.packetBuffer.writeShort(var3[var6]);
-               Client.packetWriter.addNode(var8);
-            } else if (var0 == 7) {
-               var8 = ObjectComposition.getPacketBufferNode(ClientPacket.OPPLAYER7, Client.packetWriter.isaacCipher);
-               var8.packetBuffer.writeByte(0);
-               var8.packetBuffer.writeShortAddLE(var3[var6]);
-               Client.packetWriter.addNode(var8);
-            }
+					if (var0 == 2) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON2, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
 
-            var4 = true;
-            break;
-         }
-      }
+					if (var0 == 3) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON3, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
 
-      if (!var4) {
-         class59.addGameMessage(4, "", "Unable to find " + var1);
-      }
+					if (var0 == 4) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON4, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
 
-   }
+					if (var0 == 5) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON5, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
+
+					if (var0 == 6) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON6, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
+
+					if (var0 == 7) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON7, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
+
+					if (var0 == 8) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON8, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
+
+					if (var0 == 9) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON9, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
+
+					if (var0 == 10) {
+						var10 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.IF_BUTTON10, Client.packetWriter.isaacCipher);
+						var10.packetBuffer.writeInt(var1);
+						var10.packetBuffer.writeShort(var2);
+						var10.packetBuffer.writeShort(var3);
+						Client.packetWriter.addNode(var10);
+					}
+
+				}
+			}
+		}
+	}
 }

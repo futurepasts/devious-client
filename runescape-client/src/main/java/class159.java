@@ -3,88 +3,75 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gh")
-public class class159 {
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      longValue = 4655426251579530699L
-   )
-   long field1743;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      longValue = -6751957355302241451L
-   )
-   long field1746 = -1L;
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Lom;"
-   )
-   IterableNodeDeque field1744 = new IterableNodeDeque();
+@ObfuscatedName("gm")
+public abstract class class159 extends Node {
+	@ObfuscatedName("qw")
+	@ObfuscatedGetter(
+		intValue = -689880895
+	)
+	@Export("widgetDragDuration")
+	static int widgetDragDuration;
 
-   @ObfuscatedSignature(
-      descriptor = "(Ltz;)V"
-   )
-   public class159(Buffer var1) {
-      this.method3312(var1);
-   }
+	class159() {
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Ltz;I)V",
-      garbageValue = "-1044770346"
-   )
-   void method3312(Buffer var1) {
-      this.field1743 = var1.readLong();
-      this.field1746 = var1.readLong();
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(Ltm;B)V",
+		garbageValue = "1"
+	)
+	abstract void vmethod3333(Buffer var1);
 
-      for(int var2 = var1.readUnsignedByte(); var2 != 0; var2 = var1.readUnsignedByte()) {
-         Object var3;
-         if (var2 == 1) {
-            var3 = new class154(this);
-         } else if (var2 == 4) {
-            var3 = new class165(this);
-         } else if (var2 == 3) {
-            var3 = new class150(this);
-         } else if (var2 == 2) {
-            var3 = new class148(this);
-         } else {
-            if (var2 != 5) {
-               throw new RuntimeException("");
-            }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(Lgo;I)V",
+		garbageValue = "831405774"
+	)
+	abstract void vmethod3332(ClanChannel var1);
 
-            var3 = new class155(this);
-         }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(II)Ltc;",
+		garbageValue = "-2141629898"
+	)
+	@Export("getDbRowType")
+	public static DbRowType getDbRowType(int var0) {
+		DbRowType var1 = (DbRowType)DbRowType.DBRowType_cache.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = DbRowType.field5053.takeFile(38, var0);
+			var1 = new DbRowType();
+			if (var2 != null) {
+				var1.method8970(new Buffer(var2));
+			}
 
-         ((class158)var3).vmethod3370(var1);
-         this.field1744.addFirst((Node)var3);
-      }
+			var1.method8959();
+			DbRowType.DBRowType_cache.put(var1, (long)var0);
+			return var1;
+		}
+	}
 
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Ltk;",
+		garbageValue = "44"
+	)
+	@Export("getDbTableType")
+	public static DbTableType getDbTableType(int var0) {
+		DbTableType var1 = (DbTableType)DbTableType.DBTableType_cache.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = DbTableType.field5042.takeFile(39, var0);
+			var1 = new DbTableType();
+			if (var2 != null) {
+				var1.method8938(new Buffer(var2));
+			}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(Lgv;I)V",
-      garbageValue = "-1146523830"
-   )
-   public void method3313(ClanChannel var1) {
-      if (var1.key == this.field1743 && var1.field1764 == this.field1746) {
-         for(class158 var2 = (class158)this.field1744.last(); var2 != null; var2 = (class158)this.field1744.previous()) {
-            var2.vmethod3371(var1);
-         }
-
-         ++var1.field1764;
-      } else {
-         throw new RuntimeException("");
-      }
-   }
-
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(CS)Z",
-      garbageValue = "-14817"
-   )
-   @Export("isDigit")
-   public static boolean isDigit(char var0) {
-      return var0 >= '0' && var0 <= '9';
-   }
+			var1.method8943();
+			DbTableType.DBTableType_cache.put(var1, (long)var0);
+			return var1;
+		}
+	}
 }

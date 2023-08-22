@@ -1,96 +1,97 @@
 import java.io.IOException;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qz")
+@ObfuscatedName("qi")
 @Implements("AbstractSocket")
 public abstract class AbstractSocket {
-   AbstractSocket() {
-   }
+	@ObfuscatedName("ii")
+	@ObfuscatedSignature(
+		descriptor = "Lqi;"
+	)
+	static AbstractSocket field4675;
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(II)Z",
-      garbageValue = "1623804098"
-   )
-   @Export("isAvailable")
-   public abstract boolean isAvailable(int var1) throws IOException;
+	AbstractSocket() {
+	}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "0"
-   )
-   @Export("available")
-   public abstract int available() throws IOException;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Z",
+		garbageValue = "-67"
+	)
+	@Export("isAvailable")
+	public abstract boolean isAvailable(int var1) throws IOException;
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "82"
-   )
-   @Export("readUnsignedByte")
-   public abstract int readUnsignedByte() throws IOException;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "1947351494"
+	)
+	@Export("available")
+	public abstract int available() throws IOException;
 
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "([BIIB)I",
-      garbageValue = "-22"
-   )
-   @Export("read")
-   public abstract int read(byte[] var1, int var2, int var3) throws IOException;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "969166986"
+	)
+	@Export("readUnsignedByte")
+	public abstract int readUnsignedByte() throws IOException;
 
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "([BIII)V",
-      garbageValue = "-1586948718"
-   )
-   @Export("write")
-   public abstract void write(byte[] var1, int var2, int var3) throws IOException;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "([BIIS)I",
+		garbageValue = "206"
+	)
+	@Export("read")
+	public abstract int read(byte[] var1, int var2, int var3) throws IOException;
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "-22185"
-   )
-   @Export("close")
-   public abstract void close();
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "([BIII)V",
+		garbageValue = "1371855899"
+	)
+	@Export("write")
+	public abstract void write(byte[] var1, int var2, int var3) throws IOException;
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-643972337"
-   )
-   static void method7950(int var0) {
-   }
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1457160931"
+	)
+	@Export("close")
+	public abstract void close();
 
-   @ObfuscatedName("az")
-   @ObfuscatedSignature(
-      descriptor = "(III)I",
-      garbageValue = "-1423800052"
-   )
-   static final int method7958(int var0, int var1) {
-      if (var0 == -2) {
-         return 12345678;
-      } else if (var0 == -1) {
-         if (var1 < 2) {
-            var1 = 2;
-         } else if (var1 > 126) {
-            var1 = 126;
-         }
+	@ObfuscatedName("bc")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)I",
+		garbageValue = "-148355488"
+	)
+	@Export("stringCp1252NullTerminatedByteSize")
+	public static int stringCp1252NullTerminatedByteSize(String var0) {
+		return var0.length() + 1;
+	}
 
-         return var1;
-      } else {
-         var1 = (var0 & 127) * var1 / 128;
-         if (var1 < 2) {
-            var1 = 2;
-         } else if (var1 > 126) {
-            var1 = 126;
-         }
+	@ObfuscatedName("nn")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-99692388"
+	)
+	@Export("FriendSystem_invalidateIgnoreds")
+	static final void FriendSystem_invalidateIgnoreds() {
+		Iterator var0 = Messages.Messages_hashTable.iterator();
 
-         return (var0 & 'ﾀ') + var1;
-      }
-   }
+		while (var0.hasNext()) {
+			Message var1 = (Message)var0.next();
+			var1.clearIsFromIgnored();
+		}
+
+		if (ReflectionCheck.friendsChat != null) {
+			ReflectionCheck.friendsChat.invalidateIgnoreds();
+		}
+
+	}
 }

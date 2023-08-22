@@ -1,44 +1,101 @@
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fu")
-public abstract class class142 extends Node {
-   class142() {
-   }
+@ObfuscatedName("fg")
+public class class142 extends class143 {
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = -2045378669
+	)
+	int field1668;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfn;"
+	)
+	final class146 this$0;
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Ltz;B)V",
-      garbageValue = "59"
-   )
-   abstract void vmethod3381(Buffer var1);
+	@ObfuscatedSignature(
+		descriptor = "(Lfn;)V"
+	)
+	class142(class146 var1) {
+		this.this$0 = var1;
+		this.field1668 = -1;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(Lfs;B)V",
-      garbageValue = "-72"
-   )
-   abstract void vmethod3382(ClanSettings var1);
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(Ltm;I)V",
+		garbageValue = "209179459"
+	)
+	void vmethod3337(Buffer var1) {
+		this.field1668 = var1.readUnsignedShort();
+	}
 
-   @ObfuscatedName("gp")
-   @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "-1403198759"
-   )
-   static boolean method3125() {
-      if (Client.archiveLoaders != null && Client.archiveLoadersDone < Client.archiveLoaders.size()) {
-         while(Client.archiveLoadersDone < Client.archiveLoaders.size()) {
-            ArchiveLoader var0 = (ArchiveLoader)Client.archiveLoaders.get(Client.archiveLoadersDone);
-            if (!var0.isLoaded()) {
-               return false;
-            }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(Lfi;B)V",
+		garbageValue = "73"
+	)
+	void vmethod3339(ClanSettings var1) {
+		var1.method3185(this.field1668);
+	}
 
-            ++Client.archiveLoadersDone;
-         }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "([BIII)Z",
+		garbageValue = "1391970820"
+	)
+	static final boolean method3104(byte[] var0, int var1, int var2) {
+		boolean var3 = true;
+		Buffer var4 = new Buffer(var0);
+		int var5 = -1;
 
-         return true;
-      } else {
-         return true;
-      }
-   }
+		label70:
+		while (true) {
+			int var6 = var4.readIncrSmallSmart();
+			if (var6 == 0) {
+				return var3;
+			}
+
+			var5 += var6;
+			int var7 = 0;
+			boolean var8 = false;
+
+			while (true) {
+				int var9;
+				while (!var8) {
+					var9 = var4.readUShortSmart();
+					if (var9 == 0) {
+						continue label70;
+					}
+
+					var7 += var9 - 1;
+					int var10 = var7 & 63;
+					int var11 = var7 >> 6 & 63;
+					int var12 = var4.readUnsignedByte() >> 2;
+					int var13 = var11 + var1;
+					int var14 = var10 + var2;
+					if (var13 > 0 && var14 > 0 && var13 < 103 && var14 < 103) {
+						ObjectComposition var15 = WorldMapElement.getObjectDefinition(var5);
+						if (var12 != 22 || !Client.isLowDetail || var15.int1 != 0 || var15.interactType == 1 || var15.boolean2) {
+							if (!var15.needsModelFiles()) {
+								++Client.field598;
+								var3 = false;
+							}
+
+							var8 = true;
+						}
+					}
+				}
+
+				var9 = var4.readUShortSmart();
+				if (var9 == 0) {
+					break;
+				}
+
+				var4.readUnsignedByte();
+			}
+		}
+	}
 }

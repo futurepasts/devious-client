@@ -1,132 +1,117 @@
-import java.io.File;
-import java.io.RandomAccessFile;
+import java.text.ParseException;
+import java.util.Date;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("es")
+@ObfuscatedName("ec")
 @Implements("UserComparator6")
 public class UserComparator6 extends AbstractUserComparator {
-   @ObfuscatedName("at")
-   @Export("reversed")
-   final boolean reversed;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Luk;"
+	)
+	@Export("options_buttons_2Sprite")
+	static IndexedSprite options_buttons_2Sprite;
+	@ObfuscatedName("au")
+	@Export("reversed")
+	final boolean reversed;
 
-   public UserComparator6(boolean var1) {
-      this.reversed = var1;
-   }
+	public UserComparator6(boolean var1) {
+		this.reversed = var1;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Lqg;Lqg;I)I",
-      garbageValue = "2036982649"
-   )
-   @Export("compareBuddy")
-   int compareBuddy(Buddy var1, Buddy var2) {
-      if (var1.world != 0 && var2.world != 0) {
-         return this.reversed ? var1.getUsername().compareToTyped(var2.getUsername()) : var2.getUsername().compareToTyped(var1.getUsername());
-      } else {
-         return this.compareUser(var1, var2);
-      }
-   }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(Lqb;Lqb;I)I",
+		garbageValue = "-110280632"
+	)
+	@Export("compareBuddy")
+	int compareBuddy(Buddy var1, Buddy var2) {
+		if (var1.world != 0 && var2.world != 0) {
+			return this.reversed ? var1.getUsername().compareToTyped(var2.getUsername()) : var2.getUsername().compareToTyped(var1.getUsername());
+		} else {
+			return this.compareUser(var1, var2);
+		}
+	}
 
-   public int compare(Object var1, Object var2) {
-      return this.compareBuddy((Buddy)var1, (Buddy)var2);
-   }
+	public int compare(Object var1, Object var2) {
+		return this.compareBuddy((Buddy)var1, (Buddy)var2);
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;B)Ljava/io/File;",
-      garbageValue = "38"
-   )
-   @Export("getFile")
-   static File getFile(String var0) {
-      if (!FileSystem.FileSystem_hasPermissions) {
-         throw new RuntimeException("");
-      } else {
-         File var1 = (File)FileSystem.FileSystem_cacheFiles.get(var0);
-         if (var1 != null) {
-            return var1;
-         } else {
-            File var2 = new File(FileSystem.FileSystem_cacheDir, var0);
-            RandomAccessFile var3 = null;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "-1944121723"
+	)
+	static boolean method2923() {
+		Date var0;
+		try {
+			var0 = SpotAnimationDefinition.method3765();
+		} catch (ParseException var6) {
+			WorldMapScaleHandler.method5627("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
+			return false;
+		}
 
-            try {
-               File var4 = new File(var2.getParent());
-               if (!var4.exists()) {
-                  throw new RuntimeException("");
-               } else {
-                  var3 = new RandomAccessFile(var2, "rw");
-                  int var5 = var3.read();
-                  var3.seek(0L);
-                  var3.write(var5);
-                  var3.seek(0L);
-                  var3.close();
-                  FileSystem.FileSystem_cacheFiles.put(var0, var2);
-                  return var2;
-               }
-            } catch (Exception var8) {
-               try {
-                  if (var3 != null) {
-                     var3.close();
-                     var3 = null;
-                  }
-               } catch (Exception var7) {
-               }
+		if (var0 == null) {
+			return false;
+		} else {
+			boolean var4 = ModelData0.method5024(var0);
+			Date var3 = class312.method5971();
+			boolean var2 = var0.after(var3);
+			if (!var2) {
+				PcmPlayer.method838(7);
+				class318.setLoginResponseString("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
+				return false;
+			} else {
+				if (!var4) {
+					class72.field906 = 8388607;
+				} else {
+					class72.field906 = (int)(var0.getTime() / 86400000L - 11745L);
+				}
 
-               throw new RuntimeException();
-            }
-         }
-      }
-   }
+				return true;
+			}
+		}
+	}
 
-   @ObfuscatedName("ae")
-   @ObfuscatedSignature(
-      descriptor = "([BIILiz;[Lic;I)V",
-      garbageValue = "-2003499120"
-   )
-   static final void method2895(byte[] var0, int var1, int var2, Scene var3, CollisionMap[] var4) {
-      Buffer var5 = new Buffer(var0);
-      int var6 = -1;
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "(B)Lui;",
+		garbageValue = "111"
+	)
+	static SpritePixels method2922() {
+		SpritePixels var0 = new SpritePixels();
+		var0.width = class529.SpriteBuffer_spriteWidth;
+		var0.height = class420.SpriteBuffer_spriteHeight;
+		var0.xOffset = class529.SpriteBuffer_xOffsets[0];
+		var0.yOffset = class152.SpriteBuffer_yOffsets[0];
+		var0.subWidth = HealthBarUpdate.SpriteBuffer_spriteWidths[0];
+		var0.subHeight = SpriteMask.SpriteBuffer_spriteHeights[0];
+		int var1 = var0.subHeight * var0.subWidth;
+		byte[] var2 = Coord.SpriteBuffer_pixels[0];
+		var0.pixels = new int[var1];
 
-      while(true) {
-         int var7 = var5.readIncrSmallSmart();
-         if (var7 == 0) {
-            return;
-         }
+		for (int var3 = 0; var3 < var1; ++var3) {
+			var0.pixels[var3] = DbTableType.SpriteBuffer_spritePalette[var2[var3] & 255];
+		}
 
-         var6 += var7;
-         int var8 = 0;
+		class529.SpriteBuffer_xOffsets = null;
+		class152.SpriteBuffer_yOffsets = null;
+		HealthBarUpdate.SpriteBuffer_spriteWidths = null;
+		SpriteMask.SpriteBuffer_spriteHeights = null;
+		DbTableType.SpriteBuffer_spritePalette = null;
+		Coord.SpriteBuffer_pixels = null;
+		return var0;
+	}
 
-         while(true) {
-            int var9 = var5.readUShortSmart();
-            if (var9 == 0) {
-               break;
-            }
-
-            var8 += var9 - 1;
-            int var10 = var8 & 63;
-            int var11 = var8 >> 6 & 63;
-            int var12 = var8 >> 12;
-            int var13 = var5.readUnsignedByte();
-            int var14 = var13 >> 2;
-            int var15 = var13 & 3;
-            int var16 = var11 + var1;
-            int var17 = var10 + var2;
-            if (var16 > 0 && var17 > 0 && var16 < 103 && var17 < 103) {
-               int var18 = var12;
-               if ((Tiles.Tiles_renderFlags[1][var16][var17] & 2) == 2) {
-                  var18 = var12 - 1;
-               }
-
-               CollisionMap var19 = null;
-               if (var18 >= 0) {
-                  var19 = var4[var18];
-               }
-
-               SpriteMask.addObjects(var12, var16, var17, var6, var15, var14, var3, var19);
-            }
-         }
-      }
-   }
+	@ObfuscatedName("ju")
+	@ObfuscatedSignature(
+		descriptor = "(B)Z",
+		garbageValue = "-11"
+	)
+	static boolean method2921() {
+		return (Client.drawPlayerNames & 4) != 0;
+	}
 }

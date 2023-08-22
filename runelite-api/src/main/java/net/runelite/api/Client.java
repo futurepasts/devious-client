@@ -48,6 +48,7 @@ import net.runelite.api.widgets.ItemQuantityMode;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetConfig;
 import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.api.widgets.WidgetModalMode;
 import net.runelite.api.worldmap.MapElementConfig;
 import net.runelite.api.worldmap.WorldMap;
 import net.unethicalite.api.MouseHandler;
@@ -763,6 +764,24 @@ public interface Client extends OAuthApi, GameEngine
 	boolean isMenuOpen();
 
 	/**
+	 * Returns whether the currently open menu is scrollable.
+	 * @return
+	 */
+	boolean isMenuScrollable();
+
+	/**
+	 * Get the number of entries the currently open menu has been scrolled down.
+	 * @return
+	 */
+	int getMenuScroll();
+
+	/**
+	 * Set the number of entries the currently open menu has been scrolled down.
+	 * @param scroll
+	 */
+	void setMenuScroll(int scroll);
+
+	/**
 	 * Get the menu x location. Only valid if the menu is open.
 	 *
 	 * @return the menu x location
@@ -1030,6 +1049,26 @@ public interface Client extends OAuthApi, GameEngine
 	void queueChangedVarp(int varp);
 
 	/**
+	 * Open an interface.
+	 * @param componentId component id to open the interface at
+	 * @param interfaceId the interface to open
+	 * @param modalMode see {@link WidgetModalMode}
+	 * @throws IllegalStateException if the component does not exist or it not a layer, or the interface is already
+	 * open on a different component
+	 * @return the {@link WidgetNode} for the interface. This should be closed later by calling
+	 * {{@link #closeInterface(WidgetNode, boolean)}.
+	 */
+	WidgetNode openInterface(int componentId, int interfaceId, @MagicConstant(valuesFromClass = WidgetModalMode.class) int modalMode);
+
+	/**
+	 * Close an interface
+	 * @param interfaceNode the {@link WidgetNode} linking the interface into the component tree
+	 * @param unload whether to null the client's widget table
+	 * @throws IllegalArgumentException if the interfaceNode is not linked into the component tree
+	 */
+	void closeInterface(WidgetNode interfaceNode, boolean unload);
+
+	/**
 	 * Gets the widget flags table.
 	 *
 	 * @return the widget flags table
@@ -1124,7 +1163,7 @@ public interface Client extends OAuthApi, GameEngine
 	/**
 	 * Gets a entry out of a DBTable Row
 	 */
-	Object getDBTableField(int rowID, int column, int tupleIndex, int fieldIndex);
+	Object[] getDBTableField(int rowID, int column, int tupleIndex);
 
 	/**
 	 * Gets an array of all world areas
@@ -1134,6 +1173,12 @@ public interface Client extends OAuthApi, GameEngine
 	MapElementConfig[] getMapElementConfigs();
 
 	DBRowConfig getDBRowConfig(int rowID);
+
+	/**
+	 * Uses an index to find rows containing a certain value in a column.
+	 * An index must exist for this column.
+	 */
+	List<Integer> getDBRowsByValue(int table, int column, int tupleIndex, Object value);
 
 	/**
 	 * Get a map element config by id
@@ -1226,7 +1271,7 @@ public interface Client extends OAuthApi, GameEngine
 	 * @param endHeight end height of projectile - excludes tile height
 	 * @param target optional actor target
 	 * @param targetX target x - if an actor target is supplied should be the target x
-	 * @param targetY taret y - if an actor target is supplied should be the target y
+	 * @param targetY target y - if an actor target is supplied should be the target y
 	 * @return the new projectile
 	 */
 	Projectile createProjectile(int id, int plane, int startX, int startY, int startZ, int startCycle, int endCycle,

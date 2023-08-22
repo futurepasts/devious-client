@@ -1,27 +1,44 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nu")
+@ObfuscatedName("nr")
 @Implements("Strings")
 public class Strings {
-   @ObfuscatedName("fm")
-   public static String field4010 = "Please visit the support page for assistance.";
-   @ObfuscatedName("ke")
-   public static String field4052 = "";
-   @ObfuscatedName("kp")
-   public static String field4128 = "Page has opened in the browser.";
-   @ObfuscatedName("kk")
-   public static String field4146 = "";
+	@ObfuscatedName("fs")
+	public static String field4044;
+	@ObfuscatedName("kl")
+	public static String field4176;
+	@ObfuscatedName("kk")
+	public static String field4177;
+	@ObfuscatedName("kc")
+	public static String field4178;
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(IB)Ljava/lang/String;",
-      garbageValue = "-21"
-   )
-   @Export("colorStartTag")
-   static String colorStartTag(int var0) {
-      return "<col=" + Integer.toHexString(var0) + ">";
-   }
+	static {
+		field4044 = "Please visit the support page for assistance.";
+		field4176 = "";
+		field4177 = "Page has opened in the browser.";
+		field4178 = "";
+	}
+
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;B)V",
+		garbageValue = "64"
+	)
+	static final void method6621(String var0) {
+		UserComparator8.method2870(var0 + " is already on your friend list");
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(IIB)I",
+		garbageValue = "-116"
+	)
+	static final int method6622(int var0, int var1) {
+		int var2 = var1 * 57 + var0;
+		var2 ^= var2 << 13;
+		int var3 = var2 * (var2 * var2 * 15731 + 789221) + 1376312589 & Integer.MAX_VALUE;
+		return var3 >> 19 & 255;
+	}
 }

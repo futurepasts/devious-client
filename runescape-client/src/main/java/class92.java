@@ -1,126 +1,194 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("dp")
+@ObfuscatedName("dz")
 public class class92 {
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(ILdd;ZI)I",
-      garbageValue = "575831891"
-   )
-   static int method2342(int var0, Script var1, boolean var2) {
-      Widget var3;
-      if (var0 == ScriptOpcodes.IF_GETINVOBJECT) {
-         var3 = FriendSystem.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]);
-         Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.itemId;
-         return 1;
-      } else if (var0 == ScriptOpcodes.IF_GETINVCOUNT) {
-         var3 = FriendSystem.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]);
-         if (var3.itemId != -1) {
-            Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.itemQuantity;
-         } else {
-            Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = 0;
-         }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1169;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1159;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1168;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1161;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1162;
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1166;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1164;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1165;
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1158;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1173;
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1174;
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1171;
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1170;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1163;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1172;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	static final class92 field1160;
 
-         return 1;
-      } else if (var0 == ScriptOpcodes.IF_HASSUB) {
-         int var5 = Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize];
-         InterfaceParent var4 = (InterfaceParent)Client.interfaceParents.get((long)var5);
-         if (var4 != null) {
-            Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = 1;
-         } else {
-            Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = 0;
-         }
+	static {
+		field1169 = new class92();
+		field1159 = new class92();
+		field1168 = new class92();
+		field1161 = new class92();
+		field1162 = new class92();
+		field1166 = new class92();
+		field1164 = new class92();
+		field1165 = new class92();
+		field1158 = new class92();
+		field1173 = new class92();
+		field1174 = new class92();
+		field1171 = new class92();
+		field1170 = new class92();
+		field1163 = new class92();
+		field1172 = new class92();
+		field1160 = new class92();
+	}
 
-         return 1;
-      } else if (var0 == ScriptOpcodes.IF_GETTOP) {
-         Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Client.rootInterface;
-         return 1;
-      } else if (var0 == 2707) {
-         var3 = FriendSystem.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]);
-         Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.method6359() ? 1 : 0;
-         return 1;
-      } else if (var0 == 2708) {
-         var3 = FriendSystem.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]);
-         return MenuAction.method2056(var3);
-      } else if (var0 == 2709) {
-         var3 = FriendSystem.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]);
-         return class10.method103(var3);
-      } else {
-         return 2;
-      }
-   }
+	class92() {
+	}
 
-   @ObfuscatedName("jt")
-   @ObfuscatedSignature(
-      descriptor = "(Ltl;I)V",
-      garbageValue = "-1716509361"
-   )
-   static final void method2344(PacketBuffer var0) {
-      var0.importIndex();
-      int var1 = var0.readBits(8);
-      int var2;
-      if (var1 < Client.npcCount) {
-         for(var2 = var1; var2 < Client.npcCount; ++var2) {
-            Client.field635[++Client.field634 - 1] = Client.npcIndices[var2];
-         }
-      }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lmi;",
+		garbageValue = "412092455"
+	)
+	@Export("getWidget")
+	public static Widget getWidget(int var0) {
+		int var1 = var0 >> 16;
+		int var2 = var0 & 65535;
+		if (PacketBufferNode.Widget_interfaceComponents[var1] == null || PacketBufferNode.Widget_interfaceComponents[var1][var2] == null) {
+			boolean var3 = ModeWhere.loadInterface(var1);
+			if (!var3) {
+				return null;
+			}
+		}
 
-      if (var1 > Client.npcCount) {
-         throw new RuntimeException("");
-      } else {
-         Client.npcCount = 0;
+		return PacketBufferNode.Widget_interfaceComponents[var1][var2];
+	}
 
-         for(var2 = 0; var2 < var1; ++var2) {
-            int var3 = Client.npcIndices[var2];
-            NPC var4 = Client.npcs[var3];
-            int var5 = var0.readBits(1);
-            if (var5 == 0) {
-               Client.npcIndices[++Client.npcCount - 1] = var3;
-               var4.npcCycle = Client.cycle;
-            } else {
-               int var6 = var0.readBits(2);
-               if (var6 == 0) {
-                  Client.npcIndices[++Client.npcCount - 1] = var3;
-                  var4.npcCycle = Client.cycle;
-                  Client.field566[++Client.field579 - 1] = var3;
-               } else {
-                  int var7;
-                  int var8;
-                  if (var6 == 1) {
-                     Client.npcIndices[++Client.npcCount - 1] = var3;
-                     var4.npcCycle = Client.cycle;
-                     var7 = var0.readBits(3);
-                     var4.method2559(var7, class216.field2395);
-                     var8 = var0.readBits(1);
-                     if (var8 == 1) {
-                        Client.field566[++Client.field579 - 1] = var3;
-                     }
-                  } else if (var6 == 2) {
-                     Client.npcIndices[++Client.npcCount - 1] = var3;
-                     var4.npcCycle = Client.cycle;
-                     if (var0.readBits(1) == 1) {
-                        var7 = var0.readBits(3);
-                        var4.method2559(var7, class216.field2396);
-                        var8 = var0.readBits(3);
-                        var4.method2559(var8, class216.field2396);
-                     } else {
-                        var7 = var0.readBits(3);
-                        var4.method2559(var7, class216.field2394);
-                     }
+	@ObfuscatedName("jl")
+	@ObfuscatedSignature(
+		descriptor = "(Ldf;ZB)V",
+		garbageValue = "1"
+	)
+	@Export("addPlayerToScene")
+	static void addPlayerToScene(Player var0, boolean var1) {
+		if (var0 != null && var0.isVisible() && !var0.isHidden) {
+			var0.isUnanimated = false;
+			if ((Client.isLowDetail && Players.Players_count > 50 || Players.Players_count > 200) && var1 && var0.idleSequence == var0.movementSequence) {
+				var0.isUnanimated = true;
+			}
 
-                     var7 = var0.readBits(1);
-                     if (var7 == 1) {
-                        Client.field566[++Client.field579 - 1] = var3;
-                     }
-                  } else if (var6 == 3) {
-                     Client.field635[++Client.field634 - 1] = var3;
-                  }
-               }
-            }
-         }
+			int var2 = var0.x >> 7;
+			int var3 = var0.y >> 7;
+			if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
+				long var4 = FontName.calculateTag(0, 0, 0, false, var0.index);
+				if (var0.model0 != null && Client.cycle >= var0.animationCycleStart && Client.cycle < var0.animationCycleEnd) {
+					var0.isUnanimated = false;
+					var0.tileHeight = class18.getTileHeight(var0.x, var0.y, HealthBar.Client_plane);
+					var0.playerCycle = Client.cycle;
+					class130.scene.addNullableObject(HealthBar.Client_plane, var0.x, var0.y, var0.tileHeight, 60, var0, var0.rotation, var4, var0.minX, var0.minY, var0.maxX, var0.maxY);
+				} else {
+					if ((var0.x & 127) == 64 && (var0.y & 127) == 64) {
+						if (Client.tileLastDrawnActor[var2][var3] == Client.viewportDrawCount) {
+							return;
+						}
 
-      }
-   }
+						Client.tileLastDrawnActor[var2][var3] = Client.viewportDrawCount;
+					}
+
+					var0.tileHeight = class18.getTileHeight(var0.x, var0.y, HealthBar.Client_plane);
+					var0.playerCycle = Client.cycle;
+					class130.scene.drawEntity(HealthBar.Client_plane, var0.x, var0.y, var0.tileHeight, 60, var0, var0.rotation, var4, var0.isWalking);
+				}
+			}
+		}
+
+	}
+
+	@ObfuscatedName("ns")
+	@ObfuscatedSignature(
+		descriptor = "(Lds;ZI)V",
+		garbageValue = "-1838716449"
+	)
+	@Export("closeInterface")
+	static final void closeInterface(InterfaceParent var0, boolean var1) {
+		int var2 = var0.group;
+		int var3 = (int)var0.key;
+		var0.remove();
+		if (var1) {
+			Skeleton.method4523(var2);
+		}
+
+		class339.method6595(var2);
+		Widget var4 = getWidget(var3);
+		if (var4 != null) {
+			class218.invalidateWidget(var4);
+		}
+
+		if (Client.rootInterface != -1) {
+			class385.runIntfCloseListeners(Client.rootInterface, 1);
+		}
+
+	}
 }

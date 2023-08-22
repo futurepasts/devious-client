@@ -1,28 +1,31 @@
-import net.runelite.mapping.Export;
+import java.util.regex.Pattern;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oz")
+@ObfuscatedName("op")
 public final class class386 {
-   @ObfuscatedName("at")
-   @Export("base37Table")
-   static final char[] base37Table = new char[]{'_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-   @ObfuscatedName("an")
-   static long[] field4401 = new long[12];
+	static {
+		Pattern.compile("^\\D*(\\d+)\\D*$");
+	}
 
-   static {
-      for(int var0 = 0; var0 < field4401.length; ++var0) {
-         field4401[var0] = (long)Math.pow(37.0, (double)var0);
-      }
-
-   }
-
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Lnq;S)V",
-      garbageValue = "24146"
-   )
-   public static void method7207(AbstractArchive var0) {
-      DbTableType.field4983 = var0;
-   }
+	@ObfuscatedName("no")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "289831668"
+	)
+	static final void method7205(int var0, int var1) {
+		if (Client.currentClanChannels[var0] != null) {
+			if (var1 >= 0 && var1 < Client.currentClanChannels[var0].method3301()) {
+				ClanChannelMember var2 = (ClanChannelMember)Client.currentClanChannels[var0].members.get(var1);
+				if (var2.rank == -1) {
+					PacketBufferNode var3 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.field3127, Client.packetWriter.isaacCipher);
+					var3.packetBuffer.writeByte(3 + AbstractSocket.stringCp1252NullTerminatedByteSize(var2.username.getName()));
+					var3.packetBuffer.writeByte(var0);
+					var3.packetBuffer.writeShort(var1);
+					var3.packetBuffer.writeStringCp1252NullTerminated(var2.username.getName());
+					Client.packetWriter.addNode(var3);
+				}
+			}
+		}
+	}
 }

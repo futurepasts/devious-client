@@ -1,86 +1,57 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dc")
+@ObfuscatedName("dq")
 public class class101 {
-   @ObfuscatedName("jw")
-   @ObfuscatedGetter(
-      intValue = -272656609
-   )
-   @Export("baseY")
-   static int baseY;
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = 926313171
-   )
-   int field1305;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = 741085457
-   )
-   int field1302;
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = 1854704015
-   )
-   int field1303;
-   @ObfuscatedName("as")
-   @ObfuscatedGetter(
-      intValue = 2114279233
-   )
-   int field1304;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(II)Z",
+		garbageValue = "1873768041"
+	)
+	public static boolean method2640(int var0) {
+		return var0 >= WorldMapDecorationType.field3828.id && var0 <= WorldMapDecorationType.field3826.id || var0 == WorldMapDecorationType.field3844.id;
+	}
 
-   class101(int var1, int var2, int var3, int var4) {
-      this.field1305 = var1;
-      this.field1302 = var2;
-      this.field1303 = var3;
-      this.field1304 = var4;
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-2030205668"
+	)
+	static void method2641() {
+		ByteArrayPool.field4550.clear();
+		ByteArrayPool.field4550.add(100);
+		ByteArrayPool.field4550.add(5000);
+		ByteArrayPool.field4550.add(10000);
+		ByteArrayPool.field4550.add(30000);
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "-1658985569"
-   )
-   int method2628() {
-      return this.field1305;
-   }
-
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "-9232805"
-   )
-   int method2629() {
-      return this.field1302;
-   }
-
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "-880543502"
-   )
-   int method2639() {
-      return this.field1303;
-   }
-
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "22"
-   )
-   int method2631() {
-      return this.field1304;
-   }
-
-   @ObfuscatedName("gf")
-   @ObfuscatedSignature(
-      descriptor = "(II)I",
-      garbageValue = "-1592485699"
-   )
-   static int method2635(int var0) {
-      return var0 * 3 + 600;
-   }
+	@ObfuscatedName("bi")
+	@ObfuscatedSignature(
+		descriptor = "(ILdh;ZI)I",
+		garbageValue = "-1662859603"
+	)
+	static int method2642(int var0, Script var1, boolean var2) {
+		if (var0 == 6754) {
+			int var5 = Interpreter.Interpreter_intStack[--SoundCache.Interpreter_intStackSize];
+			NPCComposition var6 = class90.getNpcDefinition(var5);
+			Interpreter.Interpreter_stringStack[++class137.Interpreter_stringStackSize - 1] = var6 != null ? var6.name : "";
+			return 1;
+		} else {
+			NPCComposition var3;
+			if (var0 == 6764) {
+				SoundCache.Interpreter_intStackSize -= 2;
+				var3 = class90.getNpcDefinition(Interpreter.Interpreter_intStack[SoundCache.Interpreter_intStackSize]);
+				int var4 = Interpreter.Interpreter_intStack[SoundCache.Interpreter_intStackSize + 1];
+				Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.method3695(var4);
+				Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.method3715(var4);
+				return 1;
+			} else if (var0 == 6765) {
+				var3 = class90.getNpcDefinition(Interpreter.Interpreter_intStack[--SoundCache.Interpreter_intStackSize]);
+				Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3 != null ? var3.combatLevel : 0;
+				return 1;
+			} else {
+				return 2;
+			}
+		}
+	}
 }
