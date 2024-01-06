@@ -45,6 +45,7 @@ import net.runelite.api.Client;
 import net.runelite.api.MainBufferProvider;
 import net.runelite.api.Renderable;
 import net.runelite.api.Skill;
+import net.runelite.api.events.Draw;
 import net.runelite.api.worldmap.WorldMapRenderer;
 import net.runelite.api.events.BeforeRender;
 import net.runelite.api.events.FakeXpDrop;
@@ -53,8 +54,8 @@ import net.runelite.api.events.GameTick;
 import net.runelite.api.events.PostClientTick;
 import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.api.hooks.Callbacks;
+import net.runelite.api.widgets.ComponentID;
 import net.runelite.api.widgets.Widget;
-import static net.runelite.api.widgets.WidgetInfo.WORLD_MAP_VIEW;
 import net.runelite.api.widgets.WidgetItem;
 import net.runelite.api.worldmap.WorldMap;
 import net.runelite.client.Notifier;
@@ -70,6 +71,7 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayRenderer;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.DeferredEventBus;
+import net.runelite.client.util.LinkBrowser;
 import net.runelite.client.util.OSType;
 import net.runelite.client.util.RSTimeUnit;
 
@@ -255,7 +257,7 @@ public class Hooks implements Callbacks
 	 */
 	private void checkWorldMap()
 	{
-		Widget widget = client.getWidget(WORLD_MAP_VIEW);
+		Widget widget = client.getWidget(ComponentID.WORLD_MAP_MAPVIEW);
 
 		if (widget != null)
 		{
@@ -351,6 +353,10 @@ public class Hooks implements Callbacks
 		}
 
 		final Graphics2D graphics2d = getGraphics(mainBufferProvider);
+
+		Draw draw = Draw.getInstance();
+		draw.setGraphics(graphics2d);
+		eventBus.post(draw);
 
 		try
 		{
@@ -613,5 +619,11 @@ public class Hooks implements Callbacks
 			log.error("exception from renderable draw listener", ex);
 		}
 		return true;
+	}
+
+	@Override
+	public void openUrl(String url)
+	{
+		LinkBrowser.browse(url);
 	}
 }

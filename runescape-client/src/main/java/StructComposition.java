@@ -3,27 +3,29 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hc")
+@ObfuscatedName("hy")
 @Implements("StructComposition")
 public class StructComposition extends DualNode {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lnu;"
+		descriptor = "Lol;"
 	)
 	@Export("StructDefinition_archive")
-	public static AbstractArchive StructDefinition_archive;
-	@ObfuscatedName("ae")
+	static AbstractArchive StructDefinition_archive;
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Llk;"
 	)
 	@Export("StructDefinition_cached")
-	public static EvictingDualNodeHashTable StructDefinition_cached;
-	@ObfuscatedName("am")
-	@Export("ByteArrayPool_altSizeArrayCounts")
-	static int[] ByteArrayPool_altSizeArrayCounts;
-	@ObfuscatedName("ao")
+	static EvictingDualNodeHashTable StructDefinition_cached;
+	@ObfuscatedName("fn")
 	@ObfuscatedSignature(
-		descriptor = "Lsf;"
+		descriptor = "Loh;"
+	)
+	static Archive field2041;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Ltz;"
 	)
 	@Export("params")
 	IterableNodeHashTable params;
@@ -35,10 +37,10 @@ public class StructComposition extends DualNode {
 	StructComposition() {
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1093103177"
+		garbageValue = "-968582789"
 	)
 	@Export("postDecode")
 	void postDecode() {
@@ -46,8 +48,8 @@ public class StructComposition extends DualNode {
 
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;B)V",
-		garbageValue = "-50"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-1850200983"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -61,33 +63,33 @@ public class StructComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;II)V",
-		garbageValue = "1817135134"
+		descriptor = "(Luj;IB)V",
+		garbageValue = "4"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
 		if (var2 == 249) {
-			this.params = Decimator.readStringIntParameters(var1, this.params);
+			this.params = class144.readStringIntParameters(var1, this.params);
 		}
 
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "(III)I",
-		garbageValue = "-1339358564"
+		garbageValue = "-408803352"
 	)
 	@Export("getIntParam")
 	public int getIntParam(int var1, int var2) {
-		return class14.method163(this.params, var1, var2);
+		return Player.method2444(this.params, var1, var2);
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;I)Ljava/lang/String;",
-		garbageValue = "792481447"
+		descriptor = "(ILjava/lang/String;B)Ljava/lang/String;",
+		garbageValue = "78"
 	)
 	@Export("getStringParam")
 	public String getStringParam(int var1, String var2) {
@@ -105,86 +107,5 @@ public class StructComposition extends DualNode {
 		}
 
 		return var3;
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(IS)Lha;",
-		garbageValue = "-32325"
-	)
-	@Export("SpotAnimationDefinition_get")
-	public static SpotAnimationDefinition SpotAnimationDefinition_get(int var0) {
-		SpotAnimationDefinition var1 = (SpotAnimationDefinition)SpotAnimationDefinition.SpotAnimationDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = SpotAnimationDefinition.SpotAnimationDefinition_archive.takeFile(13, var0);
-			var1 = new SpotAnimationDefinition();
-			var1.id = var0;
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			SpotAnimationDefinition.SpotAnimationDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("jo")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "1529858789"
-	)
-	static final int method3845() {
-		if (class449.clientPreferences.method2448()) {
-			return HealthBar.Client_plane;
-		} else {
-			int var0 = class18.getTileHeight(NPCComposition.cameraX, class139.cameraZ, HealthBar.Client_plane);
-			return var0 - class133.cameraY < 800 && (Tiles.Tiles_renderFlags[HealthBar.Client_plane][NPCComposition.cameraX >> 7][class139.cameraZ >> 7] & 4) != 0 ? HealthBar.Client_plane : 3;
-		}
-	}
-
-	@ObfuscatedName("nt")
-	@ObfuscatedSignature(
-		descriptor = "(Lmi;B)V",
-		garbageValue = "-126"
-	)
-	static final void method3843(Widget var0) {
-		int var1 = var0.contentType;
-		if (var1 == 324) {
-			if (Client.field632 == -1) {
-				Client.field632 = var0.spriteId2;
-				Client.field815 = var0.spriteId;
-			}
-
-			if (Client.playerAppearance.gender == 1) {
-				var0.spriteId2 = Client.field632;
-			} else {
-				var0.spriteId2 = Client.field815;
-			}
-
-		} else if (var1 == 325) {
-			if (Client.field632 == -1) {
-				Client.field632 = var0.spriteId2;
-				Client.field815 = var0.spriteId;
-			}
-
-			if (Client.playerAppearance.gender == 1) {
-				var0.spriteId2 = Client.field815;
-			} else {
-				var0.spriteId2 = Client.field632;
-			}
-
-		} else if (var1 == 327) {
-			var0.modelAngleX = 150;
-			var0.modelAngleY = (int)(Math.sin((double)Client.cycle / 40.0D) * 256.0D) & 2047;
-			var0.modelType = 5;
-			var0.modelId = 0;
-		} else if (var1 == 328) {
-			var0.modelAngleX = 150;
-			var0.modelAngleY = (int)(Math.sin((double)Client.cycle / 40.0D) * 256.0D) & 2047;
-			var0.modelType = 5;
-			var0.modelId = 1;
-		}
 	}
 }

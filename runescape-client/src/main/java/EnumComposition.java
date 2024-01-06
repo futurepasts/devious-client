@@ -1,52 +1,61 @@
+import java.security.SecureRandom;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hu")
+@ObfuscatedName("hp")
 @Implements("EnumComposition")
 public class EnumComposition extends DualNode {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lnu;"
+		descriptor = "Lol;"
 	)
 	@Export("EnumDefinition_archive")
 	public static AbstractArchive EnumDefinition_archive;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Llk;"
 	)
 	@Export("EnumDefinition_cached")
-	static EvictingDualNodeHashTable EnumDefinition_cached;
-	@ObfuscatedName("ao")
+	public static EvictingDualNodeHashTable EnumDefinition_cached;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Ldz;"
+	)
+	@Export("loginScreenRunesAnimation")
+	static LoginScreenAnimation loginScreenRunesAnimation;
+	@ObfuscatedName("ih")
+	static SecureRandom field1896;
+	@ObfuscatedName("ar")
 	@Export("inputType")
 	public char inputType;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@Export("outputType")
 	public char outputType;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@Export("defaultStr")
 	public String defaultStr;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = -46079051
+		intValue = -1735445249
 	)
 	@Export("defaultInt")
 	public int defaultInt;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 1933948465
+		intValue = -1590765713
 	)
 	@Export("outputCount")
 	public int outputCount;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@Export("keys")
 	public int[] keys;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@Export("intVals")
 	public int[] intVals;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@Export("strVals")
 	public String[] strVals;
 
@@ -59,10 +68,10 @@ public class EnumComposition extends DualNode {
 		this.outputCount = 0;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "-388021324"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-673581219"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -76,10 +85,10 @@ public class EnumComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;II)V",
-		garbageValue = "-227336783"
+		descriptor = "(Luj;II)V",
+		garbageValue = "225113863"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -116,36 +125,40 @@ public class EnumComposition extends DualNode {
 
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "55"
+		descriptor = "(I)I",
+		garbageValue = "-1812244472"
 	)
 	@Export("size")
 	public int size() {
 		return this.outputCount;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lib;",
-		garbageValue = "2100193586"
+		descriptor = "(Lol;IB)Z",
+		garbageValue = "120"
 	)
-	@Export("SequenceDefinition_get")
-	public static SequenceDefinition SequenceDefinition_get(int var0) {
-		SequenceDefinition var1 = (SequenceDefinition)SequenceDefinition.SequenceDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
+	public static boolean method3679(AbstractArchive var0, int var1) {
+		byte[] var2 = var0.takeFileFlat(var1);
+		if (var2 == null) {
+			return false;
 		} else {
-			byte[] var2 = UserComparator2.SequenceDefinition_archive.takeFile(12, var0);
-			var1 = new SequenceDefinition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			SequenceDefinition.SequenceDefinition_cached.put(var1, (long)var0);
-			return var1;
+			class162.SpriteBuffer_decode(var2);
+			return true;
 		}
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(IIIII)V",
+		garbageValue = "-264971545"
+	)
+	public static void method3678(int var0, int var1, int var2, int var3) {
+		class316.musicPlayerStatus = var0;
+		class316.field3418 = var1;
+		class316.field3419 = var2;
+		class316.field3417 = var3;
 	}
 }

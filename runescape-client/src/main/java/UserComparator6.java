@@ -1,20 +1,19 @@
-import java.text.ParseException;
-import java.util.Date;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ec")
+@ObfuscatedName("ey")
 @Implements("UserComparator6")
 public class UserComparator6 extends AbstractUserComparator {
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Luk;"
-	)
-	@Export("options_buttons_2Sprite")
-	static IndexedSprite options_buttons_2Sprite;
 	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = -655054217
+	)
+	static int field1464;
+	@ObfuscatedName("at")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -22,10 +21,10 @@ public class UserComparator6 extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lqb;Lqb;I)I",
-		garbageValue = "-110280632"
+		descriptor = "(Lrh;Lrh;I)I",
+		garbageValue = "-464829605"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -40,78 +39,59 @@ public class UserComparator6 extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "-1944121723"
+		descriptor = "(ILdt;ZB)I",
+		garbageValue = "-32"
 	)
-	static boolean method2923() {
-		Date var0;
-		try {
-			var0 = SpotAnimationDefinition.method3765();
-		} catch (ParseException var6) {
-			WorldMapScaleHandler.method5627("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
-			return false;
-		}
-
-		if (var0 == null) {
-			return false;
-		} else {
-			boolean var4 = ModelData0.method5024(var0);
-			Date var3 = class312.method5971();
-			boolean var2 = var0.after(var3);
-			if (!var2) {
-				PcmPlayer.method838(7);
-				class318.setLoginResponseString("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
-				return false;
-			} else {
-				if (!var4) {
-					class72.field906 = 8388607;
+	static int method3019(int var0, Script var1, boolean var2) {
+		Widget var7;
+		if (var0 != ScriptOpcodes.CC_CALLONRESIZE && var0 != ScriptOpcodes.IF_CALLONRESIZE) {
+			int var4;
+			if (var0 == ScriptOpcodes.CC_TRIGGEROP) {
+				var7 = var2 ? Interpreter.scriptDotWidget : HealthBar.scriptActiveWidget;
+				var4 = Interpreter.Interpreter_intStack[--DbTableType.Interpreter_intStackSize];
+				if (var4 >= 1 && var4 <= 10) {
+					class102 var8 = new class102(var4, var7.id, var7.childIndex, var7.itemId);
+					Interpreter.field847.add(var8);
+					return 1;
 				} else {
-					class72.field906 = (int)(var0.getTime() / 86400000L - 11745L);
+					throw new RuntimeException();
 				}
+			} else if (var0 == ScriptOpcodes.IF_TRIGGEROP) {
+				DbTableType.Interpreter_intStackSize -= 3;
+				int var3 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize];
+				var4 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 1];
+				int var5 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 2];
+				if (var5 >= 1 && var5 <= 10) {
+					class102 var6 = new class102(var5, var3, var4, HealthBarDefinition.widgetDefinition.method6285(var3).itemId);
+					Interpreter.field847.add(var6);
+					return 1;
+				} else {
+					throw new RuntimeException();
+				}
+			} else {
+				return 2;
+			}
+		} else if (Interpreter.field849 >= 10) {
+			throw new RuntimeException();
+		} else {
+			if (var0 >= 2000) {
+				var7 = HealthBarDefinition.widgetDefinition.method6285(Interpreter.Interpreter_intStack[--DbTableType.Interpreter_intStackSize]);
+			} else {
+				var7 = var2 ? Interpreter.scriptDotWidget : HealthBar.scriptActiveWidget;
+			}
 
-				return true;
+			if (var7.onResize == null) {
+				return 0;
+			} else {
+				ScriptEvent var9 = new ScriptEvent();
+				var9.widget = var7;
+				var9.args = var7.onResize;
+				var9.field1063 = Interpreter.field849 + 1;
+				Client.scriptEvents.addFirst(var9);
+				return 1;
 			}
 		}
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(B)Lui;",
-		garbageValue = "111"
-	)
-	static SpritePixels method2922() {
-		SpritePixels var0 = new SpritePixels();
-		var0.width = class529.SpriteBuffer_spriteWidth;
-		var0.height = class420.SpriteBuffer_spriteHeight;
-		var0.xOffset = class529.SpriteBuffer_xOffsets[0];
-		var0.yOffset = class152.SpriteBuffer_yOffsets[0];
-		var0.subWidth = HealthBarUpdate.SpriteBuffer_spriteWidths[0];
-		var0.subHeight = SpriteMask.SpriteBuffer_spriteHeights[0];
-		int var1 = var0.subHeight * var0.subWidth;
-		byte[] var2 = Coord.SpriteBuffer_pixels[0];
-		var0.pixels = new int[var1];
-
-		for (int var3 = 0; var3 < var1; ++var3) {
-			var0.pixels[var3] = DbTableType.SpriteBuffer_spritePalette[var2[var3] & 255];
-		}
-
-		class529.SpriteBuffer_xOffsets = null;
-		class152.SpriteBuffer_yOffsets = null;
-		HealthBarUpdate.SpriteBuffer_spriteWidths = null;
-		SpriteMask.SpriteBuffer_spriteHeights = null;
-		DbTableType.SpriteBuffer_spritePalette = null;
-		Coord.SpriteBuffer_pixels = null;
-		return var0;
-	}
-
-	@ObfuscatedName("ju")
-	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "-11"
-	)
-	static boolean method2921() {
-		return (Client.drawPlayerNames & 4) != 0;
 	}
 }

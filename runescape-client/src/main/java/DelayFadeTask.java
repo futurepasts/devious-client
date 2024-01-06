@@ -1,44 +1,63 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pn")
+@ObfuscatedName("pt")
 @Implements("DelayFadeTask")
 public class DelayFadeTask extends SongTask {
-	@ObfuscatedName("ag")
-	static String[] field4514;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		longValue = -5325232572376689765L
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Lbz;"
 	)
-	long field4512;
-	@ObfuscatedName("ae")
+	@Export("soundSystem")
+	public static SoundSystem soundSystem;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 942710907
+		longValue = 6821196167292438109L
 	)
-	int field4513;
+	long field4544;
+	@ObfuscatedName("ah")
+	@ObfuscatedGetter(
+		intValue = 1192126365
+	)
+	int field4543;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lpm;I)V"
+		descriptor = "(Lql;I)V"
 	)
 	public DelayFadeTask(SongTask var1, int var2) {
 		super(var1);
-		this.field4513 = var2;
-		super.field4523 = "DelayFadeTask";
+		this.field4543 = var2;
+		super.field4552 = "DelayFadeTask";
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "1604030758"
+		garbageValue = "-799935345"
 	)
-	public boolean vmethod7621() {
-		if (this.field4512 < (long)this.field4513) {
-			++this.field4512;
+	public boolean vmethod7858() {
+		if (this.field4544 < (long)this.field4543) {
+			++this.field4544;
 			return false;
 		} else {
 			return true;
 		}
+	}
+
+	@ObfuscatedName("nc")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-52"
+	)
+	@Export("FriendSystem_invalidateIgnoreds")
+	static final void FriendSystem_invalidateIgnoreds() {
+		Canvas.method332();
+		if (class20.friendsChat != null) {
+			class20.friendsChat.invalidateIgnoreds();
+		}
+
 	}
 }

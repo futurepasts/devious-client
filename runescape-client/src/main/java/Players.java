@@ -4,78 +4,73 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ee")
+@ObfuscatedName("ev")
 @Implements("Players")
 public class Players {
+	@ObfuscatedName("ar")
+	static byte[] field1366;
 	@ObfuscatedName("ao")
-	static byte[] field1387;
-	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "[Lin;"
+		descriptor = "[Liz;"
 	)
-	static class217[] field1377;
-	@ObfuscatedName("ac")
+	static class228[] field1356;
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "[Ltm;"
+		descriptor = "[Luj;"
 	)
-	static Buffer[] field1388;
-	@ObfuscatedName("ai")
+	static Buffer[] field1357;
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 2110833449
+		intValue = -1055695101
 	)
 	@Export("Players_count")
 	static int Players_count;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@Export("Players_indices")
 	static int[] Players_indices;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1198904791
+		intValue = 1867979841
 	)
 	@Export("Players_emptyIdxCount")
 	static int Players_emptyIdxCount;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@Export("Players_emptyIndices")
 	static int[] Players_emptyIndices;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@Export("Players_regions")
 	static int[] Players_regions;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@Export("Players_orientations")
 	static int[] Players_orientations;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("av")
 	@Export("Players_targetIndices")
 	static int[] Players_targetIndices;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = 310707883
+		intValue = 1718820051
 	)
 	@Export("Players_pendingUpdateCount")
 	static int Players_pendingUpdateCount;
-	@ObfuscatedName("an")
+	@ObfuscatedName("as")
 	@Export("Players_pendingUpdateIndices")
 	static int[] Players_pendingUpdateIndices;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "Ltm;"
+		descriptor = "Luj;"
 	)
-	static Buffer field1376;
-	@ObfuscatedName("sg")
+	static Buffer field1367;
+	@ObfuscatedName("re")
 	@ObfuscatedSignature(
-		descriptor = "Lfi;"
+		descriptor = "Ltl;"
 	)
-	@Export("guestClanSettings")
-	static ClanSettings guestClanSettings;
-	@ObfuscatedName("uq")
-	@ObfuscatedGetter(
-		intValue = 1094034048
-	)
-	static int field1374;
+	@Export("Widget_cachedFonts")
+	static class509 Widget_cachedFonts;
 
 	static {
-		field1387 = new byte[2048];
-		field1377 = new class217[2048];
-		field1388 = new Buffer[2048];
+		field1366 = new byte[2048];
+		field1356 = new class228[2048];
+		field1357 = new Buffer[2048];
 		Players_count = 0;
 		Players_indices = new int[2048];
 		Players_emptyIdxCount = 0;
@@ -85,39 +80,104 @@ public class Players {
 		Players_targetIndices = new int[2048];
 		Players_pendingUpdateCount = 0;
 		Players_pendingUpdateIndices = new int[2048];
-		field1376 = new Buffer(new byte[5000]);
+		field1367 = new Buffer(new byte[5000]);
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Luo;I)V",
+		garbageValue = "-823798047"
+	)
+	@Export("updatePlayer")
+	static final void updatePlayer(PacketBuffer var0) {
+		var0.importIndex();
+		int var1 = Client.localPlayerIndex;
+		Player var2 = class229.localPlayer = Client.players[var1] = new Player();
+		var2.index = var1;
+		int var3 = var0.readBits(30);
+		byte var4 = (byte)(var3 >> 28);
+		int var5 = var3 >> 14 & 16383;
+		int var6 = var3 & 16383;
+		var2.pathX[0] = var5 - NpcOverrides.baseX * 64;
+		var2.x = (var2.pathX[0] << 7) + (var2.transformedSize() << 6);
+		var2.pathY[0] = var6 - class101.baseY * 64;
+		var2.y = (var2.pathY[0] << 7) + (var2.transformedSize() << 6);
+		ItemLayer.Client_plane = var2.plane = var4;
+		if (field1357[var1] != null) {
+			var2.read(field1357[var1]);
+		}
+
+		Players_count = 0;
+		Players_indices[++Players_count - 1] = var1;
+		field1366[var1] = 0;
+		Players_emptyIdxCount = 0;
+
+		for (int var7 = 1; var7 < 2048; ++var7) {
+			if (var1 != var7) {
+				int var8 = var0.readBits(18);
+				int var9 = var8 >> 16;
+				int var10 = var8 >> 8 & 597;
+				int var11 = var8 & 597;
+				Players_regions[var7] = (var10 << 14) + var11 + (var9 << 28);
+				Players_orientations[var7] = 0;
+				Players_targetIndices[var7] = -1;
+				Players_emptyIndices[++Players_emptyIdxCount - 1] = var7;
+				field1366[var7] = 0;
+			}
+		}
+
+		var0.exportIndex();
 	}
 
 	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhc;",
-		garbageValue = "-1692851000"
+		descriptor = "(Lol;Ljava/lang/String;Ljava/lang/String;I)[Luz;",
+		garbageValue = "-669885727"
 	)
-	@Export("StructDefinition_getStructDefinition")
-	public static StructComposition StructDefinition_getStructDefinition(int var0) {
-		StructComposition var1 = (StructComposition)StructComposition.StructDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
+	public static SpritePixels[] method2779(AbstractArchive var0, String var1, String var2) {
+		if (!var0.isValidFileName(var1, var2)) {
+			return null;
 		} else {
-			byte[] var2 = StructComposition.StructDefinition_archive.takeFile(34, var0);
-			var1 = new StructComposition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			StructComposition.StructDefinition_cached.put(var1, (long)var0);
-			return var1;
+			int var3 = var0.getGroupId(var1);
+			int var4 = var0.getFileId(var3, var2);
+			return VertexNormal.method5702(var0, var3, var4);
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-831991142"
+		descriptor = "(IIZI)Ljava/lang/String;",
+		garbageValue = "-1100853766"
 	)
-	public static final void method2706() {
-		ViewportMouse.ViewportMouse_isInViewport = false;
-		ViewportMouse.ViewportMouse_entityCount = 0;
+	static String method2793(int var0, int var1, boolean var2) {
+		if (var1 >= 2 && var1 <= 36) {
+			if (var2 && var0 >= 0) {
+				int var3 = 2;
+
+				for (int var4 = var0 / var1; var4 != 0; ++var3) {
+					var4 /= var1;
+				}
+
+				char[] var5 = new char[var3];
+				var5[0] = '+';
+
+				for (int var6 = var3 - 1; var6 > 0; --var6) {
+					int var7 = var0;
+					var0 /= var1;
+					int var8 = var7 - var0 * var1;
+					if (var8 >= 10) {
+						var5[var6] = (char)(var8 + 87);
+					} else {
+						var5[var6] = (char)(var8 + 48);
+					}
+				}
+
+				return new String(var5);
+			} else {
+				return Integer.toString(var0, var1);
+			}
+		} else {
+			throw new IllegalArgumentException("" + var1);
+		}
 	}
 }

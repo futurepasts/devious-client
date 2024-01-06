@@ -1,20 +1,29 @@
 import java.nio.ByteBuffer;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ms")
+@ObfuscatedName("na")
 @Implements("DirectByteArrayCopier")
 public class DirectByteArrayCopier extends AbstractByteArrayCopier {
-	@ObfuscatedName("au")
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = 1472985539
+	)
+	static int field3822;
+	@ObfuscatedName("at")
 	@Export("directBuffer")
 	ByteBuffer directBuffer;
 
-	@ObfuscatedName("ae")
+	DirectByteArrayCopier() {
+	}
+
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(I)[B",
-		garbageValue = "-962589916"
+		descriptor = "(B)[B",
+		garbageValue = "5"
 	)
 	@Export("get")
 	byte[] get() {
@@ -26,45 +35,37 @@ public class DirectByteArrayCopier extends AbstractByteArrayCopier {
 
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "([BI)V",
-		garbageValue = "1426025249"
+		descriptor = "([BB)V",
+		garbageValue = "67"
 	)
 	@Export("set")
-	public void set(byte[] var1) {
+	void set(byte[] var1) {
 		this.directBuffer = ByteBuffer.allocateDirect(var1.length);
 		this.directBuffer.position(0);
 		this.directBuffer.put(var1);
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)Ljava/lang/String;",
-		garbageValue = "1088330937"
+		descriptor = "(CI)Z",
+		garbageValue = "-946296977"
 	)
-	public static String method6579(Buffer var0) {
-		return class155.method3247(var0, 32767);
-	}
+	public static boolean method6830(char var0) {
+		if (var0 >= ' ' && var0 < 127 || var0 > 127 && var0 < 160 || var0 > 160 && var0 <= 255) {
+			return true;
+		} else {
+			if (var0 != 0) {
+				char[] var1 = class396.cp1252AsciiExtension;
 
-	@ObfuscatedName("la")
-	@ObfuscatedSignature(
-		descriptor = "(IIIII)V",
-		garbageValue = "625731844"
-	)
-	@Export("selectSpell")
-	static void selectSpell(int var0, int var1, int var2, int var3) {
-		Widget var4 = SoundCache.getWidgetChild(var0, var1);
-		if (var4 != null && var4.onTargetEnter != null) {
-			ScriptEvent var5 = new ScriptEvent();
-			var5.widget = var4;
-			var5.args = var4.onTargetEnter;
-			WorldMapSection1.runScriptEvent(var5);
+				for (int var2 = 0; var2 < var1.length; ++var2) {
+					char var3 = var1[var2];
+					if (var0 == var3) {
+						return true;
+					}
+				}
+			}
+
+			return false;
 		}
-
-		Client.selectedSpellItemId = var3;
-		Client.isSpellSelected = true;
-		ModeWhere.selectedSpellWidget = var0;
-		Client.selectedSpellChildIndex = var1;
-		Canvas.selectedSpellFlags = var2;
-		class218.invalidateWidget(var4);
 	}
 }

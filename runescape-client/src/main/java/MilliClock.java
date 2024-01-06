@@ -4,117 +4,143 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gr")
+@ObfuscatedName("ie")
 @Implements("MilliClock")
 public class MilliClock extends Clock {
-	@ObfuscatedName("au")
-	long[] field1900;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("at")
+	long[] field2321;
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 215476723
+		intValue = -1255894499
 	)
-	int field1896;
+	int field2316;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = 410408215
+	)
+	int field2317;
 	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -868536703
+		longValue = -4946846076129041373L
 	)
-	int field1899;
-	@ObfuscatedName("at")
+	long field2319;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		longValue = 798114243387116605L
+		intValue = -991766849
 	)
-	long field1898;
-	@ObfuscatedName("ac")
+	int field2320;
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 1786287119
+		intValue = 702042737
 	)
-	int field1895;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = 1522261221
-	)
-	int field1901;
+	int field2318;
 
-	public MilliClock() {
-		this.field1900 = new long[10];
-		this.field1896 = 256;
-		this.field1899 = 1;
-		this.field1895 = 0;
-		this.field1898 = GameEngine.method661();
+	MilliClock() {
+		this.field2321 = new long[10];
+		this.field2316 = 256;
+		this.field2317 = 1;
+		this.field2320 = 0;
+		this.field2319 = SpotAnimationDefinition.method3775();
 
 		for (int var1 = 0; var1 < 10; ++var1) {
-			this.field1900[var1] = this.field1898;
+			this.field2321[var1] = this.field2319;
 		}
 
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1021685028"
+		garbageValue = "-1366277024"
 	)
 	@Export("mark")
 	public void mark() {
 		for (int var1 = 0; var1 < 10; ++var1) {
-			this.field1900[var1] = 0L;
+			this.field2321[var1] = 0L;
 		}
 
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)I",
-		garbageValue = "20"
+		descriptor = "(III)I",
+		garbageValue = "-2001388980"
 	)
 	@Export("wait")
 	public int wait(int var1, int var2) {
-		int var3 = this.field1896;
-		int var4 = this.field1899;
-		this.field1896 = 300;
-		this.field1899 = 1;
-		this.field1898 = GameEngine.method661();
-		if (0L == this.field1900[this.field1901]) {
-			this.field1896 = var3;
-			this.field1899 = var4;
-		} else if (this.field1898 > this.field1900[this.field1901]) {
-			this.field1896 = (int)((long)(var1 * 2560) / (this.field1898 - this.field1900[this.field1901]));
+		int var3 = this.field2316;
+		int var4 = this.field2317;
+		this.field2316 = 300;
+		this.field2317 = 1;
+		this.field2319 = SpotAnimationDefinition.method3775();
+		if (this.field2321[this.field2318] == 0L) {
+			this.field2316 = var3;
+			this.field2317 = var4;
+		} else if (this.field2319 > this.field2321[this.field2318]) {
+			this.field2316 = (int)((long)(var1 * 2560) / (this.field2319 - this.field2321[this.field2318]));
 		}
 
-		if (this.field1896 < 25) {
-			this.field1896 = 25;
+		if (this.field2316 < 25) {
+			this.field2316 = 25;
 		}
 
-		if (this.field1896 > 256) {
-			this.field1896 = 256;
-			this.field1899 = (int)((long)var1 - (this.field1898 - this.field1900[this.field1901]) / 10L);
+		if (this.field2316 > 256) {
+			this.field2316 = 256;
+			this.field2317 = (int)((long)var1 - (this.field2319 - this.field2321[this.field2318]) / 10L);
 		}
 
-		if (this.field1899 > var1) {
-			this.field1899 = var1;
+		if (this.field2317 > var1) {
+			this.field2317 = var1;
 		}
 
-		this.field1900[this.field1901] = this.field1898;
-		this.field1901 = (this.field1901 + 1) % 10;
+		this.field2321[this.field2318] = this.field2319;
+		this.field2318 = (this.field2318 + 1) % 10;
 		int var5;
-		if (this.field1899 > 1) {
+		if (this.field2317 > 1) {
 			for (var5 = 0; var5 < 10; ++var5) {
-				if (0L != this.field1900[var5]) {
-					this.field1900[var5] += (long)this.field1899;
+				if (0L != this.field2321[var5]) {
+					this.field2321[var5] += (long)this.field2317;
 				}
 			}
 		}
 
-		if (this.field1899 < var2) {
-			this.field1899 = var2;
+		if (this.field2317 < var2) {
+			this.field2317 = var2;
 		}
 
-		PendingSpawn.method2365((long)this.field1899);
+		class219.method4260((long)this.field2317);
 
-		for (var5 = 0; this.field1895 < 256; this.field1895 += this.field1896) {
+		for (var5 = 0; this.field2320 < 256; this.field2320 += this.field2316) {
 			++var5;
 		}
 
-		this.field1895 &= 255;
+		this.field2320 &= 255;
 		return var5;
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Loi;",
+		garbageValue = "-1866806569"
+	)
+	public static class364[] method4243() {
+		return new class364[]{class364.field4239, class364.field4238, class364.field4236, class364.field4237};
+	}
+
+	@ObfuscatedName("nn")
+	@ObfuscatedSignature(
+		descriptor = "(Lnn;IIIB)V",
+		garbageValue = "42"
+	)
+	static final void method4249(Widget var0, int var1, int var2, int var3) {
+		SpriteMask var4 = var0.method6668(HealthBarDefinition.widgetDefinition, false);
+		if (var4 != null) {
+			if (Client.minimapState < 3) {
+				ItemLayer.compass.drawRotatedMaskedCenteredAround(var1, var2, var4.width, var4.height, 25, 25, Client.camAngleY, 256, var4.xStarts, var4.xWidths);
+			} else {
+				Rasterizer2D.Rasterizer2D_fillMaskedRectangle(var1, var2, 0, var4.xStarts, var4.xWidths);
+			}
+
+		}
 	}
 }

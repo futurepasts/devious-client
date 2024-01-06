@@ -7,170 +7,265 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ar")
+@ObfuscatedName("ay")
 public class class14 {
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = -671093253
-	)
-	final int field76;
-	@ObfuscatedName("ae")
-	final String field72;
-	@ObfuscatedName("ao")
-	final ThreadFactory field74;
+	@ObfuscatedName("bj")
+	protected static String field67;
 	@ObfuscatedName("at")
-	final ThreadPoolExecutor field73;
+	@ObfuscatedGetter(
+		intValue = -1975336687
+	)
+	final int field65;
+	@ObfuscatedName("ah")
+	final String field63;
+	@ObfuscatedName("ar")
+	final ThreadFactory field62;
+	@ObfuscatedName("ao")
+	final ThreadPoolExecutor field60;
 
 	public class14(String var1, int var2, int var3) {
-		this.field72 = var1;
-		this.field76 = var2;
-		this.field74 = new class16(this);
-		this.field73 = this.method162(var3);
+		this.field63 = var1;
+		this.field65 = var2;
+		this.field62 = new class16(this);
+		this.field60 = this.method184(var3);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Ljava/util/concurrent/ThreadPoolExecutor;",
-		garbageValue = "-56"
+		descriptor = "(II)Ljava/util/concurrent/ThreadPoolExecutor;",
+		garbageValue = "1434703627"
 	)
-	final ThreadPoolExecutor method162(int var1) {
-		return new ThreadPoolExecutor(var1, var1, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(this.field76), this.field74);
+	final ThreadPoolExecutor method184(int var1) {
+		return new ThreadPoolExecutor(var1, var1, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(this.field65), this.field62);
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lad;B)Lax;",
-		garbageValue = "19"
+		descriptor = "(Lap;I)Laq;",
+		garbageValue = "1326084774"
 	)
-	public class18 method165(class10 var1) {
-		if (this.field73.getQueue().remainingCapacity() <= 0) {
-			System.err.println("REST thread pool queue is empty\r\nThread pool size " + this.field73.getCorePoolSize() + " Queue capacity " + this.field76);
+	public class18 method181(class10 var1) {
+		if (this.field60.getQueue().remainingCapacity() <= 0) {
+			System.err.println("REST thread pool queue is empty\r\nThread pool size " + this.field60.getCorePoolSize() + " Queue capacity " + this.field65);
 			return new class18("Queue full");
 		} else {
-			class18 var2 = new class18(this.field73.submit(new class19(this, var1)));
+			class18 var2 = new class18(this.field60.submit(new class19(this, var1)));
 			return var2;
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "2032063402"
+		garbageValue = "-2107542128"
 	)
-	public final void method173() {
+	public final void method179() {
 		try {
-			this.field73.shutdown();
+			this.field60.shutdown();
 		} catch (Exception var2) {
 			System.err.println("Error shutting down RestRequestService\r\n" + var2);
 		}
 
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lsf;III)I",
-		garbageValue = "-1229342893"
+		descriptor = "(Ljava/lang/CharSequence;Ltt;I)Ljava/lang/String;",
+		garbageValue = "-576035634"
 	)
-	static int method163(IterableNodeHashTable var0, int var1, int var2) {
+	public static String method180(CharSequence var0, LoginType var1) {
 		if (var0 == null) {
-			return var2;
+			return null;
 		} else {
-			IntegerNode var3 = (IntegerNode)var0.get((long)var1);
-			return var3 == null ? var2 : var3.integer;
+			int var2 = 0;
+
+			int var3;
+			for (var3 = var0.length(); var2 < var3 && class489.method8666(var0.charAt(var2)); ++var2) {
+			}
+
+			while (var3 > var2 && class489.method8666(var0.charAt(var3 - 1))) {
+				--var3;
+			}
+
+			int var4 = var3 - var2;
+			if (var4 >= 1) {
+				byte var6;
+				if (var1 == null) {
+					var6 = 12;
+				} else {
+					switch(var1.field5022) {
+					case 1:
+						var6 = 20;
+						break;
+					default:
+						var6 = 12;
+					}
+				}
+
+				if (var4 <= var6) {
+					StringBuilder var12 = new StringBuilder(var4);
+
+					for (int var14 = var2; var14 < var3; ++var14) {
+						char var7 = var0.charAt(var14);
+						boolean var8;
+						if (Character.isISOControl(var7)) {
+							var8 = false;
+						} else if (KeyHandler.isAlphaNumeric(var7)) {
+							var8 = true;
+						} else {
+							char[] var9 = class505.field5030;
+							int var10 = 0;
+
+							label86:
+							while (true) {
+								char var11;
+								if (var10 >= var9.length) {
+									var9 = class505.field5031;
+
+									for (var10 = 0; var10 < var9.length; ++var10) {
+										var11 = var9[var10];
+										if (var11 == var7) {
+											var8 = true;
+											break label86;
+										}
+									}
+
+									var8 = false;
+									break;
+								}
+
+								var11 = var9[var10];
+								if (var11 == var7) {
+									var8 = true;
+									break;
+								}
+
+								++var10;
+							}
+						}
+
+						if (var8) {
+							char var13 = FriendsChat.method8113(var7);
+							if (var13 != 0) {
+								var12.append(var13);
+							}
+						}
+					}
+
+					if (var12.length() == 0) {
+						return null;
+					}
+
+					return var12.toString();
+				}
+			}
+
+			return null;
 		}
 	}
 
-	@ObfuscatedName("lp")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;I)V",
-		garbageValue = "-525651527"
+		descriptor = "(IIB)Lco;",
+		garbageValue = "69"
 	)
-	static void method175(int var0, String var1) {
-		int var2 = Players.Players_count;
-		int[] var3 = Players.Players_indices;
-		boolean var4 = false;
-		Username var5 = new Username(var1, Language.loginType);
+	@Export("Messages_getByChannelAndID")
+	static Message Messages_getByChannelAndID(int var0, int var1) {
+		ChatChannel var2 = (ChatChannel)Messages.Messages_channels.get(var0);
+		return var2.getMessage(var1);
+	}
 
-		for (int var6 = 0; var6 < var2; ++var6) {
-			Player var7 = Client.players[var3[var6]];
-			if (var7 != null && var7 != VarbitComposition.localPlayer && var7.username != null && var7.username.equals(var5)) {
-				PacketBufferNode var8;
-				if (var0 == 1) {
-					var8 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.OPPLAYER1, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortAddLE(var3[var6]);
-					var8.packetBuffer.writeByteSub(0);
-					Client.packetWriter.addNode(var8);
-				} else if (var0 == 4) {
-					var8 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.OPPLAYER4, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortAdd(var3[var6]);
-					var8.packetBuffer.writeByteNeg(0);
-					Client.packetWriter.addNode(var8);
-				} else if (var0 == 6) {
-					var8 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.OPPLAYER6, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortAdd(var3[var6]);
-					var8.packetBuffer.writeByteSub(0);
-					Client.packetWriter.addNode(var8);
-				} else if (var0 == 7) {
-					var8 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.OPPLAYER7, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortLE(var3[var6]);
-					var8.packetBuffer.writeByte(0);
-					Client.packetWriter.addNode(var8);
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-69"
+	)
+	static void method189() {
+		if (class384.clearLoginScreen) {
+			Login.titleboxSprite = null;
+			Login.titlebuttonSprite = null;
+			class134.runesSprite = null;
+			class250.leftTitleSprite = null;
+			Login.rightTitleSprite = null;
+			Login.logoSprite = null;
+			Login.title_muteSprite = null;
+			class310.options_buttons_0Sprite = null;
+			FriendsList.options_buttons_2Sprite = null;
+			class108.worldSelectBackSprites = null;
+			class130.worldSelectFlagSprites = null;
+			class148.worldSelectArrows = null;
+			class228.worldSelectStars = null;
+			FadeOutTask.field4547 = null;
+			EnumComposition.loginScreenRunesAnimation.method2506();
+			WorldMapRenderer.method4769(0, 100);
+			class157.method3396().method7045(true);
+			class384.clearLoginScreen = false;
+		}
+	}
+
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "(Luj;IIIIIII)V",
+		garbageValue = "834175330"
+	)
+	@Export("loadTerrain")
+	static final void loadTerrain(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+		int var7;
+		if (class134.method3146(var1, var2, var3)) {
+			Tiles.Tiles_renderFlags[var1][var2][var3] = 0;
+
+			while (true) {
+				var7 = var0.readUnsignedShort();
+				if (var7 == 0) {
+					if (var1 == 0) {
+						Tiles.Tiles_heights[0][var2][var3] = -DevicePcmPlayerProvider.method315(var4 + 932731, var5 + 556238) * 8;
+					} else {
+						Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - 240;
+					}
+					break;
 				}
 
-				var4 = true;
-				break;
+				if (var7 == 1) {
+					int var8 = var0.readUnsignedByte();
+					if (var8 == 1) {
+						var8 = 0;
+					}
+
+					if (var1 == 0) {
+						Tiles.Tiles_heights[0][var2][var3] = -var8 * 8;
+					} else {
+						Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - var8 * 8;
+					}
+					break;
+				}
+
+				if (var7 <= 49) {
+					Interpreter.Tiles_overlays[var1][var2][var3] = (short)var0.readShort();
+					ViewportMouse.Tiles_shapes[var1][var2][var3] = (byte)((var7 - 2) / 4);
+					class369.field4297[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3);
+				} else if (var7 <= 81) {
+					Tiles.Tiles_renderFlags[var1][var2][var3] = (byte)(var7 - 49);
+				} else {
+					class74.Tiles_underlays[var1][var2][var3] = (short)(var7 - 81);
+				}
+			}
+		} else {
+			while (true) {
+				var7 = var0.readUnsignedShort();
+				if (var7 == 0) {
+					break;
+				}
+
+				if (var7 == 1) {
+					var0.readUnsignedByte();
+					break;
+				}
+
+				if (var7 <= 49) {
+					var0.readShort();
+				}
 			}
 		}
 
-		if (!var4) {
-			MouseHandler.addGameMessage(4, "", "Unable to find " + var1);
-		}
-
-	}
-
-	@ObfuscatedName("lt")
-	@ObfuscatedSignature(
-		descriptor = "(III)Ljava/lang/String;",
-		garbageValue = "-539103842"
-	)
-	static final String method176(int var0, int var1) {
-		int var2 = var1 - var0;
-		if (var2 < -9) {
-			return class217.colorStartTag(16711680);
-		} else if (var2 < -6) {
-			return class217.colorStartTag(16723968);
-		} else if (var2 < -3) {
-			return class217.colorStartTag(16740352);
-		} else if (var2 < 0) {
-			return class217.colorStartTag(16756736);
-		} else if (var2 > 9) {
-			return class217.colorStartTag(65280);
-		} else if (var2 > 6) {
-			return class217.colorStartTag(4259584);
-		} else if (var2 > 3) {
-			return class217.colorStartTag(8453888);
-		} else {
-			return var2 > 0 ? class217.colorStartTag(12648192) : class217.colorStartTag(16776960);
-		}
-	}
-
-	@ObfuscatedName("mz")
-	@ObfuscatedSignature(
-		descriptor = "(ZB)V",
-		garbageValue = "-26"
-	)
-	@Export("setTapToDrop")
-	static void setTapToDrop(boolean var0) {
-		Client.tapToDrop = var0;
-	}
-
-	@ObfuscatedName("nd")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-361779527"
-	)
-	static final void method161(int var0) {
-		var0 = Math.min(Math.max(var0, 0), 127);
-		class449.clientPreferences.method2556(var0);
 	}
 }

@@ -1,23 +1,19 @@
 import java.math.BigInteger;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ct")
+@ObfuscatedName("cz")
 public class class74 {
-	@ObfuscatedName("au")
-	static final BigInteger field925;
-	@ObfuscatedName("ae")
-	static final BigInteger field928;
-	@ObfuscatedName("dg")
-	@ObfuscatedSignature(
-		descriptor = "[Lui;"
-	)
-	@Export("worldSelectBackSprites")
-	static SpritePixels[] worldSelectBackSprites;
+	@ObfuscatedName("at")
+	static final BigInteger field889;
+	@ObfuscatedName("ah")
+	static final BigInteger field890;
+	@ObfuscatedName("ao")
+	@Export("Tiles_underlays")
+	static short[][][] Tiles_underlays;
 
 	static {
-		field925 = new BigInteger("10001", 16);
-		field928 = new BigInteger("9d65aa39691f5fadd6296eeee7726eab566ecc003adda321a1bf18f94cce90d5198fcdf30dca1deef73fa1deb8c1ed0731e3f4712b23ab9f180de4946043ea93a3fef2c0099f69c64d0be204a1415322032e6f60aca9aa2a420c696627b2ed49a7970bdfe1cdcf1446fa65530a3bb0b1573a3effc1086fa29016ff9cc35e8951", 16);
+		field889 = new BigInteger("10001", 16);
+		field890 = new BigInteger("850174caa25e7608dd4a92f60946ae0011b578e0da829e93de3169dbf59d67460a86139a1843088971808d1b8b97572c5002f6d6a760038af0b0b8f3b1a5362cfc5151edcedc2df5fadf70a85c7b12e24eb4a8f8d7f1e5a523910fdda2964063936666111808b5b27513ec83e9e6a7b30e45f252d93096d0fc2d0370da3871d5", 16);
 	}
 }

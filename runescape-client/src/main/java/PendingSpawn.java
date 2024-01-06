@@ -1,167 +1,163 @@
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dv")
+@ObfuscatedName("dp")
 @Implements("PendingSpawn")
 public final class PendingSpawn extends Node {
-	@ObfuscatedName("ub")
+	@ObfuscatedName("dy")
+	static boolean field1169;
+	@ObfuscatedName("qa")
 	@ObfuscatedGetter(
-		intValue = -927036032
+		intValue = -1716253551
 	)
-	static int field1182;
-	@ObfuscatedName("au")
+	static int field1167;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -1211585979
+		intValue = -338943587
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 1068935697
+		intValue = 241275811
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -762118645
+		intValue = -473377439
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -359817879
+		intValue = -295377785
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 757477475
+		intValue = 950457513
 	)
 	@Export("objectId")
 	int objectId;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 2102589387
+		intValue = 467323589
 	)
-	int field1185;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = -77659419
-	)
-	int field1186;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = -517961703
-	)
-	int field1187;
+	int field1157;
 	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -29963369
+		intValue = -1843576419
 	)
-	int field1189;
-	@ObfuscatedName("af")
+	int field1158;
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1851896147
+		intValue = 1617415071
 	)
-	int field1183;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = -61676879
-	)
-	int field1190;
+	int field1162;
 	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -1398168629
+		intValue = 1507666767
 	)
-	int field1191;
-	@ObfuscatedName("an")
+	int field1160;
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 1120217811
+		intValue = -164763093
+	)
+	int field1161;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = 1169742593
+	)
+	int field1152;
+	@ObfuscatedName("ax")
+	@ObfuscatedGetter(
+		intValue = 1397855747
+	)
+	int field1159;
+	@ObfuscatedName("as")
+	@ObfuscatedGetter(
+		intValue = -657774781
 	)
 	@Export("delay")
 	int delay;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -649567293
+		intValue = 2020838527
 	)
 	@Export("hitpoints")
 	int hitpoints;
 
 	PendingSpawn() {
-		this.field1191 = 31;
+		this.field1159 = 31;
 		this.delay = 0;
 		this.hitpoints = -1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "-390756021"
+		garbageValue = "-1592817450"
 	)
-	void method2360(int var1) {
-		this.field1191 = var1;
+	void method2453(int var1) {
+		this.field1159 = var1;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "-1725061454"
+		descriptor = "(IS)Z",
+		garbageValue = "7928"
 	)
-	boolean method2362(int var1) {
+	boolean method2455(int var1) {
 		if (var1 >= 0 && var1 <= 4) {
-			return (this.field1191 & 1 << var1) != 0;
+			return (this.field1159 & 1 << var1) != 0;
 		} else {
 			return true;
 		}
 	}
 
-	@ObfuscatedName("au")
-	public static final void method2365(long var0) {
-		if (var0 > 0L) {
-			if (0L == var0 % 10L) {
-				WorldMapData_0.method5047(var0 - 1L);
-				WorldMapData_0.method5047(1L);
-			} else {
-				WorldMapData_0.method5047(var0);
-			}
-
-		}
-	}
-
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)Z",
-		garbageValue = "1525376195"
+		descriptor = "(Ljava/util/ArrayList;IIIIZI)V",
+		garbageValue = "1949440150"
 	)
-	static boolean method2369(String var0) {
-		if (var0 == null) {
-			return false;
-		} else {
-			try {
-				new URL(var0);
-				return true;
-			} catch (MalformedURLException var2) {
-				return false;
+	public static void method2459(ArrayList var0, int var1, int var2, int var3, int var4, boolean var5) {
+		if (!var0.isEmpty()) {
+			class316.field3416.clear();
+			class316.field3413.clear();
+			PacketBufferNode.method5917(var5);
+			class30.method463(var0, var5);
+			if (!class316.field3416.isEmpty()) {
+				EnumComposition.method3678(var1, var2, var3, var4);
+				class316.field3413.add(new AddRequestTask((SongTask)null));
+				class316.field3413.add(new class420((SongTask)null, class316.field3423, class316.field3414, class168.field1789));
+				ArrayList var6 = new ArrayList();
+				var6.add(new class415(new FadeInTask((SongTask)null, 0, true, class316.field3417)));
+				if (!class316.musicSongs.isEmpty()) {
+					ArrayList var7 = new ArrayList();
+					var7.add(new DelayFadeTask(new ConcurrentMidiTask((SongTask)null, var6), class316.field3419));
+					ArrayList var9 = new ArrayList();
+					Iterator var10 = class316.musicSongs.iterator();
+
+					while (var10.hasNext()) {
+						MusicSong var11 = (MusicSong)var10.next();
+						var9.add(var11);
+					}
+
+					var7.add(new DelayFadeTask(new FadeOutTask(new class413((SongTask)null, var9), 0, false, class316.field3418), class316.musicPlayerStatus));
+					class316.field3413.add(new ConcurrentMidiTask((SongTask)null, var7));
+				} else {
+					class316.field3413.add(new DelayFadeTask((SongTask)null, class316.field3419));
+					class316.field3413.add(new ConcurrentMidiTask((SongTask)null, var6));
+				}
+
 			}
 		}
-	}
-
-	@ObfuscatedName("hm")
-	@ObfuscatedSignature(
-		descriptor = "(ZI)V",
-		garbageValue = "334043095"
-	)
-	static final void method2368(boolean var0) {
-		if (var0) {
-			Client.field776 = Login.field956 ? class139.field1647 : class139.field1646;
-		} else {
-			Client.field776 = class449.clientPreferences.method2472(Login.Login_username) ? class139.field1650 : class139.field1653;
-		}
-
 	}
 }

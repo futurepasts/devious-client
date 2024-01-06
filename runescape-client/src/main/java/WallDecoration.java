@@ -4,78 +4,72 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jw")
+@ObfuscatedName("lj")
 @Implements("WallDecoration")
 public final class WallDecoration {
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "[Ltd;"
-	)
-	@Export("JagexCache_idxFiles")
-	public static BufferedFile[] JagexCache_idxFiles;
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -1365937923
+		intValue = 697087573
 	)
 	@Export("z")
 	int z;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 787946685
+		intValue = -1003869085
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -218934925
+		intValue = -1239297111
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 52639641
+		intValue = 1274967907
 	)
 	@Export("orientation")
 	int orientation;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 489110633
+		intValue = -1874531803
 	)
 	@Export("orientation2")
 	int orientation2;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 1102500453
+		intValue = 845842723
 	)
 	@Export("xOffset")
 	int xOffset;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 1708077931
+		intValue = -692946625
 	)
 	@Export("yOffset")
 	int yOffset;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "Lik;"
+		descriptor = "Lkt;"
 	)
 	@Export("renderable1")
 	public Renderable renderable1;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lik;"
+		descriptor = "Lkt;"
 	)
 	@Export("renderable2")
 	public Renderable renderable2;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		longValue = -5570150087619181313L
+		longValue = 6922926067835856217L
 	)
 	@Export("tag")
 	public long tag;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 1405593685
+		intValue = 416998107
 	)
 	@Export("flags")
 	int flags;
@@ -83,5 +77,15 @@ public final class WallDecoration {
 	WallDecoration() {
 		this.tag = 0L;
 		this.flags = 0;
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Luk;",
+		garbageValue = "-1385996560"
+	)
+	@Export("FillMode_values")
+	public static FillMode[] FillMode_values() {
+		return new FillMode[]{FillMode.SOLID, FillMode.field5220, FillMode.field5222};
 	}
 }

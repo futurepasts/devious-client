@@ -1,126 +1,87 @@
-import java.util.ArrayList;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gc")
-public class class157 extends class143 {
-	@ObfuscatedName("gt")
-	static String field1762;
-	@ObfuscatedName("iz")
+@ObfuscatedName("gw")
+public class class157 extends class160 {
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = -1983663825
+		intValue = 1530451385
 	)
-	static int field1767;
-	@ObfuscatedName("au")
+	@Export("loginBoxCenter")
+	static int loginBoxCenter;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 2110993829
+		intValue = -104444073
 	)
-	int field1763;
+	int field1733;
+	@ObfuscatedName("ah")
+	byte field1731;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = -1205130575
+	)
+	int field1734;
+	@ObfuscatedName("ao")
+	String field1732;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lgi;"
 	)
-	final class146 this$0;
+	final class161 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lgi;)V"
 	)
-	class157(class146 var1) {
+	class157(class161 var1) {
 		this.this$0 = var1;
-		this.field1763 = -1;
+		this.field1733 = -1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "209179459"
+		descriptor = "(Luj;I)V",
+		garbageValue = "1810249387"
 	)
-	void vmethod3337(Buffer var1) {
-		this.field1763 = var1.readUnsignedShort();
+	void vmethod3497(Buffer var1) {
+		var1.readUnsignedByte();
+		this.field1733 = var1.readUnsignedShort();
+		this.field1731 = var1.readByte();
+		this.field1734 = var1.readUnsignedShort();
+		var1.readLong();
+		this.field1732 = var1.readStringCp1252NullTerminated();
+		var1.readUnsignedByte();
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lfi;B)V",
-		garbageValue = "73"
+		descriptor = "(Lgn;B)V",
+		garbageValue = "-75"
 	)
-	void vmethod3339(ClanSettings var1) {
-		var1.method3188(this.field1763);
+	void vmethod3501(ClanChannel var1) {
+		ClanChannelMember var2 = (ClanChannelMember)var1.members.get(this.field1733);
+		var2.rank = this.field1731;
+		var2.world = this.field1734;
+		var2.username = new Username(this.field1732);
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(CS)Z",
-		garbageValue = "255"
+		descriptor = "(Ldo;B)V",
+		garbageValue = "-120"
 	)
-	static boolean method3256(char var0) {
-		return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"ï¿½$%^&*()-_=+[{]};:'@#~,<.>/?\\| ".indexOf(var0) != -1;
+	@Export("runScriptEvent")
+	public static void runScriptEvent(ScriptEvent var0) {
+		class323.runScript(var0, 500000, 475000);
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ow")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
-		garbageValue = "-858591877"
+		descriptor = "(B)Loz;",
+		garbageValue = "0"
 	)
-	public static String method3260(String var0) {
-		StringBuilder var1 = new StringBuilder(var0.length());
-		int var2 = 0;
-		int var3 = -1;
-
-		for (int var4 = 0; var4 < var0.length(); ++var4) {
-			char var5 = var0.charAt(var4);
-			if (var5 == '<') {
-				var1.append(var0.substring(var2, var4));
-				var3 = var4;
-			} else if (var5 == '>' && var3 != -1) {
-				String var6 = var0.substring(var3 + 1, var4);
-				var3 = -1;
-				if (var6.equals("lt")) {
-					var1.append("<");
-				} else if (var6.equals("gt")) {
-					var1.append(">");
-				} else if (var6.equals("br")) {
-					var1.append("\n");
-				}
-
-				var2 = var4 + 1;
-			}
-		}
-
-		if (var2 < var0.length()) {
-			var1.append(var0.substring(var2, var0.length()));
-		}
-
-		return var1.toString();
-	}
-
-	@ObfuscatedName("is")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/util/ArrayList;IIIIB)V",
-		garbageValue = "6"
-	)
-	static void method3261(ArrayList var0, int var1, int var2, int var3, int var4) {
-		if (!var0.isEmpty()) {
-			int var5 = (Integer)var0.get(0);
-			if (var5 == -1 && !Client.playingJingle) {
-				Script.method2180(0, 0);
-			} else if (var5 != -1 && !class172.method3457(var5) && class449.clientPreferences.method2451() != 0) {
-				ArrayList var6 = new ArrayList();
-
-				for (int var7 = 0; var7 < var0.size(); ++var7) {
-					var6.add(new MusicSong(class385.archive6, (Integer)var0.get(var7), 0, class449.clientPreferences.method2451(), false));
-				}
-
-				if (Client.playingJingle) {
-					class305.field3405.clear();
-					class305.field3405.addAll(var6);
-					class270.method5491(var1, var2, var3, var4);
-				} else {
-					class53.method1097(var6, var1, var2, var3, var4, false);
-				}
-			}
-
-		}
+	static JagNetThread method3396() {
+		return WorldMapSectionType.field2556;
 	}
 }

@@ -3,78 +3,22 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uc")
+@ObfuscatedName("vj")
 @Implements("Username")
 public class Username implements Comparable {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("name")
 	String name;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@Export("cleanName")
 	String cleanName;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Lsl;)V"
+		descriptor = "(Ljava/lang/String;Ltt;)V"
 	)
 	public Username(String var1, LoginType var2) {
 		this.name = var1;
-		String var4;
-		if (var1 == null) {
-			var4 = null;
-		} else {
-			label71: {
-				int var5 = 0;
-
-				int var6;
-				for (var6 = var1.length(); var5 < var6 && ArchiveDiskActionHandler.method6640(var1.charAt(var5)); ++var5) {
-				}
-
-				while (var6 > var5 && ArchiveDiskActionHandler.method6640(var1.charAt(var6 - 1))) {
-					--var6;
-				}
-
-				int var7 = var6 - var5;
-				if (var7 >= 1) {
-					byte var9;
-					if (var2 == null) {
-						var9 = 12;
-					} else {
-						switch(var2.field4988) {
-						case 0:
-							var9 = 20;
-							break;
-						default:
-							var9 = 12;
-						}
-					}
-
-					if (var7 <= var9) {
-						StringBuilder var12 = new StringBuilder(var7);
-
-						for (int var13 = var5; var13 < var6; ++var13) {
-							char var10 = var1.charAt(var13);
-							if (ClientPreferences.method2555(var10)) {
-								char var11 = KeyHandler.method378(var10);
-								if (var11 != 0) {
-									var12.append(var11);
-								}
-							}
-						}
-
-						if (var12.length() == 0) {
-							var4 = null;
-						} else {
-							var4 = var12.toString();
-						}
-						break label71;
-					}
-				}
-
-				var4 = null;
-			}
-		}
-
-		this.cleanName = var4;
+		this.cleanName = class14.method180(var1, var2);
 	}
 
 	public Username(String var1) {
@@ -84,14 +28,14 @@ public class Username implements Comparable {
 		if (var1 == null) {
 			var3 = null;
 		} else {
-			label71: {
+			label109: {
 				int var5 = 0;
 
 				int var6;
-				for (var6 = var1.length(); var5 < var6 && ArchiveDiskActionHandler.method6640(var1.charAt(var5)); ++var5) {
+				for (var6 = var1.length(); var5 < var6 && class489.method8666(var1.charAt(var5)); ++var5) {
 				}
 
-				while (var6 > var5 && ArchiveDiskActionHandler.method6640(var1.charAt(var6 - 1))) {
+				while (var6 > var5 && class489.method8666(var1.charAt(var6 - 1))) {
 					--var6;
 				}
 
@@ -101,8 +45,8 @@ public class Username implements Comparable {
 					if (var4 == null) {
 						var9 = 12;
 					} else {
-						switch(var4.field4988) {
-						case 0:
+						switch(var4.field5022) {
+						case 1:
 							var9 = 20;
 							break;
 						default:
@@ -111,24 +55,61 @@ public class Username implements Comparable {
 					}
 
 					if (var7 <= var9) {
-						StringBuilder var12 = new StringBuilder(var7);
+						StringBuilder var15 = new StringBuilder(var7);
 
-						for (int var13 = var5; var13 < var6; ++var13) {
-							char var10 = var1.charAt(var13);
-							if (ClientPreferences.method2555(var10)) {
-								char var11 = KeyHandler.method378(var10);
-								if (var11 != 0) {
-									var12.append(var11);
+						for (int var17 = var5; var17 < var6; ++var17) {
+							char var10 = var1.charAt(var17);
+							boolean var11;
+							if (Character.isISOControl(var10)) {
+								var11 = false;
+							} else if (KeyHandler.isAlphaNumeric(var10)) {
+								var11 = true;
+							} else {
+								char[] var12 = class505.field5030;
+								int var13 = 0;
+
+								label76:
+								while (true) {
+									char var14;
+									if (var13 >= var12.length) {
+										var12 = class505.field5031;
+
+										for (var13 = 0; var13 < var12.length; ++var13) {
+											var14 = var12[var13];
+											if (var14 == var10) {
+												var11 = true;
+												break label76;
+											}
+										}
+
+										var11 = false;
+										break;
+									}
+
+									var14 = var12[var13];
+									if (var10 == var14) {
+										var11 = true;
+										break;
+									}
+
+									++var13;
+								}
+							}
+
+							if (var11) {
+								char var16 = FriendsChat.method8113(var10);
+								if (var16 != 0) {
+									var15.append(var16);
 								}
 							}
 						}
 
-						if (var12.length() == 0) {
+						if (var15.length() == 0) {
 							var3 = null;
 						} else {
-							var3 = var12.toString();
+							var3 = var15.toString();
 						}
-						break label71;
+						break label109;
 					}
 				}
 
@@ -139,39 +120,39 @@ public class Username implements Comparable {
 		this.cleanName = var3;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-1021488493"
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "8"
 	)
 	@Export("getName")
 	public String getName() {
 		return this.name;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ljava/lang/String;",
-		garbageValue = "28"
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "-1344600615"
 	)
-	public String method9688() {
+	public String method9937() {
 		return this.cleanName;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "-911492900"
+		descriptor = "(B)Z",
+		garbageValue = "19"
 	)
 	@Export("hasCleanName")
 	public boolean hasCleanName() {
 		return this.cleanName != null;
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(Luc;I)I",
-		garbageValue = "-2077400310"
+		descriptor = "(Lvj;I)I",
+		garbageValue = "1848187995"
 	)
 	@Export("compareToTyped")
 	public int compareToTyped(Username var1) {

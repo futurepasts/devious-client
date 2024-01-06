@@ -1,76 +1,84 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bs")
+@ObfuscatedName("ba")
 public class class33 {
-	@ObfuscatedName("um")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 1197195264
+		intValue = 1887407395
 	)
-	static int field180;
-	@ObfuscatedName("un")
+	int field163;
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1547663815
+		intValue = -1936284001
 	)
-	static int field188;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = 497616693
-	)
-	int field192;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 685095567
-	)
-	int field186;
+	int field168;
 
 	class33(int var1, int var2) {
-		this.field192 = var1;
-		this.field186 = var2;
+		this.field163 = var1;
+		this.field168 = var2;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lbv;I)Z",
-		garbageValue = "625917301"
+		descriptor = "(Lbi;I)Z",
+		garbageValue = "1979217570"
 	)
 	boolean method491(class29 var1) {
 		if (var1 == null) {
 			return false;
 		} else {
-			switch(this.field192) {
+			switch(this.field163) {
 			case 1:
-				return var1.vmethod4117(this.field186);
+				return var1.vmethod4310(this.field168);
 			case 2:
-				return var1.vmethod4139(this.field186);
+				return var1.vmethod4320(this.field168);
 			case 3:
-				return var1.vmethod4106((char)this.field186);
+				return var1.vmethod4321((char)this.field168);
 			case 4:
-				return var1.vmethod4132(this.field186 == 1);
+				return var1.vmethod4312(this.field168 == 1);
 			default:
 				return false;
 			}
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(IIIII)I",
-		garbageValue = "-795893337"
+		descriptor = "(Ljava/lang/String;I)I",
+		garbageValue = "1755486935"
 	)
-	static final int method492(int var0, int var1, int var2, int var3) {
-		return var0 * var2 + var3 * var1 >> 16;
+	static int method494(String var0) {
+		if (var0.equals("centre")) {
+			return 1;
+		} else {
+			return !var0.equals("bottom") && !var0.equals("right") ? 0 : 2;
+		}
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("kd")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lco;",
-		garbageValue = "-1816107521"
+		descriptor = "(Ldn;I)V",
+		garbageValue = "-56685834"
 	)
-	@Export("Messages_getMessage")
-	static Message Messages_getMessage(int var0) {
-		return (Message)Messages.Messages_hashTable.get((long)var0);
+	static void method495(NPC var0) {
+		var0.field1198 = var0.definition.size;
+		var0.field1240 = var0.definition.rotation;
+		var0.walkSequence = var0.definition.walkSequence;
+		var0.walkBackSequence = var0.definition.walkBackSequence;
+		var0.walkLeftSequence = var0.definition.walkLeftSequence;
+		var0.walkRightSequence = var0.definition.walkRightSequence;
+		var0.idleSequence = var0.definition.idleSequence;
+		var0.turnLeftSequence = var0.definition.turnLeftSequence;
+		var0.turnRightSequence = var0.definition.turnRightSequence;
+		var0.runSequence = var0.definition.field1931;
+		var0.field1185 = var0.definition.field1937;
+		var0.field1186 = var0.definition.field1954;
+		var0.field1233 = var0.definition.field1962;
+		var0.field1188 = var0.definition.field1961;
+		var0.field1189 = var0.definition.field1941;
+		var0.field1190 = var0.definition.field1958;
+		var0.field1239 = var0.definition.field1945;
 	}
 }

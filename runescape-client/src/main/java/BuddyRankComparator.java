@@ -1,12 +1,24 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ek")
+@ObfuscatedName("eg")
 @Implements("BuddyRankComparator")
 public class BuddyRankComparator extends AbstractUserComparator {
-	@ObfuscatedName("au")
+	@ObfuscatedName("wz")
+	@ObfuscatedGetter(
+		intValue = -1052831761
+	)
+	@Export("foundItemIdCount")
+	static int foundItemIdCount;
+	@ObfuscatedName("gw")
+	@ObfuscatedSignature(
+		descriptor = "Loh;"
+	)
+	static Archive field1460;
+	@ObfuscatedName("at")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -14,10 +26,10 @@ public class BuddyRankComparator extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lqb;Lqb;I)I",
-		garbageValue = "-1874488966"
+		descriptor = "(Lrh;Lrh;B)I",
+		garbageValue = "95"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -32,24 +44,16 @@ public class BuddyRankComparator extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("oa")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(Lmi;I)Lmi;",
-		garbageValue = "915415331"
+		descriptor = "(I)Z",
+		garbageValue = "-457265261"
 	)
-	static Widget method2916(Widget var0) {
-		int var1 = SpriteMask.method6023(NpcOverrides.getWidgetFlags(var0));
-		if (var1 == 0) {
-			return null;
+	public static boolean method3006() {
+		if (!class316.field3413.isEmpty()) {
+			return true;
 		} else {
-			for (int var2 = 0; var2 < var1; ++var2) {
-				var0 = class92.getWidget(var0.parentId);
-				if (var0 == null) {
-					return null;
-				}
-			}
-
-			return var0;
+			return !class316.musicSongs.isEmpty() && class316.musicSongs.get(0) != null && ((MusicSong)class316.musicSongs.get(0)).midiPcmStream != null ? ((MusicSong)class316.musicSongs.get(0)).midiPcmStream.isReady() : false;
 		}
 	}
 }

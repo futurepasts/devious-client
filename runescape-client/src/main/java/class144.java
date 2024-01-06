@@ -1,62 +1,53 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fz")
-public class class144 extends class143 {
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = -974781301
-	)
-	int field1672;
-	@ObfuscatedName("ae")
-	boolean field1670;
-	// $FF: synthetic field
-	@ObfuscatedSignature(
-		descriptor = "Lfn;"
-	)
-	final class146 this$0;
-
-	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
-	)
-	class144(class146 var1) {
-		this.this$0 = var1;
-		this.field1672 = -1;
+@ObfuscatedName("fl")
+public abstract class class144 extends Node {
+	class144() {
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "209179459"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-734756620"
 	)
-	void vmethod3337(Buffer var1) {
-		this.field1672 = var1.readUnsignedShort();
-		this.field1670 = var1.readUnsignedByte() == 1;
-	}
+	abstract void vmethod3510(Buffer var1);
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lfi;B)V",
-		garbageValue = "73"
+		descriptor = "(Lfc;I)V",
+		garbageValue = "-2111347169"
 	)
-	void vmethod3339(ClanSettings var1) {
-		var1.method3232(this.field1672, this.field1670);
-	}
+	abstract void vmethod3506(ClanSettings var1);
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)I",
-		garbageValue = "-2136715015"
+		descriptor = "(Luj;Ltz;I)Ltz;",
+		garbageValue = "-1693455974"
 	)
-	public static int method3118(int var0, int var1, int var2) {
-		var2 &= 3;
-		if (var2 == 0) {
-			return var1;
-		} else if (var2 == 1) {
-			return 7 - var0;
-		} else {
-			return var2 == 2 ? 7 - var1 : var0;
+	@Export("readStringIntParameters")
+	static final IterableNodeHashTable readStringIntParameters(Buffer var0, IterableNodeHashTable var1) {
+		int var2 = var0.readUnsignedByte();
+		int var3;
+		if (var1 == null) {
+			var3 = class184.method3680(var2);
+			var1 = new IterableNodeHashTable(var3);
 		}
+
+		for (var3 = 0; var3 < var2; ++var3) {
+			boolean var4 = var0.readUnsignedByte() == 1;
+			int var5 = var0.readMedium();
+			Object var6;
+			if (var4) {
+				var6 = new ObjectNode(var0.readStringCp1252NullTerminated());
+			} else {
+				var6 = new IntegerNode(var0.readInt());
+			}
+
+			var1.put((Node)var6, (long)var5);
+		}
+
+		return var1;
 	}
 }

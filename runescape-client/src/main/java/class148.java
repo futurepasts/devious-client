@@ -3,77 +3,66 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ff")
-public class class148 extends class143 {
-	@ObfuscatedName("aw")
-	@Export("BZip2Decompressor_block")
-	static int[] BZip2Decompressor_block;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = 2023525395
+@ObfuscatedName("fp")
+public class class148 extends class144 {
+	@ObfuscatedName("dg")
+	@ObfuscatedSignature(
+		descriptor = "[Lup;"
 	)
-	int field1694;
-	@ObfuscatedName("ae")
+	@Export("worldSelectArrows")
+	static IndexedSprite[] worldSelectArrows;
+	@ObfuscatedName("qj")
 	@ObfuscatedGetter(
-		intValue = -513761011
+		intValue = 519764891
 	)
-	int field1695;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 22358023
-	)
-	int field1696;
+	@Export("widgetDragDuration")
+	static int widgetDragDuration;
 	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1866813797
+		intValue = -1679161857
 	)
-	int field1697;
+	int field1663;
+	@ObfuscatedName("ah")
+	byte field1660;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lfv;"
 	)
-	final class146 this$0;
+	final class147 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lfv;)V"
 	)
-	class148(class146 var1) {
+	class148(class147 var1) {
 		this.this$0 = var1;
+		this.field1663 = -1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "209179459"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-734756620"
 	)
-	void vmethod3337(Buffer var1) {
-		this.field1694 = var1.readInt();
-		this.field1697 = var1.readInt();
-		this.field1695 = var1.readUnsignedByte();
-		this.field1696 = var1.readUnsignedByte();
+	void vmethod3510(Buffer var1) {
+		this.field1663 = var1.readUnsignedShort();
+		this.field1660 = var1.readByte();
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lfi;B)V",
-		garbageValue = "73"
+		descriptor = "(Lfc;I)V",
+		garbageValue = "-2111347169"
 	)
-	void vmethod3339(ClanSettings var1) {
-		var1.method3194(this.field1694, this.field1697, this.field1695, this.field1696);
+	void vmethod3506(ClanSettings var1) {
+		var1.method3379(this.field1663, this.field1660);
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("bb")
 	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "236426958"
+		descriptor = "(ILdt;ZI)I",
+		garbageValue = "415376551"
 	)
-	static boolean method3144(char var0) {
-		for (int var1 = 0; var1 < "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"ï¿½$%^&*()-_=+[{]};:'@#~,<.>/?\\| ".length(); ++var1) {
-			if (var0 == "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"ï¿½$%^&*()-_=+[{]};:'@#~,<.>/?\\| ".charAt(var1)) {
-				return true;
-			}
-		}
-
-		return false;
+	static int method3265(int var0, Script var1, boolean var2) {
+		return 2;
 	}
 }

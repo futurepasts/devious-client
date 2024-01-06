@@ -1,17 +1,23 @@
-import java.awt.datatransfer.Clipboard;
 import java.util.Comparator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nx")
+@ObfuscatedName("oq")
 @Implements("GrandExchangeOfferTotalQuantityComparator")
 final class GrandExchangeOfferTotalQuantityComparator implements Comparator {
-	@ObfuscatedName("au")
+	@ObfuscatedName("jl")
 	@ObfuscatedSignature(
-		descriptor = "(Loz;Loz;I)I",
-		garbageValue = "1689920131"
+		descriptor = "Lpf;"
+	)
+	@Export("fontBold12")
+	static Font fontBold12;
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Log;Log;I)I",
+		garbageValue = "-2047796467"
 	)
 	@Export("compare_bridged")
 	int compare_bridged(GrandExchangeEvent var1, GrandExchangeEvent var2) {
@@ -26,21 +32,42 @@ final class GrandExchangeOfferTotalQuantityComparator implements Comparator {
 		return this.compare_bridged((GrandExchangeEvent)var1, (GrandExchangeEvent)var2);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("am")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "957509190"
+		descriptor = "(Lnn;B)I",
+		garbageValue = "0"
 	)
-	public static void method6833() {
-		class36.reflectionChecks = new IterableNodeDeque();
+	static int method7080(Widget var0) {
+		if (var0.type != 11) {
+			Interpreter.Interpreter_stringStack[class127.Interpreter_stringStackSize - 1] = "";
+			return 1;
+		} else {
+			String var1 = Interpreter.Interpreter_stringStack[--class127.Interpreter_stringStackSize];
+			Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var0.method6765(var1);
+			return 1;
+		}
 	}
 
-	@ObfuscatedName("ov")
+	@ObfuscatedName("lm")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/awt/datatransfer/Clipboard;",
-		garbageValue = "1573357466"
+		descriptor = "(Ljava/lang/String;Ljava/lang/String;IIIIIZS)V",
+		garbageValue = "14887"
 	)
-	public static Clipboard method6834() {
-		return class219.client.method499();
+	@Export("insertMenuItem")
+	static final void insertMenuItem(String var0, String var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
+		if (!Client.isMenuOpen) {
+			if (Client.menuOptionsCount < 500) {
+				Client.menuActions[Client.menuOptionsCount] = var0;
+				Client.menuTargets[Client.menuOptionsCount] = var1;
+				Client.menuOpcodes[Client.menuOptionsCount] = var2;
+				Client.menuIdentifiers[Client.menuOptionsCount] = var3;
+				Client.menuArguments1[Client.menuOptionsCount] = var4;
+				Client.menuArguments2[Client.menuOptionsCount] = var5;
+				Client.menuItemIds[Client.menuOptionsCount] = var6;
+				Client.menuShiftClick[Client.menuOptionsCount] = var7;
+				++Client.menuOptionsCount;
+			}
+
+		}
 	}
 }

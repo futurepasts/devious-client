@@ -1,65 +1,55 @@
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lj")
+@ObfuscatedName("mk")
 @Implements("MusicPatchNode2")
 public class MusicPatchNode2 {
-	@ObfuscatedName("uz")
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 984261565
+		intValue = -2109926181
 	)
-	static int field3397;
-	@ObfuscatedName("au")
-	byte[] field3392;
-	@ObfuscatedName("ae")
-	byte[] field3398;
+	static int field3403;
+	@ObfuscatedName("at")
+	byte[] field3406;
+	@ObfuscatedName("ah")
+	byte[] field3411;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = 126824827
+	)
+	int field3405;
 	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 1214926019
+		intValue = 1444847531
 	)
-	int field3389;
-	@ObfuscatedName("at")
+	int field3412;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -1047647419
+		intValue = 1206773621
 	)
-	int field3388;
-	@ObfuscatedName("ac")
+	int field3407;
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 751515157
+		intValue = -1980738393
 	)
-	int field3391;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = -341693181
-	)
-	int field3387;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = 326458923
-	)
-	int field3393;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = -1787275153
-	)
-	int field3394;
+	int field3408;
 	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -107755175
+		intValue = 119084135
 	)
-	int field3395;
+	int field3409;
+	@ObfuscatedName("ac")
+	@ObfuscatedGetter(
+		intValue = -316321355
+	)
+	int field3410;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = -1993220297
+	)
+	int field3404;
 
 	MusicPatchNode2() {
-	}
-
-	@ObfuscatedName("oe")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "31198036"
-	)
-	static void method5742(int var0) {
-		Client.oculusOrbState = var0;
 	}
 }

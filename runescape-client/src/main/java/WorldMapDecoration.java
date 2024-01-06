@@ -4,24 +4,24 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kn")
+@ObfuscatedName("js")
 @Implements("WorldMapDecoration")
 public class WorldMapDecoration {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -152771529
+		intValue = -1757511385
 	)
 	@Export("objectDefinitionId")
 	final int objectDefinitionId;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -1156952409
+		intValue = -982756641
 	)
 	@Export("decoration")
 	final int decoration;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -1761099397
+		intValue = 805230653
 	)
 	@Export("rotation")
 	final int rotation;
@@ -32,168 +32,89 @@ public class WorldMapDecoration {
 		this.rotation = var3;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lmi;I)I",
-		garbageValue = "1522435265"
+		descriptor = "(B)Lrz;",
+		garbageValue = "55"
 	)
-	static int method5480(Widget var0) {
-		if (var0.type != 11) {
-			--class137.Interpreter_stringStackSize;
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = -1;
-			return 1;
-		} else {
-			String var1 = Interpreter.Interpreter_stringStack[--class137.Interpreter_stringStackSize];
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var0.method6406(var1);
-			return 1;
+	public static class462 method4928() {
+		synchronized(class462.field4770) {
+			if (DirectByteArrayCopier.field3822 == 0) {
+				return new class462();
+			} else {
+				class462.field4770[--DirectByteArrayCopier.field3822].method8457();
+				return class462.field4770[DirectByteArrayCopier.field3822];
+			}
 		}
 	}
 
-	@ObfuscatedName("ng")
+	@ObfuscatedName("jz")
 	@ObfuscatedSignature(
-		descriptor = "(IB)V",
-		garbageValue = "14"
+		descriptor = "(II)V",
+		garbageValue = "750324904"
 	)
-	@Export("changeGameOptions")
-	static final void changeGameOptions(int var0) {
-		class113.method2843();
+	static final void method4929(int var0) {
+		int[] var1 = class102.sceneMinimapSprite.pixels;
+		int var2 = var1.length;
 
-		for (ObjectSound var1 = (ObjectSound)ObjectSound.objectSounds.last(); var1 != null; var1 = (ObjectSound)ObjectSound.objectSounds.previous()) {
-			if (var1.obj != null) {
-				var1.set();
+		int var3;
+		for (var3 = 0; var3 < var2; ++var3) {
+			var1[var3] = 0;
+		}
+
+		int var4;
+		int var5;
+		for (var3 = 1; var3 < 103; ++var3) {
+			var4 = (103 - var3) * 2048 + 24628;
+
+			for (var5 = 1; var5 < 103; ++var5) {
+				if ((Tiles.Tiles_renderFlags[var0][var5][var3] & 24) == 0) {
+					class36.scene.drawTileMinimap(var1, var4, 512, var0, var5, var3);
+				}
+
+				if (var0 < 3 && (Tiles.Tiles_renderFlags[var0 + 1][var5][var3] & 8) != 0) {
+					class36.scene.drawTileMinimap(var1, var4, 512, var0 + 1, var5, var3);
+				}
+
+				var4 += 4;
 			}
 		}
 
-		int var3 = ApproximateRouteStrategy.VarpDefinition_get(var0).type;
-		if (var3 != 0) {
-			int var2 = Varps.Varps_main[var0];
-			if (var3 == 1) {
-				if (var2 == 1) {
-					Rasterizer3D.method4377(0.9D);
-					((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).setBrightness(0.9D);
-					UrlRequester.method2832();
-					class449.clientPreferences.method2516(0.9D);
+		var3 = (238 + (int)(Math.random() * 20.0D) - 10 << 16) + (238 + (int)(Math.random() * 20.0D) - 10 << 8) + (238 + (int)(Math.random() * 20.0D) - 10);
+		var4 = 238 + (int)(Math.random() * 20.0D) - 10 << 16;
+		class102.sceneMinimapSprite.setRaster();
+
+		int var6;
+		for (var5 = 1; var5 < 103; ++var5) {
+			for (var6 = 1; var6 < 103; ++var6) {
+				if ((Tiles.Tiles_renderFlags[var0][var6][var5] & 24) == 0) {
+					class511.drawObject(var0, var6, var5, var3, var4);
 				}
 
-				if (var2 == 2) {
-					Rasterizer3D.method4377(0.8D);
-					((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).setBrightness(0.8D);
-					UrlRequester.method2832();
-					class449.clientPreferences.method2516(0.8D);
-				}
-
-				if (var2 == 3) {
-					HealthBarUpdate.method2410(0.7D);
-				}
-
-				if (var2 == 4) {
-					HealthBarUpdate.method2410(0.6D);
+				if (var0 < 3 && (Tiles.Tiles_renderFlags[var0 + 1][var6][var5] & 8) != 0) {
+					class511.drawObject(var0 + 1, var6, var5, var3, var4);
 				}
 			}
-
-			if (var3 == 3) {
-				if (var2 == 0) {
-					WorldMapEvent.setMusicVolume(255);
-				}
-
-				if (var2 == 1) {
-					WorldMapEvent.setMusicVolume(192);
-				}
-
-				if (var2 == 2) {
-					WorldMapEvent.setMusicVolume(128);
-				}
-
-				if (var2 == 3) {
-					WorldMapEvent.setMusicVolume(64);
-				}
-
-				if (var2 == 4) {
-					WorldMapEvent.setMusicVolume(0);
-				}
-			}
-
-			if (var3 == 4) {
-				if (var2 == 0) {
-					class385.method7164(127);
-				}
-
-				if (var2 == 1) {
-					class385.method7164(96);
-				}
-
-				if (var2 == 2) {
-					class385.method7164(64);
-				}
-
-				if (var2 == 3) {
-					class385.method7164(32);
-				}
-
-				if (var2 == 4) {
-					class385.method7164(0);
-				}
-			}
-
-			if (var3 == 5) {
-				Client.leftClickOpensMenu = var2 == 1;
-			}
-
-			if (var3 == 6) {
-				Client.chatEffects = var2;
-			}
-
-			if (var3 == 9) {
-			}
-
-			if (var3 == 10) {
-				if (var2 == 0) {
-					class14.method161(127);
-				}
-
-				if (var2 == 1) {
-					class14.method161(96);
-				}
-
-				if (var2 == 2) {
-					class14.method161(64);
-				}
-
-				if (var2 == 3) {
-					class14.method161(32);
-				}
-
-				if (var2 == 4) {
-					class14.method161(0);
-				}
-			}
-
-			if (var3 == 17) {
-				Client.followerIndex = var2 & 65535;
-			}
-
-			if (var3 == 18) {
-				Client.playerAttackOption = (AttackOption)KeyHandler.findEnumerated(JagNetThread.method6821(), var2);
-				if (Client.playerAttackOption == null) {
-					Client.playerAttackOption = AttackOption.AttackOption_dependsOnCombatLevels;
-				}
-			}
-
-			if (var3 == 19) {
-				if (var2 == -1) {
-					Client.combatTargetPlayerIndex = -1;
-				} else {
-					Client.combatTargetPlayerIndex = var2 & 2047;
-				}
-			}
-
-			if (var3 == 22) {
-				Client.npcAttackOption = (AttackOption)KeyHandler.findEnumerated(JagNetThread.method6821(), var2);
-				if (Client.npcAttackOption == null) {
-					Client.npcAttackOption = AttackOption.AttackOption_dependsOnCombatLevels;
-				}
-			}
-
 		}
+
+		Client.mapIconCount = 0;
+
+		for (var5 = 0; var5 < 104; ++var5) {
+			for (var6 = 0; var6 < 104; ++var6) {
+				long var7 = class36.scene.getFloorDecorationTag(ItemLayer.Client_plane, var5, var6);
+				if (0L != var7) {
+					int var9 = class232.Entity_unpackID(var7);
+					int var10 = WorldMapSection2.getObjectDefinition(var9).mapIconId;
+					if (var10 >= 0 && class141.WorldMapElement_get(var10).field1824) {
+						Client.mapIcons[Client.mapIconCount] = class141.WorldMapElement_get(var10).getSpriteBool(false);
+						Client.mapIconXs[Client.mapIconCount] = var5;
+						Client.mapIconYs[Client.mapIconCount] = var6;
+						++Client.mapIconCount;
+					}
+				}
+			}
+		}
+
+		class338.rasterProvider.apply();
 	}
 }

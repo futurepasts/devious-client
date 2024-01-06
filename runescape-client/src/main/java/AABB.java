@@ -3,42 +3,42 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("ip")
+@ObfuscatedName("ku")
 @Implements("AABB")
 public class AABB {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -1104288701
+		intValue = 517586271
 	)
 	@Export("xMid")
 	int xMid;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -1180301801
+		intValue = 1569437235
 	)
 	@Export("yMid")
 	int yMid;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -742951477
+		intValue = -1260146143
 	)
 	@Export("zMid")
 	int zMid;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -1274816969
+		intValue = 1759108515
 	)
 	@Export("xMidOffset")
 	int xMidOffset;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -848919819
+		intValue = 1093118037
 	)
 	@Export("yMidOffset")
 	int yMidOffset;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = -623625245
+		intValue = -1310847177
 	)
 	@Export("zMidOffset")
 	int zMidOffset;

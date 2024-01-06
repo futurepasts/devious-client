@@ -4,39 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("do")
+@ObfuscatedName("dv")
 @Implements("HealthBarUpdate")
 public class HealthBarUpdate extends Node {
-	@ObfuscatedName("ai")
-	@Export("SpriteBuffer_spriteWidths")
-	static int[] SpriteBuffer_spriteWidths;
-	@ObfuscatedName("ik")
-	@ObfuscatedSignature(
-		descriptor = "Lpi;"
-	)
-	@Export("fontPlain11")
-	static Font fontPlain11;
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1944068325
+		intValue = 1554126669
 	)
 	@Export("cycle")
 	int cycle;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -749589017
+		intValue = 382633399
 	)
 	@Export("health")
 	int health;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 942133651
+		intValue = -799727255
 	)
 	@Export("health2")
 	int health2;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 243458057
+		intValue = 2048455369
 	)
 	@Export("cycleOffset")
 	int cycleOffset;
@@ -48,10 +39,10 @@ public class HealthBarUpdate extends Node {
 		this.cycleOffset = var4;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIB)V",
-		garbageValue = "75"
+		descriptor = "(IIIII)V",
+		garbageValue = "857709911"
 	)
 	@Export("set")
 	void set(int var1, int var2, int var3, int var4) {
@@ -63,35 +54,23 @@ public class HealthBarUpdate extends Node {
 
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/CharSequence;I)I",
-		garbageValue = "-2006181389"
+		descriptor = "(II)Ldt;",
+		garbageValue = "-1907419429"
 	)
-	public static int method2412(CharSequence var0) {
-		return DevicePcmPlayerProvider.method316(var0, 10, true);
-	}
-
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "(Lch;Lch;IZIZI)I",
-		garbageValue = "1278568965"
-	)
-	static int method2411(World var0, World var1, int var2, boolean var3, int var4, boolean var5) {
-		int var6 = class139.compareWorlds(var0, var1, var2, var3);
-		if (var6 != 0) {
-			return var3 ? -var6 : var6;
-		} else if (var4 == -1) {
-			return 0;
+	@Export("getScript")
+	static Script getScript(int var0) {
+		Script var1 = (Script)Script.Script_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
 		} else {
-			int var7 = class139.compareWorlds(var0, var1, var4, var5);
-			return var5 ? -var7 : var7;
+			byte[] var2 = class47.archive12.takeFile(var0, 0);
+			if (var2 == null) {
+				return null;
+			} else {
+				var1 = NpcOverrides.newScript(var2);
+				Script.Script_cached.put(var1, (long)var0);
+				return var1;
+			}
 		}
-	}
-
-	@ObfuscatedName("na")
-	static final void method2410(double var0) {
-		Rasterizer3D.method4377(var0);
-		((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).setBrightness(var0);
-		UrlRequester.method2832();
-		class449.clientPreferences.method2516(var0);
 	}
 }

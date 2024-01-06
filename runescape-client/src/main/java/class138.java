@@ -1,94 +1,262 @@
+import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("fb")
-public enum class138 implements MouseWheel {
-	@ObfuscatedName("au")
+@ObfuscatedName("fi")
+class class138 implements Callable {
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfb;"
+		descriptor = "Lfo;"
 	)
-	field1635(0, 0),
-	@ObfuscatedName("ae")
+	final class139 this$0;
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfb;"
+		descriptor = "Luj;"
 	)
-	field1633(1, 1),
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1634(2, 2),
-	@ObfuscatedName("at")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1638(3, 3),
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1636(4, 4),
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1637(5, 5),
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1632(6, 6),
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1639(7, 7),
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Lfb;"
-	)
-	field1640(8, 8);
+	final Buffer val$p;
+	// $FF: synthetic field
+	final int val$version;
 
-	@ObfuscatedName("ix")
-	@ObfuscatedGetter(
-		intValue = 1742355953
+	@ObfuscatedSignature(
+		descriptor = "(Lfo;Luj;I)V"
 	)
-	static int field1643;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = 360150709
-	)
-	final int field1641;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 1042578959
-	)
-	final int field1642;
-
-	class138(int var3, int var4) {
-		this.field1641 = var3;
-		this.field1642 = var4;
+	class138(class139 var1, Buffer var2, int var3) {
+		this.this$0 = var1;
+		this.val$p = var2;
+		this.val$version = var3;
 	}
 
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "41"
-	)
-	@Export("rsOrdinal")
-	public int rsOrdinal() {
-		return this.field1642;
+	public Object call() {
+		this.this$0.method3163(this.val$p, this.val$version);
+		return null;
 	}
 
 	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhd;",
-		garbageValue = "-2092352148"
+		descriptor = "(B)V",
+		garbageValue = "0"
 	)
-	@Export("WorldMapElement_get")
-	public static WorldMapElement WorldMapElement_get(int var0) {
-		return var0 >= 0 && var0 < WorldMapElement.WorldMapElement_cached.length && WorldMapElement.WorldMapElement_cached[var0] != null ? WorldMapElement.WorldMapElement_cached[var0] : new WorldMapElement(var0);
+	public static void method3158() {
+		FloorOverlayDefinition.FloorOverlayDefinition_cached.clear();
+	}
+
+	@ObfuscatedName("bh")
+	@ObfuscatedSignature(
+		descriptor = "(ILdt;ZI)I",
+		garbageValue = "721798432"
+	)
+	static int method3161(int var0, Script var1, boolean var2) {
+		if (var0 == ScriptOpcodes.WORLDLIST_FETCH) {
+			Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = class241.loadWorlds() ? 1 : 0;
+			return 1;
+		} else {
+			World var9;
+			if (var0 == ScriptOpcodes.WORLDLIST_START) {
+				var9 = Language.worldListStart();
+				if (var9 != null) {
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.id;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.properties;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var9.activity;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.location;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.population;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var9.host;
+				} else {
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = -1;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+				}
+
+				return 1;
+			} else if (var0 == ScriptOpcodes.WORLDLIST_NEXT) {
+				var9 = WorldMapData_0.getNextWorldListWorld();
+				if (var9 != null) {
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.id;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.properties;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var9.activity;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.location;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var9.population;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var9.host;
+				} else {
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = -1;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+					Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+					Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+				}
+
+				return 1;
+			} else {
+				int var3;
+				World var7;
+				int var8;
+				if (var0 == ScriptOpcodes.WORLDLIST_SPECIFIC) {
+					var3 = Interpreter.Interpreter_intStack[--DbTableType.Interpreter_intStackSize];
+					var7 = null;
+
+					for (var8 = 0; var8 < World.World_count; ++var8) {
+						if (var3 == class361.World_worlds[var8].id) {
+							var7 = class361.World_worlds[var8];
+							break;
+						}
+					}
+
+					if (var7 != null) {
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.id;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.properties;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var7.activity;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.location;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.population;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var7.host;
+					} else {
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = -1;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+					}
+
+					return 1;
+				} else if (var0 == ScriptOpcodes.WORLDLIST_SORT) {
+					DbTableType.Interpreter_intStackSize -= 4;
+					var3 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize];
+					boolean var10 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 1] == 1;
+					var8 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 2];
+					boolean var6 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 3] == 1;
+					PacketWriter.sortWorldList(var3, var10, var8, var6);
+					return 1;
+				} else if (var0 != 6511) {
+					if (var0 == ScriptOpcodes.SETFOLLOWEROPSLOWPRIORITY) {
+						Client.followerOpsLowPriority = Interpreter.Interpreter_intStack[--DbTableType.Interpreter_intStackSize] == 1;
+						return 1;
+					} else {
+						int var4;
+						ParamComposition var5;
+						if (var0 == ScriptOpcodes.NC_PARAM) {
+							DbTableType.Interpreter_intStackSize -= 2;
+							var3 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize];
+							var4 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 1];
+							var5 = Frames.getParamDefinition(var4);
+							if (var5.isString()) {
+								Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = VerticalAlignment.getNpcDefinition(var3).getStringParam(var4, var5.defaultStr);
+							} else {
+								Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = VerticalAlignment.getNpcDefinition(var3).getIntParam(var4, var5.defaultInt);
+							}
+
+							return 1;
+						} else if (var0 == ScriptOpcodes.LC_PARAM) {
+							DbTableType.Interpreter_intStackSize -= 2;
+							var3 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize];
+							var4 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 1];
+							var5 = Frames.getParamDefinition(var4);
+							if (var5.isString()) {
+								Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = WorldMapSection2.getObjectDefinition(var3).getStringParam(var4, var5.defaultStr);
+							} else {
+								Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = WorldMapSection2.getObjectDefinition(var3).getIntParam(var4, var5.defaultInt);
+							}
+
+							return 1;
+						} else if (var0 == ScriptOpcodes.OC_PARAM) {
+							DbTableType.Interpreter_intStackSize -= 2;
+							var3 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize];
+							var4 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 1];
+							var5 = Frames.getParamDefinition(var4);
+							if (var5.isString()) {
+								Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = class214.ItemDefinition_get(var3).getStringParam(var4, var5.defaultStr);
+							} else {
+								Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = class214.ItemDefinition_get(var3).getIntParam(var4, var5.defaultInt);
+							}
+
+							return 1;
+						} else if (var0 == ScriptOpcodes.STRUCT_PARAM) {
+							DbTableType.Interpreter_intStackSize -= 2;
+							var3 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize];
+							var4 = Interpreter.Interpreter_intStack[DbTableType.Interpreter_intStackSize + 1];
+							var5 = Frames.getParamDefinition(var4);
+							if (var5.isString()) {
+								Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = UserList.StructDefinition_getStructDefinition(var3).getStringParam(var4, var5.defaultStr);
+							} else {
+								Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = UserList.StructDefinition_getStructDefinition(var3).getIntParam(var4, var5.defaultInt);
+							}
+
+							return 1;
+						} else if (var0 == ScriptOpcodes.ON_MOBILE) {
+							Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = Client.onMobile ? 1 : 0;
+							return 1;
+						} else if (var0 == ScriptOpcodes.CLIENTTYPE) {
+							Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = Client.clientType;
+							return 1;
+						} else if (var0 == 6520) {
+							return 1;
+						} else if (var0 == ScriptOpcodes.MOBILE_KEYBOARDHIDE) {
+							return 1;
+						} else if (var0 == 6522) {
+							--class127.Interpreter_stringStackSize;
+							--DbTableType.Interpreter_intStackSize;
+							return 1;
+						} else if (var0 == 6523) {
+							--class127.Interpreter_stringStackSize;
+							--DbTableType.Interpreter_intStackSize;
+							return 1;
+						} else if (var0 == ScriptOpcodes.MOBILE_BATTERYLEVEL) {
+							Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = -1;
+							return 1;
+						} else if (var0 == ScriptOpcodes.MOBILE_BATTERYCHARGING) {
+							Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 1;
+							return 1;
+						} else if (var0 == ScriptOpcodes.MOBILE_WIFIAVAILABLE) {
+							Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 1;
+							return 1;
+						} else if (var0 == 6527) {
+							Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = Client.field490;
+							return 1;
+						} else {
+							return 2;
+						}
+					}
+				} else {
+					var3 = Interpreter.Interpreter_intStack[--DbTableType.Interpreter_intStackSize];
+					if (var3 >= 0 && var3 < World.World_count) {
+						var7 = class361.World_worlds[var3];
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.id;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.properties;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var7.activity;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.location;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var7.population;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = var7.host;
+					} else {
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = -1;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+						Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
+						Interpreter.Interpreter_stringStack[++class127.Interpreter_stringStackSize - 1] = "";
+					}
+
+					return 1;
+				}
+			}
+		}
+	}
+
+	@ObfuscatedName("nu")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)V",
+		garbageValue = "-1926894842"
+	)
+	@Export("Clan_joinChat")
+	static final void Clan_joinChat(String var0) {
+		if (!var0.equals("")) {
+			PacketBufferNode var1 = class113.getPacketBufferNode(ClientPacket.field3188, Client.packetWriter.isaacCipher);
+			var1.packetBuffer.writeByte(ClanChannel.stringCp1252NullTerminatedByteSize(var0));
+			var1.packetBuffer.writeStringCp1252NullTerminated(var0);
+			Client.packetWriter.addNode(var1);
+		}
 	}
 }

@@ -5,28 +5,26 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qy")
+@ObfuscatedName("re")
 @Implements("BufferedNetSocket")
 public class BufferedNetSocket extends AbstractSocket {
-	@ObfuscatedName("ar")
-	static int[][][] field4679;
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("socket")
 	Socket socket;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lqa;"
+		descriptor = "Lra;"
 	)
 	@Export("source")
 	BufferedSource source;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "Lqh;"
+		descriptor = "Lrs;"
 	)
 	@Export("sink")
 	BufferedSink sink;
 
-	public BufferedNetSocket(Socket var1, int var2, int var3) throws IOException {
+	BufferedNetSocket(Socket var1, int var2, int var3) throws IOException {
 		this.socket = var1;
 		this.socket.setSoTimeout(30000);
 		this.socket.setTcpNoDelay(true);
@@ -36,20 +34,20 @@ public class BufferedNetSocket extends AbstractSocket {
 		this.sink = new BufferedSink(this.socket.getOutputStream(), var3);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Z",
-		garbageValue = "-67"
+		descriptor = "(II)Z",
+		garbageValue = "278911957"
 	)
 	@Export("isAvailable")
 	public boolean isAvailable(int var1) throws IOException {
 		return this.source.isAvailable(var1);
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1947351494"
+		garbageValue = "1133909296"
 	)
 	@Export("available")
 	public int available() throws IOException {
@@ -59,37 +57,37 @@ public class BufferedNetSocket extends AbstractSocket {
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "969166986"
+		garbageValue = "-1251290768"
 	)
 	@Export("readUnsignedByte")
 	public int readUnsignedByte() throws IOException {
 		return this.source.readUnsignedByte();
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "([BIIS)I",
-		garbageValue = "206"
+		descriptor = "([BIIB)I",
+		garbageValue = "-54"
 	)
 	@Export("read")
 	public int read(byte[] var1, int var2, int var3) throws IOException {
 		return this.source.read(var1, var2, var3);
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "([BIII)V",
-		garbageValue = "1371855899"
+		garbageValue = "-1734190943"
 	)
 	@Export("write")
 	public void write(byte[] var1, int var2, int var3) throws IOException {
 		this.sink.write(var1, var2, var3);
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1457160931"
+		garbageValue = "1195407219"
 	)
 	@Export("close")
 	public void close() {
@@ -105,14 +103,5 @@ public class BufferedNetSocket extends AbstractSocket {
 
 	protected void finalize() {
 		this.close();
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(B)[Lub;",
-		garbageValue = "-1"
-	)
-	static PrivateChatMode[] method8052() {
-		return new PrivateChatMode[]{PrivateChatMode.field5248, PrivateChatMode.field5245, PrivateChatMode.field5247};
 	}
 }

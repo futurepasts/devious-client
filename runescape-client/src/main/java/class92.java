@@ -1,193 +1,155 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dz")
+@ObfuscatedName("da")
 public class class92 {
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1169;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1159;
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1168;
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Ldz;"
+		descriptor = "Lda;"
 	)
-	static final class92 field1161;
-	@ObfuscatedName("ac")
+	static final class92 field1136;
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Ldz;"
+		descriptor = "Lda;"
 	)
-	static final class92 field1162;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1166;
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1164;
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1165;
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1158;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1173;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1174;
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1171;
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1170;
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Ldz;"
-	)
-	static final class92 field1163;
+	static final class92 field1133;
 	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "Ldz;"
+		descriptor = "Lda;"
 	)
-	static final class92 field1172;
+	static final class92 field1131;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1130;
 	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "Ldz;"
+		descriptor = "Lda;"
 	)
-	static final class92 field1160;
+	static final class92 field1137;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1132;
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1128;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1134;
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1135;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1129;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1143;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1138;
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1139;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1140;
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1141;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	static final class92 field1142;
 
 	static {
-		field1169 = new class92();
-		field1159 = new class92();
-		field1168 = new class92();
-		field1161 = new class92();
-		field1162 = new class92();
-		field1166 = new class92();
-		field1164 = new class92();
-		field1165 = new class92();
-		field1158 = new class92();
-		field1173 = new class92();
-		field1174 = new class92();
-		field1171 = new class92();
-		field1170 = new class92();
-		field1163 = new class92();
-		field1172 = new class92();
-		field1160 = new class92();
+		field1136 = new class92();
+		field1133 = new class92();
+		field1131 = new class92();
+		field1130 = new class92();
+		field1137 = new class92();
+		field1132 = new class92();
+		field1128 = new class92();
+		field1134 = new class92();
+		field1135 = new class92();
+		field1129 = new class92();
+		field1143 = new class92();
+		field1138 = new class92();
+		field1139 = new class92();
+		field1140 = new class92();
+		field1141 = new class92();
+		field1142 = new class92();
 	}
 
 	class92() {
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lmi;",
-		garbageValue = "412092455"
+		descriptor = "(II)Lgh;",
+		garbageValue = "-1228219586"
 	)
-	@Export("getWidget")
-	public static Widget getWidget(int var0) {
-		int var1 = var0 >> 16;
-		int var2 = var0 & 65535;
-		if (PacketBufferNode.Widget_interfaceComponents[var1] == null || PacketBufferNode.Widget_interfaceComponents[var1][var2] == null) {
-			boolean var3 = ModeWhere.loadInterface(var1);
-			if (!var3) {
-				return null;
+	public static HealthBarDefinition method2445(int var0) {
+		HealthBarDefinition var1 = (HealthBarDefinition)HealthBarDefinition.HealthBarDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = HealthBarDefinition.HealthBarDefinition_archive.takeFile(33, var0);
+			var1 = new HealthBarDefinition();
+			var1.field1870 = var0;
+			if (var2 != null) {
+				var1.decode(new Buffer(var2));
 			}
-		}
 
-		return PacketBufferNode.Widget_interfaceComponents[var1][var2];
+			HealthBarDefinition.HealthBarDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
 	}
 
-	@ObfuscatedName("jl")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(Ldf;ZB)V",
-		garbageValue = "1"
+		descriptor = "(II)I",
+		garbageValue = "1040473159"
 	)
-	@Export("addPlayerToScene")
-	static void addPlayerToScene(Player var0, boolean var1) {
-		if (var0 != null && var0.isVisible() && !var0.isHidden) {
-			var0.isUnanimated = false;
-			if ((Client.isLowDetail && Players.Players_count > 50 || Players.Players_count > 200) && var1 && var0.idleSequence == var0.movementSequence) {
-				var0.isUnanimated = true;
-			}
-
-			int var2 = var0.x >> 7;
-			int var3 = var0.y >> 7;
-			if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
-				long var4 = FontName.calculateTag(0, 0, 0, false, var0.index);
-				if (var0.model0 != null && Client.cycle >= var0.animationCycleStart && Client.cycle < var0.animationCycleEnd) {
-					var0.isUnanimated = false;
-					var0.tileHeight = class18.getTileHeight(var0.x, var0.y, HealthBar.Client_plane);
-					var0.playerCycle = Client.cycle;
-					class130.scene.addNullableObject(HealthBar.Client_plane, var0.x, var0.y, var0.tileHeight, 60, var0, var0.rotation, var4, var0.minX, var0.minY, var0.maxX, var0.maxY);
-				} else {
-					if ((var0.x & 127) == 64 && (var0.y & 127) == 64) {
-						if (Client.tileLastDrawnActor[var2][var3] == Client.viewportDrawCount) {
-							return;
-						}
-
-						Client.tileLastDrawnActor[var2][var3] = Client.viewportDrawCount;
-					}
-
-					var0.tileHeight = class18.getTileHeight(var0.x, var0.y, HealthBar.Client_plane);
-					var0.playerCycle = Client.cycle;
-					class130.scene.drawEntity(HealthBar.Client_plane, var0.x, var0.y, var0.tileHeight, 60, var0, var0.rotation, var4, var0.isWalking);
-				}
-			}
+	static int method2446(int var0) {
+		Message var1 = (Message)Messages.Messages_hashTable.get((long)var0);
+		if (var1 == null) {
+			return -1;
+		} else {
+			return var1.nextDual == Messages.Messages_queue.sentinel ? -1 : ((Message)var1.nextDual).count;
 		}
-
 	}
 
-	@ObfuscatedName("ns")
+	@ObfuscatedName("jv")
 	@ObfuscatedSignature(
-		descriptor = "(Lds;ZI)V",
-		garbageValue = "-1838716449"
+		descriptor = "(B)V",
+		garbageValue = "124"
 	)
-	@Export("closeInterface")
-	static final void closeInterface(InterfaceParent var0, boolean var1) {
-		int var2 = var0.group;
-		int var3 = (int)var0.key;
-		var0.remove();
-		if (var1) {
-			Skeleton.method4523(var2);
-		}
-
-		class339.method6595(var2);
-		Widget var4 = getWidget(var3);
-		if (var4 != null) {
-			class218.invalidateWidget(var4);
-		}
-
-		if (Client.rootInterface != -1) {
-			class385.runIntfCloseListeners(Client.rootInterface, 1);
+	static void method2447() {
+		if (class229.localPlayer.x >> 7 == Client.destinationX && class229.localPlayer.y >> 7 == Client.destinationY) {
+			Client.destinationX = 0;
 		}
 
 	}

@@ -1,35 +1,33 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kl")
+@ObfuscatedName("jt")
 @Implements("WorldMapEvent")
 public class WorldMapEvent {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 397416983
+		intValue = -477807375
 	)
 	@Export("mapElement")
 	public int mapElement;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lmc;"
+		descriptor = "Lmh;"
 	)
 	@Export("coord1")
 	public Coord coord1;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "Lmc;"
+		descriptor = "Lmh;"
 	)
 	@Export("coord2")
 	public Coord coord2;
 
 	@ObfuscatedSignature(
-		descriptor = "(ILmc;Lmc;)V"
+		descriptor = "(ILmh;Lmh;)V"
 	)
 	public WorldMapEvent(int var1, Coord var2, Coord var3) {
 		this.mapElement = var1;
@@ -37,54 +35,33 @@ public class WorldMapEvent {
 		this.coord2 = var3;
 	}
 
-	@ObfuscatedName("nm")
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(IIIII)I",
+		garbageValue = "-2019263957"
+	)
+	static final int method5098(int var0, int var1, int var2, int var3) {
+		return var0 * var2 + var3 * var1 >> 16;
+	}
+
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "307364041"
+		garbageValue = "2126248771"
 	)
-	@Export("setMusicVolume")
-	static final void setMusicVolume(int var0) {
-		var0 = Math.min(Math.max(var0, 0), 255);
-		if (var0 != class449.clientPreferences.method2451()) {
-			label42: {
-				if (class449.clientPreferences.method2451() == 0) {
-					boolean var1 = !class305.field3405.isEmpty();
-					if (var1) {
-						Archive var2 = class385.archive6;
-						if (!class305.field3405.isEmpty()) {
-							ArrayList var3 = new ArrayList();
-							Iterator var4 = class305.field3405.iterator();
+	public static void method5097(int var0) {
+		MouseHandler.MouseHandler_idleCycles = var0;
+	}
 
-							while (var4.hasNext()) {
-								MusicSong var5 = (MusicSong)var4.next();
-								var5.field3518 = false;
-								var5.field3516 = false;
-								var5.field3524 = false;
-								var5.field3519 = false;
-								var5.musicTrackArchive = var2;
-								var5.musicTrackVolume = var0;
-								var5.field3510 = 0.0F;
-								var3.add(var5);
-							}
-
-							class53.method1097(var3, class305.musicPlayerStatus, class305.field3409, class305.field3410, class305.field3401, false);
-						}
-
-						Client.playingJingle = false;
-						break label42;
-					}
-				}
-
-				if (var0 == 0) {
-					Script.method2180(0, 0);
-					Client.playingJingle = false;
-				} else {
-					class300.method5718(var0);
-				}
-			}
-
-			class449.clientPreferences.method2458(var0);
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "-890618115"
+	)
+	static void method5099(int var0) {
+		ItemContainer var1 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
+		if (var1 != null) {
+			var1.remove();
 		}
-
 	}
 }

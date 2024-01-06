@@ -4,86 +4,86 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("to")
+@ObfuscatedName("uo")
 @Implements("PacketBuffer")
 public class PacketBuffer extends Buffer {
-	@ObfuscatedName("ae")
-	static final int[] field5105;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
+	static final int[] field5134;
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lux;"
+		descriptor = "Luy;"
 	)
 	@Export("isaacCipher")
 	IsaacCipher isaacCipher;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -151024667
+		intValue = -1984139847
 	)
 	@Export("bitIndex")
 	int bitIndex;
 
 	static {
-		field5105 = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, Integer.MAX_VALUE, -1};
+		field5134 = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, Integer.MAX_VALUE, -1};
 	}
 
 	public PacketBuffer(int var1) {
 		super(var1);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "([IB)V",
-		garbageValue = "4"
+		descriptor = "([II)V",
+		garbageValue = "986454226"
 	)
 	@Export("newIsaacCipher")
 	public void newIsaacCipher(int[] var1) {
 		this.isaacCipher = new IsaacCipher(var1);
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Lux;I)V",
-		garbageValue = "-1893850673"
+		descriptor = "(Luy;I)V",
+		garbageValue = "1815702468"
 	)
 	@Export("setIsaacCipher")
 	public void setIsaacCipher(IsaacCipher var1) {
 		this.isaacCipher = var1;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "-500862184"
+		garbageValue = "264966043"
 	)
 	@Export("writeByteIsaac")
 	public void writeByteIsaac(int var1) {
 		super.array[++super.offset - 1] = (byte)(var1 + this.isaacCipher.nextInt());
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-2096542528"
+		garbageValue = "-1536095737"
 	)
 	@Export("readByteIsaac")
 	public int readByteIsaac() {
 		return super.array[++super.offset - 1] - this.isaacCipher.nextInt() & 255;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(B)Z",
-		garbageValue = "1"
+		garbageValue = "52"
 	)
-	public boolean method9001() {
-		int var1 = super.array[super.offset] - this.isaacCipher.method9657() & 255;
+	public boolean method9206() {
+		int var1 = super.array[super.offset] - this.isaacCipher.method9899() & 255;
 		return var1 >= 128;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "1524220690"
+		descriptor = "(B)I",
+		garbageValue = "-41"
 	)
 	@Export("readSmartByteShortIsaac")
 	public int readSmartByteShortIsaac() {
@@ -91,32 +91,32 @@ public class PacketBuffer extends Buffer {
 		return var1 < 128 ? var1 : (var1 - 128 << 8) + (super.array[++super.offset - 1] - this.isaacCipher.nextInt() & 255);
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "([BIII)V",
-		garbageValue = "-1401941730"
+		garbageValue = "947660207"
 	)
-	public void method9002(byte[] var1, int var2, int var3) {
+	public void method9208(byte[] var1, int var2, int var3) {
 		for (int var4 = 0; var4 < var3; ++var4) {
 			var1[var4 + var2] = (byte)(super.array[++super.offset - 1] - this.isaacCipher.nextInt());
 		}
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "859542429"
+		descriptor = "(B)V",
+		garbageValue = "28"
 	)
 	@Export("importIndex")
 	public void importIndex() {
 		this.bitIndex = super.offset * 8;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "49"
+		descriptor = "(II)I",
+		garbageValue = "-551105504"
 	)
 	@Export("readBits")
 	public int readBits(int var1) {
@@ -125,33 +125,33 @@ public class PacketBuffer extends Buffer {
 		int var4 = 0;
 
 		for (this.bitIndex += var1; var1 > var3; var3 = 8) {
-			var4 += (super.array[var2++] & field5105[var3]) << var1 - var3;
+			var4 += (super.array[var2++] & field5134[var3]) << var1 - var3;
 			var1 -= var3;
 		}
 
 		if (var3 == var1) {
-			var4 += super.array[var2] & field5105[var3];
+			var4 += super.array[var2] & field5134[var3];
 		} else {
-			var4 += super.array[var2] >> var3 - var1 & field5105[var1];
+			var4 += super.array[var2] >> var3 - var1 & field5134[var1];
 		}
 
 		return var4;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-512119498"
+		descriptor = "(S)V",
+		garbageValue = "20580"
 	)
 	@Export("exportIndex")
 	public void exportIndex() {
 		super.offset = (this.bitIndex + 7) / 8;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
 		descriptor = "(II)I",
-		garbageValue = "2109529499"
+		garbageValue = "1836154384"
 	)
 	@Export("bitsRemaining")
 	public int bitsRemaining(int var1) {

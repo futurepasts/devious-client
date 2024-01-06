@@ -109,10 +109,14 @@ public final class Varbits
 	public static final int RUNE_POUCH_RUNE2 = 1622;
 	public static final int RUNE_POUCH_RUNE3 = 1623;
 	public static final int RUNE_POUCH_RUNE4 = 14285;
+	public static final int RUNE_POUCH_RUNE5 = 15373;
+	public static final int RUNE_POUCH_RUNE6 = 15374;
 	public static final int RUNE_POUCH_AMOUNT1 = 1624;
 	public static final int RUNE_POUCH_AMOUNT2 = 1625;
 	public static final int RUNE_POUCH_AMOUNT3 = 1626;
 	public static final int RUNE_POUCH_AMOUNT4 = 14286;
+	public static final int RUNE_POUCH_AMOUNT5 = 15375;
+	public static final int RUNE_POUCH_AMOUNT6 = 15376;
 
 	/**
 	 * Prayers
@@ -151,6 +155,34 @@ public final class Varbits
 	public static final int RIGOUR_UNLOCKED = 5451;
 	public static final int AUGURY_UNLOCKED = 5452;
 	public static final int PRESERVE_UNLOCKED = 5453;
+
+	/**
+	 * Ruinous Powers
+	 */
+	public static final int PRAYER_RP_REJUVENATION = 14840;
+	public static final int PRAYER_RP_ANCIENT_STRENGTH = 14829;
+	public static final int PRAYER_RP_ANCIENT_SIGHT = 14830;
+	public static final int PRAYER_RP_ANCIENT_WILL = 14831;
+	public static final int PRAYER_RP_PROTECT_ITEM = 14966;
+	public static final int PRAYER_RP_RUINOUS_GRACE = 14841;
+	public static final int PRAYER_RP_DAMPEN_MAGIC = 14964;
+	public static final int PRAYER_RP_DAMPEN_RANGED = 14963;
+	public static final int PRAYER_RP_DAMPEN_MELEE = 14962;
+	public static final int PRAYER_RP_TRINITAS = 14832;
+	public static final int PRAYER_RP_BERSERKER = 14844;
+	public static final int PRAYER_RP_PURGE = 14839;
+	public static final int PRAYER_RP_METABOLISE = 14843;
+	public static final int PRAYER_RP_REBUKE = 14850;
+	public static final int PRAYER_RP_VINDICATION = 14851;
+	public static final int PRAYER_RP_DECIMATE = 14833;
+	public static final int PRAYER_RP_ANNIHILATE = 14834;
+	public static final int PRAYER_RP_VAPORISE = 14835;
+	public static final int PRAYER_RP_FUMUS_VOW = 14845;
+	public static final int PRAYER_RP_UMBRA_VOW = 14847;
+	public static final int PRAYER_RP_CRUORS_VOW = 14846;
+	public static final int PRAYER_RP_GLACIES_VOW = 14848;
+	public static final int PRAYER_RP_WRATH = 14842;
+	public static final int PRAYER_RP_INTENSIFY = 14965;
 
 	/**
 	 * Diary Entries
@@ -681,6 +713,8 @@ public final class Varbits
 	public static final int LEAGUE_RELIC_4 = 10052;
 	public static final int LEAGUE_RELIC_5 = 10053;
 	public static final int LEAGUE_RELIC_6 = 11696;
+	public static final int LEAGUE_RELIC_7 = 17301;
+	public static final int LEAGUE_RELIC_8 = 17302;
 
 	/**
 	 * Muted volume restore values
@@ -908,4 +942,27 @@ public final class Varbits
 	 * Local player gender? (Changes depending on gender selected within Tutorial island)
 	 */
 	public static final int LOCAL_PLAYER_GENDER = 14021;
+
+	// Quest: Below ice mountain
+	public static final int BELOW_ICE_MOUNTAIN_FLEX_LEARNED = 12062;
+	public static final int BELOW_ICE_MOUNTAIN_MARLEY_PROGRESS = 12064;
+	public static final int BELOW_ICE_MOUNTAIN_CHECKAL_PROGRESS = 12065;
+	public static final int BELOW_ICE_MOUNTAIN_BURNTOF_PROGRESS = 12066;
+
+	/**
+	 * Bank withdraw mode (Noted / Un-noted)
+	 */
+	public static final int BANK_WITHDRAW_MODE = 3958;
+
+	/**
+	 * Bank quantity mode (1, 5, 10, X, ALL)
+	 */
+	public static final int BANK_QUANTITY_MODE = 6590;
+
+	/**
+	 * Bank tutorial completed atleast once
+	 */
+	public static final int BANK_TUTORIAL_COMPLETED = 10161;
+
+
 }

@@ -1,5 +1,3 @@
-import java.io.DataInputStream;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import net.runelite.mapping.Export;
@@ -8,32 +6,43 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ea")
+@ObfuscatedName("eo")
 @Implements("Messages")
 public class Messages {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("Messages_channels")
 	static final Map Messages_channels;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lsf;"
+		descriptor = "Ltz;"
 	)
 	@Export("Messages_hashTable")
 	static final IterableNodeHashTable Messages_hashTable;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "Lou;"
+		descriptor = "Lpo;"
 	)
 	@Export("Messages_queue")
 	static final IterableDualNodeQueue Messages_queue;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 938382897
+		intValue = 1039825869
 	)
 	@Export("Messages_count")
 	static int Messages_count;
-	@ObfuscatedName("as")
-	public static String field1422;
+	@ObfuscatedName("cx")
+	@ObfuscatedSignature(
+		descriptor = "Lnt;"
+	)
+	static StudioGame field1401;
+	@ObfuscatedName("gk")
+	@Export("accessToken")
+	static String accessToken;
+	@ObfuscatedName("uu")
+	@ObfuscatedGetter(
+		intValue = -604270976
+	)
+	static int field1400;
 
 	static {
 		Messages_channels = new HashMap();
@@ -42,60 +51,29 @@ public class Messages {
 		Messages_count = 0;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/Throwable;I)V",
-		garbageValue = "886881488"
+		descriptor = "(IIII)I",
+		garbageValue = "292264125"
 	)
-	@Export("RunException_sendStackTrace")
-	public static void RunException_sendStackTrace(String var0, Throwable var1) {
-		if (var1 != null) {
-			var1.printStackTrace();
-		} else {
-			try {
-				String var2 = "";
-				if (var1 != null) {
-					var2 = class493.method8807(var1);
-				}
-
-				if (var0 != null) {
-					if (var1 != null) {
-						var2 = var2 + " | ";
-					}
-
-					var2 = var2 + var0;
-				}
-
-				System.out.println("Error: " + var2);
-				var2 = var2.replace(':', '.');
-				var2 = var2.replace('@', '_');
-				var2 = var2.replace('&', '_');
-				var2 = var2.replace('#', '_');
-				if (RunException.RunException_applet == null) {
-					return;
-				}
-
-				URL var3 = new URL(RunException.RunException_applet.getCodeBase(), "clienterror.ws?cv=" + RunException.RunException_revision + "&cs=" + RunException.field5266 + "&u=" + RunException.field5263 + "&v1=" + TaskHandler.javaVendor + "&v2=" + class106.javaVersion + "&ct=" + RunException.field5267 + "&e=" + var2);
-				DataInputStream var4 = new DataInputStream(var3.openStream());
-				var4.read();
-				var4.close();
-			} catch (Exception var5) {
-			}
-
+	static final int method2851(int var0, int var1, int var2) {
+		if (var2 > 179) {
+			var1 /= 2;
 		}
-	}
 
-	@ObfuscatedName("bw")
-	@ObfuscatedSignature(
-		descriptor = "(ILdh;ZI)I",
-		garbageValue = "1446947589"
-	)
-	static int method2771(int var0, Script var1, boolean var2) {
-		if (var0 == 7108) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = UserList.method7991() ? 1 : 0;
-			return 1;
-		} else {
-			return 2;
+		if (var2 > 192) {
+			var1 /= 2;
 		}
+
+		if (var2 > 217) {
+			var1 /= 2;
+		}
+
+		if (var2 > 243) {
+			var1 /= 2;
+		}
+
+		int var3 = (var1 / 32 << 7) + (var0 / 4 << 10) + var2 / 2;
+		return var3;
 	}
 }

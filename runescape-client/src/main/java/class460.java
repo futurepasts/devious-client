@@ -1,59 +1,58 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("re")
+@ObfuscatedName("rb")
 public class class460 {
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lre;"
-	)
-	public static final class460 field4772;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lre;"
-	)
-	static final class460 field4773;
-	@ObfuscatedName("ao")
-	String field4774;
+	@ObfuscatedName("at")
+	float field4758;
+	@ObfuscatedName("ah")
+	float field4759;
+	@ObfuscatedName("ar")
+	float field4760;
 
 	static {
-		field4772 = new class460("application/json");
-		field4773 = new class460("text/plain");
+		new class460(0.0F, 0.0F, 0.0F);
+		new class460(1.0F, 1.0F, 1.0F);
+		new class460(1.0F, 0.0F, 0.0F);
+		new class460(0.0F, 1.0F, 0.0F);
+		new class460(0.0F, 0.0F, 1.0F);
 	}
 
-	class460(String var1) {
-		this.field4774 = var1;
+	class460(float var1, float var2, float var3) {
+		this.field4758 = var1;
+		this.field4759 = var2;
+		this.field4760 = var3;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-1631262328"
+		descriptor = "(B)F",
+		garbageValue = "56"
 	)
-	public String method8321() {
-		return this.field4774;
+	final float method8402() {
+		return (float)Math.sqrt((double)(this.field4760 * this.field4760 + this.field4759 * this.field4759 + this.field4758 * this.field4758));
 	}
 
-	@ObfuscatedName("kf")
-	@ObfuscatedSignature(
-		descriptor = "(IIIIII)Z",
-		garbageValue = "1329235005"
-	)
-	static final boolean method8320(int var0, int var1, int var2, int var3, int var4) {
-		PendingSpawn var5 = null;
+	public String toString() {
+		return this.field4758 + ", " + this.field4759 + ", " + this.field4760;
+	}
 
-		for (PendingSpawn var6 = (PendingSpawn)Client.pendingSpawns.last(); var6 != null; var6 = (PendingSpawn)Client.pendingSpawns.previous()) {
-			if (var0 == var6.plane && var6.x == var1 && var2 == var6.y && var3 == var6.type) {
-				var5 = var6;
-				break;
-			}
+	@ObfuscatedName("ih")
+	@ObfuscatedSignature(
+		descriptor = "(IIII)V",
+		garbageValue = "-986184126"
+	)
+	@Export("queueSoundEffect")
+	static void queueSoundEffect(int var0, int var1, int var2) {
+		if (WorldMapIcon_1.clientPreferences.getSoundEffectsVolume() != 0 && var1 != 0 && Client.soundEffectCount < 50) {
+			Client.soundEffectIds[Client.soundEffectCount] = var0;
+			Client.queuedSoundEffectLoops[Client.soundEffectCount] = var1;
+			Client.queuedSoundEffectDelays[Client.soundEffectCount] = var2;
+			Client.soundEffects[Client.soundEffectCount] = null;
+			Client.soundLocations[Client.soundEffectCount] = 0;
+			++Client.soundEffectCount;
 		}
 
-		if (var5 != null) {
-			var5.field1190 = var4;
-			return true;
-		} else {
-			return false;
-		}
 	}
 }

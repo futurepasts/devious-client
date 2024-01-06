@@ -1,64 +1,80 @@
-import java.util.Comparator;
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("it")
-public class class219 implements Comparator {
-	@ObfuscatedName("ai")
+@ObfuscatedName("ia")
+public abstract class class219 {
+	@ObfuscatedName("ao")
+	String field2332;
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Luk;"
+		descriptor = "Lic;"
 	)
-	@Export("titlebuttonSprite")
-	static IndexedSprite titlebuttonSprite;
-	@ObfuscatedName("bw")
-	@Export("client")
-	@ObfuscatedSignature(
-		descriptor = "Lclient;"
-	)
-	static Client client;
+	final class208 this$0;
 
-	class219() {
+	@ObfuscatedSignature(
+		descriptor = "(Lic;Ljava/lang/String;)V"
+	)
+	class219(class208 var1, String var2) {
+		this.this$0 = var1;
+		this.field2332 = var2;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lio;Lio;I)I",
-		garbageValue = "-975759787"
+		descriptor = "(I)I",
+		garbageValue = "561834394"
 	)
-	int method4257(class214 var1, class214 var2) {
-		return var1.method4178() - var2.method4178();
-	}
+	public abstract int vmethod4266();
 
-	public int compare(Object var1, Object var2) {
-		return this.method4257((class214)var1, (class214)var2);
-	}
-
-	public boolean equals(Object var1) {
-		return super.equals(var1);
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "18"
+	)
+	public String vmethod4250() {
+		return null;
 	}
 
 	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(Lnu;Ljava/lang/String;Ljava/lang/String;B)[Luk;",
-		garbageValue = "-64"
+		descriptor = "(B)I",
+		garbageValue = "15"
 	)
-	public static IndexedSprite[] method4261(AbstractArchive var0, String var1, String var2) {
-		if (!var0.isValidFileName(var1, var2)) {
-			return null;
-		} else {
-			int var3 = var0.getGroupId(var1);
-			int var4 = var0.getFileId(var3, var2);
-			return class28.method424(var0, var3, var4);
-		}
+	public int vmethod4255() {
+		return -1;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-38"
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "-273477420"
 	)
-	public static void method4262() {
-		DbTableType.DBTableType_cache.clear();
+	public String method4251() {
+		return this.field2332;
+	}
+
+	@ObfuscatedName("at")
+	public static final void method4260(long var0) {
+		if (var0 > 0L) {
+			if (0L == var0 % 10L) {
+				long var2 = var0 - 1L;
+
+				try {
+					Thread.sleep(var2);
+				} catch (InterruptedException var8) {
+				}
+
+				try {
+					Thread.sleep(1L);
+				} catch (InterruptedException var7) {
+				}
+			} else {
+				try {
+					Thread.sleep(var0);
+				} catch (InterruptedException var6) {
+				}
+			}
+
+		}
 	}
 }

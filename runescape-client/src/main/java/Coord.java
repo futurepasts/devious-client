@@ -4,33 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mc")
+@ObfuscatedName("mh")
 @Implements("Coord")
 public class Coord {
-	@ObfuscatedName("aa")
-	@Export("SpriteBuffer_pixels")
-	static byte[][] SpriteBuffer_pixels;
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 963031109
+		intValue = 18874645
 	)
 	@Export("plane")
 	public int plane;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 1225451183
+		intValue = -1733966023
 	)
 	@Export("x")
 	public int x;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 1843528111
+		intValue = -7006855
 	)
 	@Export("y")
 	public int y;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lmc;)V"
+		descriptor = "(Lmh;)V"
 	)
 	public Coord(Coord var1) {
 		this.plane = var1.plane;
@@ -55,24 +52,20 @@ public class Coord {
 
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1852623783"
+		garbageValue = "-497441948"
 	)
 	@Export("packed")
 	public int packed() {
-		int var2 = this.plane;
-		int var3 = this.x;
-		int var4 = this.y;
-		int var1 = var2 << 28 | var3 << 14 | var4;
-		return var1;
+		return VarpDefinition.method3549(this.plane, this.x, this.y);
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Lmc;B)Z",
-		garbageValue = "-109"
+		descriptor = "(Lmh;I)Z",
+		garbageValue = "-578750151"
 	)
 	@Export("equalsCoord")
 	boolean equalsCoord(Coord var1) {
@@ -88,7 +81,7 @@ public class Coord {
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
-		garbageValue = "1357161194"
+		garbageValue = "-1754319501"
 	)
 	@Export("toString")
 	String toString(String var1) {

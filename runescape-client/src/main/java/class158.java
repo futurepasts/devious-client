@@ -2,57 +2,79 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gd")
-public class class158 extends class143 {
-	@ObfuscatedName("au")
+@ObfuscatedName("gl")
+public class class158 extends class144 {
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		longValue = 3065353145974537921L
+		intValue = -1414486485
 	)
-	long field1773;
-	@ObfuscatedName("ae")
-	String field1768;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 2053663157
-	)
-	int field1769;
+	int field1739;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lfv;"
 	)
-	final class146 this$0;
+	final class147 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lfv;)V"
 	)
-	class158(class146 var1) {
+	class158(class147 var1) {
 		this.this$0 = var1;
-		this.field1773 = -1L;
-		this.field1768 = null;
-		this.field1769 = 0;
+		this.field1739 = -1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "209179459"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-734756620"
 	)
-	void vmethod3337(Buffer var1) {
-		if (var1.readUnsignedByte() != 255) {
-			--var1.offset;
-			this.field1773 = var1.readLong();
+	void vmethod3510(Buffer var1) {
+		this.field1739 = var1.readUnsignedShort();
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(Lfc;I)V",
+		garbageValue = "-2111347169"
+	)
+	void vmethod3506(ClanSettings var1) {
+		var1.method3338(this.field1739);
+	}
+
+	@ObfuscatedName("ab")
+	static int method3413(long var0) {
+		return (int)(var0 >>> 14 & 3L);
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "11323368"
+	)
+	static final void method3415() {
+		WorldMapArea.method4622("You can't add yourself to your own ignore list");
+	}
+
+	@ObfuscatedName("bk")
+	@ObfuscatedSignature(
+		descriptor = "(ILdt;ZI)I",
+		garbageValue = "-1589352545"
+	)
+	static int method3412(int var0, Script var1, boolean var2) {
+		if (var0 == 7108) {
+			Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = class60.method1186() ? 1 : 0;
+			return 1;
+		} else {
+			return 2;
 		}
-
-		this.field1768 = var1.readStringCp1252NullTerminatedOrNull();
-		this.field1769 = var1.readUnsignedShort();
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("hg")
 	@ObfuscatedSignature(
-		descriptor = "(Lfi;B)V",
-		garbageValue = "73"
+		descriptor = "(II)I",
+		garbageValue = "2036594717"
 	)
-	void vmethod3339(ClanSettings var1) {
-		var1.method3223(this.field1773, this.field1768, this.field1769);
+	static int method3414(int var0) {
+		return var0 * 3 + 600;
 	}
 }

@@ -1,24 +1,18 @@
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lv")
-public final class class301 {
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		longValue = 7339559813345552623L
-	)
-	static long field3378;
-
-	@ObfuscatedName("hn")
+@ObfuscatedName("lx")
+public class class301 {
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "977929295"
+		descriptor = "(III)V",
+		garbageValue = "-407525522"
 	)
-	static final void method5721() {
-		if (AddRequestTask.pcmPlayer1 != null) {
-			AddRequestTask.pcmPlayer1.run();
-		}
-
+	public static final void method5905(int var0, int var1) {
+		ViewportMouse.ViewportMouse_x = var0;
+		ViewportMouse.ViewportMouse_y = var1;
+		ViewportMouse.ViewportMouse_isInViewport = true;
+		ViewportMouse.ViewportMouse_entityCount = 0;
+		ViewportMouse.ViewportMouse_false0 = false;
 	}
 }

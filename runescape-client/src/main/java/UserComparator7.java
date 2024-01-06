@@ -6,7 +6,15 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("ei")
 @Implements("UserComparator7")
 public class UserComparator7 extends AbstractUserComparator {
-	@ObfuscatedName("au")
+	@ObfuscatedName("fw")
+	@ObfuscatedSignature(
+		descriptor = "Loh;"
+	)
+	static Archive field1441;
+	@ObfuscatedName("jd")
+	@Export("regionMapArchiveIds")
+	static int[] regionMapArchiveIds;
+	@ObfuscatedName("at")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -14,10 +22,10 @@ public class UserComparator7 extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lqb;Lqb;I)I",
-		garbageValue = "-2147158295"
+		descriptor = "(Lrh;Lrh;I)I",
+		garbageValue = "1768375186"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -32,23 +40,33 @@ public class UserComparator7 extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "-1608362555"
+		descriptor = "(IB)V",
+		garbageValue = "-90"
 	)
-	static final int method2878(int var0, int var1) {
-		if (var0 == -1) {
-			return 12345678;
-		} else {
-			var1 = (var0 & 127) * var1 / 128;
-			if (var1 < 2) {
-				var1 = 2;
-			} else if (var1 > 126) {
-				var1 = 126;
-			}
-
-			return (var0 & 65408) + var1;
+	static void method2966(int var0) {
+		if (var0 != Login.loginIndex) {
+			Login.loginIndex = var0;
 		}
+	}
+
+	@ObfuscatedName("ol")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
+		garbageValue = "-1939309328"
+	)
+	static String method2959(String var0) {
+		PlayerType[] var1 = class320.PlayerType_values();
+
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			PlayerType var3 = var1[var2];
+			if (var3.modIcon != -1 && var0.startsWith(FloorUnderlayDefinition.method3799(var3.modIcon))) {
+				var0 = var0.substring(6 + Integer.toString(var3.modIcon).length());
+				break;
+			}
+		}
+
+		return var0;
 	}
 }

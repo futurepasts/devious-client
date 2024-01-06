@@ -1,64 +1,35 @@
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sx")
-public class class490 implements class489 {
-	@ObfuscatedName("au")
-	Map field4982;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Luu;"
+@ObfuscatedName("sm")
+public class class490 extends class492 {
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = 742257353
 	)
-	final class522 field4981;
+	int field4911;
+	@ObfuscatedName("ah")
+	@ObfuscatedGetter(
+		intValue = 1434247403
+	)
+	int field4912;
 
-	@ObfuscatedSignature(
-		descriptor = "(Luu;)V"
-	)
-	public class490(class522 var1) {
-		this.field4981 = var1;
+	public class490(int var1, int var2, int var3, int var4) {
+		super(var3, var4);
+		this.field4911 = 0;
+		this.field4912 = 0;
+		this.field4911 = var1;
+		this.field4912 = var2;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IS)I",
-		garbageValue = "31516"
+		descriptor = "(I)I",
+		garbageValue = "-287739597"
 	)
-	public int vmethod8775(int var1) {
-		if (this.field4982 != null) {
-			class523 var2 = (class523)this.field4982.get(var1);
-			if (var2 != null) {
-				return (Integer)var2.field5177;
-			}
-		}
-
-		return (Integer)this.field4981.vmethod9358(var1);
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/Object;I)V",
-		garbageValue = "1797615972"
-	)
-	public void vmethod8779(int var1, Object var2) {
-		if (this.field4982 == null) {
-			this.field4982 = new HashMap();
-			this.field4982.put(var1, new class523(var1, var2));
-		} else {
-			class523 var3 = (class523)this.field4982.get(var1);
-			if (var3 == null) {
-				this.field4982.put(var1, new class523(var1, var2));
-			} else {
-				var3.field5177 = var2;
-			}
-		}
-
-	}
-
-	public Iterator iterator() {
-		return this.field4982 == null ? Collections.emptyList().iterator() : this.field4982.values().iterator();
+	public int method8668() {
+		double var1 = this.method8685();
+		return (int)Math.round(var1 * (double)(this.field4912 - this.field4911) + (double)this.field4911);
 	}
 }

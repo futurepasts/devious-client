@@ -1,90 +1,100 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lr")
+@ObfuscatedName("lp")
 public class class302 {
-	@ObfuscatedName("am")
+	@ObfuscatedName("wx")
 	@ObfuscatedSignature(
-		descriptor = "(IIIB)D",
-		garbageValue = "-9"
+		descriptor = "Lrg;"
 	)
-	static double method5727(int var0, int var1, int var2) {
-		double var3 = var1 > 0 ? (double)Math.max(0.0F, Math.min(1.0F, (float)var0 / (float)var1)) : 1.0D;
-		if (var3 > 0.0D && var3 < 1.0D) {
-			double var5;
-			double var7;
-			switch(var2) {
-			case 0:
-				return var3;
-			case 1:
-				return 1.0D - Math.cos(3.141592653589793D * var3 / 2.0D);
-			case 2:
-				return Math.sin(var3 * 3.141592653589793D / 2.0D);
-			case 3:
-				return -(Math.cos(3.141592653589793D * var3) - 1.0D) / 2.0D;
-			case 4:
-				return var3 * var3;
-			case 5:
-				return 1.0D - (1.0D - var3) * (1.0D - var3);
-			case 6:
-				return var3 < 0.5D ? var3 * 2.0D * var3 : 1.0D - Math.pow(2.0D + var3 * -2.0D, 2.0D) / 2.0D;
-			case 7:
-				return var3 * var3 * var3;
-			case 8:
-				return 1.0D - Math.pow(1.0D - var3, 3.0D);
-			case 9:
-				return var3 < 0.5D ? var3 * 4.0D * var3 * var3 : 1.0D - Math.pow(2.0D + -2.0D * var3, 3.0D) / 2.0D;
-			case 10:
-				return var3 * var3 * var3 * var3;
-			case 11:
-				return 1.0D - Math.pow(1.0D - var3, 4.0D);
-			case 12:
-				return var3 < 0.5D ? var3 * var3 * var3 * var3 * 8.0D : 1.0D - Math.pow(2.0D + -2.0D * var3, 4.0D) / 2.0D;
-			case 13:
-				return var3 * var3 * var3 * var3 * var3;
-			case 14:
-				return 1.0D - Math.pow(1.0D - var3, 5.0D);
-			case 15:
-				return var3 < 0.5D ? var3 * var3 * 8.0D * var3 * var3 * var3 : 1.0D - Math.pow(var3 * -2.0D + 2.0D, 5.0D) / 2.0D;
-			case 16:
-				return Math.pow(2.0D, var3 * 10.0D - 10.0D);
-			case 17:
-				return 1.0D - Math.pow(2.0D, var3 * -10.0D);
-			case 18:
-				return var3 < 0.5D ? Math.pow(2.0D, 10.0D + 20.0D * var3) / 2.0D : (2.0D - Math.pow(2.0D, 10.0D + var3 * -20.0D)) / 2.0D;
-			case 19:
-				return 1.0D - Math.sqrt(1.0D - Math.pow(var3, 2.0D));
-			case 20:
-				return Math.sqrt(1.0D - Math.pow(var3 - 1.0D, 2.0D));
-			case 21:
-				return var3 < 0.5D ? (1.0D - Math.sqrt(1.0D - Math.pow(2.0D * var3, 2.0D))) / 2.0D : (Math.sqrt(1.0D - Math.pow(2.0D + -2.0D * var3, 2.0D)) + 1.0D) / 2.0D;
-			case 22:
-				var5 = 1.70158D;
-				var7 = 2.70158D;
-				return var3 * 2.70158D * var3 * var3 - var3 * 1.70158D * var3;
-			case 23:
-				var5 = 1.70158D;
-				var7 = 2.70158D;
-				return 1.0D + 2.70158D * Math.pow(var3 - 1.0D, 3.0D) + 1.70158D * Math.pow(var3 - 1.0D, 2.0D);
-			case 24:
-				var5 = 1.70158D;
-				var7 = 2.5949095D;
-				return var3 < 0.5D ? Math.pow(var3 * 2.0D, 2.0D) * (7.189819D * var3 - 2.5949095D) / 2.0D : (Math.pow(2.0D * var3 - 2.0D, 2.0D) * (3.5949095D * (2.0D * var3 - 2.0D) + 2.5949095D) + 2.0D) / 2.0D;
-			case 25:
-				var5 = 2.0943951023931953D;
-				return -Math.pow(2.0D, var3 * 10.0D - 10.0D) * Math.sin((var3 * 10.0D - 10.75D) * 2.0943951023931953D);
-			case 26:
-				var5 = 2.0943951023931953D;
-				return Math.pow(2.0D, -10.0D * var3) * Math.sin(2.0943951023931953D * (10.0D * var3 - 0.75D)) + 1.0D;
-			case 27:
-				var5 = 1.3962634015954636D;
-				var7 = Math.sin((20.0D * var3 - 11.125D) * 1.3962634015954636D);
-				return var3 < 0.5D ? -(Math.pow(2.0D, var3 * 20.0D - 10.0D) * var7) / 2.0D : Math.pow(2.0D, 10.0D + -20.0D * var3) * var7 / 2.0D + 1.0D;
-			default:
-				return var3;
+	@Export("masterDisk")
+	static ArchiveDisk masterDisk;
+	@ObfuscatedName("up")
+	@ObfuscatedGetter(
+		intValue = -616078041
+	)
+	static int field3119;
+
+	@ObfuscatedName("bo")
+	@ObfuscatedSignature(
+		descriptor = "(Lnn;IIB)V",
+		garbageValue = "51"
+	)
+	public static void method5906(Widget var0, int var1, int var2) {
+		PlayerComposition var3 = var0.field3717;
+		boolean var4 = var2 != var3.gender;
+		var3.gender = var2;
+		if (var4) {
+			int var5;
+			int var7;
+			if (var3.gender == var1) {
+				for (var5 = 0; var5 < PlayerComposition.equipmentIndices.length; ++var5) {
+					var7 = PlayerComposition.equipmentIndices[var5];
+					if (var3.equipment[var7] > 0 && var3.equipment[var7] < 512) {
+						var3.equipment[var7] = var3.field3596[var7];
+					}
+				}
+			} else {
+				label74: {
+					if (var3.equipment[0] >= 512) {
+						boolean var8;
+						if (var3.equipment[0] < 512) {
+							var8 = false;
+						} else {
+							ItemComposition var6 = class214.ItemDefinition_get(var3.equipment[0] - 512);
+							var8 = var6.maleModel1 != class205.field2231.field2245 && var6.maleModel2 != class205.field2231.field2245;
+						}
+
+						if (!var8) {
+							break label74;
+						}
+					}
+
+					var3.equipment[class205.field2231.field2245] = 1;
+				}
+
+				for (var5 = 0; var5 < 7; ++var5) {
+					var7 = PlayerComposition.equipmentIndices[var5];
+					if (var3.equipment[var7] > 0 && var3.equipment[var7] < 512) {
+						class228.method4438(var2, var3.equipment, var5);
+					}
+				}
 			}
-		} else {
-			return var3 <= 0.0D ? 0.0D : 1.0D;
 		}
+
+		var3.method6323();
+	}
+
+	@ObfuscatedName("nb")
+	@ObfuscatedSignature(
+		descriptor = "(Ldc;ZB)V",
+		garbageValue = "-113"
+	)
+	@Export("closeInterface")
+	static final void closeInterface(InterfaceParent var0, boolean var1) {
+		int var2 = var0.group;
+		int var3 = (int)var0.key;
+		var0.remove();
+		if (var1) {
+			HealthBarDefinition.widgetDefinition.method6283(var2);
+		}
+
+		for (IntegerNode var4 = (IntegerNode)Client.widgetFlags.first(); var4 != null; var4 = (IntegerNode)Client.widgetFlags.next()) {
+			if ((var4.key >> 48 & 65535L) == (long)var2) {
+				var4.remove();
+			}
+		}
+
+		Widget var5 = HealthBarDefinition.widgetDefinition.method6285(var3);
+		if (var5 != null) {
+			class159.invalidateWidget(var5);
+		}
+
+		if (Client.rootInterface != -1) {
+			class514.runIntfCloseListeners(Client.rootInterface, 1);
+		}
+
 	}
 }

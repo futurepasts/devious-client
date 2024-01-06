@@ -2,60 +2,28 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hp")
-public class class197 {
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	static final class197 field2093;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	static final class197 field2086;
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	static final class197 field2087;
+@ObfuscatedName("ho")
+public class class197 extends DualNode {
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lhp;"
+		descriptor = "Llk;"
 	)
-	static final class197 field2088;
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	static final class197 field2089;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	static final class197 field2091;
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	static final class197 field2090;
-	@ObfuscatedName("ju")
-	@Export("regionMapArchives")
-	static byte[][] regionMapArchives;
+	@Export("archive4")
+	public static EvictingDualNodeHashTable archive4;
 
 	static {
-		field2093 = new class197(0, class209.field2335);
-		field2086 = new class197(1, class209.field2339);
-		field2087 = new class197(2, class209.field2332);
-		field2088 = new class197(3, class209.field2328);
-		field2089 = new class197(4, class209.field2342);
-		field2091 = new class197(5, class209.field2330);
-		field2090 = new class197(6, class209.field2338);
+		archive4 = new EvictingDualNodeHashTable(64);
 	}
 
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(ILil;)V"
+		descriptor = "(IIIB)I",
+		garbageValue = "73"
 	)
-	class197(int var1, class209 var2) {
+	public static int method3811(int var0, int var1, int var2) {
+		int var3 = class214.method4227(var2 - var1 + 1);
+		var3 <<= var1;
+		var0 |= var3;
+		return var0;
 	}
 }

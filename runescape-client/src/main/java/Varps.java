@@ -3,21 +3,24 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mz")
+@ObfuscatedName("mg")
 @Implements("Varps")
 public class Varps {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("Varps_masks")
 	static int[] Varps_masks;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@Export("Varps_temp")
 	public static int[] Varps_temp;
 	@ObfuscatedName("ao")
 	@Export("Varps_main")
 	public static int[] Varps_main;
-	@ObfuscatedName("at")
-	@Export("Interpreter_intLocals")
-	static int[] Interpreter_intLocals;
+	@ObfuscatedName("db")
+	@ObfuscatedSignature(
+		descriptor = "Lup;"
+	)
+	@Export("worldSelectLeftSprite")
+	static IndexedSprite worldSelectLeftSprite;
 
 	static {
 		Varps_masks = new int[32];
@@ -28,16 +31,7 @@ public class Varps {
 			var0 += var0;
 		}
 
-		Varps_temp = new int[4000];
-		Varps_main = new int[4000];
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(I)[Ldl;",
-		garbageValue = "-195730682"
-	)
-	static class89[] method6025() {
-		return new class89[]{class89.field1107, class89.field1109, class89.field1106, class89.field1115, class89.field1113};
+		Varps_temp = new int[5000];
+		Varps_main = new int[5000];
 	}
 }

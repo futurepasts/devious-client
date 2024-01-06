@@ -1,41 +1,36 @@
+import java.util.HashMap;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oq")
+@ObfuscatedName("op")
 public class class384 {
-	@ObfuscatedName("au")
-	@Export("cp1252AsciiExtension")
-	public static final char[] cp1252AsciiExtension;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lnu;"
-	)
-	@Export("ItemDefinition_archive")
-	public static AbstractArchive ItemDefinition_archive;
+	@ObfuscatedName("ah")
+	@Export("clearLoginScreen")
+	static boolean clearLoginScreen;
 
 	static {
-		cp1252AsciiExtension = new char[]{'€', '\u0000', '‚', 'ƒ', '„', '…', '†', '‡', 'ˆ', '‰', 'Š', '‹', 'Œ', '\u0000', 'Ž', '\u0000', '\u0000', '‘', '’', '“', '”', '•', '–', '—', '˜', '™', 'š', '›', 'œ', '\u0000', 'ž', 'Ÿ'};
+		new HashMap();
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhb;",
-		garbageValue = "1314651935"
+		descriptor = "(DDII)[D",
+		garbageValue = "-1133509454"
 	)
-	public static VarbitComposition method7145(int var0) {
-		VarbitComposition var1 = (VarbitComposition)VarbitComposition.VarbitDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = VarbitComposition.VarbitDefinition_archive.takeFile(14, var0);
-			var1 = new VarbitComposition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
+	public static double[] method7186(double var0, double var2, int var4) {
+		int var5 = var4 * 2 + 1;
+		double[] var6 = new double[var5];
+		int var7 = -var4;
 
-			VarbitComposition.VarbitDefinition_cached.put(var1, (long)var0);
-			return var1;
+		for (int var8 = 0; var7 <= var4; ++var8) {
+			double var15 = ((double)var7 - var0) / var2;
+			double var13 = Math.exp(-var15 * var15 / 2.0D) / Math.sqrt(6.283185307179586D);
+			double var11 = var13 / var2;
+			var6[var8] = var11;
+			++var7;
 		}
+
+		return var6;
 	}
 }

@@ -9,27 +9,27 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("tu")
+@ObfuscatedName("to")
 @Implements("AccessFile")
 public final class AccessFile {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("file")
 	RandomAccessFile file;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		longValue = 2616573618568173947L
+		longValue = -5580478468447993759L
 	)
 	@Export("maxSize")
 	final long maxSize;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		longValue = 3555788345874530741L
+		longValue = 1665217932623654273L
 	)
 	@Export("offset")
 	long offset;
 
 	public AccessFile(File var1, String var2, long var3) throws IOException {
-		if (var3 == -1L) {
+		if (-1L == var3) {
 			var3 = Long.MAX_VALUE;
 		}
 
@@ -49,17 +49,17 @@ public final class AccessFile {
 		this.file.seek(0L);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("seek")
 	final void seek(long var1) throws IOException {
 		this.file.seek(var1);
 		this.offset = var1;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
 		descriptor = "([BIII)V",
-		garbageValue = "-890583938"
+		garbageValue = "382643150"
 	)
 	@Export("write")
 	public final void write(byte[] var1, int var2, int var3) throws IOException {
@@ -73,20 +73,20 @@ public final class AccessFile {
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "346425728"
+		descriptor = "(B)V",
+		garbageValue = "97"
 	)
 	@Export("close")
 	public final void close() throws IOException {
 		this.closeSync(false);
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(ZB)V",
-		garbageValue = "26"
+		garbageValue = "52"
 	)
 	@Export("closeSync")
 	public final void closeSync(boolean var1) throws IOException {
@@ -104,20 +104,20 @@ public final class AccessFile {
 
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(I)J",
-		garbageValue = "330936146"
+		garbageValue = "494268668"
 	)
 	@Export("length")
 	public final long length() throws IOException {
 		return this.file.length();
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "([BIIB)I",
-		garbageValue = "-81"
+		descriptor = "([BIII)I",
+		garbageValue = "-1827594375"
 	)
 	@Export("read")
 	public final int read(byte[] var1, int var2, int var3) throws IOException {
@@ -133,6 +133,46 @@ public final class AccessFile {
 		if (this.file != null) {
 			System.out.println("");
 			this.close();
+		}
+
+	}
+
+	@ObfuscatedName("jf")
+	@ObfuscatedSignature(
+		descriptor = "(Lds;ZB)V",
+		garbageValue = "-57"
+	)
+	@Export("addPlayerToScene")
+	static void addPlayerToScene(Player var0, boolean var1) {
+		if (var0 != null && var0.isVisible() && !var0.isHidden) {
+			var0.isUnanimated = false;
+			if ((Client.isLowDetail && Players.Players_count > 50 || Players.Players_count > 200) && var1 && var0.idleSequence == var0.movementSequence) {
+				var0.isUnanimated = true;
+			}
+
+			int var2 = var0.x >> 7;
+			int var3 = var0.y >> 7;
+			if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
+				long var4 = Player.calculateTag(0, 0, 0, false, var0.index);
+				if (var0.model0 != null && Client.cycle >= var0.animationCycleStart && Client.cycle < var0.animationCycleEnd) {
+					var0.isUnanimated = false;
+					var0.tileHeight = WorldMapDecorationType.getTileHeight(var0.x, var0.y, ItemLayer.Client_plane);
+					var0.playerCycle = Client.cycle;
+					class36.scene.addNullableObject(ItemLayer.Client_plane, var0.x, var0.y, var0.tileHeight, 60, var0, var0.rotation, var4, var0.minX, var0.minY, var0.maxX, var0.maxY);
+				} else {
+					if ((var0.x & 127) == 64 && (var0.y & 127) == 64) {
+						if (Client.tileLastDrawnActor[var2][var3] == Client.viewportDrawCount) {
+							return;
+						}
+
+						Client.tileLastDrawnActor[var2][var3] = Client.viewportDrawCount;
+					}
+
+					var0.tileHeight = WorldMapDecorationType.getTileHeight(var0.x, var0.y, ItemLayer.Client_plane);
+					var0.playerCycle = Client.cycle;
+					class36.scene.drawEntity(ItemLayer.Client_plane, var0.x, var0.y, var0.tileHeight, 60, var0, var0.rotation, var4, var0.isWalking);
+				}
+			}
 		}
 
 	}

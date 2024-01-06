@@ -3,20 +3,15 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nl")
+@ObfuscatedName("nj")
 @Implements("Skills")
 public class Skills {
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@Export("Skills_enabled")
 	public static final boolean[] Skills_enabled;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@Export("Skills_experienceTable")
 	public static int[] Skills_experienceTable;
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Luk;"
-	)
-	static IndexedSprite field3850;
 
 	static {
 		Skills_enabled = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false};
@@ -30,5 +25,36 @@ public class Skills {
 			Skills_experienceTable[var1] = var0 / 4;
 		}
 
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(Lol;Ljava/lang/String;Ljava/lang/String;I)[Lup;",
+		garbageValue = "900236984"
+	)
+	public static IndexedSprite[] method6857(AbstractArchive var0, String var1, String var2) {
+		if (!var0.isValidFileName(var1, var2)) {
+			return null;
+		} else {
+			int var3 = var0.getGroupId(var1);
+			int var4 = var0.getFileId(var3, var2);
+			byte[] var7 = var0.takeFile(var3, var4);
+			boolean var6;
+			if (var7 == null) {
+				var6 = false;
+			} else {
+				class162.SpriteBuffer_decode(var7);
+				var6 = true;
+			}
+
+			IndexedSprite[] var5;
+			if (!var6) {
+				var5 = null;
+			} else {
+				var5 = DbTable.method9159();
+			}
+
+			return var5;
+		}
 	}
 }

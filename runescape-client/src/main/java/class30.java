@@ -1,109 +1,131 @@
-import java.awt.Desktop;
-import java.awt.Desktop.Action;
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.imageio.ImageIO;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("bt")
+@ObfuscatedName("bv")
 public class class30 {
-	@ObfuscatedName("al")
-	@ObfuscatedGetter(
-		intValue = 183350311
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lol;"
 	)
-	static int field167;
-	@ObfuscatedName("he")
-	static String field166;
+	@Export("VarcInt_archive")
+	public static AbstractArchive VarcInt_archive;
 
 	static {
 		ImageIO.setUseCache(false);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IIIB)Z",
-		garbageValue = "-75"
+		descriptor = "(Ljava/util/ArrayList;ZI)V",
+		garbageValue = "358922906"
 	)
-	static boolean method453(int var0, int var1, int var2) {
-		return var0 >= 0 && var0 < 4 && var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104;
-	}
+	static void method463(ArrayList var0, boolean var1) {
+		if (!var1) {
+			class316.field3424.clear();
+		}
 
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;ZZB)V",
-		garbageValue = "-94"
-	)
-	@Export("openURL")
-	public static void openURL(String var0, boolean var1, boolean var2) {
-		if (var1) {
-			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Action.BROWSE)) {
-				try {
-					Desktop.getDesktop().browse(new URI(var0));
-					return;
-				} catch (Exception var4) {
+		Iterator var2 = var0.iterator();
+
+		while (var2.hasNext()) {
+			MusicSong var3 = (MusicSong)var2.next();
+			if (var3.musicTrackGroupId != -1 && var3.musicTrackFileId != -1) {
+				if (!var1) {
+					class316.field3424.add(var3);
 				}
-			}
 
-			if (class31.field169.startsWith("win")) {
-				BoundaryObject.method5025(var0, 0);
-			} else if (class31.field169.startsWith("mac")) {
-				class299.method5716(var0, 1, "openjs");
+				class316.field3416.add(var3);
+			}
+		}
+
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(ILdt;ZI)I",
+		garbageValue = "-2029161315"
+	)
+	static int method462(int var0, Script var1, boolean var2) {
+		Widget var3 = var2 ? Interpreter.scriptDotWidget : HealthBar.scriptActiveWidget;
+		if (var0 == ScriptOpcodes.CC_GETINVOBJECT) {
+			Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var3.itemId;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETINVCOUNT) {
+			if (var3.itemId != -1) {
+				Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var3.itemQuantity;
 			} else {
-				BoundaryObject.method5025(var0, 2);
+				Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = 0;
 			}
+
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETID) {
+			Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var3.childIndex;
+			return 1;
+		} else if (var0 == 1707) {
+			Interpreter.Interpreter_intStack[++DbTableType.Interpreter_intStackSize - 1] = var3.method6682() ? 1 : 0;
+			return 1;
+		} else if (var0 == 1708) {
+			return class310.method5938(var3);
 		} else {
-			BoundaryObject.method5025(var0, 3);
+			return var0 == 1709 ? GrandExchangeOfferTotalQuantityComparator.method7080(var3) : 2;
 		}
-
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ck")
 	@ObfuscatedSignature(
-		descriptor = "(I)[Luk;",
-		garbageValue = "694687164"
+		descriptor = "([BI)[B",
+		garbageValue = "-1158445957"
 	)
-	static IndexedSprite[] method454() {
-		IndexedSprite[] var0 = new IndexedSprite[class529.SpriteBuffer_spriteCount];
+	@Export("decompressBytes")
+	static final byte[] decompressBytes(byte[] var0) {
+		Buffer var1 = new Buffer(var0);
+		int var2 = var1.readUnsignedByte();
+		int var3 = var1.readInt();
+		if (var3 < 0 || AbstractArchive.field4303 != 0 && var3 > AbstractArchive.field4303) {
+			throw new RuntimeException();
+		} else if (var2 == 0) {
+			byte[] var6 = new byte[var3];
+			var1.readBytes(var6, 0, var3);
+			return var6;
+		} else {
+			int var4 = var1.readInt();
+			if (var4 >= 0 && (AbstractArchive.field4303 == 0 || var4 <= AbstractArchive.field4303)) {
+				byte[] var5 = new byte[var4];
+				if (var2 == 1) {
+					BZip2Decompressor.BZip2Decompressor_decompress(var5, var4, var0, var3, 9);
+				} else {
+					AbstractArchive.gzipDecompressor.decompress(var1, var5);
+				}
 
-		for (int var1 = 0; var1 < class529.SpriteBuffer_spriteCount; ++var1) {
-			IndexedSprite var2 = var0[var1] = new IndexedSprite();
-			var2.width = class529.SpriteBuffer_spriteWidth;
-			var2.height = class420.SpriteBuffer_spriteHeight;
-			var2.xOffset = class529.SpriteBuffer_xOffsets[var1];
-			var2.yOffset = class152.SpriteBuffer_yOffsets[var1];
-			var2.subWidth = HealthBarUpdate.SpriteBuffer_spriteWidths[var1];
-			var2.subHeight = SpriteMask.SpriteBuffer_spriteHeights[var1];
-			var2.palette = DbTableType.SpriteBuffer_spritePalette;
-			var2.pixels = Coord.SpriteBuffer_pixels[var1];
+				return var5;
+			} else {
+				throw new RuntimeException();
+			}
 		}
-
-		class529.SpriteBuffer_xOffsets = null;
-		class152.SpriteBuffer_yOffsets = null;
-		HealthBarUpdate.SpriteBuffer_spriteWidths = null;
-		SpriteMask.SpriteBuffer_spriteHeights = null;
-		DbTableType.SpriteBuffer_spritePalette = null;
-		Coord.SpriteBuffer_pixels = null;
-		return var0;
 	}
 
-	@ObfuscatedName("jw")
+	@ObfuscatedName("nj")
 	@ObfuscatedSignature(
-		descriptor = "(I)Low;",
-		garbageValue = "1819650636"
+		descriptor = "(III)V",
+		garbageValue = "1125993888"
 	)
-	public static NodeDeque method446() {
-		return Client.scriptEvents;
-	}
-
-	@ObfuscatedName("mc")
-	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "26"
-	)
-	@Export("getTapToDrop")
-	static boolean getTapToDrop() {
-		return Client.tapToDrop;
+	static final void method465(int var0, int var1) {
+		ClanChannel var2 = var0 >= 0 ? Client.currentClanChannels[var0] : ItemContainer.guestClanChannel;
+		if (var2 != null && var1 >= 0 && var1 < var2.method3479()) {
+			ClanChannelMember var3 = (ClanChannelMember)var2.members.get(var1);
+			if (var3.rank == -1) {
+				String var4 = var3.username.getName();
+				PacketBufferNode var5 = class113.getPacketBufferNode(ClientPacket.field3210, Client.packetWriter.isaacCipher);
+				var5.packetBuffer.writeByte(3 + ClanChannel.stringCp1252NullTerminatedByteSize(var4));
+				var5.packetBuffer.writeByte(var0);
+				var5.packetBuffer.writeShort(var1);
+				var5.packetBuffer.writeStringCp1252NullTerminated(var4);
+				Client.packetWriter.addNode(var5);
+			}
+		}
 	}
 }

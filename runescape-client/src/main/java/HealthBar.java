@@ -1,55 +1,45 @@
+import java.awt.Desktop;
+import java.awt.Desktop.Action;
+import java.net.URI;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dm")
+@ObfuscatedName("de")
 @Implements("HealthBar")
 public class HealthBar extends Node {
-	@ObfuscatedName("aa")
-	@ObfuscatedGetter(
-		intValue = -74001321
-	)
-	@Export("ItemDefinition_fileCount")
-	public static int ItemDefinition_fileCount;
-	@ObfuscatedName("ls")
-	@ObfuscatedGetter(
-		intValue = 860411603
-	)
-	@Export("oculusOrbFocalPointY")
-	static int oculusOrbFocalPointY;
-	@ObfuscatedName("mn")
-	@ObfuscatedGetter(
-		intValue = 1873768041
-	)
-	@Export("Client_plane")
-	static int Client_plane;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "Lhl;"
+		descriptor = "Lnn;"
+	)
+	@Export("scriptActiveWidget")
+	static Widget scriptActiveWidget;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Lgh;"
 	)
 	@Export("definition")
 	HealthBarDefinition definition;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "Loc;"
+		descriptor = "Lpm;"
 	)
 	@Export("updates")
 	IterableNodeDeque updates;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lhl;)V"
+		descriptor = "(Lgh;)V"
 	)
 	HealthBar(HealthBarDefinition var1) {
 		this.updates = new IterableNodeDeque();
 		this.definition = var1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(IIIIB)V",
-		garbageValue = "0"
+		garbageValue = "1"
 	)
 	@Export("put")
 	void put(int var1, int var2, int var3, int var4) {
@@ -82,10 +72,10 @@ public class HealthBar extends Node {
 		}
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Ldo;",
-		garbageValue = "-93"
+		descriptor = "(II)Ldv;",
+		garbageValue = "478923199"
 	)
 	@Export("get")
 	HealthBarUpdate get(int var1) {
@@ -107,48 +97,66 @@ public class HealthBar extends Node {
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "-45"
+		descriptor = "(I)Z",
+		garbageValue = "1159323457"
 	)
 	@Export("isEmpty")
 	boolean isEmpty() {
-		return this.updates.method7032();
+		return this.updates.method7350();
 	}
 
-	@ObfuscatedName("jd")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)V",
-		garbageValue = "-1142010157"
+		descriptor = "(II)I",
+		garbageValue = "2038355157"
 	)
-	@Export("worldToScreen")
-	static final void worldToScreen(int var0, int var1, int var2) {
-		if (var0 >= 128 && var1 >= 128 && var0 <= 13056 && var1 <= 13056) {
-			int var3 = class18.getTileHeight(var0, var1, Client_plane) - var2;
-			var0 -= NPCComposition.cameraX;
-			var3 -= class133.cameraY;
-			var1 -= class139.cameraZ;
-			int var4 = Rasterizer3D.Rasterizer3D_sine[class129.cameraPitch];
-			int var5 = Rasterizer3D.Rasterizer3D_cosine[class129.cameraPitch];
-			int var6 = Rasterizer3D.Rasterizer3D_sine[UserComparator10.cameraYaw];
-			int var7 = Rasterizer3D.Rasterizer3D_cosine[UserComparator10.cameraYaw];
-			int var8 = var6 * var1 + var0 * var7 >> 16;
-			var1 = var7 * var1 - var0 * var6 >> 16;
-			var0 = var8;
-			var8 = var5 * var3 - var4 * var1 >> 16;
-			var1 = var5 * var1 + var3 * var4 >> 16;
-			if (var1 >= 50) {
-				Client.viewportTempX = var0 * Client.viewportZoom / var1 + Client.viewportWidth / 2;
-				Client.viewportTempY = Client.viewportHeight / 2 + var8 * Client.viewportZoom / var1;
-			} else {
-				Client.viewportTempX = -1;
-				Client.viewportTempY = -1;
+	@Export("getVarbit")
+	public static int getVarbit(int var0) {
+		VarbitComposition var1 = ClientPreferences.method2644(var0);
+		int var2 = var1.baseVar;
+		int var3 = var1.startBit;
+		int var4 = var1.endBit;
+		int var5 = Varps.Varps_masks[var4 - var3];
+		return Varps.Varps_main[var2] >> var3 & var5;
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Ldm;",
+		garbageValue = "-789514227"
+	)
+	static class89[] method2656() {
+		return new class89[]{class89.field1075, class89.field1081, class89.field1072, class89.field1071, class89.field1077};
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;ZZI)V",
+		garbageValue = "2050033545"
+	)
+	@Export("openURL")
+	public static void openURL(String var0, boolean var1, boolean var2) {
+		if (var1) {
+			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Action.BROWSE)) {
+				try {
+					Desktop.getDesktop().browse(new URI(var0));
+					return;
+				} catch (Exception var4) {
+				}
 			}
 
+			if (class31.field157.startsWith("win")) {
+				Canvas.method325(var0, 0, "openjs");
+			} else if (class31.field157.startsWith("mac")) {
+				Canvas.method325(var0, 1, "openjs");
+			} else {
+				Canvas.method325(var0, 2, "openjs");
+			}
 		} else {
-			Client.viewportTempX = -1;
-			Client.viewportTempY = -1;
+			Canvas.method325(var0, 3, "openjs");
 		}
+
 	}
 }

@@ -4,58 +4,55 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hz")
+@ObfuscatedName("go")
 @Implements("KitDefinition")
 public class KitDefinition extends DualNode {
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lnu;"
-	)
-	@Export("KitDefinition_archive")
-	public static AbstractArchive KitDefinition_archive;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lnu;"
-	)
-	@Export("KitDefinition_modelsArchive")
-	public static AbstractArchive KitDefinition_modelsArchive;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 2017127235
-	)
-	@Export("KitDefinition_fileCount")
-	public static int KitDefinition_fileCount;
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Lol;"
+	)
+	@Export("KitDefinition_archive")
+	static AbstractArchive KitDefinition_archive;
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lol;"
+	)
+	@Export("KitDefinition_modelsArchive")
+	static AbstractArchive KitDefinition_modelsArchive;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Llk;"
 	)
 	@Export("KitDefinition_cached")
 	static EvictingDualNodeHashTable KitDefinition_cached;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("je")
+	@Export("regions")
+	static int[] regions;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -194305975
+		intValue = 2062657371
 	)
 	@Export("bodypartID")
 	public int bodypartID;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@Export("models2")
 	int[] models2;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@Export("recolorFrom")
 	short[] recolorFrom;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@Export("recolorTo")
 	short[] recolorTo;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@Export("retextureFrom")
 	short[] retextureFrom;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@Export("retextureTo")
 	short[] retextureTo;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@Export("models")
 	int[] models;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("av")
 	@Export("nonSelectable")
 	public boolean nonSelectable;
 
@@ -69,10 +66,10 @@ public class KitDefinition extends DualNode {
 		this.nonSelectable = false;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;B)V",
-		garbageValue = "-6"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-1802859477"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -88,8 +85,8 @@ public class KitDefinition extends DualNode {
 
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;II)V",
-		garbageValue = "-1997251998"
+		descriptor = "(Luj;II)V",
+		garbageValue = "-601182989"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -132,10 +129,10 @@ public class KitDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1590063702"
+		garbageValue = "1847787627"
 	)
 	@Export("ready")
 	public boolean ready() {
@@ -154,10 +151,10 @@ public class KitDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lic;",
-		garbageValue = "-23"
+		descriptor = "(B)Lkq;",
+		garbageValue = "6"
 	)
 	@Export("getModelData")
 	public ModelData getModelData() {
@@ -194,12 +191,12 @@ public class KitDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "-2117319302"
+		descriptor = "(B)Z",
+		garbageValue = "-62"
 	)
-	public boolean method3637() {
+	public boolean method3607() {
 		boolean var1 = true;
 
 		for (int var2 = 0; var2 < 5; ++var2) {
@@ -211,10 +208,10 @@ public class KitDefinition extends DualNode {
 		return var1;
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lic;",
-		garbageValue = "-1595711476"
+		descriptor = "(I)Lkq;",
+		garbageValue = "1386054697"
 	)
 	@Export("getKitDefinitionModels")
 	public ModelData getKitDefinitionModels() {
@@ -244,119 +241,12 @@ public class KitDefinition extends DualNode {
 		return var5;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(Lto;IB)Z",
-		garbageValue = "-108"
+		descriptor = "(I)V",
+		garbageValue = "1051367383"
 	)
-	@Export("updateExternalPlayer")
-	static boolean updateExternalPlayer(PacketBuffer var0, int var1) {
-		int var2 = var0.readBits(2);
-		int var3;
-		int var4;
-		int var7;
-		int var8;
-		int var9;
-		int var10;
-		if (var2 == 0) {
-			if (var0.readBits(1) != 0) {
-				updateExternalPlayer(var0, var1);
-			}
-
-			var3 = var0.readBits(13);
-			var4 = var0.readBits(13);
-			boolean var12 = var0.readBits(1) == 1;
-			if (var12) {
-				Players.Players_pendingUpdateIndices[++Players.Players_pendingUpdateCount - 1] = var1;
-			}
-
-			if (Client.players[var1] != null) {
-				throw new RuntimeException();
-			} else {
-				Player var11 = Client.players[var1] = new Player();
-				var11.index = var1;
-				if (Players.field1388[var1] != null) {
-					var11.read(Players.field1388[var1]);
-				}
-
-				var11.orientation = Players.Players_orientations[var1];
-				var11.targetIndex = Players.Players_targetIndices[var1];
-				var7 = Players.Players_regions[var1];
-				var8 = var7 >> 28;
-				var9 = var7 >> 14 & 255;
-				var10 = var7 & 255;
-				var11.pathTraversed[0] = Players.field1377[var1];
-				var11.plane = (byte)var8;
-				var11.resetPath((var9 << 13) + var3 - UrlRequester.baseX * 64, (var10 << 13) + var4 - class47.baseY * 64);
-				var11.field1154 = false;
-				return true;
-			}
-		} else if (var2 == 1) {
-			var3 = var0.readBits(2);
-			var4 = Players.Players_regions[var1];
-			Players.Players_regions[var1] = (((var4 >> 28) + var3 & 3) << 28) + (var4 & 268435455);
-			return false;
-		} else {
-			int var5;
-			int var6;
-			if (var2 == 2) {
-				var3 = var0.readBits(5);
-				var4 = var3 >> 3;
-				var5 = var3 & 7;
-				var6 = Players.Players_regions[var1];
-				var7 = (var6 >> 28) + var4 & 3;
-				var8 = var6 >> 14 & 255;
-				var9 = var6 & 255;
-				if (var5 == 0) {
-					--var8;
-					--var9;
-				}
-
-				if (var5 == 1) {
-					--var9;
-				}
-
-				if (var5 == 2) {
-					++var8;
-					--var9;
-				}
-
-				if (var5 == 3) {
-					--var8;
-				}
-
-				if (var5 == 4) {
-					++var8;
-				}
-
-				if (var5 == 5) {
-					--var8;
-					++var9;
-				}
-
-				if (var5 == 6) {
-					++var9;
-				}
-
-				if (var5 == 7) {
-					++var8;
-					++var9;
-				}
-
-				Players.Players_regions[var1] = (var8 << 14) + var9 + (var7 << 28);
-				return false;
-			} else {
-				var3 = var0.readBits(18);
-				var4 = var3 >> 16;
-				var5 = var3 >> 8 & 255;
-				var6 = var3 & 255;
-				var7 = Players.Players_regions[var1];
-				var8 = (var7 >> 28) + var4 & 3;
-				var9 = var5 + (var7 >> 14) & 255;
-				var10 = var7 + var6 & 255;
-				Players.Players_regions[var1] = (var9 << 14) + var10 + (var8 << 28);
-				return false;
-			}
-		}
+	public static void method3631() {
+		DbRowType.DBRowType_cache.clear();
 	}
 }

@@ -4,60 +4,55 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hb")
+@ObfuscatedName("ht")
 @Implements("VarbitComposition")
 public class VarbitComposition extends DualNode {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lnu;"
+		descriptor = "Lol;"
 	)
 	@Export("VarbitDefinition_archive")
-	static AbstractArchive VarbitDefinition_archive;
-	@ObfuscatedName("ae")
+	public static AbstractArchive VarbitDefinition_archive;
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Llk;"
 	)
 	@Export("VarbitDefinition_cached")
-	public static EvictingDualNodeHashTable VarbitDefinition_cached;
-	@ObfuscatedName("ai")
-	static final int[] field2123;
-	@ObfuscatedName("mo")
+	static EvictingDualNodeHashTable VarbitDefinition_cached;
+	@ObfuscatedName("au")
+	static final int[] field2028;
+	@ObfuscatedName("fy")
 	@ObfuscatedSignature(
-		descriptor = "Ldf;"
+		descriptor = "Loh;"
 	)
-	@Export("localPlayer")
-	static Player localPlayer;
-	@ObfuscatedName("us")
+	@Export("archive13")
+	static Archive archive13;
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -2079670272
-	)
-	static int field2127;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 144903653
+		intValue = 1065217469
 	)
 	@Export("baseVar")
 	public int baseVar;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 225410143
+		intValue = -578060217
 	)
 	@Export("startBit")
 	public int startBit;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 1882806955
+		intValue = 645306173
 	)
 	@Export("endBit")
 	public int endBit;
 
 	static {
 		VarbitDefinition_cached = new EvictingDualNodeHashTable(64);
-		field2123 = new int[32];
+		field2028 = new int[32];
 		int var0 = 2;
 
 		for (int var1 = 0; var1 < 32; ++var1) {
-			field2123[var1] = var0 - 1;
+			field2028[var1] = var0 - 1;
 			var0 += var0;
 		}
 
@@ -66,10 +61,10 @@ public class VarbitComposition extends DualNode {
 	VarbitComposition() {
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "1889164320"
+		descriptor = "(Luj;B)V",
+		garbageValue = "-93"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -83,10 +78,10 @@ public class VarbitComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;II)V",
-		garbageValue = "1344279898"
+		descriptor = "(Luj;II)V",
+		garbageValue = "-30709508"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -96,21 +91,5 @@ public class VarbitComposition extends DualNode {
 			this.endBit = var1.readUnsignedByte();
 		}
 
-	}
-
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/CharSequence;B)I",
-		garbageValue = "14"
-	)
-	public static int method3800(CharSequence var0) {
-		int var1 = var0.length();
-		int var2 = 0;
-
-		for (int var3 = 0; var3 < var1; ++var3) {
-			var2 = (var2 << 5) - var2 + var0.charAt(var3);
-		}
-
-		return var2;
 	}
 }

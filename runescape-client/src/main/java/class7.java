@@ -1,89 +1,95 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ap")
+@ObfuscatedName("ac")
 public class class7 {
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		intValue = 1299157837
+	@ObfuscatedName("bq")
+	@ObfuscatedSignature(
+		descriptor = "Lrv;"
 	)
-	static int field25;
-	@ObfuscatedName("au")
-	ExecutorService field21;
-	@ObfuscatedName("ae")
-	Future field26;
+	static Bounds field21;
+	@ObfuscatedName("fc")
+	@ObfuscatedSignature(
+		descriptor = "Loh;"
+	)
+	static Archive field25;
+	@ObfuscatedName("at")
+	ExecutorService field24;
+	@ObfuscatedName("ah")
+	Future field18;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Luj;"
+	)
+	final Buffer field19;
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "Ltm;"
-	)
-	final Buffer field22;
-	@ObfuscatedName("at")
-	@ObfuscatedSignature(
-		descriptor = "Lat;"
+		descriptor = "Lao;"
 	)
 	final class3 field20;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;Lat;)V"
+		descriptor = "(Luj;Lao;)V"
 	)
 	public class7(Buffer var1, class3 var2) {
-		this.field21 = Executors.newSingleThreadExecutor();
-		this.field22 = var1;
+		this.field24 = Executors.newSingleThreadExecutor();
+		this.field19 = var1;
 		this.field20 = var2;
-		this.method40();
+		this.method56();
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1836441256"
+		garbageValue = "-1139388423"
 	)
-	public boolean method42() {
-		return this.field26.isDone();
+	public boolean method51() {
+		return this.field18.isDone();
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "2092027940"
+		descriptor = "(B)V",
+		garbageValue = "-85"
 	)
-	public void method39() {
-		this.field21.shutdown();
-		this.field21 = null;
+	public void method62() {
+		this.field24.shutdown();
+		this.field24 = null;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ltm;",
-		garbageValue = "-120"
+		descriptor = "(I)Luj;",
+		garbageValue = "1719469539"
 	)
-	public Buffer method41() {
+	public Buffer method52() {
 		try {
-			return (Buffer)this.field26.get();
+			return (Buffer)this.field18.get();
 		} catch (Exception var2) {
 			return null;
 		}
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-691162885"
+		garbageValue = "670467057"
 	)
-	void method40() {
-		this.field26 = this.field21.submit(new class1(this, this.field22, this.field20));
+	void method56() {
+		this.field18 = this.field24.submit(new class1(this, this.field19, this.field20));
 	}
 
-	@ObfuscatedName("iy")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
+		descriptor = "(IB)Z",
 		garbageValue = "1"
 	)
-	static final int method53(int var0) {
-		return Math.abs(var0 - UserComparator10.cameraYaw) > 1024 ? var0 + 2048 * (var0 < UserComparator10.cameraYaw ? 1 : -1) : var0;
+	@Export("isWorldMapEvent")
+	public static boolean isWorldMapEvent(int var0) {
+		return var0 == 10 || var0 == 11 || var0 == 12 || var0 == 13 || var0 == 14 || var0 == 15 || var0 == 16 || var0 == 17;
 	}
 }

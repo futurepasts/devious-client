@@ -1,34 +1,35 @@
 import java.io.IOException;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qi")
+@ObfuscatedName("ro")
 @Implements("AbstractSocket")
 public abstract class AbstractSocket {
-	@ObfuscatedName("ii")
-	@ObfuscatedSignature(
-		descriptor = "Lqi;"
+	@ObfuscatedName("gg")
+	@ObfuscatedGetter(
+		intValue = -211744297
 	)
-	static AbstractSocket field4675;
+	@Export("js5Port")
+	static int js5Port;
 
 	AbstractSocket() {
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Z",
-		garbageValue = "-67"
+		descriptor = "(II)Z",
+		garbageValue = "278911957"
 	)
 	@Export("isAvailable")
 	public abstract boolean isAvailable(int var1) throws IOException;
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1947351494"
+		garbageValue = "1133909296"
 	)
 	@Export("available")
 	public abstract int available() throws IOException;
@@ -36,62 +37,32 @@ public abstract class AbstractSocket {
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "969166986"
+		garbageValue = "-1251290768"
 	)
 	@Export("readUnsignedByte")
 	public abstract int readUnsignedByte() throws IOException;
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "([BIIS)I",
-		garbageValue = "206"
+		descriptor = "([BIIB)I",
+		garbageValue = "-54"
 	)
 	@Export("read")
 	public abstract int read(byte[] var1, int var2, int var3) throws IOException;
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "([BIII)V",
-		garbageValue = "1371855899"
+		garbageValue = "-1734190943"
 	)
 	@Export("write")
 	public abstract void write(byte[] var1, int var2, int var3) throws IOException;
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1457160931"
+		garbageValue = "1195407219"
 	)
 	@Export("close")
 	public abstract void close();
-
-	@ObfuscatedName("bc")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)I",
-		garbageValue = "-148355488"
-	)
-	@Export("stringCp1252NullTerminatedByteSize")
-	public static int stringCp1252NullTerminatedByteSize(String var0) {
-		return var0.length() + 1;
-	}
-
-	@ObfuscatedName("nn")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-99692388"
-	)
-	@Export("FriendSystem_invalidateIgnoreds")
-	static final void FriendSystem_invalidateIgnoreds() {
-		Iterator var0 = Messages.Messages_hashTable.iterator();
-
-		while (var0.hasNext()) {
-			Message var1 = (Message)var0.next();
-			var1.clearIsFromIgnored();
-		}
-
-		if (ReflectionCheck.friendsChat != null) {
-			ReflectionCheck.friendsChat.invalidateIgnoreds();
-		}
-
-	}
 }

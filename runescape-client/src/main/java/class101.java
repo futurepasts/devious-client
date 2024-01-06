@@ -1,56 +1,85 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("dq")
 public class class101 {
-	@ObfuscatedName("au")
+	@ObfuscatedName("ff")
 	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "1873768041"
+		descriptor = "Liq;"
 	)
-	public static boolean method2640(int var0) {
-		return var0 >= WorldMapDecorationType.field3828.id && var0 <= WorldMapDecorationType.field3826.id || var0 == WorldMapDecorationType.field3844.id;
-	}
+	@Export("js5SocketTask")
+	static Task js5SocketTask;
+	@ObfuscatedName("jq")
+	@ObfuscatedGetter(
+		intValue = 719406161
+	)
+	@Export("baseY")
+	static int baseY;
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-2030205668"
+		descriptor = "(II)Lhu;",
+		garbageValue = "-1222371777"
 	)
-	static void method2641() {
-		ByteArrayPool.field4550.clear();
-		ByteArrayPool.field4550.add(100);
-		ByteArrayPool.field4550.add(5000);
-		ByteArrayPool.field4550.add(10000);
-		ByteArrayPool.field4550.add(30000);
-	}
-
-	@ObfuscatedName("bi")
-	@ObfuscatedSignature(
-		descriptor = "(ILdh;ZI)I",
-		garbageValue = "-1662859603"
-	)
-	static int method2642(int var0, Script var1, boolean var2) {
-		if (var0 == 6754) {
-			int var5 = Interpreter.Interpreter_intStack[--SoundCache.Interpreter_intStackSize];
-			NPCComposition var6 = class90.getNpcDefinition(var5);
-			Interpreter.Interpreter_stringStack[++class137.Interpreter_stringStackSize - 1] = var6 != null ? var6.name : "";
-			return 1;
+	public static FloorUnderlayDefinition method2723(int var0) {
+		FloorUnderlayDefinition var1 = (FloorUnderlayDefinition)FloorUnderlayDefinition.FloorUnderlayDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
 		} else {
-			NPCComposition var3;
-			if (var0 == 6764) {
-				SoundCache.Interpreter_intStackSize -= 2;
-				var3 = class90.getNpcDefinition(Interpreter.Interpreter_intStack[SoundCache.Interpreter_intStackSize]);
-				int var4 = Interpreter.Interpreter_intStack[SoundCache.Interpreter_intStackSize + 1];
-				Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.method3695(var4);
-				Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.method3715(var4);
-				return 1;
-			} else if (var0 == 6765) {
-				var3 = class90.getNpcDefinition(Interpreter.Interpreter_intStack[--SoundCache.Interpreter_intStackSize]);
-				Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3 != null ? var3.combatLevel : 0;
-				return 1;
+			byte[] var2 = FloorUnderlayDefinition.FloorUnderlayDefinition_archive.takeFile(1, var0);
+			var1 = new FloorUnderlayDefinition();
+			if (var2 != null) {
+				var1.decode(new Buffer(var2), var0);
+			}
+
+			var1.postDecode();
+			FloorUnderlayDefinition.FloorUnderlayDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
+	}
+
+	@ObfuscatedName("ni")
+	@ObfuscatedSignature(
+		descriptor = "(Lnn;I)Z",
+		garbageValue = "-429343938"
+	)
+	static final boolean method2724(Widget var0) {
+		int var1 = var0.contentType;
+		if (var1 == 205) {
+			Client.logoutTimer = 250;
+			return true;
+		} else {
+			int var2;
+			int var3;
+			if (var1 >= 300 && var1 <= 313) {
+				var2 = (var1 - 300) / 2;
+				var3 = var1 & 1;
+				Client.playerAppearance.changeAppearance(var2, var3 == 1);
+			}
+
+			if (var1 >= 314 && var1 <= 323) {
+				var2 = (var1 - 314) / 2;
+				var3 = var1 & 1;
+				Client.playerAppearance.method6317(var2, var3 == 1);
+			}
+
+			if (var1 == 324) {
+				Client.playerAppearance.method6322(0);
+			}
+
+			if (var1 == 325) {
+				Client.playerAppearance.method6322(1);
+			}
+
+			if (var1 == 326) {
+				PacketBufferNode var4 = class113.getPacketBufferNode(ClientPacket.field3200, Client.packetWriter.isaacCipher);
+				Client.playerAppearance.write(var4.packetBuffer);
+				Client.packetWriter.addNode(var4);
+				return true;
 			} else {
-				return 2;
+				return false;
 			}
 		}
 	}

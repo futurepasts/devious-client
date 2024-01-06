@@ -7,25 +7,28 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("me")
 @Implements("SpriteMask")
 public class SpriteMask extends DualNode {
-	@ObfuscatedName("az")
-	@Export("SpriteBuffer_spriteHeights")
-	static int[] SpriteBuffer_spriteHeights;
-	@ObfuscatedName("au")
+	@ObfuscatedName("bk")
+	@Export("client")
+	@ObfuscatedSignature(
+		descriptor = "Lclient;"
+	)
+	public static Client client;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 933190117
+		intValue = 85072149
 	)
 	@Export("width")
 	public final int width;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 1476740129
+		intValue = -1223275017
 	)
 	@Export("height")
 	public final int height;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@Export("xWidths")
 	public final int[] xWidths;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@Export("xStarts")
 	public final int[] xStarts;
 
@@ -36,10 +39,10 @@ public class SpriteMask extends DualNode {
 		this.xStarts = var4;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(III)Z",
-		garbageValue = "152224212"
+		garbageValue = "1206229207"
 	)
 	@Export("contains")
 	public boolean contains(int var1, int var2) {
@@ -51,14 +54,5 @@ public class SpriteMask extends DualNode {
 		}
 
 		return false;
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "-1301851589"
-	)
-	public static int method6023(int var0) {
-		return var0 >> 17 & 7;
 	}
 }

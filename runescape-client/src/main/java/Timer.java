@@ -1,231 +1,181 @@
-import java.util.ArrayList;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("py")
+@ObfuscatedName("qn")
 @Implements("Timer")
 public class Timer {
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		longValue = 6454939314304867917L
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lfc;"
 	)
-	long field4564;
-	@ObfuscatedName("ae")
-	@ObfuscatedGetter(
-		longValue = -7356339213300068871L
-	)
-	long field4563;
-	@ObfuscatedName("ao")
-	public boolean field4568;
+	static ClanSettings field4599;
 	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		longValue = 8401720768134439495L
+		longValue = -5918236800932361813L
 	)
-	long field4565;
-	@ObfuscatedName("ac")
+	long field4600;
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		longValue = -287005139873916205L
+		longValue = 8938502343300443105L
 	)
-	long field4566;
-	@ObfuscatedName("ai")
+	long field4595;
+	@ObfuscatedName("ar")
+	public boolean field4596;
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		longValue = 1145719069338779159L
+		longValue = 2558513201177713L
 	)
-	long field4572;
-	@ObfuscatedName("az")
+	long field4597;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -264016203
+		longValue = 6748223924929752003L
 	)
-	int field4567;
-	@ObfuscatedName("ap")
+	long field4598;
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 436925731
+		longValue = 6630723275566090897L
 	)
-	int field4569;
+	long field4594;
 	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -1568859201
+		intValue = 1431337855
 	)
-	int field4570;
-	@ObfuscatedName("af")
+	int field4602;
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 140876143
+		intValue = -472244753
 	)
-	int field4571;
+	int field4605;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = -1263861047
+	)
+	int field4604;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = 2108065449
+	)
+	int field4603;
 
 	public Timer() {
-		this.field4564 = -1L;
-		this.field4563 = -1L;
-		this.field4568 = false;
-		this.field4565 = 0L;
-		this.field4566 = 0L;
-		this.field4572 = 0L;
-		this.field4567 = 0;
-		this.field4569 = 0;
-		this.field4570 = 0;
-		this.field4571 = 0;
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(S)V",
-		garbageValue = "8457"
-	)
-	public void method7683() {
-		this.field4564 = GameEngine.method661();
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1934849344"
-	)
-	public void method7702() {
-		if (-1L != this.field4564) {
-			this.field4566 = GameEngine.method661() - this.field4564;
-			this.field4564 = -1L;
-		}
-
-	}
-
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-350362388"
-	)
-	public void method7685(int var1) {
-		this.field4563 = GameEngine.method661();
-		this.field4567 = var1;
+		this.field4600 = -1L;
+		this.field4595 = -1L;
+		this.field4596 = false;
+		this.field4597 = 0L;
+		this.field4598 = 0L;
+		this.field4594 = 0L;
+		this.field4602 = 0;
+		this.field4605 = 0;
+		this.field4604 = 0;
+		this.field4603 = 0;
 	}
 
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1654604746"
+		garbageValue = "919653710"
 	)
-	public void method7686() {
-		if (-1L != this.field4563) {
-			this.field4565 = GameEngine.method661() - this.field4563;
-			this.field4563 = -1L;
+	public void method7923() {
+		this.field4600 = SpotAnimationDefinition.method3775();
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "587956368"
+	)
+	public void method7924() {
+		if (this.field4600 != -1L) {
+			this.field4598 = SpotAnimationDefinition.method3775() - this.field4600;
+			this.field4600 = -1L;
 		}
 
-		++this.field4570;
-		this.field4568 = true;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "1512116667"
+	)
+	public void method7931(int var1) {
+		this.field4595 = SpotAnimationDefinition.method3775();
+		this.field4602 = var1;
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-7"
+	)
+	public void method7926() {
+		if (-1L != this.field4595) {
+			this.field4597 = SpotAnimationDefinition.method3775() - this.field4595;
+			this.field4595 = -1L;
+		}
+
+		++this.field4604;
+		this.field4596 = true;
+	}
+
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1332700570"
+		garbageValue = "2032251318"
 	)
-	public void method7687() {
-		this.field4568 = false;
-		this.field4569 = 0;
+	public void method7927() {
+		this.field4596 = false;
+		this.field4605 = 0;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1203645178"
+		descriptor = "(B)V",
+		garbageValue = "36"
 	)
-	public void method7682() {
-		this.method7686();
+	public void method7928() {
+		this.method7926();
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "-1131300040"
+		descriptor = "(Luj;I)V",
+		garbageValue = "221618490"
 	)
 	@Export("write")
 	public void write(Buffer var1) {
-		ClientPreferences.method2464(var1, this.field4566);
-		ClientPreferences.method2464(var1, this.field4565);
-		ClientPreferences.method2464(var1, this.field4572);
-		var1.writeShort(this.field4567);
-		var1.writeShort(this.field4569);
-		var1.writeShort(this.field4570);
-		var1.writeShort(this.field4571);
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(Lnu;Lnu;ZII)V",
-		garbageValue = "-487590023"
-	)
-	static void method7688(AbstractArchive var0, AbstractArchive var1, boolean var2, int var3) {
-		if (class403.clearLoginScreen) {
-			if (var3 == 4) {
-				PcmPlayer.method838(4);
-			}
-
-		} else {
-			if (var3 == 0) {
-				WorldMapAreaData.method5584(var2);
-			} else {
-				PcmPlayer.method838(var3);
-			}
-
-			Rasterizer2D.Rasterizer2D_clear();
-			byte[] var4 = var0.takeFileByNames("title.jpg", "");
-			Login.leftTitleSprite = WorldMapData_1.method5347(var4);
-			Bounds.rightTitleSprite = Login.leftTitleSprite.mirrorHorizontally();
-			int var5 = Client.worldProperties;
-			if ((var5 & class510.field5090.rsOrdinal()) != 0) {
-				SoundSystem.logoSprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "logo_deadman_mode", "");
-			} else if ((var5 & class510.field5091.rsOrdinal()) != 0) {
-				SoundSystem.logoSprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "logo_seasonal_mode", "");
-			} else if ((var5 & class510.field5069.rsOrdinal()) != 0) {
-				SoundSystem.logoSprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "logo_speedrunning", "");
-			} else {
-				SoundSystem.logoSprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "logo", "");
-			}
-
-			Login.titleboxSprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "titlebox", "");
-			class219.titlebuttonSprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "titlebutton", "");
-			Login.field933 = class172.SpriteBuffer_getIndexedSpriteByName(var1, "titlebutton_large", "");
-			ItemContainer.field1068 = class172.SpriteBuffer_getIndexedSpriteByName(var1, "play_now_text", "");
-			class172.SpriteBuffer_getIndexedSpriteByName(var1, "titlebutton_wide42,1", "");
-			Login.runesSprite = class219.method4261(var1, "runes", "");
-			class13.title_muteSprite = class219.method4261(var1, "title_mute", "");
-			Login.options_buttons_0Sprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "options_radio_buttons,0", "");
-			Skills.field3850 = class172.SpriteBuffer_getIndexedSpriteByName(var1, "options_radio_buttons,4", "");
-			UserComparator6.options_buttons_2Sprite = class172.SpriteBuffer_getIndexedSpriteByName(var1, "options_radio_buttons,2", "");
-			VerticalAlignment.field2083 = class172.SpriteBuffer_getIndexedSpriteByName(var1, "options_radio_buttons,6", "");
-			class136.field1615 = Login.options_buttons_0Sprite.subWidth;
-			User.field4657 = Login.options_buttons_0Sprite.subHeight;
-			class139.loginScreenRunesAnimation = new LoginScreenAnimation(Login.runesSprite);
-			if (var2) {
-				Login.Login_username = "";
-				Login.Login_password = "";
-				Login.field954 = new String[8];
-				Login.field951 = 0;
-			}
-
-			class503.field5039 = 0;
-			class369.otp = "";
-			Login.field956 = true;
-			Login.worldSelectOpen = false;
-			if (!class449.clientPreferences.method2484()) {
-				ArrayList var6 = new ArrayList();
-				var6.add(new MusicSong(class385.archive6, "scape main", "", 255, false));
-				class53.method1097(var6, 0, 0, 0, 100, false);
-			} else {
-				Script.method2180(0, 0);
-			}
-
-			UrlRequester.method2829();
-			CollisionMap.method4177().method6793(false);
-			class403.clearLoginScreen = true;
-			Login.xPadding = (class113.canvasWidth - 765) / 2;
-			Login.loginBoxX = Login.xPadding + 202;
-			class452.loginBoxCenter = Login.loginBoxX + 180;
-			Login.leftTitleSprite.drawAt(Login.xPadding, 0);
-			Bounds.rightTitleSprite.drawAt(Login.xPadding + 382, 0);
-			SoundSystem.logoSprite.drawAt(Login.xPadding + 382 - SoundSystem.logoSprite.subWidth / 2, 18);
+		long var2 = this.field4598;
+		var2 /= 10L;
+		if (var2 < 0L) {
+			var2 = 0L;
+		} else if (var2 > 65535L) {
+			var2 = 65535L;
 		}
+
+		var1.writeShort((int)var2);
+		long var4 = this.field4597;
+		var4 /= 10L;
+		if (var4 < 0L) {
+			var4 = 0L;
+		} else if (var4 > 65535L) {
+			var4 = 65535L;
+		}
+
+		var1.writeShort((int)var4);
+		long var6 = this.field4594;
+		var6 /= 10L;
+		if (var6 < 0L) {
+			var6 = 0L;
+		} else if (var6 > 65535L) {
+			var6 = 65535L;
+		}
+
+		var1.writeShort((int)var6);
+		var1.writeShort(this.field4602);
+		var1.writeShort(this.field4605);
+		var1.writeShort(this.field4604);
+		var1.writeShort(this.field4603);
 	}
 }

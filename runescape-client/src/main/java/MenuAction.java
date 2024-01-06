@@ -3,91 +3,79 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("cz")
+@ObfuscatedName("cb")
 @Implements("MenuAction")
 public class MenuAction {
-	@ObfuscatedName("au")
+	@ObfuscatedName("ax")
+	@Export("Tiles_hueMultiplier")
+	static int[] Tiles_hueMultiplier;
+	@ObfuscatedName("cq")
+	static String field878;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1513396029
+		intValue = 445021513
 	)
 	@Export("param0")
 	int param0;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -76660391
+		intValue = -1332337083
 	)
 	@Export("param1")
 	int param1;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 362704459
+		intValue = 732979691
 	)
 	@Export("opcode")
 	int opcode;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -1921854171
+		intValue = 555130035
 	)
 	@Export("identifier")
 	int identifier;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 306205453
+		intValue = 1498864933
 	)
 	@Export("itemId")
 	int itemId;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@Export("action")
 	String action;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@Export("target")
 	String target;
 
 	MenuAction() {
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(III)V",
-		garbageValue = "1991089185"
+		descriptor = "(I)[Ldy;",
+		garbageValue = "-180597093"
 	)
-	public static final void method2083(int var0, int var1) {
-		ViewportMouse.ViewportMouse_x = var0;
-		ViewportMouse.ViewportMouse_y = var1;
-		ViewportMouse.ViewportMouse_isInViewport = true;
-		ViewportMouse.ViewportMouse_entityCount = 0;
-		ViewportMouse.ViewportMouse_false0 = false;
+	static AttackOption[] method2139() {
+		return new AttackOption[]{AttackOption.field1334, AttackOption.AttackOption_alwaysRightClick, AttackOption.AttackOption_hidden, AttackOption.AttackOption_dependsOnCombatLevels, AttackOption.field1337};
 	}
 
-	@ObfuscatedName("as")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(ILdh;ZB)I",
-		garbageValue = "64"
+		descriptor = "(Lol;II)V",
+		garbageValue = "1404218002"
 	)
-	static int method2084(int var0, Script var1, boolean var2) {
-		Widget var3 = class92.getWidget(Interpreter.Interpreter_intStack[--SoundCache.Interpreter_intStackSize]);
-		if (var0 == ScriptOpcodes.IF_GETX) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.x;
-			return 1;
-		} else if (var0 == ScriptOpcodes.IF_GETY) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.y;
-			return 1;
-		} else if (var0 == ScriptOpcodes.IF_GETWIDTH) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.width;
-			return 1;
-		} else if (var0 == ScriptOpcodes.IF_GETHEIGHT) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.height;
-			return 1;
-		} else if (var0 == ScriptOpcodes.IF_GETHIDE) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.isHidden ? 1 : 0;
-			return 1;
-		} else if (var0 == ScriptOpcodes.IF_GETLAYER) {
-			Interpreter.Interpreter_intStack[++SoundCache.Interpreter_intStackSize - 1] = var3.parentId;
-			return 1;
+	static void method2140(AbstractArchive var0, int var1) {
+		if ((var1 & class522.field5122.rsOrdinal()) != 0) {
+			Login.logoSprite = class313.SpriteBuffer_getIndexedSpriteByName(var0, "logo_deadman_mode", "");
+		} else if ((var1 & class522.field5123.rsOrdinal()) != 0) {
+			Login.logoSprite = class313.SpriteBuffer_getIndexedSpriteByName(var0, "logo_seasonal_mode", "");
+		} else if ((var1 & class522.field5094.rsOrdinal()) != 0) {
+			Login.logoSprite = class313.SpriteBuffer_getIndexedSpriteByName(var0, "logo_speedrunning", "");
 		} else {
-			return 2;
+			Login.logoSprite = class313.SpriteBuffer_getIndexedSpriteByName(var0, "logo", "");
 		}
+
 	}
 }

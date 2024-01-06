@@ -1,110 +1,126 @@
-import java.util.Arrays;
-import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("io")
+@ObfuscatedName("ib")
 public class class214 {
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lio;"
-	)
-	static final class214 field2382;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lio;"
-	)
-	static final class214 field2380;
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "Lio;"
-	)
-	public static final class214 field2381;
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lio;"
+		descriptor = "Lea;"
 	)
-	static final class214 field2379;
-	@ObfuscatedName("ac")
+	public UrlRequest field2303;
+	@ObfuscatedName("ah")
+	public float[] field2300;
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lio;"
+		descriptor = "Lic;"
 	)
-	static final class214 field2386;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lio;"
-	)
-	static final class214 field2384;
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Lio;"
-	)
-	static final class214 field2385;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "[Lio;"
-	)
-	static final class214[] field2387;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 408466643
-	)
-	final int field2390;
-	@ObfuscatedName("aa")
-	@ObfuscatedGetter(
-		intValue = -2057229633
-	)
-	public final int field2383;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = 357508901
-	)
-	public final int field2388;
+	final class208 this$0;
 
-	static {
-		field2382 = new class214(6, 8, 8);
-		field2380 = new class214(3, 16, 16);
-		field2381 = new class214(0, 32, 32);
-		field2379 = new class214(2, 48, 48);
-		field2386 = new class214(4, 64, 64);
-		field2384 = new class214(5, 96, 96);
-		field2385 = new class214(1, 128, 128);
-		field2387 = WorldMapID.method5495();
-		Arrays.sort(field2387, new class219());
+	@ObfuscatedSignature(
+		descriptor = "(Lic;)V"
+	)
+	class214(class208 var1) {
+		this.this$0 = var1;
+		this.field2300 = new float[4];
 	}
 
-	class214(int var1, int var2, int var3) {
-		this.field2390 = var1;
-		this.field2383 = var2;
-		this.field2388 = var3;
-	}
-
-	@ObfuscatedName("ae")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(S)I",
-		garbageValue = "-4502"
+		descriptor = "(II)Lhv;",
+		garbageValue = "-1391716385"
 	)
-	int method4178() {
-		return this.field2388 * this.field2383;
-	}
+	@Export("ItemDefinition_get")
+	public static ItemComposition ItemDefinition_get(int var0) {
+		ItemComposition var1 = (ItemComposition)ItemComposition.ItemDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = DbRowType.ItemDefinition_archive.takeFile(10, var0);
+			var1 = new ItemComposition();
+			var1.id = var0;
+			if (var2 != null) {
+				var1.decode(new Buffer(var2));
+			}
 
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1568434479"
-	)
-	public static void method4180() {
-		synchronized(ArchiveDiskActionHandler.field4259) {
-			if (ArchiveDiskActionHandler.field4257 != 0) {
-				ArchiveDiskActionHandler.field4257 = 1;
-				ArchiveDiskActionHandler.field4261 = true;
+			var1.post();
+			if (var1.noteTemplate != -1) {
+				var1.genCert(ItemDefinition_get(var1.noteTemplate), ItemDefinition_get(var1.note));
+			}
 
-				try {
-					ArchiveDiskActionHandler.field4259.wait();
-				} catch (InterruptedException var3) {
+			if (var1.notedId != -1) {
+				var1.genBought(ItemDefinition_get(var1.notedId), ItemDefinition_get(var1.unnotedId));
+			}
+
+			if (var1.placeholderTemplate != -1) {
+				var1.genPlaceholder(ItemDefinition_get(var1.placeholderTemplate), ItemDefinition_get(var1.placeholder));
+			}
+
+			if (!class129.ItemDefinition_inMembersWorld && var1.isMembersOnly) {
+				if (var1.noteTemplate == -1 && var1.notedId == -1 && var1.placeholderTemplate == -1) {
+					var1.name = var1.name + " (Members)";
+				}
+
+				var1.isTradable = false;
+
+				int var3;
+				for (var3 = 0; var3 < var1.groundActions.length; ++var3) {
+					var1.groundActions[var3] = null;
+				}
+
+				for (var3 = 0; var3 < var1.inventoryActions.length; ++var3) {
+					if (var3 != 4) {
+						var1.inventoryActions[var3] = null;
+					}
+				}
+
+				var1.shiftClickIndex = -2;
+				var1.team = 0;
+				if (var1.params != null) {
+					boolean var6 = false;
+
+					for (Node var4 = var1.params.first(); var4 != null; var4 = var1.params.next()) {
+						ParamComposition var5 = Frames.getParamDefinition((int)var4.key);
+						if (var5.autoDisable) {
+							var4.remove();
+						} else {
+							var6 = true;
+						}
+					}
+
+					if (!var6) {
+						var1.params = null;
+					}
 				}
 			}
 
+			ItemComposition.ItemDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-2138855763"
+	)
+	public static int method4227(int var0) {
+		return class314.field3402[var0];
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lrq;",
+		garbageValue = "1839119171"
+	)
+	public static class461 method4228() {
+		synchronized(class461.field4764) {
+			if (IgnoreList.field4663 == 0) {
+				return new class461();
+			} else {
+				class461.field4764[--IgnoreList.field4663].method8409();
+				return class461.field4764[IgnoreList.field4663];
+			}
 		}
 	}
 }

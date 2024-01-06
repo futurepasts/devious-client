@@ -1,7 +1,3 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
@@ -11,90 +7,92 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("ha")
 @Implements("SpotAnimationDefinition")
 public class SpotAnimationDefinition extends DualNode {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lnu;"
+		descriptor = "Lol;"
 	)
 	@Export("SpotAnimationDefinition_archive")
-	public static AbstractArchive SpotAnimationDefinition_archive;
-	@ObfuscatedName("ae")
+	static AbstractArchive SpotAnimationDefinition_archive;
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lnu;"
+		descriptor = "Lol;"
 	)
 	@Export("SpotAnimationDefinition_modelArchive")
-	public static AbstractArchive SpotAnimationDefinition_modelArchive;
-	@ObfuscatedName("ao")
+	static AbstractArchive SpotAnimationDefinition_modelArchive;
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Llk;"
 	)
 	@Export("SpotAnimationDefinition_cached")
 	public static EvictingDualNodeHashTable SpotAnimationDefinition_cached;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Llk;"
 	)
 	@Export("SpotAnimationDefinition_cachedModels")
 	public static EvictingDualNodeHashTable SpotAnimationDefinition_cachedModels;
-	@ObfuscatedName("sl")
-	@Export("ClanChat_inClanChat")
-	static boolean ClanChat_inClanChat;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("gm")
+	@ObfuscatedSignature(
+		descriptor = "Loh;"
+	)
+	static Archive field2007;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 1143254317
+		intValue = 1008653175
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 13212181
+		intValue = -1629473129
 	)
 	@Export("archive")
 	int archive;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -1431367329
+		intValue = -92053015
 	)
 	@Export("sequence")
 	public int sequence;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@Export("recolorFrom")
 	short[] recolorFrom;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@Export("recolorTo")
 	short[] recolorTo;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@Export("retextureFrom")
 	short[] retextureFrom;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@Export("retextureTo")
 	short[] retextureTo;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 2044410789
+		intValue = 1335565971
 	)
 	@Export("widthScale")
 	int widthScale;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = 1484714697
+		intValue = 214243153
 	)
 	@Export("heightScale")
 	int heightScale;
-	@ObfuscatedName("an")
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -1490600117
+		intValue = -1513265209
 	)
 	@Export("orientation")
 	int orientation;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 115934601
+		intValue = 1824679643
 	)
 	@Export("ambient")
 	int ambient;
-	@ObfuscatedName("ab")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 472229573
+		intValue = 1346787261
 	)
 	@Export("contrast")
 	int contrast;
@@ -113,10 +111,10 @@ public class SpotAnimationDefinition extends DualNode {
 		this.contrast = 0;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;B)V",
-		garbageValue = "127"
+		descriptor = "(Luj;I)V",
+		garbageValue = "-1590582359"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -132,8 +130,8 @@ public class SpotAnimationDefinition extends DualNode {
 
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;IB)V",
-		garbageValue = "83"
+		descriptor = "(Luj;IB)V",
+		garbageValue = "-22"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -177,17 +175,17 @@ public class SpotAnimationDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(II)Ljr;",
-		garbageValue = "620606809"
+		descriptor = "(IB)Lka;",
+		garbageValue = "-10"
 	)
 	@Export("getModel")
 	public final Model getModel(int var1) {
-		Model var2 = this.method3750();
+		Model var2 = this.method3766();
 		Model var3;
 		if (this.sequence != -1 && var1 != -1) {
-			var3 = EnumComposition.SequenceDefinition_get(this.sequence).transformSpotAnimationModel(var2, var1);
+			var3 = DynamicObject.SequenceDefinition_get(this.sequence).transformSpotAnimationModel(var2, var1);
 		} else {
 			var3 = var2.toSharedSpotAnimationModel(true);
 		}
@@ -216,12 +214,12 @@ public class SpotAnimationDefinition extends DualNode {
 		return var3;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ljr;",
-		garbageValue = "-10"
+		descriptor = "(B)Lka;",
+		garbageValue = "115"
 	)
-	public final Model method3750() {
+	public final Model method3766() {
 		Model var1 = (Model)SpotAnimationDefinition_cachedModels.get((long)this.id);
 		if (var1 == null) {
 			ModelData var2 = ModelData.ModelData_get(SpotAnimationDefinition_modelArchive, this.archive, 0);
@@ -249,29 +247,18 @@ public class SpotAnimationDefinition extends DualNode {
 		return var1;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/util/Date;",
-		garbageValue = "1382100876"
+		descriptor = "(B)J",
+		garbageValue = "43"
 	)
-	static Date method3765() throws ParseException {
-		SimpleDateFormat var0 = new SimpleDateFormat("ddMMyyyyHH", Locale.ENGLISH);
-		var0.setLenient(false);
-		StringBuilder var1 = new StringBuilder();
-		String[] var2 = Login.field954;
-
-		for (int var3 = 0; var3 < var2.length; ++var3) {
-			String var4 = var2[var3];
-			if (var4 == null) {
-				PcmPlayer.method838(7);
-				class318.setLoginResponseString("Date not valid.", "Please ensure all characters are populated.", "");
-				return null;
-			}
-
-			var1.append(var4);
+	public static final synchronized long method3775() {
+		long var0 = System.currentTimeMillis();
+		if (var0 < class312.field3394) {
+			class312.field3395 += class312.field3394 - var0;
 		}
 
-		var1.append("12");
-		return var0.parse(var1.toString());
+		class312.field3394 = var0;
+		return class312.field3395 + var0;
 	}
 }

@@ -3,16 +3,16 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("mo")
+@ObfuscatedName("nc")
 @Implements("Calendar")
 public class Calendar {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("MONTH_NAMES_ENGLISH_GERMAN")
 	public static final String[][] MONTH_NAMES_ENGLISH_GERMAN;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@Export("DAYS_OF_THE_WEEK")
 	public static final String[] DAYS_OF_THE_WEEK;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@Export("Calendar_calendar")
 	public static java.util.Calendar Calendar_calendar;
 

@@ -7,63 +7,57 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ez")
+@ObfuscatedName("es")
 public class class113 extends UrlRequester {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ch")
 	@ObfuscatedGetter(
-		intValue = 2047133239
+		intValue = -467021809
 	)
-	static int field1452;
-	@ObfuscatedName("as")
-	@ObfuscatedGetter(
-		intValue = -674991707
-	)
-	@Export("canvasWidth")
-	public static int canvasWidth;
-	@ObfuscatedName("ac")
-	final boolean field1451;
+	static int field1426;
+	@ObfuscatedName("ab")
+	final boolean field1423;
 
 	public class113(boolean var1, int var2) {
 		super(var2);
-		this.field1451 = var1;
+		this.field1423 = var1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Let;B)V",
-		garbageValue = "-114"
+		descriptor = "(Lea;I)V",
+		garbageValue = "422697771"
 	)
-	void vmethod2839(UrlRequest var1) throws IOException {
+	void vmethod2910(UrlRequest var1) throws IOException {
 		URLConnection var2 = null;
 		boolean var9 = false;
 
 		HttpURLConnection var12;
-		label135: {
-			label127: {
+		label136: {
+			label128: {
 				try {
-					label130: {
+					label131: {
 						var9 = true;
-						String var3 = var1.field1453.getProtocol();
+						String var3 = var1.field1429.getProtocol();
 						if (var3.equals("http")) {
-							var2 = this.method2835(var1);
+							var2 = this.method2911(var1);
 						} else {
 							if (!var3.equals("https")) {
-								var1.field1456 = UrlRequest.field1455;
+								var1.field1427 = UrlRequest.field1432;
 								var9 = false;
-								break label130;
+								break label131;
 							}
 
-							var2 = this.method2836(var1);
+							var2 = this.method2916(var1);
 						}
 
-						this.method2812(var2, var1);
+						this.method2890(var2, var1);
 						var9 = false;
-						break label135;
+						break label136;
 					}
 				} catch (IOException var10) {
-					var1.field1456 = UrlRequest.field1455;
+					var1.field1427 = UrlRequest.field1432;
 					var9 = false;
-					break label127;
+					break label128;
 				} finally {
 					if (var9) {
 						if (var2 != null && var2 instanceof HttpURLConnection) {
@@ -97,79 +91,62 @@ public class class113 extends UrlRequester {
 
 	}
 
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(Lea;I)Ljava/net/URLConnection;",
+		garbageValue = "-1165040742"
+	)
+	URLConnection method2911(UrlRequest var1) throws IOException {
+		URLConnection var2 = var1.field1429.openConnection();
+		this.method2905(var2);
+		return var2;
+	}
+
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(Lea;I)Ljava/net/URLConnection;",
+		garbageValue = "1061431523"
+	)
+	URLConnection method2916(UrlRequest var1) throws IOException {
+		HttpsURLConnection var2 = (HttpsURLConnection)var1.field1429.openConnection();
+		if (!this.field1423) {
+			if (class15.field69 == null) {
+				class15.field69 = new class15();
+			}
+
+			class15 var4 = class15.field69;
+			var2.setSSLSocketFactory(var4);
+		}
+
+		this.method2905(var2);
+		return var2;
+	}
+
 	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Let;B)Ljava/net/URLConnection;",
-		garbageValue = "46"
+		descriptor = "(Llq;Luy;I)Lld;",
+		garbageValue = "-133059507"
 	)
-	URLConnection method2835(UrlRequest var1) throws IOException {
-		URLConnection var2 = var1.field1453.openConnection();
-		this.method2823(var2);
-		return var2;
-	}
-
-	@ObfuscatedName("as")
-	@ObfuscatedSignature(
-		descriptor = "(Let;B)Ljava/net/URLConnection;",
-		garbageValue = "-94"
-	)
-	URLConnection method2836(UrlRequest var1) throws IOException {
-		HttpsURLConnection var2 = (HttpsURLConnection)var1.field1453.openConnection();
-		if (!this.field1451) {
-			var2.setSSLSocketFactory(class15.method179());
+	@Export("getPacketBufferNode")
+	public static PacketBufferNode getPacketBufferNode(ClientPacket var0, IsaacCipher var1) {
+		PacketBufferNode var2 = FaceNormal.method5512();
+		var2.clientPacket = var0;
+		var2.clientPacketLength = var0.length;
+		if (var2.clientPacketLength == -1) {
+			var2.packetBuffer = new PacketBuffer(260);
+		} else if (var2.clientPacketLength == -2) {
+			var2.packetBuffer = new PacketBuffer(10000);
+		} else if (var2.clientPacketLength <= 18) {
+			var2.packetBuffer = new PacketBuffer(20);
+		} else if (var2.clientPacketLength <= 98) {
+			var2.packetBuffer = new PacketBuffer(100);
+		} else {
+			var2.packetBuffer = new PacketBuffer(260);
 		}
 
-		this.method2823(var2);
+		var2.packetBuffer.setIsaacCipher(var1);
+		var2.packetBuffer.writeByteIsaac(var2.clientPacket.id);
+		var2.index = 0;
 		return var2;
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(I)[Lhe;",
-		garbageValue = "-242071193"
-	)
-	static HorizontalAlignment[] method2844() {
-		return new HorizontalAlignment[]{HorizontalAlignment.field2018, HorizontalAlignment.field2016, HorizontalAlignment.HorizontalAlignment_centered};
-	}
-
-	@ObfuscatedName("mn")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1761588634"
-	)
-	static void method2843() {
-		for (InterfaceParent var0 = (InterfaceParent)Client.interfaceParents.first(); var0 != null; var0 = (InterfaceParent)Client.interfaceParents.next()) {
-			int var1 = var0.group;
-			if (ModeWhere.loadInterface(var1)) {
-				boolean var2 = true;
-				Widget[] var3 = PacketBufferNode.Widget_interfaceComponents[var1];
-
-				int var4;
-				for (var4 = 0; var4 < var3.length; ++var4) {
-					if (var3[var4] != null) {
-						var2 = var3[var4].isIf3;
-						break;
-					}
-				}
-
-				if (!var2) {
-					var4 = (int)var0.key;
-					Widget var5 = class92.getWidget(var4);
-					if (var5 != null) {
-						class218.invalidateWidget(var5);
-					}
-				}
-			}
-		}
-
-	}
-
-	@ObfuscatedName("nw")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1946244652"
-	)
-	static final void method2845() {
-		Client.field732 = Client.cycleCntr;
 	}
 }

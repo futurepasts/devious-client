@@ -1,127 +1,138 @@
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nz")
+@ObfuscatedName("nw")
 public class class348 {
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(CB)B",
-		garbageValue = "73"
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = -1820269009
 	)
-	@Export("charToByteCp1252")
-	public static byte charToByteCp1252(char var0) {
-		byte var1;
-		if (var0 > 0 && var0 < 128 || var0 >= 160 && var0 <= 255) {
-			var1 = (byte)var0;
-		} else if (var0 == 8364) {
-			var1 = -128;
-		} else if (var0 == 8218) {
-			var1 = -126;
-		} else if (var0 == 402) {
-			var1 = -125;
-		} else if (var0 == 8222) {
-			var1 = -124;
-		} else if (var0 == 8230) {
-			var1 = -123;
-		} else if (var0 == 8224) {
-			var1 = -122;
-		} else if (var0 == 8225) {
-			var1 = -121;
-		} else if (var0 == 710) {
-			var1 = -120;
-		} else if (var0 == 8240) {
-			var1 = -119;
-		} else if (var0 == 352) {
-			var1 = -118;
-		} else if (var0 == 8249) {
-			var1 = -117;
-		} else if (var0 == 338) {
-			var1 = -116;
-		} else if (var0 == 381) {
-			var1 = -114;
-		} else if (var0 == 8216) {
-			var1 = -111;
-		} else if (var0 == 8217) {
-			var1 = -110;
-		} else if (var0 == 8220) {
-			var1 = -109;
-		} else if (var0 == 8221) {
-			var1 = -108;
-		} else if (var0 == 8226) {
-			var1 = -107;
-		} else if (var0 == 8211) {
-			var1 = -106;
-		} else if (var0 == 8212) {
-			var1 = -105;
-		} else if (var0 == 732) {
-			var1 = -104;
-		} else if (var0 == 8482) {
-			var1 = -103;
-		} else if (var0 == 353) {
-			var1 = -102;
-		} else if (var0 == 8250) {
-			var1 = -101;
-		} else if (var0 == 339) {
-			var1 = -100;
-		} else if (var0 == 382) {
-			var1 = -98;
-		} else if (var0 == 376) {
-			var1 = -97;
-		} else {
-			var1 = 63;
+	@Export("KitDefinition_fileCount")
+	public static int KitDefinition_fileCount;
+	@ObfuscatedName("pu")
+	@ObfuscatedGetter(
+		intValue = 592055015
+	)
+	@Export("selectedSpellWidget")
+	static int selectedSpellWidget;
+
+	@ObfuscatedName("jg")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIZB)V",
+		garbageValue = "-10"
+	)
+	@Export("setViewportShape")
+	static final void setViewportShape(int var0, int var1, int var2, int var3, boolean var4) {
+		if (var2 < 1) {
+			var2 = 1;
 		}
 
-		return var1;
+		if (var3 < 1) {
+			var3 = 1;
+		}
+
+		int var5 = var3 - 334;
+		int var6;
+		if (var5 < 0) {
+			var6 = Client.field760;
+		} else if (var5 >= 100) {
+			var6 = Client.field761;
+		} else {
+			var6 = (Client.field761 - Client.field760) * var5 / 100 + Client.field760;
+		}
+
+		int var7 = var3 * var6 * 512 / (var2 * 334);
+		int var8;
+		int var9;
+		short var10;
+		if (var7 < Client.field531) {
+			var10 = Client.field531;
+			var6 = var10 * var2 * 334 / (var3 * 512);
+			if (var6 > Client.field765) {
+				var6 = Client.field765;
+				var8 = var3 * var6 * 512 / (var10 * 334);
+				var9 = (var2 - var8) / 2;
+				if (var4) {
+					Rasterizer2D.Rasterizer2D_resetClip();
+					Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1, var9, var3, -16777216);
+					Rasterizer2D.Rasterizer2D_fillRectangle(var0 + var2 - var9, var1, var9, var3, -16777216);
+				}
+
+				var0 += var9;
+				var2 -= var9 * 2;
+			}
+		} else if (var7 > Client.field722) {
+			var10 = Client.field722;
+			var6 = var10 * var2 * 334 / (var3 * 512);
+			if (var6 < Client.field764) {
+				var6 = Client.field764;
+				var8 = var10 * var2 * 334 / (var6 * 512);
+				var9 = (var3 - var8) / 2;
+				if (var4) {
+					Rasterizer2D.Rasterizer2D_resetClip();
+					Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1, var2, var9, -16777216);
+					Rasterizer2D.Rasterizer2D_fillRectangle(var0, var3 + var1 - var9, var2, var9, -16777216);
+				}
+
+				var1 += var9;
+				var3 -= var9 * 2;
+			}
+		}
+
+		Client.viewportZoom = var3 * var6 / 334;
+		if (var2 != Client.viewportWidth || var3 != Client.viewportHeight) {
+			class102.method2743(var2, var3);
+		}
+
+		Client.viewportOffsetX = var0;
+		Client.viewportOffsetY = var1;
+		Client.viewportWidth = var2;
+		Client.viewportHeight = var3;
 	}
 
-	@ObfuscatedName("ih")
+	@ObfuscatedName("mz")
 	@ObfuscatedSignature(
-		descriptor = "(Lmi;III)V",
-		garbageValue = "1790851766"
+		descriptor = "(Lnn;I)V",
+		garbageValue = "1443967648"
 	)
-	@Export("checkIfMinimapClicked")
-	static final void checkIfMinimapClicked(Widget var0, int var1, int var2) {
-		if (Client.minimapState == 0 || Client.minimapState == 3) {
-			if (!Client.isMenuOpen && (MouseHandler.MouseHandler_lastButton == 1 || !PlayerCompositionColorTextureOverride.mouseCam && MouseHandler.MouseHandler_lastButton == 4)) {
-				SpriteMask var3 = var0.getSpriteMask(true);
-				if (var3 == null) {
-					return;
-				}
-
-				int var4 = MouseHandler.MouseHandler_lastPressedX - var1;
-				int var5 = MouseHandler.MouseHandler_lastPressedY - var2;
-				if (var3.contains(var4, var5)) {
-					var4 -= var3.width / 2;
-					var5 -= var3.height / 2;
-					int var6 = Client.camAngleY & 2047;
-					int var7 = Rasterizer3D.Rasterizer3D_sine[var6];
-					int var8 = Rasterizer3D.Rasterizer3D_cosine[var6];
-					int var9 = var8 * var4 + var7 * var5 >> 11;
-					int var10 = var8 * var5 - var7 * var4 >> 11;
-					int var11 = var9 + VarbitComposition.localPlayer.x >> 7;
-					int var12 = VarbitComposition.localPlayer.y - var10 >> 7;
-					PacketBufferNode var13 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.field3148, Client.packetWriter.isaacCipher);
-					var13.packetBuffer.writeByte(18);
-					var13.packetBuffer.writeShortAddLE(UrlRequester.baseX * 64 + var11);
-					var13.packetBuffer.writeShortAdd(class47.baseY * 64 + var12);
-					var13.packetBuffer.writeByteSub(Client.field674.method4120(82) ? (Client.field674.method4120(81) ? 2 : 1) : 0);
-					var13.packetBuffer.writeByte(var4);
-					var13.packetBuffer.writeByte(var5);
-					var13.packetBuffer.writeShort(Client.camAngleY);
-					var13.packetBuffer.writeByte(57);
-					var13.packetBuffer.writeByte(0);
-					var13.packetBuffer.writeByte(0);
-					var13.packetBuffer.writeByte(89);
-					var13.packetBuffer.writeShort(VarbitComposition.localPlayer.x);
-					var13.packetBuffer.writeShort(VarbitComposition.localPlayer.y);
-					var13.packetBuffer.writeByte(63);
-					Client.packetWriter.addNode(var13);
-					Client.destinationX = var11;
-					Client.destinationY = var12;
-				}
+	static final void method6831(Widget var0) {
+		int var1 = var0.contentType;
+		if (var1 == 324) {
+			if (Client.field774 == -1) {
+				Client.field774 = var0.spriteId2;
+				Client.field720 = var0.spriteId;
 			}
 
+			if (Client.playerAppearance.gender == 1) {
+				var0.spriteId2 = Client.field774;
+			} else {
+				var0.spriteId2 = Client.field720;
+			}
+
+		} else if (var1 == 325) {
+			if (Client.field774 == -1) {
+				Client.field774 = var0.spriteId2;
+				Client.field720 = var0.spriteId;
+			}
+
+			if (Client.playerAppearance.gender == 1) {
+				var0.spriteId2 = Client.field720;
+			} else {
+				var0.spriteId2 = Client.field774;
+			}
+
+		} else if (var1 == 327) {
+			var0.modelAngleX = 150;
+			var0.modelAngleY = (int)(Math.sin((double)Client.cycle / 40.0D) * 256.0D) & 2047;
+			var0.modelType = 5;
+			var0.modelId = 0;
+		} else if (var1 == 328) {
+			var0.modelAngleX = 150;
+			var0.modelAngleY = (int)(Math.sin((double)Client.cycle / 40.0D) * 256.0D) & 2047;
+			var0.modelType = 5;
+			var0.modelId = 1;
 		}
 	}
 }

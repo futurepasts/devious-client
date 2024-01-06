@@ -4,36 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rb")
+@ObfuscatedName("rv")
 @Implements("Bounds")
 public class Bounds {
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lui;"
-	)
-	@Export("rightTitleSprite")
-	static SpritePixels rightTitleSprite;
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1825313335
+		intValue = 174589721
 	)
 	@Export("lowX")
 	public int lowX;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -1685027045
+		intValue = 1766053499
 	)
 	@Export("lowY")
 	public int lowY;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -2074045623
+		intValue = 1385823071
 	)
 	@Export("highX")
 	public int highX;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 377886279
+		intValue = -453294997
 	)
 	@Export("highY")
 	public int highY;
@@ -47,10 +41,10 @@ public class Bounds {
 		this(0, 0, var1, var2);
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(IIB)V",
-		garbageValue = "14"
+		garbageValue = "20"
 	)
 	@Export("setLow")
 	public void setLow(int var1, int var2) {
@@ -58,10 +52,10 @@ public class Bounds {
 		this.lowY = var2;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "15"
+		descriptor = "(III)V",
+		garbageValue = "-1923662926"
 	)
 	@Export("setHigh")
 	public void setHigh(int var1, int var2) {
@@ -69,31 +63,31 @@ public class Bounds {
 		this.highY = var2;
 	}
 
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(III)Z",
+		garbageValue = "375775673"
+	)
+	public boolean method8373(int var1, int var2) {
+		return var1 >= this.lowX && var1 < this.highX + this.lowX && var2 >= this.lowY && var2 < this.highY + this.lowY;
+	}
+
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)Z",
-		garbageValue = "-32"
+		descriptor = "(Lrv;Lrv;I)V",
+		garbageValue = "-1398838147"
 	)
-	public boolean method8120(int var1, int var2) {
-		return var1 >= this.lowX && var1 < this.highX + this.lowX && var2 >= this.lowY && var2 < this.lowY + this.highY;
+	public void method8375(Bounds var1, Bounds var2) {
+		this.method8376(var1, var2);
+		this.method8377(var1, var2);
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(Lrb;Lrb;I)V",
-		garbageValue = "1929087402"
+		descriptor = "(Lrv;Lrv;I)V",
+		garbageValue = "497587597"
 	)
-	public void method8121(Bounds var1, Bounds var2) {
-		this.method8122(var1, var2);
-		this.method8123(var1, var2);
-	}
-
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "(Lrb;Lrb;I)V",
-		garbageValue = "-270985515"
-	)
-	void method8122(Bounds var1, Bounds var2) {
+	void method8376(Bounds var1, Bounds var2) {
 		var2.lowX = this.lowX;
 		var2.highX = this.highX;
 		if (this.lowX < var1.lowX) {
@@ -101,8 +95,8 @@ public class Bounds {
 			var2.lowX = var1.lowX;
 		}
 
-		if (var2.method8124() > var1.method8124()) {
-			var2.highX -= var2.method8124() - var1.method8124();
+		if (var2.method8389() > var1.method8389()) {
+			var2.highX -= var2.method8389() - var1.method8389();
 		}
 
 		if (var2.highX < 0) {
@@ -111,12 +105,12 @@ public class Bounds {
 
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(Lrb;Lrb;B)V",
-		garbageValue = "32"
+		descriptor = "(Lrv;Lrv;I)V",
+		garbageValue = "1262928810"
 	)
-	void method8123(Bounds var1, Bounds var2) {
+	void method8377(Bounds var1, Bounds var2) {
 		var2.lowY = this.lowY;
 		var2.highY = this.highY;
 		if (this.lowY < var1.lowY) {
@@ -124,8 +118,8 @@ public class Bounds {
 			var2.lowY = var1.lowY;
 		}
 
-		if (var2.method8149() > var1.method8149()) {
-			var2.highY -= var2.method8149() - var1.method8149();
+		if (var2.method8379() > var1.method8379()) {
+			var2.highY -= var2.method8379() - var1.method8379();
 		}
 
 		if (var2.highY < 0) {
@@ -134,69 +128,25 @@ public class Bounds {
 
 	}
 
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "109"
-	)
-	int method8124() {
-		return this.highX + this.lowX;
-	}
-
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1442366153"
+		garbageValue = "-222138556"
 	)
-	int method8149() {
+	int method8389() {
+		return this.lowX + this.highX;
+	}
+
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "578775229"
+	)
+	int method8379() {
 		return this.lowY + this.highY;
 	}
 
 	public String toString() {
 		return null;
-	}
-
-	@ObfuscatedName("nz")
-	@ObfuscatedSignature(
-		descriptor = "(Lmi;I)Z",
-		garbageValue = "703583258"
-	)
-	static final boolean method8135(Widget var0) {
-		int var1 = var0.contentType;
-		if (var1 == 205) {
-			Client.logoutTimer = 250;
-			return true;
-		} else {
-			int var2;
-			int var3;
-			if (var1 >= 300 && var1 <= 313) {
-				var2 = (var1 - 300) / 2;
-				var3 = var1 & 1;
-				Client.playerAppearance.changeAppearance(var2, var3 == 1);
-			}
-
-			if (var1 >= 314 && var1 <= 323) {
-				var2 = (var1 - 314) / 2;
-				var3 = var1 & 1;
-				Client.playerAppearance.method6065(var2, var3 == 1);
-			}
-
-			if (var1 == 324) {
-				Client.playerAppearance.method6084(0);
-			}
-
-			if (var1 == 325) {
-				Client.playerAppearance.method6084(1);
-			}
-
-			if (var1 == 326) {
-				PacketBufferNode var4 = ApproximateRouteStrategy.getPacketBufferNode(ClientPacket.field3168, Client.packetWriter.isaacCipher);
-				Client.playerAppearance.write(var4.packetBuffer);
-				Client.packetWriter.addNode(var4);
-				return true;
-			} else {
-				return false;
-			}
-		}
 	}
 }

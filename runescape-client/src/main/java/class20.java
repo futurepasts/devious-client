@@ -4,34 +4,41 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.util.Map;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("as")
+@ObfuscatedName("aw")
 public class class20 {
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = 1053019723
+	@ObfuscatedName("tk")
+	@ObfuscatedSignature(
+		descriptor = "Lqi;"
 	)
-	final int field104;
-	@ObfuscatedName("ae")
-	final Map field102;
-	@ObfuscatedName("ao")
-	final String field103;
+	@Export("friendsChat")
+	static FriendsChat friendsChat;
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = -303905233
+	)
+	final int field101;
+	@ObfuscatedName("ah")
+	final Map field97;
+	@ObfuscatedName("ar")
+	final String field99;
 
 	class20(String var1) {
-		this.field104 = 400;
-		this.field102 = null;
-		this.field103 = "";
+		this.field101 = 400;
+		this.field97 = null;
+		this.field99 = "";
 	}
 
 	class20(HttpURLConnection var1) throws IOException {
-		this.field104 = var1.getResponseCode();
+		this.field101 = var1.getResponseCode();
 		var1.getResponseMessage();
-		this.field102 = var1.getHeaderFields();
+		this.field97 = var1.getHeaderFields();
 		StringBuilder var2 = new StringBuilder();
-		InputStream var3 = this.field104 >= 300 ? var1.getErrorStream() : var1.getInputStream();
+		InputStream var3 = this.field101 >= 300 ? var1.getErrorStream() : var1.getInputStream();
 		if (var3 != null) {
 			InputStreamReader var4 = new InputStreamReader(var3);
 			BufferedReader var5 = new BufferedReader(var4);
@@ -44,90 +51,78 @@ public class class20 {
 			var3.close();
 		}
 
-		this.field103 = var2.toString();
+		this.field99 = var2.toString();
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(S)I",
-		garbageValue = "20873"
+		descriptor = "(B)I",
+		garbageValue = "3"
 	)
-	public int method296() {
-		return this.field104;
+	public int method297() {
+		return this.field101;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ljava/util/Map;",
-		garbageValue = "105"
+		descriptor = "(I)Ljava/util/Map;",
+		garbageValue = "1360391754"
 	)
-	public Map method298() {
-		return this.field102;
+	public Map method301() {
+		return this.field97;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "1529858789"
+		garbageValue = "-541639855"
 	)
 	public String method299() {
-		return this.field103;
+		return this.field99;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ax")
 	@ObfuscatedSignature(
-		descriptor = "(IB)V",
-		garbageValue = "1"
+		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
+		garbageValue = "564353501"
 	)
-	public static void method301(int var0) {
-		MouseHandler.MouseHandler_idleCycles = var0;
-	}
+	public static String method303(String var0) {
+		int var1 = var0.length();
+		char[] var2 = new char[var1];
+		byte var3 = 2;
 
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(Lto;B)I",
-		garbageValue = "103"
-	)
-	static int method305(PacketBuffer var0) {
-		int var1 = var0.readBits(2);
-		int var2;
-		if (var1 == 0) {
-			var2 = 0;
-		} else if (var1 == 1) {
-			var2 = var0.readBits(5);
-		} else if (var1 == 2) {
-			var2 = var0.readBits(8);
-		} else {
-			var2 = var0.readBits(11);
+		for (int var4 = 0; var4 < var1; ++var4) {
+			char var5 = var0.charAt(var4);
+			if (var3 == 0) {
+				var5 = Character.toLowerCase(var5);
+			} else if (var3 == 2 || Character.isUpperCase(var5)) {
+				char var6;
+				if (var5 != 181 && var5 != 402) {
+					var6 = Character.toTitleCase(var5);
+				} else {
+					var6 = var5;
+				}
+
+				var5 = var6;
+			}
+
+			if (Character.isLetter(var5)) {
+				var3 = 0;
+			} else if (var5 != '.' && var5 != '?' && var5 != '!') {
+				if (Character.isSpaceChar(var5)) {
+					if (var3 != 2) {
+						var3 = 1;
+					}
+				} else {
+					var3 = 1;
+				}
+			} else {
+				var3 = 2;
+			}
+
+			var2[var4] = var5;
 		}
 
-		return var2;
-	}
-
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "(Lnu;Ljava/lang/String;Ljava/lang/String;I)[Lui;",
-		garbageValue = "-1440236039"
-	)
-	public static SpritePixels[] method303(AbstractArchive var0, String var1, String var2) {
-		if (!var0.isValidFileName(var1, var2)) {
-			return null;
-		} else {
-			int var3 = var0.getGroupId(var1);
-			int var4 = var0.getFileId(var3, var2);
-			return WorldMapArchiveLoader.method8495(var0, var3, var4);
-		}
-	}
-
-	@ObfuscatedName("ms")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-911724199"
-	)
-	static final void method304(int var0) {
-		var0 = Math.max(Math.min(var0, 100), 0);
-		var0 = 100 - var0;
-		float var1 = 0.5F + (float)var0 / 200.0F;
-		HealthBarUpdate.method2410((double)var1);
+		return new String(var2);
 	}
 }

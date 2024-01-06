@@ -6,33 +6,33 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ru")
+@ObfuscatedName("rg")
 @Implements("ArchiveDisk")
 public final class ArchiveDisk {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@Export("ArchiveDisk_buffer")
 	static byte[] ArchiveDisk_buffer;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Ltd;"
+		descriptor = "Ltr;"
 	)
 	@Export("datFile")
 	BufferedFile datFile;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "Ltd;"
+		descriptor = "Ltr;"
 	)
 	@Export("idxFile")
 	BufferedFile idxFile;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 794693601
+		intValue = 1786214069
 	)
 	@Export("archive")
 	int archive;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 250672189
+		intValue = -344423011
 	)
 	@Export("maxEntrySize")
 	int maxEntrySize;
@@ -42,7 +42,7 @@ public final class ArchiveDisk {
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(ILtd;Ltd;I)V"
+		descriptor = "(ILtr;Ltr;I)V"
 	)
 	public ArchiveDisk(int var1, BufferedFile var2, BufferedFile var3, int var4) {
 		this.datFile = null;
@@ -54,10 +54,10 @@ public final class ArchiveDisk {
 		this.maxEntrySize = var4;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(II)[B",
-		garbageValue = "1248586811"
+		descriptor = "(IB)[B",
+		garbageValue = "1"
 	)
 	@Export("read")
 	public byte[] read(int var1) {
@@ -102,7 +102,7 @@ public final class ArchiveDisk {
 								}
 
 								var13 = 10;
-								this.datFile.read(ArchiveDisk_buffer, 0, var8 + var13);
+								this.datFile.read(ArchiveDisk_buffer, 0, var13 + var8);
 								var9 = ((ArchiveDisk_buffer[1] & 255) << 16) + ((ArchiveDisk_buffer[0] & 255) << 24) + (ArchiveDisk_buffer[3] & 255) + ((ArchiveDisk_buffer[2] & 255) << 8);
 								var10 = (ArchiveDisk_buffer[5] & 255) + ((ArchiveDisk_buffer[4] & 255) << 8);
 								var11 = (ArchiveDisk_buffer[8] & 255) + ((ArchiveDisk_buffer[7] & 255) << 8) + ((ArchiveDisk_buffer[6] & 255) << 16);
@@ -113,7 +113,7 @@ public final class ArchiveDisk {
 								}
 
 								var13 = 8;
-								this.datFile.read(ArchiveDisk_buffer, 0, var13 + var8);
+								this.datFile.read(ArchiveDisk_buffer, 0, var8 + var13);
 								var9 = (ArchiveDisk_buffer[1] & 255) + ((ArchiveDisk_buffer[0] & 255) << 8);
 								var10 = (ArchiveDisk_buffer[3] & 255) + ((ArchiveDisk_buffer[2] & 255) << 8);
 								var11 = ((ArchiveDisk_buffer[5] & 255) << 8) + ((ArchiveDisk_buffer[4] & 255) << 16) + (ArchiveDisk_buffer[6] & 255);
@@ -151,10 +151,10 @@ public final class ArchiveDisk {
 		}
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I[BIB)Z",
-		garbageValue = "-86"
+		descriptor = "(I[BII)Z",
+		garbageValue = "-1602122838"
 	)
 	@Export("write")
 	public boolean write(int var1, byte[] var2, int var3) {
@@ -172,10 +172,10 @@ public final class ArchiveDisk {
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(I[BIZI)Z",
-		garbageValue = "-1401240217"
+		descriptor = "(I[BIZB)Z",
+		garbageValue = "-47"
 	)
 	@Export("write0")
 	boolean write0(int var1, byte[] var2, int var3, boolean var4) {
@@ -216,7 +216,7 @@ public final class ArchiveDisk {
 
 				while (true) {
 					if (var7 < var3) {
-						label170: {
+						label172: {
 							int var9 = 0;
 							int var10;
 							if (var4) {
@@ -227,7 +227,7 @@ public final class ArchiveDisk {
 									try {
 										this.datFile.read(ArchiveDisk_buffer, 0, 10);
 									} catch (EOFException var17) {
-										break label170;
+										break label172;
 									}
 
 									var10 = ((ArchiveDisk_buffer[1] & 255) << 16) + ((ArchiveDisk_buffer[0] & 255) << 24) + (ArchiveDisk_buffer[3] & 255) + ((ArchiveDisk_buffer[2] & 255) << 8);
@@ -238,7 +238,7 @@ public final class ArchiveDisk {
 									try {
 										this.datFile.read(ArchiveDisk_buffer, 0, 8);
 									} catch (EOFException var16) {
-										break label170;
+										break label172;
 									}
 
 									var10 = (ArchiveDisk_buffer[1] & 255) + ((ArchiveDisk_buffer[0] & 255) << 8);
@@ -265,7 +265,7 @@ public final class ArchiveDisk {
 									++var9;
 								}
 
-								if (var9 == var6) {
+								if (var6 == var9) {
 									++var9;
 								}
 							}
@@ -307,7 +307,7 @@ public final class ArchiveDisk {
 								ArchiveDisk_buffer[5] = (byte)(var9 >> 8);
 								ArchiveDisk_buffer[6] = (byte)var9;
 								ArchiveDisk_buffer[7] = (byte)this.archive;
-								this.datFile.seek(520L * (long)var6);
+								this.datFile.seek((long)var6 * 520L);
 								this.datFile.write(ArchiveDisk_buffer, 0, 8);
 								var10 = var3 - var7;
 								if (var10 > 512) {
@@ -335,29 +335,5 @@ public final class ArchiveDisk {
 
 	public String toString() {
 		return "" + this.archive;
-	}
-
-	@ObfuscatedName("hs")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1458737660"
-	)
-	@Export("logOut")
-	static final void logOut() {
-		Client.packetWriter.close();
-		Tiles.method2229();
-		class130.scene.clear();
-
-		for (int var0 = 0; var0 < 4; ++var0) {
-			Client.collisionMaps[var0].clear();
-		}
-
-		Client.field765.method4092();
-		System.gc();
-		Script.method2180(0, 0);
-		UrlRequester.method2829();
-		Client.playingJingle = false;
-		class388.method7220();
-		MusicSong.updateGameState(10);
 	}
 }

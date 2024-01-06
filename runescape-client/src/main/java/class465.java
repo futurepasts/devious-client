@@ -1,21 +1,55 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rw")
-public class class465 {
-	@ObfuscatedName("al")
-	static final int[] field4793;
-	@ObfuscatedName("an")
-	static final int[] field4789;
+@ObfuscatedName("ru")
+public enum class465 implements Enum
+{
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lru;"
+	)
+	field4789(1, 1),
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lru;"
+	)
+	field4792(0, 2),
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Lru;"
+	)
+	field4788(3, 3),
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lru;"
+	)
+	field4790(2, 10);
 
-	static {
-		field4793 = new int[2048];
-		field4789 = new int[2048];
-		double var0 = 0.0030679615757712823D;
+	@ObfuscatedName("ab")
+	@ObfuscatedGetter(
+		intValue = 1389347181
+	)
+	final int field4791;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = 595331113
+	)
+	final int field4793;
 
-		for (int var2 = 0; var2 < 2048; ++var2) {
-			field4793[var2] = (int)(65536.0D * Math.sin(var0 * (double)var2));
-			field4789[var2] = (int)(65536.0D * Math.cos((double)var2 * var0));
-		}
+	class465(int var3, int var4) {
+		this.field4791 = var3;
+		this.field4793 = var4;
+	}
 
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-11"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field4793;
 	}
 }

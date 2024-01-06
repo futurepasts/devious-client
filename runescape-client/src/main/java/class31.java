@@ -1,59 +1,49 @@
 import java.applet.Applet;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bd")
+@ObfuscatedName("bf")
 public class class31 {
-	@ObfuscatedName("ug")
-	@ObfuscatedGetter(
-		intValue = -2034353787
+	@ObfuscatedName("at")
+	static Applet field158;
+	@ObfuscatedName("ah")
+	static String field157;
+	@ObfuscatedName("kp")
+	@ObfuscatedSignature(
+		descriptor = "[Lup;"
 	)
-	static int field173;
-	@ObfuscatedName("au")
-	static Applet field170;
-	@ObfuscatedName("ae")
-	static String field169;
+	@Export("scrollBarSprites")
+	static IndexedSprite[] scrollBarSprites;
 
 	static {
-		field170 = null;
-		field169 = "";
+		field158 = null;
+		field157 = "";
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)V",
-		garbageValue = "1834627338"
+		descriptor = "(IIII)I",
+		garbageValue = "978522160"
 	)
-	static final void method466(String var0) {
-		UserComparator8.method2870(var0 + " is already on your ignore list");
-	}
-
-	@ObfuscatedName("bj")
-	@ObfuscatedSignature(
-		descriptor = "(Lbw;I)V",
-		garbageValue = "-1174367966"
-	)
-	@Export("PcmStream_disable")
-	static final void PcmStream_disable(PcmStream var0) {
-		var0.active = false;
-		if (var0.sound != null) {
-			var0.sound.position = 0;
+	public static int method469(int var0, int var1, int var2) {
+		var2 &= 3;
+		if (var2 == 0) {
+			return var0;
+		} else if (var2 == 1) {
+			return var1;
+		} else {
+			return var2 == 2 ? 7 - var0 : 7 - var1;
 		}
-
-		for (PcmStream var1 = var0.firstSubStream(); var1 != null; var1 = var0.nextSubStream()) {
-			PcmStream_disable(var1);
-		}
-
 	}
 
-	@ObfuscatedName("bt")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(ILdh;ZS)I",
-		garbageValue = "385"
+		descriptor = "(IB)Lco;",
+		garbageValue = "67"
 	)
-	static int method461(int var0, Script var1, boolean var2) {
-		return 2;
+	@Export("Messages_getMessage")
+	static Message Messages_getMessage(int var0) {
+		return (Message)Messages.Messages_hashTable.get((long)var0);
 	}
 }

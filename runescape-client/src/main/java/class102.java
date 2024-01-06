@@ -1,271 +1,159 @@
+import java.util.ArrayList;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("de")
+@ObfuscatedName("dj")
 public class class102 {
-	@ObfuscatedName("bc")
+	@ObfuscatedName("tl")
 	@ObfuscatedSignature(
-		descriptor = "Lrb;"
+		descriptor = "Luz;"
 	)
-	static Bounds field1343;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = -404137777
-	)
-	int field1347;
-	@ObfuscatedName("ae")
-	@ObfuscatedGetter(
-		intValue = -184686117
-	)
-	int field1349;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 519228135
-	)
-	int field1344;
+	@Export("sceneMinimapSprite")
+	static SpritePixels sceneMinimapSprite;
 	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -1506450929
+		intValue = 1867358049
 	)
-	int field1345;
+	int field1331;
+	@ObfuscatedName("ah")
+	@ObfuscatedGetter(
+		intValue = -774659485
+	)
+	int field1326;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = -1791518877
+	)
+	int field1327;
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = -1398606761
+	)
+	int field1325;
 
 	class102(int var1, int var2, int var3, int var4) {
-		this.field1347 = var1;
-		this.field1349 = var2;
-		this.field1344 = var3;
-		this.field1345 = var4;
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "-92"
-	)
-	int method2658() {
-		return this.field1347;
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "93"
-	)
-	int method2661() {
-		return this.field1349;
-	}
-
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-806640725"
-	)
-	int method2652() {
-		return this.field1344;
+		this.field1331 = var1;
+		this.field1326 = var2;
+		this.field1327 = var3;
+		this.field1325 = var4;
 	}
 
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1075721841"
+		garbageValue = "664232090"
 	)
-	int method2647() {
-		return this.field1345;
+	int method2734() {
+		return this.field1331;
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IIZI)Ljava/lang/String;",
-		garbageValue = "-880794678"
+		descriptor = "(I)I",
+		garbageValue = "1580269670"
 	)
-	static String method2663(int var0, int var1, boolean var2) {
-		if (var1 >= 2 && var1 <= 36) {
-			if (var2 && var0 >= 0) {
-				int var3 = 2;
+	int method2730() {
+		return this.field1326;
+	}
 
-				for (int var4 = var0 / var1; var4 != 0; ++var3) {
-					var4 /= var1;
-				}
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-21"
+	)
+	int method2731() {
+		return this.field1327;
+	}
 
-				char[] var5 = new char[var3];
-				var5[0] = '+';
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "1"
+	)
+	int method2732() {
+		return this.field1325;
+	}
 
-				for (int var6 = var3 - 1; var6 > 0; --var6) {
-					int var7 = var0;
-					var0 /= var1;
-					int var8 = var7 - var0 * var1;
-					if (var8 >= 10) {
-						var5[var6] = (char)(var8 + 87);
-					} else {
-						var5[var6] = (char)(var8 + 48);
-					}
-				}
-
-				return new String(var5);
-			} else {
-				return Integer.toString(var0, var1);
-			}
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lko;",
+		garbageValue = "-1983844659"
+	)
+	@Export("getFrames")
+	static Frames getFrames(int var0) {
+		Frames var1 = (Frames)SequenceDefinition.SequenceDefinition_cachedFrames.get((long)var0);
+		if (var1 != null) {
+			return var1;
 		} else {
-			throw new IllegalArgumentException("" + var1);
+			var1 = class135.method3151(SequenceDefinition.SequenceDefinition_animationsArchive, SequenceDefinition.SequenceDefinition_skeletonsArchive, var0, false);
+			if (var1 != null) {
+				SequenceDefinition.SequenceDefinition_cachedFrames.put(var1, (long)var0);
+			}
+
+			return var1;
 		}
 	}
 
-	@ObfuscatedName("ke")
+	@ObfuscatedName("hk")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIII)V",
-		garbageValue = "-2114213929"
+		descriptor = "(III)V",
+		garbageValue = "-1556654633"
 	)
-	@Export("drawObject")
-	static final void drawObject(int var0, int var1, int var2, int var3, int var4) {
-		long var5 = class130.scene.getBoundaryObjectTag(var0, var1, var2);
-		int var7;
-		int var8;
-		int var9;
-		int var10;
-		int var14;
-		int var26;
-		if (0L != var5) {
-			var7 = class130.scene.getObjectFlags(var0, var1, var2, var5);
-			var8 = var7 >> 6 & 3;
-			var9 = var7 & 31;
-			var10 = var3;
-			boolean var12 = 0L != var5;
-			if (var12) {
-				boolean var13 = (int)(var5 >>> 16 & 1L) == 1;
-				var12 = !var13;
-			}
+	static void method2743(int var0, int var1) {
+		int[] var2 = new int[9];
 
-			if (var12) {
-				var10 = var4;
-			}
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			int var4 = var3 * 32 + 15 + 128;
+			int var5 = class158.method3414(var4);
+			int var6 = Rasterizer3D.Rasterizer3D_sine[var4];
+			var5 = class395.method7401(var5, var1);
+			var2[var3] = var5 * var6 >> 16;
+		}
 
-			int[] var19 = AbstractUserComparator.sceneMinimapSprite.pixels;
-			var26 = var1 * 4 + (103 - var2) * 2048 + 24624;
-			var14 = InvDefinition.Entity_unpackID(var5);
-			ObjectComposition var15 = WorldMapElement.getObjectDefinition(var14);
-			if (var15.mapSceneId != -1) {
-				IndexedSprite var16 = class299.mapSceneSprites[var15.mapSceneId];
-				if (var16 != null) {
-					int var17 = (var15.sizeX * 4 - var16.subWidth) / 2;
-					int var18 = (var15.sizeY * 4 - var16.subHeight) / 2;
-					var16.drawAt(var17 + var1 * 4 + 48, (104 - var2 - var15.sizeY) * 4 + var18 + 48);
-				}
+		Scene.Scene_buildVisiblityMap(var2, 500, 800, var0 * 334 / var1, 334);
+	}
+
+	@ObfuscatedName("he")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-702066776"
+	)
+	static final void method2728() {
+		if (MusicPatchPcmStream.pcmPlayer1 != null) {
+			MusicPatchPcmStream.pcmPlayer1.run();
+		}
+
+	}
+
+	@ObfuscatedName("iv")
+	@ObfuscatedSignature(
+		descriptor = "(IB)V",
+		garbageValue = "-100"
+	)
+	@Export("playSong")
+	static void playSong(int var0) {
+		if (var0 == -1 && !Client.playingJingle) {
+			WorldMapRenderer.method4769(0, 0);
+		} else if (var0 != -1) {
+			boolean var1;
+			if (class316.field3424.isEmpty()) {
+				var1 = false;
 			} else {
-				if (var9 == 0 || var9 == 2) {
-					if (var8 == 0) {
-						var19[var26] = var10;
-						var19[var26 + 512] = var10;
-						var19[var26 + 1024] = var10;
-						var19[var26 + 1536] = var10;
-					} else if (var8 == 1) {
-						var19[var26] = var10;
-						var19[var26 + 1] = var10;
-						var19[var26 + 2] = var10;
-						var19[var26 + 3] = var10;
-					} else if (var8 == 2) {
-						var19[var26 + 3] = var10;
-						var19[var26 + 512 + 3] = var10;
-						var19[var26 + 1024 + 3] = var10;
-						var19[var26 + 1536 + 3] = var10;
-					} else if (var8 == 3) {
-						var19[var26 + 1536] = var10;
-						var19[var26 + 1536 + 1] = var10;
-						var19[var26 + 1536 + 2] = var10;
-						var19[var26 + 1536 + 3] = var10;
-					}
-				}
-
-				if (var9 == 3) {
-					if (var8 == 0) {
-						var19[var26] = var10;
-					} else if (var8 == 1) {
-						var19[var26 + 3] = var10;
-					} else if (var8 == 2) {
-						var19[var26 + 1536 + 3] = var10;
-					} else if (var8 == 3) {
-						var19[var26 + 1536] = var10;
-					}
-				}
-
-				if (var9 == 2) {
-					if (var8 == 3) {
-						var19[var26] = var10;
-						var19[var26 + 512] = var10;
-						var19[var26 + 1024] = var10;
-						var19[var26 + 1536] = var10;
-					} else if (var8 == 0) {
-						var19[var26] = var10;
-						var19[var26 + 1] = var10;
-						var19[var26 + 2] = var10;
-						var19[var26 + 3] = var10;
-					} else if (var8 == 1) {
-						var19[var26 + 3] = var10;
-						var19[var26 + 512 + 3] = var10;
-						var19[var26 + 1024 + 3] = var10;
-						var19[var26 + 1536 + 3] = var10;
-					} else if (var8 == 2) {
-						var19[var26 + 1536] = var10;
-						var19[var26 + 1536 + 1] = var10;
-						var19[var26 + 1536 + 2] = var10;
-						var19[var26 + 1536 + 3] = var10;
-					}
-				}
+				MusicSong var2 = (MusicSong)class316.field3424.get(0);
+				var1 = var2 != null && var0 == var2.musicTrackGroupId;
 			}
-		}
 
-		var5 = class130.scene.getGameObjectTag(var0, var1, var2);
-		if (var5 != 0L) {
-			var7 = class130.scene.getObjectFlags(var0, var1, var2, var5);
-			var8 = var7 >> 6 & 3;
-			var9 = var7 & 31;
-			var10 = InvDefinition.Entity_unpackID(var5);
-			ObjectComposition var20 = WorldMapElement.getObjectDefinition(var10);
-			if (var20.mapSceneId != -1) {
-				IndexedSprite var28 = class299.mapSceneSprites[var20.mapSceneId];
-				if (var28 != null) {
-					var26 = (var20.sizeX * 4 - var28.subWidth) / 2;
-					var14 = (var20.sizeY * 4 - var28.subHeight) / 2;
-					var28.drawAt(var26 + var1 * 4 + 48, (104 - var2 - var20.sizeY) * 4 + var14 + 48);
-				}
-			} else if (var9 == 9) {
-				int var25 = 15658734;
-				boolean var27 = 0L != var5;
-				if (var27) {
-					boolean var21 = (int)(var5 >>> 16 & 1L) == 1;
-					var27 = !var21;
-				}
-
-				if (var27) {
-					var25 = 15597568;
-				}
-
-				int[] var22 = AbstractUserComparator.sceneMinimapSprite.pixels;
-				int var29 = var1 * 4 + (103 - var2) * 2048 + 24624;
-				if (var8 != 0 && var8 != 2) {
-					var22[var29] = var25;
-					var22[var29 + 1 + 512] = var25;
-					var22[var29 + 1024 + 2] = var25;
-					var22[var29 + 1536 + 3] = var25;
+			if (!var1 && WorldMapIcon_1.clientPreferences.getMusicVolume() != 0) {
+				ArrayList var3 = new ArrayList();
+				var3.add(new MusicSong(class514.archive6, var0, 0, WorldMapIcon_1.clientPreferences.getMusicVolume(), false));
+				if (Client.playingJingle) {
+					class316.field3424.clear();
+					class316.field3424.addAll(var3);
+					EnumComposition.method3678(0, 100, 100, 0);
 				} else {
-					var22[var29 + 1536] = var25;
-					var22[var29 + 1 + 1024] = var25;
-					var22[var29 + 512 + 2] = var25;
-					var22[var29 + 3] = var25;
-				}
-			}
-		}
-
-		var5 = class130.scene.getFloorDecorationTag(var0, var1, var2);
-		if (var5 != 0L) {
-			var7 = InvDefinition.Entity_unpackID(var5);
-			ObjectComposition var23 = WorldMapElement.getObjectDefinition(var7);
-			if (var23.mapSceneId != -1) {
-				IndexedSprite var24 = class299.mapSceneSprites[var23.mapSceneId];
-				if (var24 != null) {
-					var10 = (var23.sizeX * 4 - var24.subWidth) / 2;
-					int var11 = (var23.sizeY * 4 - var24.subHeight) / 2;
-					var24.drawAt(var1 * 4 + var10 + 48, (104 - var2 - var23.sizeY) * 4 + var11 + 48);
+					PendingSpawn.method2459(var3, 0, 100, 100, 0, false);
 				}
 			}
 		}

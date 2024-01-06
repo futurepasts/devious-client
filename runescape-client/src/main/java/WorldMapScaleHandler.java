@@ -4,16 +4,16 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ku")
+@ObfuscatedName("ja")
 @Implements("WorldMapScaleHandler")
 public class WorldMapScaleHandler {
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -1580674405
+		intValue = -1095095357
 	)
 	@Export("pixelsPerTile")
 	int pixelsPerTile;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@Export("tileTemplates")
 	byte[][][] tileTemplates;
 
@@ -21,25 +21,25 @@ public class WorldMapScaleHandler {
 		this.pixelsPerTile = var1;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIIS)V",
-		garbageValue = "-18273"
+		descriptor = "(IIIIIIIIB)V",
+		garbageValue = "-68"
 	)
-	void method5623(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+	void method5048(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
 		if (var7 != 0 && this.pixelsPerTile != 0 && this.tileTemplates != null) {
-			var8 = this.method5596(var8, var7);
-			var7 = this.method5590(var7);
+			var8 = this.method5049(var8, var7);
+			var7 = this.method5050(var7);
 			Rasterizer2D.Rasterizer2D_drawGradientPixels(var1, var2, var5, var6, var3, var4, this.tileTemplates[var7 - 1][var8], this.pixelsPerTile);
 		}
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)I",
-		garbageValue = "-45"
+		descriptor = "(III)I",
+		garbageValue = "-1836186644"
 	)
-	int method5596(int var1, int var2) {
+	int method5049(int var1, int var2) {
 		if (var2 == 9) {
 			var1 = var1 + 1 & 3;
 		}
@@ -55,12 +55,12 @@ public class WorldMapScaleHandler {
 		return var1;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(II)I",
-		garbageValue = "-1563527321"
+		garbageValue = "1639881459"
 	)
-	int method5590(int var1) {
+	int method5050(int var1) {
 		if (var1 != 9 && var1 != 10) {
 			return var1 == 11 ? 8 : var1;
 		} else {
@@ -68,10 +68,10 @@ public class WorldMapScaleHandler {
 		}
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "785325219"
+		descriptor = "(B)V",
+		garbageValue = "1"
 	)
 	@Export("init")
 	void init() {
@@ -88,10 +88,10 @@ public class WorldMapScaleHandler {
 		}
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "2061815829"
+		garbageValue = "1390851291"
 	)
 	@Export("init0")
 	void init0() {
@@ -155,10 +155,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[0][3] = var1;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-555393212"
+		garbageValue = "-164292987"
 	)
 	@Export("init1")
 	void init1() {
@@ -226,10 +226,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[1][3] = var1;
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "-58"
+		garbageValue = "53"
 	)
 	@Export("init2")
 	void init2() {
@@ -293,10 +293,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[2][3] = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1088178192"
+		garbageValue = "1774787578"
 	)
 	@Export("init3")
 	void init3() {
@@ -360,10 +360,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[3][3] = var1;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1688541699"
+		descriptor = "(B)V",
+		garbageValue = "-19"
 	)
 	@Export("init4")
 	void init4() {
@@ -427,10 +427,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[4][3] = var1;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1023862061"
+		descriptor = "(B)V",
+		garbageValue = "65"
 	)
 	@Export("init5")
 	void init5() {
@@ -496,10 +496,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[5][3] = var1;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(S)V",
-		garbageValue = "18020"
+		descriptor = "(B)V",
+		garbageValue = "-3"
 	)
 	@Export("init6")
 	void init6() {
@@ -565,10 +565,10 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[6][3] = var1;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-68"
+		descriptor = "(I)V",
+		garbageValue = "-1465348421"
 	)
 	@Export("init7")
 	void init7() {
@@ -634,13 +634,12 @@ public class WorldMapScaleHandler {
 		this.tileTemplates[7][3] = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
-		garbageValue = "718957128"
+		descriptor = "(CI)Z",
+		garbageValue = "-1137880095"
 	)
-	static void method5627(String var0, String var1, String var2) {
-		PcmPlayer.method838(7);
-		class318.setLoginResponseString(var0, var1, var2);
+	static boolean method5058(char var0) {
+		return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"ï¿½$%^&*()-_=+[{]};:'@#~,<.>/?\\| ".indexOf(var0) != -1;
 	}
 }

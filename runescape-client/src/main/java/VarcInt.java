@@ -1,37 +1,23 @@
-import java.util.List;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hk")
+@ObfuscatedName("gk")
 @Implements("VarcInt")
 public class VarcInt extends DualNode {
-	@ObfuscatedName("wz")
-	static List field1972;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lnu;"
-	)
-	@Export("VarcInt_archive")
-	public static AbstractArchive VarcInt_archive;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lle;"
+		descriptor = "Llk;"
 	)
 	@Export("VarcInt_cached")
-	static EvictingDualNodeHashTable VarcInt_cached;
-	@ObfuscatedName("dy")
+	public static EvictingDualNodeHashTable VarcInt_cached;
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Luk;"
+		descriptor = "Lgn;"
 	)
-	static IndexedSprite field1966;
-	@ObfuscatedName("if")
-	@ObfuscatedSignature(
-		descriptor = "Lgz;"
-	)
-	static Task field1976;
-	@ObfuscatedName("ao")
+	static ClanChannel field1851;
+	@ObfuscatedName("ar")
 	@Export("persist")
 	public boolean persist;
 
@@ -43,41 +29,83 @@ public class VarcInt extends DualNode {
 		this.persist = false;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;I)V",
-		garbageValue = "-2131192855"
+		descriptor = "(Luj;S)V",
+		garbageValue = "-26758"
 	)
-	void method3606(Buffer var1) {
+	void method3593(Buffer var1) {
 		while (true) {
 			int var2 = var1.readUnsignedByte();
 			if (var2 == 0) {
 				return;
 			}
 
-			this.method3604(var1, var2);
+			this.method3592(var1, var2);
 		}
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Ltm;IB)V",
-		garbageValue = "-12"
+		descriptor = "(Luj;IB)V",
+		garbageValue = "14"
 	)
-	void method3604(Buffer var1, int var2) {
+	void method3592(Buffer var1, int var2) {
 		if (var2 == 2) {
 			this.persist = true;
 		}
 
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lch;",
-		garbageValue = "-580226644"
+		descriptor = "([BZI)Ljava/lang/Object;",
+		garbageValue = "-648175177"
 	)
-	@Export("getNextWorldListWorld")
-	static World getNextWorldListWorld() {
-		return World.World_listCount < World.World_count ? class176.World_worlds[++World.World_listCount - 1] : null;
+	public static Object method3598(byte[] var0, boolean var1) {
+		if (var0 == null) {
+			return null;
+		} else if (var0.length > 136) {
+			DirectByteArrayCopier var2 = new DirectByteArrayCopier();
+			var2.set(var0);
+			return var2;
+		} else {
+			return var0;
+		}
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "60"
+	)
+	public static void method3601() {
+		class176.archive5.clear();
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "1925718940"
+	)
+	@Export("changeWorldSelectSorting")
+	static void changeWorldSelectSorting(int var0, int var1) {
+		int[] var2 = new int[4];
+		int[] var3 = new int[4];
+		var2[0] = var0;
+		var3[0] = var1;
+		int var4 = 1;
+
+		for (int var5 = 0; var5 < 4; ++var5) {
+			if (World.World_sortOption1[var5] != var0) {
+				var2[var4] = World.World_sortOption1[var5];
+				var3[var4] = World.World_sortOption2[var5];
+				++var4;
+			}
+		}
+
+		World.World_sortOption1 = var2;
+		World.World_sortOption2 = var3;
+		class181.sortWorlds(class361.World_worlds, 0, class361.World_worlds.length - 1, World.World_sortOption1, World.World_sortOption2);
 	}
 }

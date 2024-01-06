@@ -25,6 +25,8 @@
 package net.runelite.api;
 
 import com.jagex.oldscape.pub.OAuthApi;
+import net.runelite.api.annotations.Component;
+import net.runelite.api.annotations.Interface;
 import net.runelite.api.annotations.VarCInt;
 import net.runelite.api.annotations.VarCStr;
 import net.runelite.api.annotations.Varbit;
@@ -625,26 +627,21 @@ public interface Client extends OAuthApi, GameEngine
 
 	/**
 	 * Gets a widget by its raw group ID and child ID.
-	 * <p>
-	 * Note: Use {@link #getWidget(WidgetInfo)} for a more human-readable
-	 * version of this method.
 	 *
 	 * @param groupId the group ID
 	 * @param childId the child widget ID
 	 * @return the widget corresponding to the group and child pair
 	 */
 	@Nullable
-	Widget getWidget(int groupId, int childId);
+	Widget getWidget(@Interface int groupId, int childId);
 
 	/**
-	 * Gets a widget by it's packed ID.
+	 * Gets a widget by its component id.
 	 *
-	 * <p>
-	 * Note: Use {@link #getWidget(WidgetInfo)} or {@link #getWidget(int, int)} for
-	 * a more readable version of this method.
+	 * @param componentId the component id
 	 */
 	@Nullable
-	Widget getWidget(int packedID);
+	Widget getWidget(@Component int componentId);
 
 	/**
 	 * Gets an array containing the x-axis canvas positions
@@ -2055,8 +2052,11 @@ public interface Client extends OAuthApi, GameEngine
 	int getSkyboxColor();
 
 	boolean isGpu();
+	void setGpuFlags(int gpuflags);
+	int getGpuFlags();
 
-	void setGpu(boolean gpu);
+	void setExpandedMapLoading(int chunks);
+	int getExpandedMapLoading();
 
 	int get3dZoom();
 
@@ -2108,6 +2108,11 @@ public interface Client extends OAuthApi, GameEngine
 	 * @return
 	 */
 	NodeCache getObjectCompositionCache();
+
+	/**
+	 * Returns the client {@link Animation} cache
+	 */
+	NodeCache getAnimationCache();
 
 	/**
 	 * Returns the array of cross sprites that appear and animate when left-clicking
@@ -2501,6 +2506,8 @@ public interface Client extends OAuthApi, GameEngine
 
 	void posToCameraAngle(int var0, int var1);
 
+	Rasterizer getRasterizer();
+
 	/*
 	 * Unethical
 	 */
@@ -2676,4 +2683,13 @@ public interface Client extends OAuthApi, GameEngine
 
 	void setWorldList(World[] worlds);
 
+	String getSessionId();
+
+	void setSessionId(String sessionId);
+
+	String getCharacterId();
+
+	void setCharacterId(String characterId);
+
+	LoginState getLoginState();
 }

@@ -1,40 +1,21 @@
 import java.awt.Component;
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.net.URL;
 import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("av")
+@ObfuscatedName("ag")
 @Implements("Canvas")
 public final class Canvas extends java.awt.Canvas {
-	@ObfuscatedName("wb")
+	@ObfuscatedName("fk")
 	@ObfuscatedSignature(
-		descriptor = "Lsi;"
+		descriptor = "Loh;"
 	)
-	@Export("worldMap")
-	static WorldMap worldMap;
-	@ObfuscatedName("ae")
-	@ObfuscatedGetter(
-		longValue = 6865685735894550463L
-	)
-	static long field114;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lbe;"
-	)
-	@Export("soundSystem")
-	static SoundSystem soundSystem;
-	@ObfuscatedName("pr")
-	@ObfuscatedGetter(
-		intValue = -395313837
-	)
-	@Export("selectedSpellFlags")
-	static int selectedSpellFlags;
-	@ObfuscatedName("au")
+	static Archive field114;
+	@ObfuscatedName("at")
 	@Export("component")
 	Component component;
 
@@ -42,132 +23,190 @@ public final class Canvas extends java.awt.Canvas {
 		this.component = var1;
 	}
 
-	public final void paint(Graphics var1) {
-		this.component.paint(var1);
-	}
-
 	public final void update(Graphics var1) {
 		this.component.update(var1);
 	}
 
-	@ObfuscatedName("hr")
+	public final void paint(Graphics var1) {
+		this.component.paint(var1);
+	}
+
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1772266899"
+		descriptor = "(II)Lhd;",
+		garbageValue = "-1413317241"
 	)
-	static final void method324() {
-		int var3;
-		for (int var0 = 0; var0 < Client.soundEffectCount; ++var0) {
-			int var10002 = Client.queuedSoundEffectDelays[var0]--;
-			if (Client.queuedSoundEffectDelays[var0] >= -10) {
-				SoundEffect var9 = Client.soundEffects[var0];
-				if (var9 == null) {
-					Object var10000 = null;
-					var9 = SoundEffect.readSoundEffect(class28.field161, Client.soundEffectIds[var0], 0);
-					if (var9 == null) {
-						continue;
-					}
-
-					int[] var18 = Client.queuedSoundEffectDelays;
-					var18[var0] += var9.calculateDelay();
-					Client.soundEffects[var0] = var9;
-				}
-
-				if (Client.queuedSoundEffectDelays[var0] < 0) {
-					int var10;
-					if (Client.soundLocations[var0] != 0) {
-						var3 = (Client.soundLocations[var0] & 255) * 128;
-						int var11 = Client.soundLocations[var0] >> 16 & 255;
-						int var12 = var11 * 128 + 64 - VarbitComposition.localPlayer.x;
-						if (var12 < 0) {
-							var12 = -var12;
-						}
-
-						int var13 = Client.soundLocations[var0] >> 8 & 255;
-						int var7 = var13 * 128 + 64 - VarbitComposition.localPlayer.y;
-						if (var7 < 0) {
-							var7 = -var7;
-						}
-
-						int var8 = var7 + var12 - 128;
-						if (var8 > var3) {
-							Client.queuedSoundEffectDelays[var0] = -100;
-							continue;
-						}
-
-						if (var8 < 0) {
-							var8 = 0;
-						}
-
-						var10 = (var3 - var8) * class449.clientPreferences.method2554() / var3;
-					} else {
-						var10 = class449.clientPreferences.method2462();
-					}
-
-					if (var10 > 0) {
-						RawSound var14 = var9.toRawSound().resample(class330.decimator);
-						RawPcmStream var4 = RawPcmStream.createRawPcmStream(var14, 100, var10);
-						var4.setNumLoops(Client.queuedSoundEffectLoops[var0] - 1);
-						class162.pcmStreamMixer.addSubStream(var4);
-					}
-
-					Client.queuedSoundEffectDelays[var0] = -100;
-				}
-			} else {
-				--Client.soundEffectCount;
-
-				for (int var1 = var0; var1 < Client.soundEffectCount; ++var1) {
-					Client.soundEffectIds[var1] = Client.soundEffectIds[var1 + 1];
-					Client.soundEffects[var1] = Client.soundEffects[var1 + 1];
-					Client.queuedSoundEffectLoops[var1] = Client.queuedSoundEffectLoops[var1 + 1];
-					Client.queuedSoundEffectDelays[var1] = Client.queuedSoundEffectDelays[var1 + 1];
-					Client.soundLocations[var1] = Client.soundLocations[var1 + 1];
-				}
-
-				--var0;
+	public static FloorOverlayDefinition method333(int var0) {
+		FloorOverlayDefinition var1 = (FloorOverlayDefinition)FloorOverlayDefinition.FloorOverlayDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = FloorOverlayDefinition.FloorOverlayDefinition_archive.takeFile(4, var0);
+			var1 = new FloorOverlayDefinition();
+			if (var2 != null) {
+				var1.decode(new Buffer(var2), var0);
 			}
+
+			var1.postDecode();
+			FloorOverlayDefinition.FloorOverlayDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lha;",
+		garbageValue = "-2114676262"
+	)
+	@Export("SpotAnimationDefinition_get")
+	public static SpotAnimationDefinition SpotAnimationDefinition_get(int var0) {
+		SpotAnimationDefinition var1 = (SpotAnimationDefinition)SpotAnimationDefinition.SpotAnimationDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = SpotAnimationDefinition.SpotAnimationDefinition_archive.takeFile(13, var0);
+			var1 = new SpotAnimationDefinition();
+			var1.id = var0;
+			if (var2 != null) {
+				var1.decode(new Buffer(var2));
+			}
+
+			SpotAnimationDefinition.SpotAnimationDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
+	}
+
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;ILjava/lang/String;B)Z",
+		garbageValue = "50"
+	)
+	static boolean method325(String var0, int var1, String var2) {
+		if (var1 == 0) {
+			try {
+				if (!class31.field157.startsWith("win")) {
+					throw new Exception();
+				} else if (!var0.startsWith("http://") && !var0.startsWith("https://")) {
+					throw new Exception();
+				} else {
+					String var10 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
+
+					for (int var4 = 0; var4 < var0.length(); ++var4) {
+						if (var10.indexOf(var0.charAt(var4)) == -1) {
+							throw new Exception();
+						}
+					}
+
+					Runtime.getRuntime().exec("cmd /c start \"j\" \"" + var0 + "\"");
+					return true;
+				}
+			} catch (Throwable var5) {
+				return false;
+			}
+		} else if (var1 == 1) {
+			try {
+				Object var3 = class26.method396(class31.field158, var2, new Object[]{(new URL(class31.field158.getCodeBase(), var0)).toString()});
+				return var3 != null;
+			} catch (Throwable var6) {
+				return false;
+			}
+		} else if (var1 == 2) {
+			try {
+				class31.field158.getAppletContext().showDocument(new URL(class31.field158.getCodeBase(), var0), "_blank");
+				return true;
+			} catch (Exception var7) {
+				return false;
+			}
+		} else if (var1 == 3) {
+			try {
+				class26.method394(class31.field158, "loggedout");
+			} catch (Throwable var9) {
+			}
+
+			try {
+				class31.field158.getAppletContext().showDocument(new URL(class31.field158.getCodeBase(), var0), "_top");
+				return true;
+			} catch (Exception var8) {
+				return false;
+			}
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(FFFFLfm;I)V",
+		garbageValue = "-2092193307"
+	)
+	static void method334(float var0, float var1, float var2, float var3, class131 var4) {
+		float var5 = var1 - var0;
+		float var6 = var2 - var1;
+		float var7 = var3 - var2;
+		float var8 = var6 - var5;
+		var4.field1528 = var7 - var6 - var8;
+		var4.field1540 = var8 + var8 + var8;
+		var4.field1539 = var5 + var5 + var5;
+		var4.field1546 = var0;
+	}
+
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "6"
+	)
+	static void method329() {
+		Script.Script_cached.clear();
+	}
+
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-18"
+	)
+	static void method332() {
+		Iterator var0 = Messages.Messages_hashTable.iterator();
+
+		while (var0.hasNext()) {
+			Message var1 = (Message)var0.next();
+			var1.clearIsFromIgnored();
 		}
 
-		if (Client.playingJingle) {
-			boolean var15;
-			if (!class305.field3406.isEmpty()) {
-				var15 = true;
-			} else if (!class305.musicSongs.isEmpty() && class305.musicSongs.get(0) != null && ((MusicSong)class305.musicSongs.get(0)).midiPcmStream != null) {
-				var15 = ((MusicSong)class305.musicSongs.get(0)).midiPcmStream.isReady();
+	}
+
+	@ObfuscatedName("js")
+	@ObfuscatedSignature(
+		descriptor = "(Ldf;II)V",
+		garbageValue = "-360697736"
+	)
+	static final void method331(Actor var0, int var1) {
+		class514.worldToScreen(var0.x, var0.y, var1);
+	}
+
+	@ObfuscatedName("ln")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIIIII)V",
+		garbageValue = "1842329520"
+	)
+	@Export("drawWidgets")
+	static final void drawWidgets(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+		if (HealthBarDefinition.widgetDefinition.loadInterface(var0)) {
+			UserComparator10.field1453 = null;
+			SoundSystem.drawInterface(HealthBarDefinition.widgetDefinition.Widget_interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7);
+			if (UserComparator10.field1453 != null) {
+				SoundSystem.drawInterface(UserComparator10.field1453, -1412584499, var1, var2, var3, var4, ParamComposition.field2040, PendingSpawn.field1167, var7);
+				UserComparator10.field1453 = null;
+			}
+
+		} else {
+			if (var7 != -1) {
+				Client.validRootWidgets[var7] = true;
 			} else {
-				var15 = false;
-			}
-
-			if (!var15) {
-				if (class449.clientPreferences.method2451() != 0) {
-					boolean var16 = !class305.field3405.isEmpty();
-					if (var16) {
-						Archive var2 = class385.archive6;
-						var3 = class449.clientPreferences.method2451();
-						if (!class305.field3405.isEmpty()) {
-							ArrayList var17 = new ArrayList();
-							Iterator var5 = class305.field3405.iterator();
-
-							while (var5.hasNext()) {
-								MusicSong var6 = (MusicSong)var5.next();
-								var6.field3518 = false;
-								var6.field3516 = false;
-								var6.field3524 = false;
-								var6.field3519 = false;
-								var6.musicTrackArchive = var2;
-								var6.musicTrackVolume = var3;
-								var6.field3510 = 0.0F;
-								var17.add(var6);
-							}
-
-							class53.method1097(var17, class305.musicPlayerStatus, class305.field3409, class305.field3410, class305.field3401, false);
-						}
-					}
+				for (int var8 = 0; var8 < 100; ++var8) {
+					Client.validRootWidgets[var8] = true;
 				}
-
-				Client.playingJingle = false;
 			}
-		}
 
+		}
 	}
 }

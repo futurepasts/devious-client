@@ -2,174 +2,112 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jn")
+@ObfuscatedName("kw")
 @Implements("Occluder")
 public final class Occluder {
-	@ObfuscatedName("nc")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1693604393
-	)
-	@Export("menuHeight")
-	static int menuHeight;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = 1361881663
+		intValue = 1500000161
 	)
 	@Export("minTileX")
 	int minTileX;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -254851491
+		intValue = 1950990387
 	)
 	@Export("maxTileX")
 	int maxTileX;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 892109197
+		intValue = -423883149
 	)
 	@Export("minTileY")
 	int minTileY;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 1262324027
+		intValue = 2133572259
 	)
 	@Export("maxTileY")
 	int maxTileY;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 1521030227
+		intValue = -1027506815
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = -1488032469
+		intValue = -184781
 	)
 	@Export("minX")
 	int minX;
-	@ObfuscatedName("az")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -234343827
+		intValue = 1188920765
 	)
 	@Export("maxX")
 	int maxX;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 90793175
+		intValue = 1152134789
 	)
 	@Export("minZ")
 	int minZ;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 211986193
+		intValue = -1562247403
 	)
 	@Export("maxZ")
 	int maxZ;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -1860757305
+		intValue = 1496311129
 	)
 	@Export("minY")
 	int minY;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1051252903
+		intValue = 1178347281
 	)
 	@Export("maxY")
 	int maxY;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 1064543433
+		intValue = 1202051099
 	)
-	int field2657;
-	@ObfuscatedName("al")
+	int field2889;
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = -1575321813
+		intValue = -632467235
 	)
-	int field2658;
-	@ObfuscatedName("an")
+	int field2878;
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -471429039
+		intValue = -660173925
 	)
-	int field2661;
-	@ObfuscatedName("ar")
+	int field2890;
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 623652531
+		intValue = -2085859197
 	)
-	int field2660;
-	@ObfuscatedName("ab")
+	int field2893;
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 2072845555
+		intValue = 1182033659
 	)
-	int field2664;
-	@ObfuscatedName("ag")
+	int field2894;
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -721294081
+		intValue = -858078367
 	)
-	int field2654;
+	int field2891;
 	@ObfuscatedName("am")
 	@ObfuscatedGetter(
-		intValue = -1741613857
+		intValue = 875544763
 	)
-	int field2646;
+	int field2892;
 
 	Occluder() {
-	}
-
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "(IIIZIZI)V",
-		garbageValue = "124948705"
-	)
-	@Export("doWorldSorting")
-	static void doWorldSorting(int var0, int var1, int var2, boolean var3, int var4, boolean var5) {
-		if (var0 < var1) {
-			int var6 = (var0 + var1) / 2;
-			int var7 = var0;
-			World var8 = class176.World_worlds[var6];
-			class176.World_worlds[var6] = class176.World_worlds[var1];
-			class176.World_worlds[var1] = var8;
-
-			for (int var9 = var0; var9 < var1; ++var9) {
-				if (HealthBarUpdate.method2411(class176.World_worlds[var9], var8, var2, var3, var4, var5) <= 0) {
-					World var10 = class176.World_worlds[var9];
-					class176.World_worlds[var9] = class176.World_worlds[var7];
-					class176.World_worlds[var7++] = var10;
-				}
-			}
-
-			class176.World_worlds[var1] = class176.World_worlds[var7];
-			class176.World_worlds[var7] = var8;
-			doWorldSorting(var0, var7 - 1, var2, var3, var4, var5);
-			doWorldSorting(var7 + 1, var1, var2, var3, var4, var5);
-		}
-
-	}
-
-	@ObfuscatedName("jz")
-	@ObfuscatedSignature(
-		descriptor = "(Ldf;I)Z",
-		garbageValue = "-1141977008"
-	)
-	static boolean method4725(Player var0) {
-		if (Client.drawPlayerNames == 0) {
-			return false;
-		} else {
-			boolean var1;
-			if (VarbitComposition.localPlayer == var0) {
-				var1 = (Client.drawPlayerNames & 8) != 0;
-				return var1;
-			} else {
-				var1 = UserComparator6.method2921();
-				if (!var1) {
-					boolean var2 = (Client.drawPlayerNames & 1) != 0;
-					var1 = var2 && var0.isFriend();
-				}
-
-				return var1 || UrlRequester.method2831() && var0.isFriendsChatMember();
-			}
-		}
 	}
 }
