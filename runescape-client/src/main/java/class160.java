@@ -1,115 +1,81 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ge")
-public class class160 extends class142 {
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = -249747583
-   )
-   @Export("RunException_revision")
-   public static int RunException_revision;
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = -1877537383
-   )
-   int field1753;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = 1700119723
-   )
-   int field1751;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lfh;"
-   )
-   final class145 this$0;
+@ObfuscatedName("gr")
+public class class160 {
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		longValue = 565344863230423851L
+	)
+	long field1745;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		longValue = -1369878872476871757L
+	)
+	public long field1744;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Lph;"
+	)
+	IterableNodeDeque field1746;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lfh;)V"
-   )
-   class160(class145 var1) {
-      this.this$0 = var1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Luk;)V"
+	)
+	public class160(Buffer var1) {
+		this.field1744 = -1L;
+		this.field1746 = new IterableNodeDeque();
+		this.method3464(var1);
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Ltz;B)V",
-      garbageValue = "59"
-   )
-   void vmethod3381(Buffer var1) {
-      this.field1753 = var1.readInt();
-      this.field1751 = var1.readInt();
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Luk;I)V",
+		garbageValue = "1434557141"
+	)
+	void method3464(Buffer var1) {
+		this.field1745 = var1.readLong();
+		this.field1744 = var1.readLong();
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(Lfs;B)V",
-      garbageValue = "-72"
-   )
-   void vmethod3382(ClanSettings var1) {
-      var1.method3203(this.field1753, this.field1751);
-   }
+		for (int var2 = var1.readUnsignedByte(); var2 != 0; var2 = var1.readUnsignedByte()) {
+			Object var3;
+			if (var2 == 1) {
+				var3 = new class155(this);
+			} else if (var2 == 4) {
+				var3 = new class166(this);
+			} else if (var2 == 3) {
+				var3 = new class151(this);
+			} else if (var2 == 2) {
+				var3 = new class149(this);
+			} else {
+				if (var2 != 5) {
+					throw new RuntimeException("");
+				}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/CharSequence;IZB)Z",
-      garbageValue = "125"
-   )
-   static boolean method3324(CharSequence var0, int var1, boolean var2) {
-      if (var1 >= 2 && var1 <= 36) {
-         boolean var3 = false;
-         boolean var4 = false;
-         int var5 = 0;
-         int var6 = var0.length();
+				var3 = new class156(this);
+			}
 
-         for(int var7 = 0; var7 < var6; ++var7) {
-            int var8 = var0.charAt(var7);
-            if (var7 == 0) {
-               if (var8 == 45) {
-                  var3 = true;
-                  continue;
-               }
+			((class159)var3).vmethod3518(var1);
+			this.field1746.addFirst((Node)var3);
+		}
 
-               if (var8 == 43) {
-                  continue;
-               }
-            }
+	}
 
-            if (var8 >= 48 && var8 <= 57) {
-               var8 -= 48;
-            } else if (var8 >= 65 && var8 <= 90) {
-               var8 -= 55;
-            } else {
-               if (var8 < 97 || var8 > 122) {
-                  return false;
-               }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(Lgt;I)V",
+		garbageValue = "-1792731556"
+	)
+	public void method3465(ClanChannel var1) {
+		if (var1.key == this.field1745 && this.field1744 == var1.field1764) {
+			for (class159 var2 = (class159)this.field1746.last(); var2 != null; var2 = (class159)this.field1746.previous()) {
+				var2.vmethod3519(var1);
+			}
 
-               var8 -= 87;
-            }
-
-            if (var8 >= var1) {
-               return false;
-            }
-
-            if (var3) {
-               var8 = -var8;
-            }
-
-            int var9 = var8 + var5 * var1;
-            if (var9 / var1 != var5) {
-               return false;
-            }
-
-            var5 = var9;
-            var4 = true;
-         }
-
-         return var4;
-      } else {
-         throw new IllegalArgumentException("" + var1);
-      }
-   }
+			++var1.field1764;
+		} else {
+			throw new RuntimeException("");
+		}
+	}
 }

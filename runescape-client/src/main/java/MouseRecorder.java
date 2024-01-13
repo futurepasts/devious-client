@@ -4,117 +4,85 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("do")
+@ObfuscatedName("db")
 @Implements("MouseRecorder")
 public class MouseRecorder implements Runnable {
-   @ObfuscatedName("ft")
-   @ObfuscatedSignature(
-      descriptor = "Lny;"
-   )
-   @Export("archive2")
-   static Archive archive2;
-   @ObfuscatedName("tk")
-   @ObfuscatedSignature(
-      descriptor = "Lbi;"
-   )
-   @Export("pcmPlayer0")
-   static PcmPlayer pcmPlayer0;
-   @ObfuscatedName("at")
-   @Export("isRunning")
-   boolean isRunning = true;
-   @ObfuscatedName("an")
-   @Export("lock")
-   Object lock = new Object();
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = -413684111
-   )
-   @Export("index")
-   int index = 0;
-   @ObfuscatedName("as")
-   @Export("xs")
-   int[] xs = new int[500];
-   @ObfuscatedName("ax")
-   @Export("ys")
-   int[] ys = new int[500];
-   @ObfuscatedName("ap")
-   @Export("millis")
-   long[] millis = new long[500];
+	@ObfuscatedName("oc")
+	@ObfuscatedGetter(
+		intValue = -170100783
+	)
+	@Export("menuY")
+	static int menuY;
+	@ObfuscatedName("am")
+	@Export("isRunning")
+	boolean isRunning;
+	@ObfuscatedName("ap")
+	@Export("lock")
+	Object lock;
+	@ObfuscatedName("af")
+	@ObfuscatedGetter(
+		intValue = 849276385
+	)
+	@Export("index")
+	int index;
+	@ObfuscatedName("aj")
+	@Export("xs")
+	int[] xs;
+	@ObfuscatedName("aq")
+	@Export("ys")
+	int[] ys;
+	@ObfuscatedName("ar")
+	@Export("millis")
+	long[] millis;
 
-   MouseRecorder() {
-   }
+	MouseRecorder() {
+		this.isRunning = true;
+		this.lock = new Object();
+		this.index = 0;
+		this.xs = new int[500];
+		this.ys = new int[500];
+		this.millis = new long[500];
+	}
 
-   public void run() {
-      for(; this.isRunning; FloorDecoration.method4357(50L)) {
-         synchronized(this.lock) {
-            if (this.index < 500) {
-               this.xs[this.index] = MouseHandler.MouseHandler_x;
-               this.ys[this.index] = MouseHandler.MouseHandler_y;
-               this.millis[this.index] = MouseHandler.MouseHandler_millis;
-               ++this.index;
-            }
-         }
-      }
+	public void run() {
+		for (; this.isRunning; BuddyRankComparator.method2992(50L)) {
+			synchronized(this.lock) {
+				if (this.index < 500) {
+					this.xs[this.index] = MouseHandler.MouseHandler_x;
+					this.ys[this.index] = MouseHandler.MouseHandler_y;
+					this.millis[this.index] = MouseHandler.MouseHandler_millis;
+					++this.index;
+				}
+			}
+		}
 
-   }
+	}
 
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "1925901423"
-   )
-   static void method2260() {
-      Players.Players_count = 0;
+	@ObfuscatedName("ol")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;ZI)Ljava/lang/String;",
+		garbageValue = "1726004576"
+	)
+	static String method2371(String var0, boolean var1) {
+		String var2 = var1 ? "https://" : "http://";
+		if (Client.gameBuild == 1) {
+			var0 = var0 + "-wtrc";
+		} else if (Client.gameBuild == 2) {
+			var0 = var0 + "-wtqa";
+		} else if (Client.gameBuild == 3) {
+			var0 = var0 + "-wtwip";
+		} else if (Client.gameBuild == 5) {
+			var0 = var0 + "-wti";
+		} else if (Client.gameBuild == 4) {
+			var0 = "local";
+		}
 
-      for(int var0 = 0; var0 < 2048; ++var0) {
-         Players.field1332[var0] = null;
-         Players.field1328[var0] = class216.field2395;
-      }
+		String var3 = "";
+		if (class426.field4608 != null) {
+			var3 = "/p=" + class426.field4608;
+		}
 
-   }
-
-   @ObfuscatedName("kr")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-22181255"
-   )
-   @Export("menuSort")
-   static final void menuSort() {
-      boolean var0 = false;
-
-      while(!var0) {
-         var0 = true;
-
-         for(int var1 = 0; var1 < Client.menuOptionsCount - 1; ++var1) {
-            if (Client.menuOpcodes[var1] < 1000 && Client.menuOpcodes[var1 + 1] > 1000) {
-               String var2 = Client.menuTargets[var1];
-               Client.menuTargets[var1] = Client.menuTargets[var1 + 1];
-               Client.menuTargets[var1 + 1] = var2;
-               String var3 = Client.menuActions[var1];
-               Client.menuActions[var1] = Client.menuActions[var1 + 1];
-               Client.menuActions[var1 + 1] = var3;
-               int var4 = Client.menuOpcodes[var1];
-               Client.menuOpcodes[var1] = Client.menuOpcodes[var1 + 1];
-               Client.menuOpcodes[var1 + 1] = var4;
-               var4 = Client.menuArguments1[var1];
-               Client.menuArguments1[var1] = Client.menuArguments1[var1 + 1];
-               Client.menuArguments1[var1 + 1] = var4;
-               var4 = Client.menuArguments2[var1];
-               Client.menuArguments2[var1] = Client.menuArguments2[var1 + 1];
-               Client.menuArguments2[var1 + 1] = var4;
-               var4 = Client.menuIdentifiers[var1];
-               Client.menuIdentifiers[var1] = Client.menuIdentifiers[var1 + 1];
-               Client.menuIdentifiers[var1 + 1] = var4;
-               var4 = Client.menuItemIds[var1];
-               Client.menuItemIds[var1] = Client.menuItemIds[var1 + 1];
-               Client.menuItemIds[var1 + 1] = var4;
-               boolean var5 = Client.menuShiftClick[var1];
-               Client.menuShiftClick[var1] = Client.menuShiftClick[var1 + 1];
-               Client.menuShiftClick[var1 + 1] = var5;
-               var0 = false;
-            }
-         }
-      }
-
-   }
+		String var4 = "runescape.com";
+		return var2 + var0 + "." + var4 + "/l=" + class92.clientLanguage + "/a=" + WorldMapData_0.field2467 + var3 + "/";
+	}
 }

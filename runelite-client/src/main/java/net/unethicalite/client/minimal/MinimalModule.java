@@ -14,6 +14,7 @@ import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.packets.ClientPacket;
 import net.runelite.api.packets.ServerPacket;
 import net.runelite.client.NonScheduledExecutorServiceExceptionLogger;
+import net.runelite.client.RuneLite;
 import net.runelite.client.RuneLiteProperties;
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.config.ChatColorConfig;
@@ -57,6 +58,9 @@ public class MinimalModule extends AbstractModule
 	private final Supplier<Applet> clientLoader;
 	private final File config;
 	private final OptionSet optionSet;
+	private final boolean insecureWriteCredentials;
+	private final boolean cachedRandomDat;
+	private final boolean cachedUUID;
 
 	@Override
 	protected void configure()
@@ -72,6 +76,10 @@ public class MinimalModule extends AbstractModule
 		bindConstant().annotatedWith(Names.named("developerMode")).to(developerMode);
 		bindConstant().annotatedWith(Names.named("safeMode")).to(false);
 		bind(File.class).annotatedWith(Names.named("config")).toInstance(config);
+		bindConstant().annotatedWith(Names.named("insecureWriteCredentials")).to(insecureWriteCredentials);
+		bindConstant().annotatedWith(Names.named("cachedRandomDat")).to(cachedRandomDat);
+		bindConstant().annotatedWith(Names.named("cachedUUID")).to(cachedUUID);
+		bind(File.class).annotatedWith(Names.named("runeLiteDir")).toInstance(RuneLite.RUNELITE_DIR);
 		bind(ScheduledExecutorService.class).toInstance(new ExecutorServiceExceptionLogger(Executors.newSingleThreadScheduledExecutor()));
 		bind(OkHttpClient.class).toInstance(okHttpClient);
 
@@ -153,6 +161,13 @@ public class MinimalModule extends AbstractModule
 	{
 		final String prop = System.getProperty("runelite.static.url");
 		return HttpUrl.get(Strings.isNullOrEmpty(prop) ? s : prop);
+	}
+
+	@Provides
+	@Named("runelite.pluginhub.url")
+	HttpUrl providePluginHubBase(@Named("runelite.pluginhub.url") String s)
+	{
+		return HttpUrl.get(System.getProperty("runelite.pluginhub.url", s));
 	}
 
 	@Provides

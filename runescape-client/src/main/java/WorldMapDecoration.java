@@ -4,44 +4,45 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kj")
+@ObfuscatedName("jn")
 @Implements("WorldMapDecoration")
 public class WorldMapDecoration {
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = -1019858505
-   )
-   @Export("objectDefinitionId")
-   final int objectDefinitionId;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = 1874940309
-   )
-   @Export("decoration")
-   final int decoration;
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = -1995099473
-   )
-   @Export("rotation")
-   final int rotation;
+	@ObfuscatedName("fy")
+	@ObfuscatedSignature(
+		descriptor = "Loz;"
+	)
+	static Archive field2627;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = 394542689
+	)
+	@Export("objectDefinitionId")
+	final int objectDefinitionId;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = -2000261319
+	)
+	@Export("decoration")
+	final int decoration;
+	@ObfuscatedName("af")
+	@ObfuscatedGetter(
+		intValue = 1201614091
+	)
+	@Export("rotation")
+	final int rotation;
 
-   WorldMapDecoration(int var1, int var2, int var3) {
-      this.objectDefinitionId = var1;
-      this.decoration = var2;
-      this.rotation = var3;
-   }
+	WorldMapDecoration(int var1, int var2, int var3) {
+		this.objectDefinitionId = var1;
+		this.decoration = var2;
+		this.rotation = var3;
+	}
 
-   @ObfuscatedName("jm")
-   @ObfuscatedSignature(
-      descriptor = "(IIB)Lig;",
-      garbageValue = "-122"
-   )
-   static RouteStrategy method5461(int var0, int var1) {
-      Client.field804.approxDestinationX = var0;
-      Client.field804.approxDestinationY = var1;
-      Client.field804.approxDestinationSizeX = 1;
-      Client.field804.approxDestinationSizeY = 1;
-      return Client.field804;
-   }
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-90"
+	)
+	public static void method5021() {
+		WorldMapElement.HitSplatDefinition_cached.clear();
+	}
 }

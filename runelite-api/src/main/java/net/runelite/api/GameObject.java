@@ -97,12 +97,13 @@ public interface GameObject extends TileObject
 	/**
 	 * A bitfield containing various flags:
 	 * <pre>{@code
-	 * object type id = bits & 0x20
-	 * orientation (0-3) = bits >>> 6 & 3
+	 * object type = bits & 31
+	 * orientation = bits >>> 6 & 3
 	 * supports items = bits >>> 8 & 1
 	 * }</pre>
 	 */
 	int getConfig();
 
+	@Override
 	WorldArea getWorldArea();
 }

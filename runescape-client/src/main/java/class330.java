@@ -1,28 +1,35 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.Comparator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mp")
-public class class330 {
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = -1788887653
-   )
-   @Export("SpriteBuffer_spriteWidth")
-   public static int SpriteBuffer_spriteWidth;
+@ObfuscatedName("mf")
+public class class330 implements Comparator {
+	class330() {
+	}
 
-   @ObfuscatedName("ky")
-   @ObfuscatedSignature(
-      descriptor = "(IIIIB)V",
-      garbageValue = "29"
-   )
-   static final void method6526(int var0, int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < Client.rootWidgetCount; ++var4) {
-         if (Client.rootWidgetXs[var4] + Client.rootWidgetWidths[var4] > var0 && Client.rootWidgetXs[var4] < var0 + var2 && Client.rootWidgetHeights[var4] + Client.rootWidgetYs[var4] > var1 && Client.rootWidgetYs[var4] < var3 + var1) {
-            Client.field724[var4] = true;
-         }
-      }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Lmj;Lmj;I)I",
+		garbageValue = "1955936536"
+	)
+	int method6294(class323 var1, class323 var2) {
+		return var1.field3520 - var2.field3520;
+	}
 
-   }
+	public boolean equals(Object var1) {
+		return super.equals(var1);
+	}
+
+	public int compare(Object var1, Object var2) {
+		return this.method6294((class323)var1, (class323)var2);
+	}
+
+	@ObfuscatedName("bm")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-1680995991"
+	)
+	static int method6301(int var0) {
+		return (int)Math.pow(2.0D, (double)((float)var0 / 256.0F + 7.0F));
+	}
 }

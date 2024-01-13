@@ -54,9 +54,14 @@ public interface Callbacks
 	void postDeferred(Object event);
 
 	/**
-	 * Called each tick
+	 * Called at the beginning of each tick
 	 */
 	void tick();
+
+	/**
+	 * Called at the end of each tick
+	 */
+	void tickEnd();
 
 	/**
 	 * Called each frame
@@ -194,4 +199,10 @@ public interface Callbacks
 	 * @return false to prevent drawing
 	 */
 	boolean draw(Renderable renderable, boolean drawingUi);
+
+	/**
+	 * Called when the client wants to open a URL
+	 * @param url
+	 */
+	void openUrl(String url);
 }

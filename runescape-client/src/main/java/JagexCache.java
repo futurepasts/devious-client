@@ -1,133 +1,118 @@
-import java.io.File;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gn")
+@ObfuscatedName("ic")
 @Implements("JagexCache")
 public class JagexCache {
-   @ObfuscatedName("as")
-   @Export("JagexCache_locationFile")
-   static File JagexCache_locationFile;
-   @ObfuscatedName("ap")
-   @ObfuscatedGetter(
-      intValue = -386043945
-   )
-   @Export("idxCount")
-   public static int idxCount;
-   @ObfuscatedName("aa")
-   @ObfuscatedSignature(
-      descriptor = "Lsq;"
-   )
-   @Export("JagexCache_randomDat")
-   public static BufferedFile JagexCache_randomDat = null;
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "Lsq;"
-   )
-   @Export("JagexCache_dat2File")
-   public static BufferedFile JagexCache_dat2File = null;
-   @ObfuscatedName("ad")
-   @ObfuscatedSignature(
-      descriptor = "Lsq;"
-   )
-   @Export("JagexCache_idx255File")
-   public static BufferedFile JagexCache_idx255File = null;
-   @ObfuscatedName("az")
-   @Export("ByteArrayPool_arrays")
-   static byte[][][] ByteArrayPool_arrays;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = 1245026205
+	)
+	static int field2303;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lte;"
+	)
+	@Export("JagexCache_randomDat")
+	public static BufferedFile JagexCache_randomDat;
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "Lte;"
+	)
+	@Export("JagexCache_dat2File")
+	public static BufferedFile JagexCache_dat2File;
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "Lte;"
+	)
+	@Export("JagexCache_idx255File")
+	public static BufferedFile JagexCache_idx255File;
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "[Lte;"
+	)
+	@Export("JagexCache_idxFiles")
+	public static BufferedFile[] JagexCache_idxFiles;
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "([Ljava/lang/CharSequence;III)Ljava/lang/String;",
-      garbageValue = "-1324290995"
-   )
-   public static String method3497(CharSequence[] var0, int var1, int var2) {
-      if (var2 == 0) {
-         return "";
-      } else if (var2 == 1) {
-         CharSequence var10 = var0[var1];
-         return var10 == null ? "null" : var10.toString();
-      } else {
-         int var3 = var2 + var1;
-         int var4 = 0;
+	static {
+		JagexCache_randomDat = null;
+		JagexCache_dat2File = null;
+		JagexCache_idx255File = null;
+	}
 
-         for(int var5 = var1; var5 < var3; ++var5) {
-            CharSequence var9 = var0[var5];
-            if (var9 == null) {
-               var4 += 4;
-            } else {
-               var4 += var9.length();
-            }
-         }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-831338467"
+	)
+	public static int method4249(int var0) {
+		return var0 >>> 4 & class524.field5129;
+	}
 
-         StringBuilder var8 = new StringBuilder(var4);
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "([BIILkn;[Lii;B)V",
+		garbageValue = "121"
+	)
+	static final void method4247(byte[] var0, int var1, int var2, Scene var3, CollisionMap[] var4) {
+		Buffer var5 = new Buffer(var0);
+		int var6 = -1;
 
-         for(int var6 = var1; var6 < var3; ++var6) {
-            CharSequence var7 = var0[var6];
-            if (var7 == null) {
-               var8.append("null");
-            } else {
-               var8.append(var7);
-            }
-         }
+		while (true) {
+			int var7 = var5.readIncrSmallSmart();
+			if (var7 == 0) {
+				return;
+			}
 
-         return var8.toString();
-      }
-   }
+			var6 += var7;
+			int var8 = 0;
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(IB)Z",
-      garbageValue = "53"
-   )
-   public static boolean method3499(int var0) {
-      return (var0 & 1) != 0;
-   }
+			while (true) {
+				int var9 = var5.readUShortSmart();
+				if (var9 == 0) {
+					break;
+				}
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(CLoj;I)I",
-      garbageValue = "1972392533"
-   )
-   @Export("lowercaseChar")
-   static int lowercaseChar(char var0, Language var1) {
-      int var2 = var0 << 4;
-      if (Character.isUpperCase(var0) || Character.isTitleCase(var0)) {
-         var0 = Character.toLowerCase(var0);
-         var2 = (var0 << 4) + 1;
-      }
+				var8 += var9 - 1;
+				int var10 = var8 & 63;
+				int var11 = var8 >> 6 & 63;
+				int var12 = var8 >> 12;
+				int var13 = var5.readUnsignedByte();
+				int var14 = var13 >> 2;
+				int var15 = var13 & 3;
+				int var16 = var11 + var1;
+				int var17 = var10 + var2;
+				if (var16 > 0 && var17 > 0 && var16 < 103 && var17 < 103) {
+					int var18 = var12;
+					if ((Tiles.Tiles_renderFlags[1][var16][var17] & 2) == 2) {
+						var18 = var12 - 1;
+					}
 
-      if (var0 == 241 && var1 == Language.Language_ES) {
-         var2 = 1762;
-      }
+					CollisionMap var19 = null;
+					if (var18 >= 0) {
+						var19 = var4[var18];
+					}
 
-      return var2;
-   }
+					class59.addObjects(var12, var16, var17, var6, var15, var14, var3, var19);
+				}
+			}
+		}
+	}
 
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "(IIIII)I",
-      garbageValue = "-158956344"
-   )
-   static final int method3498(int var0, int var1, int var2, int var3) {
-      return var0 * var2 + var3 * var1 >> 16;
-   }
+	@ObfuscatedName("pv")
+	@ObfuscatedSignature(
+		descriptor = "(II)Luq;",
+		garbageValue = "-2093769128"
+	)
+	static DbTable method4248(int var0) {
+		DbTable var1 = (DbTable)Client.archive11.get((long)var0);
+		if (var1 == null) {
+			var1 = new DbTable(AsyncHttpResponse.field80, var0);
+		}
 
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(Lmb;IIII)V",
-      garbageValue = "670377109"
-   )
-   @Export("Widget_setKeyRate")
-   static final void Widget_setKeyRate(Widget var0, int var1, int var2, int var3) {
-      if (var0.field3639 == null) {
-         throw new RuntimeException();
-      } else {
-         var0.field3639[var1] = var2;
-         var0.field3681[var1] = var3;
-      }
-   }
+		return var1;
+	}
 }

@@ -33,6 +33,7 @@ import com.openosrs.client.OpenOSRS;
 import joptsimple.ArgumentAcceptingOptionSpec;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 import joptsimple.ValueConversionException;
 import joptsimple.ValueConverter;
 import lombok.extern.slf4j.Slf4j;
@@ -176,6 +177,10 @@ public class MinimalClient
 				.withValuesConvertedBy(new ConfigFileConverter())
 				.defaultsTo(DEFAULT_CONFIG_FILE);
 
+		final OptionSpec<Void> insecureWriteCredentials = parser.accepts("insecure-write-credentials", "Dump authentication tokens from the Jagex Launcher to a text file to be used for development");
+		final OptionSpec<Void> cachedRandomDat = parser.accepts("cached-random-dat", "Use cached random.dat data for each account");
+		final OptionSpec<Void> cachedUUID = parser.accepts("cached-uuid", "Use a random cached uuid for each account");
+
 		OptionSet options = SettingsManager.parseArgs(parser, args);
 
 		if (options.has("debug"))
@@ -260,7 +265,11 @@ public class MinimalClient
 					okHttpClient,
 					clientLoader,
 					options.valueOf(configfile),
-					options)));
+					options,
+					options.has(insecureWriteCredentials),
+					options.has(cachedRandomDat),
+				        options.has(cachedUUID)
+			)));
 
 			RuneLite.getInjector().getInstance(MinimalClient.class).start(options);
 
@@ -351,7 +360,7 @@ public class MinimalClient
 	private static void copyJagexCache()
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
-		Path to = Paths.get(Unethicalite.getCacheDirectory().getAbsolutePath(), "jagexcache");
+		Path to = Unethicalite.getCacheDirectory().toPath();
 		if (Files.exists(to) || !Files.exists(from))
 		{
 			return;
@@ -399,17 +408,10 @@ public class MinimalClient
 			// Client size must be set prior to init
 			applet.setSize(Constants.GAME_FIXED_SIZE);
 
-			// Change user.home so the client places jagexcache in the .runelite directory
-			String oldHome = System.setProperty("user.home", Unethicalite.getCacheDirectory().getAbsolutePath());
-			try
-			{
-				applet.init();
-			}
-			finally
-			{
-				System.setProperty("user.home", oldHome);
-			}
+			System.setProperty("jagex.disableBouncyCastle", "true");
+			System.setProperty("jagex.userhome", Unethicalite.getCacheDirectory().getParent());
 
+			applet.init();
 			applet.start();
 		}
 
@@ -423,7 +425,7 @@ public class MinimalClient
 		eventBus.register(minimalPluginManager);
 
 		// Start client session
-		clientSessionManager.start();
+		//clientSessionManager.start();
 		eventBus.register(clientSessionManager);
 
 		minimalUI.init();

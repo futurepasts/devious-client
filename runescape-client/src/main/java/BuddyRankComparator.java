@@ -3,83 +3,87 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("eo")
+@ObfuscatedName("es")
 @Implements("BuddyRankComparator")
 public class BuddyRankComparator extends AbstractUserComparator {
-   @ObfuscatedName("fv")
-   @ObfuscatedSignature(
-      descriptor = "Lny;"
-   )
-   @Export("archive4")
-   static Archive archive4;
-   @ObfuscatedName("at")
-   @Export("reversed")
-   final boolean reversed;
+	@ObfuscatedName("am")
+	@Export("reversed")
+	final boolean reversed;
 
-   public BuddyRankComparator(boolean var1) {
-      this.reversed = var1;
-   }
+	public BuddyRankComparator(boolean var1) {
+		this.reversed = var1;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Lqg;Lqg;B)I",
-      garbageValue = "13"
-   )
-   @Export("compareBuddy")
-   int compareBuddy(Buddy var1, Buddy var2) {
-      if (var2.rank != var1.rank) {
-         return this.reversed ? var1.rank - var2.rank : var2.rank - var1.rank;
-      } else {
-         return this.compareUser(var1, var2);
-      }
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Lrj;Lrj;I)I",
+		garbageValue = "1898768769"
+	)
+	@Export("compareBuddy")
+	int compareBuddy(Buddy var1, Buddy var2) {
+		if (var2.rank != var1.rank) {
+			return this.reversed ? var1.rank - var2.rank : var2.rank - var1.rank;
+		} else {
+			return this.compareUser(var1, var2);
+		}
+	}
 
-   public int compare(Object var1, Object var2) {
-      return this.compareBuddy((Buddy)var1, (Buddy)var2);
-   }
+	public int compare(Object var1, Object var2) {
+		return this.compareBuddy((Buddy)var1, (Buddy)var2);
+	}
 
-   @ObfuscatedName("kl")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;Lmb;I)Ljava/lang/String;",
-      garbageValue = "-745287011"
-   )
-   static String method2892(String var0, Widget var1) {
-      if (var0.indexOf("%") != -1) {
-         for(int var2 = 1; var2 <= 5; ++var2) {
-            while(true) {
-               int var3 = var0.indexOf("%" + var2);
-               if (var3 == -1) {
-                  break;
-               }
+	@ObfuscatedName("am")
+	public static final void method2992(long var0) {
+		if (var0 > 0L) {
+			if (0L == var0 % 10L) {
+				GameBuild.method6934(var0 - 1L);
+				GameBuild.method6934(1L);
+			} else {
+				GameBuild.method6934(var0);
+			}
 
-               String var4 = var0.substring(0, var3);
-               int var6 = ClanChannelMember.method3137(var1, var2 - 1);
-               String var5;
-               if (var6 < 999999999) {
-                  var5 = Integer.toString(var6);
-               } else {
-                  var5 = "*";
-               }
+		}
+	}
 
-               var0 = var4 + var5 + var0.substring(var3 + 2);
-            }
-         }
-      }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Lff;",
+		garbageValue = "-1880947968"
+	)
+	static class132[] method2996() {
+		return new class132[]{class132.field1555, class132.field1553, class132.field1554, class132.field1560, class132.field1556, class132.field1561};
+	}
 
-      return var0;
-   }
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(Lnn;I)I",
+		garbageValue = "116060212"
+	)
+	static int method2997(Widget var0) {
+		if (var0.type != 11) {
+			Interpreter.Interpreter_stringStack[class211.Interpreter_stringStackSize - 1] = "";
+			return 1;
+		} else {
+			String var1 = Interpreter.Interpreter_stringStack[--class211.Interpreter_stringStackSize];
+			Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var0.method6806(var1);
+			return 1;
+		}
+	}
 
-   @ObfuscatedName("nc")
-   @ObfuscatedSignature(
-      descriptor = "(Lmb;B)Ljava/lang/String;",
-      garbageValue = "-40"
-   )
-   @Export("Widget_getSpellActionName")
-   static String Widget_getSpellActionName(Widget var0) {
-      if (LoginScreenAnimation.Widget_unpackTargetMask(StudioGame.getWidgetFlags(var0)) == 0) {
-         return null;
-      } else {
-         return var0.spellActionName != null && var0.spellActionName.trim().length() != 0 ? var0.spellActionName : null;
-      }
-   }
+	@ObfuscatedName("ll")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "3"
+	)
+	static final void method2990() {
+		for (PendingSpawn var0 = (PendingSpawn)Client.pendingSpawns.last(); var0 != null; var0 = (PendingSpawn)Client.pendingSpawns.previous()) {
+			if (var0.hitpoints == -1) {
+				var0.delay = 0;
+				class1.method12(var0);
+			} else {
+				var0.remove();
+			}
+		}
+
+	}
 }

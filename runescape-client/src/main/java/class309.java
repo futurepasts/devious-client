@@ -1,51 +1,95 @@
-import java.util.PriorityQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.atomic.AtomicBoolean;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("le")
-final class class309 implements Callable {
-   @ObfuscatedName("ag")
-   @ObfuscatedSignature(
-      descriptor = "Lfs;"
-   )
-   static ClanSettings field3452;
-   @ObfuscatedName("bj")
-   @ObfuscatedSignature(
-      descriptor = "Lnq;"
-   )
-   public static AbstractArchive field3453;
-   // $FF: synthetic field
-   final PriorityQueue val$waves;
-   // $FF: synthetic field
-   final AtomicBoolean val$cancelled;
+@ObfuscatedName("lz")
+public class class309 {
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3273;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3264;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3265;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3266;
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3267;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3268;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3269;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3270;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3274;
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3271;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	public static final class309 field3263;
+	@ObfuscatedName("ad")
+	@Export("Tiles_hueMultiplier")
+	static int[] Tiles_hueMultiplier;
 
-   class309(PriorityQueue var1, AtomicBoolean var2) {
-      this.val$waves = var1;
-      this.val$cancelled = var2;
-   }
+	static {
+		field3273 = new class309(5);
+		field3264 = new class309(11);
+		field3265 = new class309(6);
+		field3266 = new class309(14);
+		field3267 = new class309(4);
+		field3268 = new class309(7);
+		field3269 = new class309(2);
+		field3270 = new class309(14);
+		field3274 = new class309(4);
+		field3271 = new class309(5);
+		field3263 = new class309(20);
+	}
 
-   public Object call() {
-      while(!this.val$waves.isEmpty() && !this.val$cancelled.get()) {
-         ((class310)this.val$waves.peek()).field3456.method1039();
-         this.val$waves.remove();
-      }
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "5"
+	)
+	class309(int var1) {
+	}
 
-      return null;
-   }
-
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(IZIZB)V",
-      garbageValue = "1"
-   )
-   @Export("sortWorldList")
-   static void sortWorldList(int var0, boolean var1, int var2, boolean var3) {
-      if (World.World_worlds != null) {
-         ViewportMouse.doWorldSorting(0, World.World_worlds.length - 1, var0, var1, var2, var3);
-      }
-
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Low;I)V",
+		garbageValue = "-2086808686"
+	)
+	public static void method5984(AbstractArchive var0) {
+		ParamComposition.ParamDefinition_archive = var0;
+	}
 }

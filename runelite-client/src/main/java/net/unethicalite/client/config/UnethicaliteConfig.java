@@ -185,6 +185,18 @@ public interface UnethicaliteConfig extends Config
 		return false;
 	}
 
+	@ConfigItem(
+			position = 23,
+			keyName = "sendClickPacket",
+			name = "Send Click Packet",
+			description = "Sends click packet before interacting",
+			hidden = true
+	)
+	default boolean sendClickPacket()
+	{
+		return false;
+	}
+
 	@ConfigSection(
 			name = "Pathfinder/Regions",
 			position = 1,
@@ -202,6 +214,30 @@ public interface UnethicaliteConfig extends Config
 	default boolean useTransports()
 	{
 		return true;
+	}
+
+	@ConfigItem(
+			keyName = "minTileDistance",
+			name = "Min step distance",
+			description = "",
+			position = 1,
+			section = pathfinderSection
+	)
+	default int minStepDistance()
+	{
+		return 7;
+	}
+
+	@ConfigItem(
+			keyName = "maxTileDistance",
+			name = "Max step distance",
+			description = "",
+			position = 2,
+			section = pathfinderSection
+	)
+	default int maxStepDistance()
+	{
+		return 14;
 	}
 
 	@ConfigItem(
@@ -337,6 +373,18 @@ public interface UnethicaliteConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "useEquipmentTeleports",
+		name = "Use teleports from equipment",
+		description = "",
+		position = 4,
+		section = pathfinderSection
+	)
+	default boolean useEquipmentTeleports()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "useMinigameTeleports",
 		name = "Use minigames teleports",
 		description = "",
@@ -344,6 +392,18 @@ public interface UnethicaliteConfig extends Config
 		section = pathfinderSection
 	)
 	default boolean useMinigameTeleports()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "useCharterShips",
+		name = "Use charter ships",
+		description = "",
+		position = 4,
+		section = pathfinderSection
+	)
+	default boolean useCharterShips()
 	{
 		return true;
 	}
@@ -453,6 +513,18 @@ public interface UnethicaliteConfig extends Config
 			section = otherSettings
 	)
 	default boolean disableGroups()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		position = 0,
+		keyName = "disableLinkBrowser",
+		name = "Disable Link Browser",
+		description = "Disables the Link Browser (openUrl) functionality.",
+		section = otherSettings
+	)
+	default boolean disableLinkBrowser()
 	{
 		return false;
 	}

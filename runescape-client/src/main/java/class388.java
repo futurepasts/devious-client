@@ -1,159 +1,205 @@
-import java.io.File;
+import java.util.HashMap;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ou")
-public final class class388 {
-   @ObfuscatedName("ax")
-   @Export("cacheDir")
-   static File cacheDir;
-   @ObfuscatedName("at")
-   final Object field4406;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = -373962089
-   )
-   int field4407;
+@ObfuscatedName("ov")
+public class class388 {
+	@ObfuscatedName("aq")
+	@Export("SpriteBuffer_yOffsets")
+	static int[] SpriteBuffer_yOffsets;
 
-   class388(Object var1, int var2) {
-      this.field4406 = var1;
-      this.field4407 = var2;
-   }
+	static {
+		new HashMap();
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(IIII)J",
-      garbageValue = "-211423517"
-   )
-   static long method7211(int var0, int var1, int var2) {
-      return (long)(var2 << 16 | var0 << 8 | var1);
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(Luo;II)V",
+		garbageValue = "632783225"
+	)
+	@Export("updatePlayers")
+	static final void updatePlayers(PacketBuffer var0, int var1) {
+		int var2 = var0.offset;
+		Players.Players_pendingUpdateCount = 0;
+		int var3 = 0;
+		var0.importIndex();
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(II)I",
-      garbageValue = "1526063691"
-   )
-   public static int method7210(int var0) {
-      return 255 - (var0 & 255);
-   }
+		byte[] var10000;
+		int var4;
+		int var6;
+		int var8;
+		int var9;
+		int var10;
+		for (var4 = 0; var4 < Players.Players_count; ++var4) {
+			var10 = Players.Players_indices[var4];
+			if ((Players.field1355[var10] & 1) == 0) {
+				if (var3 > 0) {
+					--var3;
+					var10000 = Players.field1355;
+					var10000[var10] = (byte)(var10000[var10] | 2);
+				} else {
+					var6 = var0.readBits(1);
+					if (var6 == 0) {
+						var8 = var0.readBits(2);
+						if (var8 == 0) {
+							var9 = 0;
+						} else if (var8 == 1) {
+							var9 = var0.readBits(5);
+						} else if (var8 == 2) {
+							var9 = var0.readBits(8);
+						} else {
+							var9 = var0.readBits(11);
+						}
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(ILdd;ZI)I",
-      garbageValue = "385267"
-   )
-   static int method7212(int var0, Script var1, boolean var2) {
-      if (var0 < 1000) {
-         return GrandExchangeOfferOwnWorldComparator.method1195(var0, var1, var2);
-      } else if (var0 < 1100) {
-         return class171.method3486(var0, var1, var2);
-      } else if (var0 < 1200) {
-         return class180.method3540(var0, var1, var2);
-      } else if (var0 < 1300) {
-         return NPCComposition.method3745(var0, var1, var2);
-      } else if (var0 < 1400) {
-         return class13.method165(var0, var1, var2);
-      } else if (var0 < 1500) {
-         return Occluder.method4726(var0, var1, var2);
-      } else if (var0 < 1600) {
-         return class411.method7695(var0, var1, var2);
-      } else if (var0 < 1700) {
-         return ByteArrayPool.method7598(var0, var1, var2);
-      } else if (var0 < 1800) {
-         return WorldMapSection2.method5101(var0, var1, var2);
-      } else if (var0 < 1900) {
-         return VarpDefinition.method3586(var0, var1, var2);
-      } else if (var0 < 2000) {
-         return class112.method2828(var0, var1, var2);
-      } else if (var0 < 2100) {
-         return class171.method3486(var0, var1, var2);
-      } else if (var0 < 2200) {
-         return class180.method3540(var0, var1, var2);
-      } else if (var0 < 2300) {
-         return NPCComposition.method3745(var0, var1, var2);
-      } else if (var0 < 2400) {
-         return class13.method165(var0, var1, var2);
-      } else if (var0 < 2500) {
-         return Occluder.method4726(var0, var1, var2);
-      } else if (var0 < 2600) {
-         return class213.method4210(var0, var1, var2);
-      } else if (var0 < 2700) {
-         return class161.method3327(var0, var1, var2);
-      } else if (var0 < 2800) {
-         return class92.method2342(var0, var1, var2);
-      } else if (var0 < 2900) {
-         return WorldMapSectionType.method5425(var0, var1, var2);
-      } else if (var0 < 3000) {
-         return class112.method2828(var0, var1, var2);
-      } else if (var0 < 3200) {
-         return class107.method2700(var0, var1, var2);
-      } else if (var0 < 3300) {
-         return class156.method3294(var0, var1, var2);
-      } else if (var0 < 3400) {
-         return class13.method168(var0, var1, var2);
-      } else if (var0 < 3500) {
-         return class211.method4140(var0, var1, var2);
-      } else if (var0 < 3600) {
-         return ModeWhere.method6927(var0, var1, var2);
-      } else if (var0 < 3700) {
-         return SpotAnimationDefinition.method3777(var0, var1, var2);
-      } else if (var0 < 3800) {
-         return MidiPcmStream.method5848(var0, var1, var2);
-      } else if (var0 < 3900) {
-         return VertexNormal.method4922(var0, var1, var2);
-      } else if (var0 < 4000) {
-         return class4.method12(var0, var1, var2);
-      } else if (var0 < 4100) {
-         return class136.method3075(var0, var1, var2);
-      } else if (var0 < 4200) {
-         return BufferedNetSocket.method7977(var0, var1, var2);
-      } else if (var0 < 4300) {
-         return class60.method1133(var0, var1, var2);
-      } else if (var0 < 5100) {
-         return Players.method2699(var0, var1, var2);
-      } else if (var0 < 5400) {
-         return Renderable.method4715(var0, var1, var2);
-      } else if (var0 < 5600) {
-         return ModeWhere.method6928(var0, var1, var2);
-      } else if (var0 < 5700) {
-         return Client.method1335(var0, var1, var2);
-      } else if (var0 < 6300) {
-         return VerticalAlignment.method3754(var0, var1, var2);
-      } else if (var0 < 6600) {
-         return ObjectSound.method1881(var0, var1, var2);
-      } else if (var0 < 6700) {
-         return ModelData0.method5025(var0, var1, var2);
-      } else if (var0 < 6800) {
-         return class211.method4168(var0, var1, var2);
-      } else if (var0 < 6900) {
-         return class299.method5682(var0, var1, var2);
-      } else if (var0 < 7000) {
-         return class11.method111(var0, var1, var2);
-      } else if (var0 < 7100) {
-         return class135.method3047(var0, var1, var2);
-      } else if (var0 < 7200) {
-         return class130.method3007(var0, var1, var2);
-      } else if (var0 < 7300) {
-         return DevicePcmPlayerProvider.method316(var0, var1, var2);
-      } else if (var0 < 7500) {
-         return Frames.method4722(var0, var1, var2);
-      } else if (var0 < 7600) {
-         return NPCComposition.method3746(var0, var1, var2);
-      } else {
-         return var0 < 7700 ? class47.method843(var0, var1, var2) : 2;
-      }
-   }
+						var3 = var9;
+						var10000 = Players.field1355;
+						var10000[var10] = (byte)(var10000[var10] | 2);
+					} else {
+						class513.readPlayerUpdate(var0, var10);
+					}
+				}
+			}
+		}
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(IIB)I",
-      garbageValue = "50"
-   )
-   public static int method7213(int var0, int var1) {
-      int var2 = var0 >>> 31;
-      return (var0 + var2) / var1 - var2;
-   }
+		var0.exportIndex();
+		if (var3 != 0) {
+			throw new RuntimeException();
+		} else {
+			var0.importIndex();
+
+			for (var4 = 0; var4 < Players.Players_count; ++var4) {
+				var10 = Players.Players_indices[var4];
+				if ((Players.field1355[var10] & 1) != 0) {
+					if (var3 > 0) {
+						--var3;
+						var10000 = Players.field1355;
+						var10000[var10] = (byte)(var10000[var10] | 2);
+					} else {
+						var6 = var0.readBits(1);
+						if (var6 == 0) {
+							var8 = var0.readBits(2);
+							if (var8 == 0) {
+								var9 = 0;
+							} else if (var8 == 1) {
+								var9 = var0.readBits(5);
+							} else if (var8 == 2) {
+								var9 = var0.readBits(8);
+							} else {
+								var9 = var0.readBits(11);
+							}
+
+							var3 = var9;
+							var10000 = Players.field1355;
+							var10000[var10] = (byte)(var10000[var10] | 2);
+						} else {
+							class513.readPlayerUpdate(var0, var10);
+						}
+					}
+				}
+			}
+
+			var0.exportIndex();
+			if (var3 != 0) {
+				throw new RuntimeException();
+			} else {
+				var0.importIndex();
+
+				for (var4 = 0; var4 < Players.Players_emptyIdxCount; ++var4) {
+					var10 = Players.Players_emptyIndices[var4];
+					if ((Players.field1355[var10] & 1) != 0) {
+						if (var3 > 0) {
+							--var3;
+							var10000 = Players.field1355;
+							var10000[var10] = (byte)(var10000[var10] | 2);
+						} else {
+							var6 = var0.readBits(1);
+							if (var6 == 0) {
+								var8 = var0.readBits(2);
+								if (var8 == 0) {
+									var9 = 0;
+								} else if (var8 == 1) {
+									var9 = var0.readBits(5);
+								} else if (var8 == 2) {
+									var9 = var0.readBits(8);
+								} else {
+									var9 = var0.readBits(11);
+								}
+
+								var3 = var9;
+								var10000 = Players.field1355;
+								var10000[var10] = (byte)(var10000[var10] | 2);
+							} else if (Players.updateExternalPlayer(var0, var10)) {
+								var10000 = Players.field1355;
+								var10000[var10] = (byte)(var10000[var10] | 2);
+							}
+						}
+					}
+				}
+
+				var0.exportIndex();
+				if (var3 != 0) {
+					throw new RuntimeException();
+				} else {
+					var0.importIndex();
+
+					for (var4 = 0; var4 < Players.Players_emptyIdxCount; ++var4) {
+						var10 = Players.Players_emptyIndices[var4];
+						if ((Players.field1355[var10] & 1) == 0) {
+							if (var3 > 0) {
+								--var3;
+								var10000 = Players.field1355;
+								var10000[var10] = (byte)(var10000[var10] | 2);
+							} else {
+								var6 = var0.readBits(1);
+								if (var6 == 0) {
+									var8 = var0.readBits(2);
+									if (var8 == 0) {
+										var9 = 0;
+									} else if (var8 == 1) {
+										var9 = var0.readBits(5);
+									} else if (var8 == 2) {
+										var9 = var0.readBits(8);
+									} else {
+										var9 = var0.readBits(11);
+									}
+
+									var3 = var9;
+									var10000 = Players.field1355;
+									var10000[var10] = (byte)(var10000[var10] | 2);
+								} else if (Players.updateExternalPlayer(var0, var10)) {
+									var10000 = Players.field1355;
+									var10000[var10] = (byte)(var10000[var10] | 2);
+								}
+							}
+						}
+					}
+
+					var0.exportIndex();
+					if (var3 != 0) {
+						throw new RuntimeException();
+					} else {
+						Players.Players_count = 0;
+						Players.Players_emptyIdxCount = 0;
+
+						for (var4 = 1; var4 < 2048; ++var4) {
+							var10000 = Players.field1355;
+							var10000[var4] = (byte)(var10000[var4] >> 1);
+							Player var5 = Client.players[var4];
+							if (var5 != null) {
+								Players.Players_indices[++Players.Players_count - 1] = var4;
+							} else {
+								Players.Players_emptyIndices[++Players.Players_emptyIdxCount - 1] = var4;
+							}
+						}
+
+						SoundSystem.method877(var0);
+						if (var0.offset - var2 != var1) {
+							throw new RuntimeException(var0.offset - var2 + " " + var1);
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -3,83 +3,111 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ff")
-public class class139 extends class142 {
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = -1062343141
-   )
-   int field1615;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = -1360406087
-   )
-   int field1614;
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = -858682801
-   )
-   int field1613;
-   @ObfuscatedName("as")
-   @ObfuscatedGetter(
-      intValue = 1996159169
-   )
-   int field1616;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lfh;"
-   )
-   final class145 this$0;
+@ObfuscatedName("fs")
+public enum class139 implements Enum {
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1611(0, 0),
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1613(1, 1),
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1609(2, 2),
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1610(3, 3),
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1607(4, 4),
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1612(5, 5),
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1608(6, 6),
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1614(7, 7),
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	field1615(8, 8);
 
-   @ObfuscatedSignature(
-      descriptor = "(Lfh;)V"
-   )
-   class139(class145 var1) {
-      this.this$0 = var1;
-      this.field1615 = -1;
-   }
+	@ObfuscatedName("bd")
+	@Export("fontHelvetica13")
+	static java.awt.Font fontHelvetica13;
+	@ObfuscatedName("aa")
+	@ObfuscatedGetter(
+		intValue = 583594835
+	)
+	final int field1616;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = 492789235
+	)
+	final int field1617;
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Ltz;B)V",
-      garbageValue = "59"
-   )
-   void vmethod3381(Buffer var1) {
-      this.field1615 = var1.readUnsignedShort();
-      this.field1614 = var1.readInt();
-      this.field1613 = var1.readUnsignedByte();
-      this.field1616 = var1.readUnsignedByte();
-   }
+	class139(int var3, int var4) {
+		this.field1616 = var3;
+		this.field1617 = var4;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(Lfs;B)V",
-      garbageValue = "-72"
-   )
-   void vmethod3382(ClanSettings var1) {
-      var1.method3215(this.field1615, this.field1614, this.field1613, this.field1616);
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-884190501"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1617;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(II)Lhr;",
-      garbageValue = "-2123064978"
-   )
-   @Export("StructDefinition_getStructDefinition")
-   public static StructComposition StructDefinition_getStructDefinition(int var0) {
-      StructComposition var1 = (StructComposition)StructComposition.StructDefinition_cached.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = StructComposition.StructDefinition_archive.takeFile(34, var0);
-         var1 = new StructComposition();
-         if (var2 != null) {
-            var1.decode(new Buffer(var2));
-         }
-
-         var1.postDecode();
-         StructComposition.StructDefinition_cached.put(var1, (long)var0);
-         return var1;
-      }
-   }
+	@ObfuscatedName("ci")
+	@ObfuscatedSignature(
+		descriptor = "(ILdd;ZB)I",
+		garbageValue = "-30"
+	)
+	static int method3189(int var0, Script var1, boolean var2) {
+		int var3;
+		int var4;
+		if (var0 == 8000) {
+			--UserComparator6.Interpreter_intStackSize;
+			var3 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize];
+			var4 = Interpreter.Interpreter_arrayLengths[var3];
+			class219.method4339(Interpreter.Interpreter_arrays[var3], new int[var4], 0, var4 - 1);
+			return 1;
+		} else if (var0 == 8001) {
+			UserComparator6.Interpreter_intStackSize -= 3;
+			var3 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize];
+			var4 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize + 1];
+			int var5 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize + 2];
+			int var6 = Interpreter.Interpreter_arrayLengths[var3];
+			if (var6 <= 1) {
+				return 1;
+			} else {
+				class425.method7990(Interpreter.Interpreter_arrays[var3], var6, var4, var5);
+				return 1;
+			}
+		} else {
+			return 2;
+		}
+	}
 }

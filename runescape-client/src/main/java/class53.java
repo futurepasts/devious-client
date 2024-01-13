@@ -1,140 +1,122 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cu")
+@ObfuscatedName("cb")
 public class class53 extends Node {
-   @ObfuscatedName("ui")
-   @ObfuscatedGetter(
-      intValue = 1645246149
-   )
-   static int field368;
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Lmb;"
-   )
-   @Export("scriptDotWidget")
-   static Widget scriptDotWidget;
-   @ObfuscatedName("fb")
-   @ObfuscatedSignature(
-      descriptor = "Lny;"
-   )
-   @Export("archive10")
-   static Archive archive10;
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Lbr;"
-   )
-   class47 field371;
+	@ObfuscatedName("gh")
+	@ObfuscatedGetter(
+		intValue = 1442469611
+	)
+	static int field369;
+	@ObfuscatedName("vn")
+	@ObfuscatedGetter(
+		intValue = 1264313619
+	)
+	static int field367;
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Lbe;"
+	)
+	class47 field368;
 
-   public class53() {
-      this.field371 = null;
-   }
+	public class53() {
+		this.field368 = null;
+	}
 
-   @ObfuscatedSignature(
-      descriptor = "(Lca;)V"
-   )
-   class53(VorbisSample var1) {
-      this.field371 = new class47(var1, (RawSound)null);
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lci;)V"
+	)
+	class53(VorbisSample var1) {
+		if (var1 != null) {
+			this.field368 = new class47(var1, (RawSound)null);
+		}
+	}
 
-   @ObfuscatedSignature(
-      descriptor = "(Lbp;)V"
-   )
-   public class53(RawSound var1) {
-      this.field371 = new class47((VorbisSample)null, var1);
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lbm;)V"
+	)
+	public class53(RawSound var1) {
+		this.field368 = new class47((VorbisSample)null, var1);
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "378003017"
-   )
-   public boolean method1041() {
-      return this.field371 == null;
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "1790507973"
+	)
+	public boolean method1108() {
+		return this.field368 == null;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(I)Lbp;",
-      garbageValue = "-497930795"
-   )
-   public RawSound method1039() {
-      if (this.field371 != null && this.field371.field331.tryLock()) {
-         RawSound var1 = this.method1040();
-         this.field371.field331.unlock();
-         return var1;
-      } else {
-         return null;
-      }
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lbm;",
+		garbageValue = "358490048"
+	)
+	public RawSound method1098() {
+		if (this.field368 != null && this.field368.field334.tryLock()) {
+			RawSound var1;
+			try {
+				var1 = this.method1100();
+			} finally {
+				this.field368.field334.unlock();
+			}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(B)Lbp;",
-      garbageValue = "0"
-   )
-   public RawSound method1038() {
-      if (this.field371 != null) {
-         this.field371.field331.lock();
-         RawSound var1 = this.method1040();
-         this.field371.field331.unlock();
-         return var1;
-      } else {
-         return null;
-      }
-   }
+			return var1;
+		} else {
+			return null;
+		}
+	}
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(I)Lbp;",
-      garbageValue = "1167825683"
-   )
-   RawSound method1040() {
-      if (this.field371.field332 == null) {
-         this.field371.field332 = this.field371.field333.toRawSound((int[])null);
-         this.field371.field333 = null;
-      }
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lbm;",
+		garbageValue = "-1734459633"
+	)
+	public RawSound method1099() {
+		if (this.field368 != null) {
+			this.field368.field334.lock();
 
-      return this.field371.field332;
-   }
+			RawSound var1;
+			try {
+				var1 = this.method1100();
+			} finally {
+				this.field368.field334.unlock();
+			}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(II)Lho;",
-      garbageValue = "1589321614"
-   )
-   @Export("SpotAnimationDefinition_get")
-   public static SpotAnimationDefinition SpotAnimationDefinition_get(int var0) {
-      SpotAnimationDefinition var1 = (SpotAnimationDefinition)SpotAnimationDefinition.SpotAnimationDefinition_cached.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = SpotAnimationDefinition.SpotAnimationDefinition_archive.takeFile(13, var0);
-         var1 = new SpotAnimationDefinition();
-         var1.id = var0;
-         if (var2 != null) {
-            var1.decode(new Buffer(var2));
-         }
+			return var1;
+		} else {
+			return null;
+		}
+	}
 
-         SpotAnimationDefinition.SpotAnimationDefinition_cached.put(var1, (long)var0);
-         return var1;
-      }
-   }
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(B)Lbm;",
+		garbageValue = "-127"
+	)
+	RawSound method1100() {
+		if (this.field368.field337 == null) {
+			this.field368.field337 = this.field368.field336.toRawSound((int[])null);
+			this.field368.field336 = null;
+		}
 
-   @ObfuscatedName("ny")
-   @ObfuscatedSignature(
-      descriptor = "(IB)Ltb;",
-      garbageValue = "94"
-   )
-   static class494 method1052(int var0) {
-      class494 var1 = (class494)Client.DBTableIndex_cache.get((long)var0);
-      if (var1 == null) {
-         var1 = new class494(Messages.field1377, class152.method3196(var0), class481.method8660(var0));
-         Client.DBTableIndex_cache.put(var1, (long)var0);
-      }
+		return this.field368.field337;
+	}
 
-      return var1;
-   }
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lfv;",
+		garbageValue = "380915246"
+	)
+	static class133 method1096(int var0) {
+		class133[] var1 = new class133[]{class133.field1580, class133.field1569, class133.field1579, class133.field1568, class133.field1573, class133.field1570, class133.field1566, class133.field1572, class133.field1574, class133.field1567, class133.field1575, class133.field1576, class133.field1577, class133.field1578, class133.field1571, class133.field1565, class133.field1581};
+		class133 var2 = (class133)GrandExchangeEvents.findEnumerated(var1, var0);
+		if (var2 == null) {
+			var2 = class133.field1580;
+		}
+
+		return var2;
+	}
 }

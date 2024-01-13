@@ -16,6 +16,7 @@ import net.unethicalite.api.events.MenuAutomated;
 import net.unethicalite.api.exception.InteractionException;
 import net.unethicalite.api.game.GameThread;
 import net.unethicalite.api.input.naturalmouse.NaturalMouse;
+import net.unethicalite.api.packets.MousePackets;
 import net.unethicalite.api.packets.Packets;
 import net.unethicalite.api.utils.CoordUtils;
 import net.unethicalite.api.widgets.Widgets;
@@ -56,7 +57,29 @@ public class InteractionManager
 
 		try
 		{
-			SceneEntity entity;
+			SceneEntity entity = event.getEntity();
+
+			if (entity != null && config.mouseBehavior() == MouseBehavior.CLICKBOXES)
+			{
+				net.runelite.api.Point entityClickPoint = entity.getClickPoint();
+				if (entityClickPoint != null)
+				{
+					clickPoint = entityClickPoint.getAwtPoint();
+				}
+			}
+
+			if (event.getOpcode() == MenuAction.WALK && clickOffScreen(clickPoint))
+			{
+				net.runelite.api.Point newPoint = CoordUtils.localToMinimap(client,
+						LocalPoint.fromScene(event.getParam0(), event.getParam1()), 6400);
+				if (newPoint != null)
+				{
+					clickPoint = newPoint.getAwtPoint();
+				}
+			}
+
+			Point finalClickPoint = clickPoint;
+
 			switch (config.interactMethod())
 			{
 				case MOUSE_FORWARDING:
@@ -64,28 +87,11 @@ public class InteractionManager
 					break;
 
 				case MOUSE_EVENTS:
-					entity = event.getEntity();
-					if (entity != null && config.mouseBehavior() == MouseBehavior.CLICKBOXES)
-					{
-						clickPoint = entity.getClickPoint().getAwtPoint();
-					}
-
-					if (event.getOpcode() == MenuAction.WALK && clickOffScreen(clickPoint))
-					{
-						net.runelite.api.Point newPoint = CoordUtils.localToMinimap(client,
-								LocalPoint.fromScene(event.getParam0(), event.getParam1()), 6400);
-						if (newPoint != null)
-						{
-							clickPoint = newPoint.getAwtPoint();
-						}
-					}
-
 					if (config.naturalMouse())
 					{
 						naturalMouse.moveTo(clickPoint.x, clickPoint.y);
 					}
 
-					Point finalClickPoint = clickPoint;
 					GameThread.invoke(() ->
 					{
 						if (!config.naturalMouse())
@@ -113,6 +119,11 @@ public class InteractionManager
 					{
 						try
 						{
+							if (config.sendClickPacket())
+							{
+								MousePackets.queueClickPacket(finalClickPoint.x, finalClickPoint.y);
+							}
+
 							if (event.getOpcode() == MenuAction.CC_OP || event.getOpcode() == MenuAction.CC_OP_LOW_PRIORITY)
 							{
 								int param0 = event.getParam0();
@@ -178,8 +189,15 @@ public class InteractionManager
 
 	private void processAction(MenuAutomated entry, int x, int y)
 	{
-		GameThread.invoke(() -> client.invokeMenuAction(entry.getOption(), entry.getTarget(), entry.getIdentifier(),
-				entry.getOpcode().getId(), entry.getParam0(), entry.getParam1(), x, y));
+		GameThread.invoke(() ->
+				{
+					if (config.sendClickPacket())
+					{
+						MousePackets.queueClickPacket(x, y);
+					}
+					client.invokeMenuAction(entry.getOption(), entry.getTarget(), entry.getIdentifier(),
+							entry.getOpcode().getId(), entry.getParam0(), entry.getParam1(), x, y);
+				});
 	}
 
 	private Point getClickPoint(MenuAutomated event)

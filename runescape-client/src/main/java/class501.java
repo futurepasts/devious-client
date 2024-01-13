@@ -1,66 +1,56 @@
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("te")
+@ObfuscatedName("tg")
 public class class501 {
-   @ObfuscatedName("at")
-   int[] field5024 = new int[8];
-   @ObfuscatedName("an")
-   short[] field5025 = new short[8];
+	@ObfuscatedName("am")
+	public final Object field5041;
+	@ObfuscatedName("ap")
+	public final Object field5042;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lhd;)V"
-   )
-   public class501(NPCComposition var1) {
-      int var2 = 0;
-      if (var1.method3698()) {
-         var2 = var1.method3699().length;
-         System.arraycopy(var1.method3699(), 0, this.field5024, 0, var2);
-         System.arraycopy(var1.method3706(), 0, this.field5025, 0, var2);
-      }
+	public class501(Object var1, Object var2) {
+		this.field5041 = var1;
+		this.field5042 = var2;
+	}
 
-      for(int var3 = var2; var3 < 8; ++var3) {
-         this.field5024[var3] = -1;
-         this.field5025[var3] = -1;
-      }
+	public String toString() {
+		return this.field5041 + ", " + this.field5042;
+	}
 
-   }
+	public boolean equals(Object var1) {
+		if (var1 != null && var1 instanceof class501) {
+			class501 var2 = (class501)var1;
+			if (this.field5041 == null) {
+				if (var2.field5041 != null) {
+					return false;
+				}
+			} else if (!this.field5041.equals(var2.field5041)) {
+				return false;
+			}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)[I",
-      garbageValue = "-1705195685"
-   )
-   public int[] method9160() {
-      return this.field5024;
-   }
+			if (this.field5042 == null) {
+				if (var2.field5042 != null) {
+					return false;
+				}
+			} else if (!this.field5042.equals(var2.field5042)) {
+				return false;
+			}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(I)[S",
-      garbageValue = "747465431"
-   )
-   public short[] method9161() {
-      return this.field5025;
-   }
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(IISI)V",
-      garbageValue = "-575239298"
-   )
-   public void method9168(int var1, int var2, short var3) {
-      this.field5024[var1] = var2;
-      this.field5025[var1] = var3;
-   }
+	public int hashCode() {
+		int var1 = 0;
+		if (this.field5041 != null) {
+			var1 += this.field5041.hashCode();
+		}
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "([I[SI)V",
-      garbageValue = "-386747680"
-   )
-   public void method9163(int[] var1, short[] var2) {
-      this.field5024 = var1;
-      this.field5025 = var2;
-   }
+		if (this.field5042 != null) {
+			var1 += 31 * this.field5042.hashCode();
+		}
+
+		return var1;
+	}
 }

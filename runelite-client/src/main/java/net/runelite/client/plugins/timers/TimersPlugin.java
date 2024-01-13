@@ -26,11 +26,13 @@
  */
 package net.runelite.client.plugins.timers;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.inject.Provides;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.IntPredicate;
 import java.util.function.IntUnaryOperator;
 import java.util.regex.Matcher;
@@ -66,6 +68,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.ItemManager;
+import net.runelite.client.game.ItemVariationMapping;
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -101,12 +104,19 @@ public class TimersPlugin extends Plugin
 	private static final String RESURRECT_THRALL_MESSAGE_START = ">You resurrect a ";
 	private static final String RESURRECT_THRALL_MESSAGE_END = " thrall.</col>";
 	private static final String WARD_OF_ARCEUUS_MESSAGE = ">Your defence against Arceuus magic has been strengthened.</col>";
+	private static final String MARK_OF_DARKNESS_MESSAGE = "You have placed a Mark of Darkness upon yourself.</col>";
 	private static final String PICKPOCKET_FAILURE_MESSAGE = "You fail to pick ";
 	private static final String DODGY_NECKLACE_PROTECTION_MESSAGE = "Your dodgy necklace protects you.";
 	private static final String SHADOW_VEIL_PROTECTION_MESSAGE = "Your attempt to steal goes unnoticed.";
 	private static final String SILK_DRESSING_MESSAGE = "You quickly apply the dressing to your wounds.";
 	private static final String BLESSED_CRYSTAL_SCARAB_MESSAGE = "You crack the crystal in your hand.";
 	private static final String LIQUID_ADRENALINE_MESSAGE = "You drink some of the potion, reducing the energy cost of your special attacks.</col>";
+	private static final Set<Integer> STAVES_OF_THE_DEAD = new ImmutableSet.Builder<Integer>()
+		.addAll(ItemVariationMapping.getVariations(ItemID.STAFF_OF_THE_DEAD))
+		.addAll(ItemVariationMapping.getVariations(ItemID.TOXIC_STAFF_UNCHARGED))
+		.add(ItemID.STAFF_OF_LIGHT)
+		.add(ItemID.STAFF_OF_BALANCE)
+		.build();
 
 	private static final int VENOM_VALUE_CUTOFF = -38; // Antivenom < -38 <= Antipoison < 0
 	private static final int POISON_TICK_LENGTH = 30;
@@ -669,6 +679,7 @@ public class TimersPlugin extends Plugin
 			removeGameTimer(RESURRECT_THRALL);
 			removeGameTimer(SHADOW_VEIL);
 			removeGameTimer(WARD_OF_ARCEUUS);
+			removeGameTimer(MARK_OF_DARKNESS);
 		}
 
 		if (!config.showArceuusCooldown())
@@ -677,6 +688,8 @@ public class TimersPlugin extends Plugin
 			removeGameTimer(RESURRECT_THRALL_COOLDOWN);
 			removeGameTimer(SHADOW_VEIL_COOLDOWN);
 			removeGameTimer(WARD_OF_ARCEUUS_COOLDOWN);
+			removeGameTimer(CORRUPTION_COOLDOWN);
+			removeGameTimer(MARK_OF_DARKNESS_COOLDOWN);
 		}
 
 		if (!config.showAntiPoison())
@@ -816,6 +829,10 @@ public class TimersPlugin extends Plugin
 			{
 				createGameTimer(WARD_OF_ARCEUUS, Duration.of(magicLevel, RSTimeUnit.GAME_TICKS));
 			}
+			else if (message.endsWith(MARK_OF_DARKNESS_MESSAGE))
+			{
+				createGameTimer(MARK_OF_DARKNESS, Duration.of(magicLevel, RSTimeUnit.GAME_TICKS));
+			}
 			else if (message.contains(RESURRECT_THRALL_MESSAGE_START) && message.endsWith(RESURRECT_THRALL_MESSAGE_END))
 			{
 				// by default the thrall lasts 1 tick per magic level
@@ -830,6 +847,15 @@ public class TimersPlugin extends Plugin
 					t += t / 2; // 50% boost
 				}
 				createGameTimer(RESURRECT_THRALL, Duration.of(t, RSTimeUnit.GAME_TICKS));
+			}
+		}
+
+		if (config.showArceuusCooldown())
+		{
+			final int magicLevel = client.getRealSkillLevel(Skill.MAGIC);
+			if (message.endsWith(MARK_OF_DARKNESS_MESSAGE))
+			{
+				createGameTimer(MARK_OF_DARKNESS_COOLDOWN, Duration.of(magicLevel - 10, RSTimeUnit.GAME_TICKS));
 			}
 		}
 
@@ -1090,11 +1116,7 @@ public class TimersPlugin extends Plugin
 		ItemContainer container = itemContainerChanged.getItemContainer();
 
 		Item weapon = container.getItem(EquipmentInventorySlot.WEAPON.getSlotIdx());
-		if (weapon == null ||
-			(weapon.getId() != ItemID.STAFF_OF_THE_DEAD &&
-				weapon.getId() != ItemID.TOXIC_STAFF_OF_THE_DEAD &&
-				weapon.getId() != ItemID.STAFF_OF_LIGHT &&
-				weapon.getId() != ItemID.TOXIC_STAFF_UNCHARGED))
+		if (weapon == null || STAVES_OF_THE_DEAD.contains(weapon.getId()))
 		{
 			// remove sotd timer if the staff has been unwielded
 			removeGameTimer(STAFF_OF_THE_DEAD);

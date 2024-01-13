@@ -1,101 +1,88 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ri")
-public class class464 extends class467 {
-   @ObfuscatedName("aj")
-   public static boolean field4803;
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = 131469685
-   )
-   int field4799 = 0;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = -1543634477
-   )
-   int field4797 = 0;
-   @ObfuscatedName("av")
-   double field4796 = 0.0;
-   @ObfuscatedName("as")
-   double field4798 = 0.0;
-   @ObfuscatedName("ax")
-   double field4800 = 0.0;
-   @ObfuscatedName("ap")
-   double field4801 = 0.0;
-   @ObfuscatedName("ab")
-   double field4802 = 0.0;
+@ObfuscatedName("rc")
+public class class464 {
+	@ObfuscatedName("am")
+	float field4794;
+	@ObfuscatedName("ap")
+	float field4795;
+	@ObfuscatedName("af")
+	float field4796;
 
-   public class464(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10) {
-      super(var9, var10);
-      this.field4799 = var3;
-      this.field4797 = var6;
-      if ((var5 - var8) * (var7 - var1) == (var4 - var7) * (var8 - var2)) {
-         this.field4796 = (double)var4;
-         this.field4798 = (double)var5;
-      } else {
-         double var11 = (double)((float)(var7 + var1)) / 2.0;
-         double var13 = (double)((float)(var8 + var2)) / 2.0;
-         double var15 = (double)((float)(var4 + var7)) / 2.0;
-         double var17 = (double)((float)(var5 + var8)) / 2.0;
-         double var19 = (double)(var7 - var1) * -1.0 / (double)(var8 - var2);
-         double var21 = (double)(var4 - var7) * -1.0 / (double)(var5 - var8);
-         this.field4796 = (var19 * var11 - var21 * var15 + var17 - var13) / (var19 - var21);
-         this.field4798 = var13 + var19 * (this.field4796 - var11);
-         this.field4800 = Math.sqrt(Math.pow(this.field4796 - (double)var1, 2.0) + Math.pow(this.field4798 - (double)var2, 2.0));
-         this.field4801 = Math.atan2((double)var2 - this.field4798, (double)var1 - this.field4796);
-         double var23 = Math.atan2((double)var8 - this.field4798, (double)var7 - this.field4796);
-         this.field4802 = Math.atan2((double)var5 - this.field4798, (double)var4 - this.field4796);
-         boolean var25 = this.field4801 <= var23 && var23 <= this.field4802 || this.field4802 <= var23 && var23 <= this.field4801;
-         if (!var25) {
-            this.field4802 += (double)(this.field4801 - this.field4802 > 0.0 ? 2 : -2) * Math.PI;
-         }
+	static {
+		new class464(0.0F, 0.0F, 0.0F);
+		new class464(1.0F, 1.0F, 1.0F);
+		new class464(1.0F, 0.0F, 0.0F);
+		new class464(0.0F, 1.0F, 0.0F);
+		new class464(0.0F, 0.0F, 1.0F);
+		class127.method3028(100);
+	}
 
-      }
-   }
+	class464(float var1, float var2, float var3) {
+		this.field4794 = var1;
+		this.field4795 = var2;
+		this.field4796 = var3;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "1021755450"
-   )
-   public int vmethod8351() {
-      double var1 = this.method8361();
-      double var3 = var1 * (this.field4802 - this.field4801) + this.field4801;
-      return (int)Math.round(this.field4796 + this.field4800 * Math.cos(var3));
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)F",
+		garbageValue = "159357859"
+	)
+	final float method8504() {
+		return (float)Math.sqrt((double)(this.field4796 * this.field4796 + this.field4794 * this.field4794 + this.field4795 * this.field4795));
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "1687418689"
-   )
-   public int vmethod8348() {
-      double var1 = this.method8361();
-      double var3 = (this.field4802 - this.field4801) * var1 + this.field4801;
-      return (int)Math.round(this.field4798 + this.field4800 * Math.sin(var3));
-   }
+	public String toString() {
+		return this.field4794 + ", " + this.field4795 + ", " + this.field4796;
+	}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "-1779423139"
-   )
-   public int vmethod8347() {
-      double var1 = this.method8361();
-      return (int)Math.round(var1 * (double)(this.field4797 - this.field4799) + (double)this.field4799);
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(II)Luh;",
+		garbageValue = "-1228913336"
+	)
+	@Export("getDbRowType")
+	public static DbRowType getDbRowType(int var0) {
+		DbRowType var1 = (DbRowType)DbRowType.DBRowType_cache.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = DbRowType.field5124.takeFile(38, var0);
+			var1 = new DbRowType();
+			if (var2 != null) {
+				var1.method9283(new Buffer(var2));
+			}
 
-   @ObfuscatedName("ag")
-   @ObfuscatedSignature(
-      descriptor = "(IIS)I",
-      garbageValue = "-30154"
-   )
-   static final int method8328(int var0, int var1) {
-      int var2 = UserComparator4.method2848(var0 - 1, var1 - 1) + UserComparator4.method2848(var0 + 1, var1 - 1) + UserComparator4.method2848(var0 - 1, var1 + 1) + UserComparator4.method2848(var0 + 1, var1 + 1);
-      int var3 = UserComparator4.method2848(var0 - 1, var1) + UserComparator4.method2848(1 + var0, var1) + UserComparator4.method2848(var0, var1 - 1) + UserComparator4.method2848(var0, 1 + var1);
-      int var4 = UserComparator4.method2848(var0, var1);
-      return var2 / 16 + var3 / 8 + var4 / 4;
-   }
+			var1.method9286();
+			DbRowType.DBRowType_cache.put(var1, (long)var0);
+			return var1;
+		}
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lut;",
+		garbageValue = "1037732544"
+	)
+	static IndexedSprite method8511() {
+		IndexedSprite var0 = new IndexedSprite();
+		var0.width = SpriteBufferProperties.SpriteBuffer_spriteWidth;
+		var0.height = SpriteBufferProperties.SpriteBuffer_spriteHeight;
+		var0.xOffset = SpriteBufferProperties.SpriteBuffer_xOffsets[0];
+		var0.yOffset = class388.SpriteBuffer_yOffsets[0];
+		var0.subWidth = FriendsList.SpriteBuffer_spriteWidths[0];
+		var0.subHeight = GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights[0];
+		var0.palette = SecureUrlRequester.SpriteBuffer_spritePalette;
+		var0.pixels = class230.SpriteBuffer_pixels[0];
+		SpriteBufferProperties.SpriteBuffer_xOffsets = null;
+		class388.SpriteBuffer_yOffsets = null;
+		FriendsList.SpriteBuffer_spriteWidths = null;
+		GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights = null;
+		SecureUrlRequester.SpriteBuffer_spritePalette = null;
+		class230.SpriteBuffer_pixels = null;
+		return var0;
+	}
 }

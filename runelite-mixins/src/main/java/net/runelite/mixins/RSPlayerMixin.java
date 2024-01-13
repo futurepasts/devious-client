@@ -24,6 +24,7 @@
  */
 package net.runelite.mixins;
 
+import net.runelite.api.ActorSpotAnim;
 import net.runelite.api.HeadIcon;
 import net.runelite.api.Model;
 import net.runelite.api.Perspective;
@@ -49,6 +50,7 @@ import net.runelite.rs.api.RSUsername;
 import java.awt.Polygon;
 import java.awt.Shape;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static net.runelite.api.SkullIcon.DEAD_MAN_FIVE;
 import static net.runelite.api.SkullIcon.DEAD_MAN_FOUR;
@@ -188,7 +190,7 @@ public abstract class RSPlayerMixin implements RSPlayer
 
 		final int tileHeight = Perspective.getTileHeight(client, new LocalPoint(localX, localY), client.getPlane());
 
-		Perspective.modelToCanvas(client, model.getVerticesCount(), localX, localY, tileHeight, getOrientation(), model.getVerticesX(), model.getVerticesZ(), model.getVerticesY(), x2d, y2d);
+		Perspective.modelToCanvas(client, model.getVerticesCount(), localX, localY, tileHeight, getCurrentOrientation(), model.getVerticesX(), model.getVerticesZ(), model.getVerticesY(), x2d, y2d);
 		ArrayList polys = new ArrayList(model.getFaceCount());
 
 		int[] trianglesX = model.getFaceIndices1();
@@ -225,7 +227,7 @@ public abstract class RSPlayerMixin implements RSPlayer
 
 		int tileHeight = Perspective.getTileHeight(client, new LocalPoint(getX(), getY()), client.getPlane());
 
-		return model.getConvexHull(getX(), getY(), getOrientation(), tileHeight);
+		return model.getConvexHull(getX(), getY(), getCurrentOrientation(), tileHeight);
 	}
 
 	@SuppressWarnings("InfiniteRecursion")
@@ -233,7 +235,7 @@ public abstract class RSPlayerMixin implements RSPlayer
 	@Replace("getModel")
 	public RSModel copy$getModel()
 	{
-		if (!client.isInterpolatePlayerAnimations() || !this.hasSpotAnim(getGraphic()) || this.getPoseAnimation() == 244)
+		if (!client.isInterpolatePlayerAnimations() || this.getPoseAnimation() == 244)
 		{
 			return copy$getModel();
 		}
@@ -247,6 +249,16 @@ public abstract class RSPlayerMixin implements RSPlayer
 			setActionFrame(Integer.MIN_VALUE | getActionFrameCycle() << 16 | actionFrame);
 			setPoseFrame(Integer.MIN_VALUE | getPoseFrameCycle() << 16 | poseFrame);
 			setSpotAnimFrame(Integer.MIN_VALUE | getSpotAnimationFrameCycle() << 16 | spotAnimFrame);
+			Iterator iter = getSpotAnims().iterator();
+			while (iter.hasNext())
+			{
+				ActorSpotAnim actorSpotAnim = (ActorSpotAnim) iter.next();
+				int frame = actorSpotAnim.getFrame();
+				if (frame != -1)
+				{
+					actorSpotAnim.setFrame(Integer.MIN_VALUE | actorSpotAnim.getCycle() << 16 | frame);
+				}
+			}
 			return copy$getModel();
 		}
 		finally
@@ -255,6 +267,16 @@ public abstract class RSPlayerMixin implements RSPlayer
 			setActionFrame(actionFrame);
 			setPoseFrame(poseFrame);
 			setSpotAnimFrame(spotAnimFrame);
+			Iterator iter = getSpotAnims().iterator();
+			while (iter.hasNext())
+			{
+				ActorSpotAnim actorSpotAnim = (ActorSpotAnim) iter.next();
+				int frame = actorSpotAnim.getFrame();
+				if (frame != -1)
+				{
+					actorSpotAnim.setFrame(frame & '\uFFFF');
+				}
+			}
 		}
 	}
 

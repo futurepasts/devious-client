@@ -1,79 +1,49 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("ie")
-public enum class216 implements MouseWheel {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Lie;"
-   )
-   field2397((byte)-1),
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Lie;"
-   )
-   field2394((byte)0),
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Lie;"
-   )
-   field2395((byte)1),
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "Lie;"
-   )
-   field2396((byte)2);
+public class class216 extends class222 {
+	@ObfuscatedName("am")
+	String field2325;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lih;"
+	)
+	final class219 this$0;
 
-   @ObfuscatedName("ax")
-   public byte field2393;
+	@ObfuscatedSignature(
+		descriptor = "(Lih;Ljava/lang/String;Ljava/lang/String;)V"
+	)
+	class216(class219 var1, String var2, String var3) {
+		super(var1, var2);
+		this.this$0 = var1;
+		this.field2325 = var3;
+	}
 
-   class216(byte var3) {
-      this.field2393 = var3;
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "945435280"
+	)
+	public int vmethod4368() {
+		return 1;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "-14"
-   )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.field2393;
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "-1875884586"
+	)
+	public String vmethod4369() {
+		return this.field2325;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(CI)Z",
-      garbageValue = "294559986"
-   )
-   static final boolean method4261(char var0) {
-      if (Character.isISOControl(var0)) {
-         return false;
-      } else if (class209.isAlphaNumeric(var0)) {
-         return true;
-      } else {
-         char[] var1 = class481.field4937;
-
-         int var2;
-         char var3;
-         for(var2 = 0; var2 < var1.length; ++var2) {
-            var3 = var1[var2];
-            if (var0 == var3) {
-               return true;
-            }
-         }
-
-         var1 = class481.field4935;
-
-         for(var2 = 0; var2 < var1.length; ++var2) {
-            var3 = var1[var2];
-            if (var0 == var3) {
-               return true;
-            }
-         }
-
-         return false;
-      }
-   }
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "880024876"
+	)
+	static void method4273() {
+		WorldMapRegion.WorldMapRegion_cachedSprites.clear();
+	}
 }

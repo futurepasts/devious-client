@@ -3,112 +3,82 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dw")
+@ObfuscatedName("da")
 @Implements("ItemContainer")
 public class ItemContainer extends Node {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Lsh;"
-   )
-   @Export("itemContainers")
-   static NodeHashTable itemContainers = new NodeHashTable(32);
-   @ObfuscatedName("an")
-   @Export("ids")
-   int[] ids = new int[]{-1};
-   @ObfuscatedName("av")
-   @Export("quantities")
-   int[] quantities = new int[]{0};
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Lts;"
+	)
+	@Export("itemContainers")
+	static NodeHashTable itemContainers;
+	@ObfuscatedName("me")
+	@ObfuscatedSignature(
+		descriptor = "Lkj;"
+	)
+	@Export("textureProvider")
+	static TextureProvider textureProvider;
+	@ObfuscatedName("ap")
+	@Export("ids")
+	int[] ids;
+	@ObfuscatedName("af")
+	@Export("quantities")
+	int[] quantities;
 
-   ItemContainer() {
-   }
+	static {
+		itemContainers = new NodeHashTable(32);
+	}
 
-   @ObfuscatedName("ah")
-   @ObfuscatedSignature(
-      descriptor = "(IIB)I",
-      garbageValue = "-7"
-   )
-   static final int method2230(int var0, int var1) {
-      if (var0 == -1) {
-         return 12345678;
-      } else {
-         var1 = (var0 & 127) * var1 / 128;
-         if (var1 < 2) {
-            var1 = 2;
-         } else if (var1 > 126) {
-            var1 = 126;
-         }
+	ItemContainer() {
+		this.ids = new int[]{-1};
+		this.quantities = new int[]{0};
+	}
 
-         return (var0 & 'ﾀ') + var1;
-      }
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;B)V",
+		garbageValue = "-37"
+	)
+	@Export("addChatMessage")
+	static void addChatMessage(int var0, String var1, String var2, String var3) {
+		ChatChannel var4 = (ChatChannel)Messages.Messages_channels.get(var0);
+		if (var4 == null) {
+			var4 = new ChatChannel();
+			Messages.Messages_channels.put(var0, var4);
+		}
 
-   @ObfuscatedName("jz")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-1737946308"
-   )
-   static final void method2239(int var0) {
-      int[] var1 = class33.sceneMinimapSprite.pixels;
-      int var2 = var1.length;
+		Message var5 = var4.addMessage(var0, var1, var2, var3);
+		Messages.Messages_hashTable.put(var5, (long)var5.count);
+		Messages.Messages_queue.add(var5);
+		Client.chatCycle = Client.cycleCntr;
+	}
 
-      int var3;
-      for(var3 = 0; var3 < var2; ++var3) {
-         var1[var3] = 0;
-      }
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(IB)I",
+		garbageValue = "-23"
+	)
+	public static int method2347(int var0) {
+		--var0;
+		var0 |= var0 >>> 1;
+		var0 |= var0 >>> 2;
+		var0 |= var0 >>> 4;
+		var0 |= var0 >>> 8;
+		var0 |= var0 >>> 16;
+		return var0 + 1;
+	}
 
-      int var4;
-      int var5;
-      for(var3 = 1; var3 < 103; ++var3) {
-         var4 = (103 - var3) * 2048 + 24628;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-335792914"
+	)
+	static void method2350() {
+		if (class281.loadWorlds()) {
+			Login.worldSelectOpen = true;
+			Login.worldSelectPage = 0;
+			Login.worldSelectPagesCount = 0;
+		}
 
-         for(var5 = 1; var5 < 103; ++var5) {
-            if ((Tiles.Tiles_renderFlags[var0][var5][var3] & 24) == 0) {
-               class36.scene.drawTileMinimap(var1, var4, 512, var0, var5, var3);
-            }
-
-            if (var0 < 3 && (Tiles.Tiles_renderFlags[var0 + 1][var5][var3] & 8) != 0) {
-               class36.scene.drawTileMinimap(var1, var4, 512, var0 + 1, var5, var3);
-            }
-
-            var4 += 4;
-         }
-      }
-
-      var3 = (238 + (int)(Math.random() * 20.0) - 10 << 16) + (238 + (int)(Math.random() * 20.0) - 10 << 8) + (238 + (int)(Math.random() * 20.0) - 10);
-      var4 = 238 + (int)(Math.random() * 20.0) - 10 << 16;
-      class33.sceneMinimapSprite.setRaster();
-
-      int var6;
-      for(var5 = 1; var5 < 103; ++var5) {
-         for(var6 = 1; var6 < 103; ++var6) {
-            if ((Tiles.Tiles_renderFlags[var0][var6][var5] & 24) == 0) {
-               UserComparator10.drawObject(var0, var6, var5, var3, var4);
-            }
-
-            if (var0 < 3 && (Tiles.Tiles_renderFlags[var0 + 1][var6][var5] & 8) != 0) {
-               UserComparator10.drawObject(var0 + 1, var6, var5, var3, var4);
-            }
-         }
-      }
-
-      Client.mapIconCount = 0;
-
-      for(var5 = 0; var5 < 104; ++var5) {
-         for(var6 = 0; var6 < 104; ++var6) {
-            long var7 = class36.scene.getFloorDecorationTag(Clock.Client_plane, var5, var6);
-            if (var7 != 0L) {
-               int var9 = class215.Entity_unpackID(var7);
-               int var10 = class175.getObjectDefinition(var9).mapIconId;
-               if (var10 >= 0 && class147.WorldMapElement_get(var10).field1908) {
-                  Client.mapIcons[Client.mapIconCount] = class147.WorldMapElement_get(var10).getSpriteBool(false);
-                  Client.mapIconXs[Client.mapIconCount] = var5;
-                  Client.mapIconYs[Client.mapIconCount] = var6;
-                  ++Client.mapIconCount;
-               }
-            }
-         }
-      }
-
-      WorldMapSectionType.rasterProvider.apply();
-   }
+	}
 }

@@ -25,6 +25,8 @@
 package net.runelite.api;
 
 import com.jagex.oldscape.pub.OAuthApi;
+import net.runelite.api.annotations.Component;
+import net.runelite.api.annotations.Interface;
 import net.runelite.api.annotations.VarCInt;
 import net.runelite.api.annotations.VarCStr;
 import net.runelite.api.annotations.Varbit;
@@ -48,6 +50,7 @@ import net.runelite.api.widgets.ItemQuantityMode;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetConfig;
 import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.api.widgets.WidgetModalMode;
 import net.runelite.api.worldmap.MapElementConfig;
 import net.runelite.api.worldmap.WorldMap;
 import net.unethicalite.api.MouseHandler;
@@ -245,6 +248,13 @@ public interface Client extends OAuthApi, GameEngine
 	 * @param otp one time password
 	 */
 	void setOtp(String otp);
+
+	/**
+	 * Sets whether to use authenticator token or normal password scheme, login by setting game state to 20 {@link GameState#LOGGING_IN}
+	 *
+	 * @param otp
+	 */
+	void login(boolean otp);
 
 	/**
 	 * Gets currently selected login field. 0 is username, and 1 is password.
@@ -624,26 +634,21 @@ public interface Client extends OAuthApi, GameEngine
 
 	/**
 	 * Gets a widget by its raw group ID and child ID.
-	 * <p>
-	 * Note: Use {@link #getWidget(WidgetInfo)} for a more human-readable
-	 * version of this method.
 	 *
 	 * @param groupId the group ID
 	 * @param childId the child widget ID
 	 * @return the widget corresponding to the group and child pair
 	 */
 	@Nullable
-	Widget getWidget(int groupId, int childId);
+	Widget getWidget(@Interface int groupId, int childId);
 
 	/**
-	 * Gets a widget by it's packed ID.
+	 * Gets a widget by its component id.
 	 *
-	 * <p>
-	 * Note: Use {@link #getWidget(WidgetInfo)} or {@link #getWidget(int, int)} for
-	 * a more readable version of this method.
+	 * @param componentId the component id
 	 */
 	@Nullable
-	Widget getWidget(int packedID);
+	Widget getWidget(@Component int componentId);
 
 	/**
 	 * Gets an array containing the x-axis canvas positions
@@ -761,6 +766,24 @@ public interface Client extends OAuthApi, GameEngine
 	 * @return true if a menu is open, false otherwise
 	 */
 	boolean isMenuOpen();
+
+	/**
+	 * Returns whether the currently open menu is scrollable.
+	 * @return
+	 */
+	boolean isMenuScrollable();
+
+	/**
+	 * Get the number of entries the currently open menu has been scrolled down.
+	 * @return
+	 */
+	int getMenuScroll();
+
+	/**
+	 * Set the number of entries the currently open menu has been scrolled down.
+	 * @param scroll
+	 */
+	void setMenuScroll(int scroll);
 
 	/**
 	 * Get the menu x location. Only valid if the menu is open.
@@ -1030,6 +1053,26 @@ public interface Client extends OAuthApi, GameEngine
 	void queueChangedVarp(int varp);
 
 	/**
+	 * Open an interface.
+	 * @param componentId component id to open the interface at
+	 * @param interfaceId the interface to open
+	 * @param modalMode see {@link WidgetModalMode}
+	 * @throws IllegalStateException if the component does not exist or it not a layer, or the interface is already
+	 * open on a different component
+	 * @return the {@link WidgetNode} for the interface. This should be closed later by calling
+	 * {{@link #closeInterface(WidgetNode, boolean)}.
+	 */
+	WidgetNode openInterface(int componentId, int interfaceId, @MagicConstant(valuesFromClass = WidgetModalMode.class) int modalMode);
+
+	/**
+	 * Close an interface
+	 * @param interfaceNode the {@link WidgetNode} linking the interface into the component tree
+	 * @param unload whether to null the client's widget table
+	 * @throws IllegalArgumentException if the interfaceNode is not linked into the component tree
+	 */
+	void closeInterface(WidgetNode interfaceNode, boolean unload);
+
+	/**
 	 * Gets the widget flags table.
 	 *
 	 * @return the widget flags table
@@ -1124,7 +1167,7 @@ public interface Client extends OAuthApi, GameEngine
 	/**
 	 * Gets a entry out of a DBTable Row
 	 */
-	Object getDBTableField(int rowID, int column, int tupleIndex, int fieldIndex);
+	Object[] getDBTableField(int rowID, int column, int tupleIndex);
 
 	/**
 	 * Gets an array of all world areas
@@ -1134,6 +1177,12 @@ public interface Client extends OAuthApi, GameEngine
 	MapElementConfig[] getMapElementConfigs();
 
 	DBRowConfig getDBRowConfig(int rowID);
+
+	/**
+	 * Uses an index to find rows containing a certain value in a column.
+	 * An index must exist for this column.
+	 */
+	List<Integer> getDBRowsByValue(int table, int column, int tupleIndex, Object value);
 
 	/**
 	 * Get a map element config by id
@@ -1226,7 +1275,7 @@ public interface Client extends OAuthApi, GameEngine
 	 * @param endHeight end height of projectile - excludes tile height
 	 * @param target optional actor target
 	 * @param targetX target x - if an actor target is supplied should be the target x
-	 * @param targetY taret y - if an actor target is supplied should be the target y
+	 * @param targetY target y - if an actor target is supplied should be the target y
 	 * @return the new projectile
 	 */
 	Projectile createProjectile(int id, int plane, int startX, int startY, int startZ, int startCycle, int endCycle,
@@ -2010,8 +2059,11 @@ public interface Client extends OAuthApi, GameEngine
 	int getSkyboxColor();
 
 	boolean isGpu();
+	void setGpuFlags(int gpuflags);
+	int getGpuFlags();
 
-	void setGpu(boolean gpu);
+	void setExpandedMapLoading(int chunks);
+	int getExpandedMapLoading();
 
 	int get3dZoom();
 
@@ -2063,6 +2115,11 @@ public interface Client extends OAuthApi, GameEngine
 	 * @return
 	 */
 	NodeCache getObjectCompositionCache();
+
+	/**
+	 * Returns the client {@link Animation} cache
+	 */
+	NodeCache getAnimationCache();
 
 	/**
 	 * Returns the array of cross sprites that appear and animate when left-clicking
@@ -2456,6 +2513,8 @@ public interface Client extends OAuthApi, GameEngine
 
 	void posToCameraAngle(int var0, int var1);
 
+	Rasterizer getRasterizer();
+
 	/*
 	 * Unethical
 	 */
@@ -2631,4 +2690,13 @@ public interface Client extends OAuthApi, GameEngine
 
 	void setWorldList(World[] worlds);
 
+	String getSessionId();
+
+	void setSessionId(String sessionId);
+
+	String getCharacterId();
+
+	void setCharacterId(String characterId);
+
+	LoginState getLoginState();
 }

@@ -8,6 +8,7 @@ import net.runelite.api.ItemID;
 import net.runelite.api.MenuAction;
 import net.runelite.api.NPC;
 import net.runelite.api.NpcID;
+import net.runelite.api.ObjectID;
 import net.runelite.api.Point;
 import net.runelite.api.Quest;
 import net.runelite.api.QuestState;
@@ -27,14 +28,18 @@ import net.unethicalite.api.items.Equipment;
 import net.unethicalite.api.items.Inventory;
 import net.unethicalite.api.movement.Movement;
 import net.unethicalite.api.movement.pathfinder.model.FairyRingLocation;
+import net.unethicalite.api.movement.pathfinder.model.GnomeGliderLocation;
 import net.unethicalite.api.movement.pathfinder.model.Transport;
 import net.unethicalite.api.movement.pathfinder.model.dto.TransportDto;
 import net.unethicalite.api.movement.pathfinder.model.requirement.Requirements;
+import net.unethicalite.api.quests.QuestVarPlayer;
 import net.unethicalite.api.quests.QuestVarbits;
 import net.unethicalite.api.quests.Quests;
 import net.unethicalite.api.widgets.Dialog;
 import net.unethicalite.api.widgets.Widgets;
+import net.unethicalite.client.Static;
 import org.apache.commons.lang3.tuple.Pair;
+import net.unethicalite.api.movement.pathfinder.model.CharterShipLocation;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,6 +58,7 @@ public class TransportLoader
 
     private static final List<Transport> ALL_STATIC_TRANSPORTS = new ArrayList<>();
     private static final List<Transport> LAST_TRANSPORT_LIST = new ArrayList<>();
+    private static List<Transport> TEMP_TRANSPORTS;
 
     public static void init()
     {
@@ -162,6 +168,12 @@ public class TransportLoader
                             "Port Piscarilius"));
                 }
 
+                // Charter Ships
+                if (Static.getUnethicaliteConfig().useCharterShips())
+                {
+                    transports.addAll(CharterShipLocation.getCharterShips(gold));
+                }
+
                 if (Quests.getState(Quest.LUNAR_DIPLOMACY) != QuestState.NOT_STARTED)
                 {
                     transports.add(npcTransport(new WorldPoint(2222, 3796, 2), new WorldPoint(2130, 3899, 2), NpcID.CAPTAIN_BENTLEY_6650, "Travel"));
@@ -202,6 +214,13 @@ public class TransportLoader
                     transports.add(npcTransport(new WorldPoint(2515, 3159, 0), new WorldPoint(2504, 3192, 0), 4968, "Follow"));
                 }
 
+                // Gnome Battlefield
+                if (Vars.getVarp(QuestVarPlayer.QUEST_TREE_GNOME_VILLAGE.getId()) >= 5)
+                {
+                    transports.add(objectDialogTransport(new WorldPoint(2509, 3252, 0),
+                            new WorldPoint(2509, 3254, 0), 2185,
+                            new String[] {"Climb-over"}));
+                }
                 // Eagles peak cave
                 if (Vars.getVarp(934) >= 15)
                 {
@@ -272,6 +291,10 @@ public class TransportLoader
                         }
                     }
                 }
+
+                // Al Kharid to and from Ruins of Unkah
+                transports.add(npcTransport(new WorldPoint(3272, 3144, 0), new WorldPoint(3148, 2842, 0), NpcID.FERRYMAN_SATHWOOD, "Ferry"));
+                transports.add(npcTransport(new WorldPoint(3148, 2842, 0), new WorldPoint(3272, 3144, 0), NpcID.FERRYMAN_NATHWOOD, "Ferry"));
             }
 
             // Entrana
@@ -305,7 +328,41 @@ public class TransportLoader
                     }
                 }
             }
+            // Tower of Life
+            transports.add(trapDoorTransport(new WorldPoint(2648, 3213, 0), new WorldPoint(3038, 4376, 0), ObjectID.TRAPDOOR_21921, ObjectID.TRAPDOOR_21922));
+            transports.add(objectTransport(new WorldPoint(3038, 4376, 0), new WorldPoint(2649, 3212, 0), ObjectID.LADDER_17974, "Climb-up"));
 
+            // Gnome Gliders
+            if (Quests.isFinished(Quest.THE_GRAND_TREE))
+            {
+                for (var source : GnomeGliderLocation.values())
+                {
+                    for (var target : GnomeGliderLocation.values())
+                    {
+                        if (source.getWorldPoint() == GnomeGliderLocation.LEMANTO_ANDRA.getWorldPoint())
+                        {
+                            continue;
+                        }
+                        if ((source.getWorldPoint() == GnomeGliderLocation.LEMANTOLLY_UNDRI.getWorldPoint() ||
+                            target.getWorldPoint() == GnomeGliderLocation.LEMANTOLLY_UNDRI.getWorldPoint()) &&
+                                !Quests.isFinished(Quest.ONE_SMALL_FAVOUR))
+                        {
+                            continue;
+                        }
+                        if ((source.getWorldPoint() == GnomeGliderLocation.OOKOOKOLLY_UNDRI.getWorldPoint() ||
+                            target.getWorldPoint() == GnomeGliderLocation.OOKOOKOLLY_UNDRI.getWorldPoint()) &&
+                                !Quests.isFinished(Quest.MONKEY_MADNESS_II))
+                        {
+                            continue;
+                        }
+
+                        if (source != target)
+                        {
+                            transports.add(gnomeGliderTransport(source.getWorldPoint(), target.getWorldPoint(), target.getWidgetID()));
+                        }
+                    }
+                }
+            }
             // Gnome stronghold
             transports.add(objectDialogTransport(new WorldPoint(2460, 3382, 0), new WorldPoint(2461, 3385, 0), 190, new String[] {"Open"}, "Sorry, I'm a bit busy."));
             transports.add(objectDialogTransport(new WorldPoint(2461, 3382, 0), new WorldPoint(2461, 3385, 0), 190, new String[] {"Open"}, "Sorry, I'm a bit busy."));
@@ -374,6 +431,10 @@ public class TransportLoader
                 transports.add(npcTransport(new WorldPoint(2574, 2835, 1), new WorldPoint(2909, 3230, 1), NpcID.CAPTAIN_TOCK_7958, "Travel"));
             }
 
+            // Draynor Jail
+            transports.add(lockingDoorTransport(new WorldPoint(3123, 3244, 0), new WorldPoint(3123, 3243, 0), ObjectID.PRISON_GATE_2881));
+            transports.add(lockingDoorTransport(new WorldPoint(3123, 3243, 0), new WorldPoint(3123, 3244, 0), ObjectID.PRISON_GATE_2881));
+
             if (Inventory.contains(SLASH_ITEMS) || Equipment.contains(SLASH_ITEMS))
             {
                 for (Pair<WorldPoint, WorldPoint> pair : SLASH_WEB_POINTS)
@@ -386,7 +447,23 @@ public class TransportLoader
             LAST_TRANSPORT_LIST.clear();
             LAST_TRANSPORT_LIST.addAll(filteredStatic);
             LAST_TRANSPORT_LIST.addAll(transports);
+            if (TEMP_TRANSPORTS != null)
+            {
+                LAST_TRANSPORT_LIST.addAll(TEMP_TRANSPORTS);
+            }
         });
+    }
+
+    public static void updateTempTransports(List<Transport> transports)
+    {
+        TEMP_TRANSPORTS = transports;
+        refreshTransports();
+    }
+
+    public static void clearTempTransports()
+    {
+        TEMP_TRANSPORTS = null;
+        refreshTransports();
     }
 
     public static Transport lockingDoorTransport(
@@ -483,7 +560,7 @@ public class TransportLoader
                 return;
             }
 
-            TileObject transport = TileObjects.getFirstSurrounding(source, 5, objId);
+            TileObject transport = TileObjects.getFirstSurrounding(source, 8, objId);
             if (transport != null)
             {
                 item.useOn(transport);
@@ -675,6 +752,67 @@ public class TransportLoader
         });
     }
 
+    public static Transport charterTransport(
+        WorldPoint source,
+        WorldPoint destination,
+        int destinationWidgetId
+    )
+    {
+        return new Transport(source, destination, 10, 0, () ->
+        {
+           if (Dialog.isViewingOptions())
+           {
+                Dialog.chooseOption("Okay");
+                return;
+           }
+            Widget charterWidget = Widgets.get(72, 0);
+            if (Widgets.isVisible(charterWidget))
+            {
+                Widget destinationWidget = Widgets.get(72, destinationWidgetId);
+                if (Widgets.isVisible(destinationWidget))
+                {
+                    destinationWidget.interact(0);
+                }
+            }
+            else
+            {
+                NPC charterCrew = NPCs.getNearest(source, "Trader Crewmember");
+                if (charterCrew != null)
+                {
+                    charterCrew.interact("Charter");
+                }
+            }
+        });
+    }
+
+    public static Transport gnomeGliderTransport(
+        WorldPoint source,
+        WorldPoint destination,
+        int widgetId
+    )
+    {
+        return new Transport(source, destination, 10, 0, () ->
+        {
+            Widget gliderMap = Widgets.get(138, 0);
+            if (Widgets.isVisible(gliderMap))
+            {
+                Widget destinationWidget = Widgets.get(138, widgetId);
+                if (Widgets.isVisible(destinationWidget))
+                {
+                    destinationWidget.interact(0);
+                }
+            }
+            else
+            {
+                NPC gnome = NPCs.getNearest(source, "Captain Klemfoodle", "Captain Errdo", "Captain Dalbur",
+                    "Captain Bleemadge", "Gnormadium Avlafrim", "Captain Shoracks");
+                if (gnome != null)
+                {
+                    gnome.interact("Glider");
+                }
+            }
+        });
+    }
     private static Transport spritTreeTransport(WorldPoint source, WorldPoint target, String location)
     {
         return new Transport(

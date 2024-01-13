@@ -4,82 +4,57 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cm")
+@ObfuscatedName("cu")
 @Implements("ScriptFrame")
 public class ScriptFrame {
-   @ObfuscatedName("wn")
-   @ObfuscatedSignature(
-      descriptor = "Lse;"
-   )
-   @Export("worldMap")
-   static WorldMap worldMap;
-   @ObfuscatedName("ix")
-   @ObfuscatedGetter(
-      intValue = 564473995
-   )
-   static int field474;
-   @ObfuscatedName("oq")
-   @ObfuscatedGetter(
-      intValue = 1244134597
-   )
-   @Export("selectedSpellWidget")
-   static int selectedSpellWidget;
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Ldd;"
-   )
-   @Export("script")
-   Script script;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = 501950891
-   )
-   @Export("pc")
-   int pc = -1;
-   @ObfuscatedName("av")
-   @Export("intLocals")
-   int[] intLocals;
-   @ObfuscatedName("as")
-   @Export("stringLocals")
-   String[] stringLocals;
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Ldd;"
+	)
+	@Export("script")
+	Script script;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = 1219042639
+	)
+	@Export("pc")
+	int pc;
+	@ObfuscatedName("af")
+	@Export("intLocals")
+	int[] intLocals;
+	@ObfuscatedName("aj")
+	@Export("stringLocals")
+	String[] stringLocals;
 
-   ScriptFrame() {
-   }
+	ScriptFrame() {
+		this.pc = -1;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(Lnq;Lnq;ZI)V",
-      garbageValue = "-1693429746"
-   )
-   public static void method1148(AbstractArchive var0, AbstractArchive var1, boolean var2) {
-      ObjectComposition.ObjectDefinition_archive = var0;
-      ObjectComposition.ObjectDefinition_modelsArchive = var1;
-      ObjectComposition.ObjectDefinition_isLowDetail = var2;
-   }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(CS)Z",
+		garbageValue = "232"
+	)
+	@Export("isDigit")
+	public static boolean isDigit(char var0) {
+		return var0 >= '0' && var0 <= '9';
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(III)V",
-      garbageValue = "-722096780"
-   )
-   @Export("changeWorldSelectSorting")
-   static void changeWorldSelectSorting(int var0, int var1) {
-      int[] var2 = new int[4];
-      int[] var3 = new int[4];
-      var2[0] = var0;
-      var3[0] = var1;
-      int var4 = 1;
+	@ObfuscatedName("kk")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIB)V",
+		garbageValue = "-51"
+	)
+	static void method1204(int var0, int var1, int var2, int var3, int var4) {
+		NodeDeque var5 = Client.groundItems[var0][var1][var2];
+		if (var5 != null) {
+			for (TileItem var6 = (TileItem)var5.last(); var6 != null; var6 = (TileItem)var5.previous()) {
+				if ((var3 & 32767) == var6.id) {
+					var6.method2750(var4);
+					break;
+				}
+			}
+		}
 
-      for(int var5 = 0; var5 < 4; ++var5) {
-         if (World.World_sortOption1[var5] != var0) {
-            var2[var4] = World.World_sortOption1[var5];
-            var3[var4] = World.World_sortOption2[var5];
-            ++var4;
-         }
-      }
-
-      World.World_sortOption1 = var2;
-      World.World_sortOption2 = var3;
-      ClanChannel.sortWorlds(World.World_worlds, 0, World.World_worlds.length - 1, World.World_sortOption1, World.World_sortOption2);
-   }
+	}
 }

@@ -1,27 +1,22 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nu")
+@ObfuscatedName("oy")
 @Implements("Strings")
 public class Strings {
-   @ObfuscatedName("fm")
-   public static String field4010 = "Please visit the support page for assistance.";
-   @ObfuscatedName("ke")
-   public static String field4052 = "";
-   @ObfuscatedName("kp")
-   public static String field4128 = "Page has opened in the browser.";
-   @ObfuscatedName("kk")
-   public static String field4146 = "";
+	@ObfuscatedName("ff")
+	public static String field4107;
+	@ObfuscatedName("kj")
+	public static String field4239;
+	@ObfuscatedName("kc")
+	public static String field4065;
+	@ObfuscatedName("kw")
+	public static String field4241;
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(IB)Ljava/lang/String;",
-      garbageValue = "-21"
-   )
-   @Export("colorStartTag")
-   static String colorStartTag(int var0) {
-      return "<col=" + Integer.toHexString(var0) + ">";
-   }
+	static {
+		field4107 = "Please visit the support page for assistance.";
+		field4239 = "";
+		field4065 = "Page has opened in the browser.";
+		field4241 = "";
+	}
 }

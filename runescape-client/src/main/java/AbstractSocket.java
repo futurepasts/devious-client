@@ -4,93 +4,78 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qz")
+@ObfuscatedName("ri")
 @Implements("AbstractSocket")
 public abstract class AbstractSocket {
-   AbstractSocket() {
-   }
+	AbstractSocket() {
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(II)Z",
-      garbageValue = "1623804098"
-   )
-   @Export("isAvailable")
-   public abstract boolean isAvailable(int var1) throws IOException;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(II)Z",
+		garbageValue = "459793604"
+	)
+	@Export("isAvailable")
+	public abstract boolean isAvailable(int var1) throws IOException;
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "0"
-   )
-   @Export("available")
-   public abstract int available() throws IOException;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-2073785670"
+	)
+	@Export("available")
+	public abstract int available() throws IOException;
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "82"
-   )
-   @Export("readUnsignedByte")
-   public abstract int readUnsignedByte() throws IOException;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "644440171"
+	)
+	@Export("readUnsignedByte")
+	public abstract int readUnsignedByte() throws IOException;
 
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "([BIIB)I",
-      garbageValue = "-22"
-   )
-   @Export("read")
-   public abstract int read(byte[] var1, int var2, int var3) throws IOException;
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "([BIII)I",
+		garbageValue = "2051272963"
+	)
+	@Export("read")
+	public abstract int read(byte[] var1, int var2, int var3) throws IOException;
 
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "([BIII)V",
-      garbageValue = "-1586948718"
-   )
-   @Export("write")
-   public abstract void write(byte[] var1, int var2, int var3) throws IOException;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "([BIII)V",
+		garbageValue = "-1202397561"
+	)
+	@Export("write")
+	public abstract void write(byte[] var1, int var2, int var3) throws IOException;
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "-22185"
-   )
-   @Export("close")
-   public abstract void close();
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "548982249"
+	)
+	@Export("close")
+	public abstract void close();
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-643972337"
-   )
-   static void method7950(int var0) {
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Low;B)V",
+		garbageValue = "0"
+	)
+	public static void method8404(AbstractArchive var0) {
+		InvDefinition.InvDefinition_archive = var0;
+	}
 
-   @ObfuscatedName("az")
-   @ObfuscatedSignature(
-      descriptor = "(III)I",
-      garbageValue = "-1423800052"
-   )
-   static final int method7958(int var0, int var1) {
-      if (var0 == -2) {
-         return 12345678;
-      } else if (var0 == -1) {
-         if (var1 < 2) {
-            var1 = 2;
-         } else if (var1 > 126) {
-            var1 = 126;
-         }
+	@ObfuscatedName("pk")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "1"
+	)
+	static void method8405() {
+		if (Client.oculusOrbState == 1) {
+			Client.field597 = true;
+		}
 
-         return var1;
-      } else {
-         var1 = (var0 & 127) * var1 / 128;
-         if (var1 < 2) {
-            var1 = 2;
-         } else if (var1 > 126) {
-            var1 = 126;
-         }
-
-         return (var0 & 'ﾀ') + var1;
-      }
-   }
+	}
 }

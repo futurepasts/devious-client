@@ -3,85 +3,125 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dq")
-public enum class90 implements MouseWheel {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1091(0, -1),
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1090(1, 2),
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1096(2, 3),
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1092(3, 4),
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1093(4, 5),
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "Ldq;"
-   )
-   field1094(5, 6);
+@ObfuscatedName("de")
+public enum class90 implements Enum {
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Lde;"
+	)
+	field1090(0, -1),
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lde;"
+	)
+	field1087(1, 2),
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Lde;"
+	)
+	field1089(2, 3),
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lde;"
+	)
+	field1096(3, 4),
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Lde;"
+	)
+	field1091(4, 5),
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Lde;"
+	)
+	field1092(5, 6);
 
-   @ObfuscatedName("ab")
-   @ObfuscatedGetter(
-      intValue = -599705559
-   )
-   final int field1095;
-   @ObfuscatedName("ak")
-   @ObfuscatedGetter(
-      intValue = 2044227431
-   )
-   final int field1089;
+	@ObfuscatedName("ju")
+	@ObfuscatedSignature(
+		descriptor = "Lpv;"
+	)
+	@Export("fontBold12")
+	static Font fontBold12;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -881189761
+	)
+	final int field1093;
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = -1952545437
+	)
+	final int field1094;
 
-   class90(int var3, int var4) {
-      this.field1095 = var3;
-      this.field1089 = var4;
-   }
+	class90(int var3, int var4) {
+		this.field1093 = var3;
+		this.field1094 = var4;
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "-14"
-   )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.field1089;
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-884190501"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1094;
+	}
 
-   @ObfuscatedName("ap")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-190718887"
-   )
-   public static void method2280() {
-      DbTableType.DBTableType_cache.clear();
-   }
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "([BI)Ldd;",
+		garbageValue = "850593587"
+	)
+	@Export("newScript")
+	static Script newScript(byte[] var0) {
+		Script var1 = new Script();
+		Buffer var2 = new Buffer(var0);
+		var2.offset = var2.array.length - 2;
+		int var3 = var2.readUnsignedShort();
+		int var4 = var2.array.length - 2 - var3 - 12;
+		var2.offset = var4;
+		int var5 = var2.readInt();
+		var1.localIntCount = var2.readUnsignedShort();
+		var1.localStringCount = var2.readUnsignedShort();
+		var1.intArgumentCount = var2.readUnsignedShort();
+		var1.stringArgumentCount = var2.readUnsignedShort();
+		int var6 = var2.readUnsignedByte();
+		int var7;
+		int var8;
+		if (var6 > 0) {
+			var1.switches = var1.newIterableNodeHashTable(var6);
 
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "(II)Ley;",
-      garbageValue = "1399066247"
-   )
-   static class127 method2279(int var0) {
-      class127 var1 = (class127)GameObject.findEnumerated(ObjectSound.method1875(), var0);
-      if (var1 == null) {
-         var1 = class127.field1494;
-      }
+			for (var7 = 0; var7 < var6; ++var7) {
+				var8 = var2.readUnsignedShort();
+				IterableNodeHashTable var9 = new IterableNodeHashTable(var8 > 0 ? ItemContainer.method2347(var8) : 1);
+				var1.switches[var7] = var9;
 
-      return var1;
-   }
+				while (var8-- > 0) {
+					int var10 = var2.readInt();
+					int var11 = var2.readInt();
+					var9.put(new IntegerNode(var11), (long)var10);
+				}
+			}
+		}
+
+		var2.offset = 0;
+		var1.field979 = var2.readStringCp1252NullTerminatedOrNull();
+		var1.opcodes = new int[var5];
+		var1.intOperands = new int[var5];
+		var1.stringOperands = new String[var5];
+
+		for (var7 = 0; var2.offset < var4; var1.opcodes[var7++] = var8) {
+			var8 = var2.readUnsignedShort();
+			if (var8 == 3) {
+				var1.stringOperands[var7] = var2.readStringCp1252NullTerminated();
+			} else if (var8 < 100 && var8 != 21 && var8 != 38 && var8 != 39) {
+				var1.intOperands[var7] = var2.readInt();
+			} else {
+				var1.intOperands[var7] = var2.readUnsignedByte();
+			}
+		}
+
+		return var1;
+	}
 }

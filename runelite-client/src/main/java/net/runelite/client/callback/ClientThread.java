@@ -41,6 +41,7 @@ import org.jetbrains.annotations.NotNull;
 public class ClientThread implements Executor
 {
 	private final ConcurrentLinkedQueue<BooleanSupplier> invokes = new ConcurrentLinkedQueue<>();
+	private final ConcurrentLinkedQueue<BooleanSupplier> invokesAtTickEnd = new ConcurrentLinkedQueue<>();
 
 	private final Client client;
 
@@ -48,7 +49,7 @@ public class ClientThread implements Executor
 	private ClientThread(Client client)
 	{
 		this.client = client;
-		
+
 		RxJavaPlugins.setSingleSchedulerHandler(old -> Schedulers.from(this));
 	}
 
@@ -68,7 +69,7 @@ public class ClientThread implements Executor
 	}
 
 	/**
-	 * Will run r on the game thread, at a unspecified point in the future.
+	 * Will run r on the game thread, at an unspecified point in the future.
 	 * If r returns false, r will be ran again, at a later point
 	 */
 	public void invoke(BooleanSupplier r)
@@ -103,7 +104,26 @@ public class ClientThread implements Executor
 		invokes.add(r);
 	}
 
+	public void invokeAtTickEnd(Runnable r)
+	{
+		invokesAtTickEnd.add(() ->
+		{
+			r.run();
+			return true;
+		});
+	}
+
 	public void invoke()
+	{
+		invokeList(invokes);
+	}
+
+	public void invokeTickEnd()
+	{
+		invokeList(invokesAtTickEnd);
+	}
+
+	private void invokeList(ConcurrentLinkedQueue<BooleanSupplier> invokes)
 	{
 		assert client.isClientThread();
 		Iterator<BooleanSupplier> ir = invokes.iterator();

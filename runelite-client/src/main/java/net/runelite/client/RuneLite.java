@@ -217,6 +217,9 @@ public class RuneLite
 
 		final OptionSpec<Void> insecureWriteCredentials = parser.accepts("insecure-write-credentials", "Dump authentication tokens from the Jagex Launcher to a text file to be used for development");
 
+		final OptionSpec<Void> cachedRandomDat = parser.accepts("cached-random-dat", "Use cached random.dat data for each account");
+		final OptionSpec<Void> cachedUUID = parser.accepts("cached-uuid", "Use a random cached uuid for each account");
+
 		parser.accepts("help", "Show this text").forHelp();
 		OptionSet options = SettingsManager.parseArgs(parser, args);
 
@@ -320,7 +323,9 @@ public class RuneLite
 				options.valueOf(sessionfile),
 				options.valueOf(configfile),
 				options,
-				options.has(insecureWriteCredentials)
+				options.has(insecureWriteCredentials),
+				options.has(cachedRandomDat),
+				options.has(cachedUUID)
 			));
 
 			injector.getInstance(RuneLite.class).start(options);
@@ -444,7 +449,7 @@ public class RuneLite
 	private static void copyJagexCache()
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
-		Path to = Unethicalite.getCacheDirectory().getAbsoluteFile().toPath();
+		Path to = Unethicalite.getCacheDirectory().toPath();
 		if (Files.exists(to) || !Files.exists(from))
 		{
 			return;
@@ -495,17 +500,9 @@ public class RuneLite
 			applet.setSize(Constants.GAME_FIXED_SIZE);
 
 			System.setProperty("jagex.disableBouncyCastle", "true");
-			// Change user.home so the client places jagexcache in the .runelite directory
-			String oldHome = System.setProperty("user.home", Unethicalite.getCacheDirectory().getAbsolutePath());
-			try
-			{
-				applet.init();
-			}
-			finally
-			{
-				System.setProperty("user.home", oldHome);
-			}
+			System.setProperty("jagex.userhome", Unethicalite.getCacheDirectory().getParent());
 
+			applet.init();
 			applet.start();
 		}
 
@@ -584,7 +581,9 @@ public class RuneLite
 
 		if (options.has("enable-telemetry"))
 		{
-			injector.getInstance(TelemetryClient.class).submitTelemetry();
+			TelemetryClient telemetryClient = injector.getInstance(TelemetryClient.class);
+			telemetryClient.submitTelemetry();
+			telemetryClient.submitVmErrors(LOGS_DIR);
 		}
 
 		ReflectUtil.queueInjectorAnnotationCacheInvalidation(injector);

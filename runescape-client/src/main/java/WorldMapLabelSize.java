@@ -4,108 +4,111 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jt")
+@ObfuscatedName("jm")
 @Implements("WorldMapLabelSize")
 public class WorldMapLabelSize {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Ljt;"
-   )
-   @Export("WorldMapLabelSize_small")
-   public static final WorldMapLabelSize WorldMapLabelSize_small = new WorldMapLabelSize(1, 0, 4);
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Ljt;"
-   )
-   @Export("WorldMapLabelSize_medium")
-   public static final WorldMapLabelSize WorldMapLabelSize_medium = new WorldMapLabelSize(2, 1, 2);
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Ljt;"
-   )
-   @Export("WorldMapLabelSize_large")
-   public static final WorldMapLabelSize WorldMapLabelSize_large = new WorldMapLabelSize(0, 2, 0);
-   @ObfuscatedName("jo")
-   @Export("regionLandArchives")
-   static byte[][] regionLandArchives;
-   @ObfuscatedName("as")
-   @ObfuscatedGetter(
-      intValue = 976233299
-   )
-   final int field2861;
-   @ObfuscatedName("ax")
-   @ObfuscatedGetter(
-      intValue = -1012793205
-   )
-   final int field2868;
-   @ObfuscatedName("ap")
-   @ObfuscatedGetter(
-      intValue = -1283115681
-   )
-   final int field2865;
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Ljm;"
+	)
+	@Export("WorldMapLabelSize_small")
+	public static final WorldMapLabelSize WorldMapLabelSize_small;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Ljm;"
+	)
+	@Export("WorldMapLabelSize_medium")
+	public static final WorldMapLabelSize WorldMapLabelSize_medium;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Ljm;"
+	)
+	@Export("WorldMapLabelSize_large")
+	public static final WorldMapLabelSize WorldMapLabelSize_large;
+	@ObfuscatedName("kg")
+	@ObfuscatedSignature(
+		descriptor = "[Lut;"
+	)
+	@Export("mapSceneSprites")
+	static IndexedSprite[] mapSceneSprites;
+	@ObfuscatedName("vy")
+	@ObfuscatedGetter(
+		intValue = -732756041
+	)
+	static int field2487;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 1903807447
+	)
+	final int field2484;
+	@ObfuscatedName("aq")
+	@ObfuscatedGetter(
+		intValue = 174702113
+	)
+	final int field2480;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = 478381797
+	)
+	final int field2485;
 
-   WorldMapLabelSize(int var1, int var2, int var3) {
-      this.field2861 = var1;
-      this.field2868 = var2;
-      this.field2865 = var3;
-   }
+	static {
+		WorldMapLabelSize_small = new WorldMapLabelSize(2, 0, 4);
+		WorldMapLabelSize_medium = new WorldMapLabelSize(1, 1, 2);
+		WorldMapLabelSize_large = new WorldMapLabelSize(0, 2, 0);
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(FB)Z",
-      garbageValue = "89"
-   )
-   boolean method5061(float var1) {
-      return var1 >= (float)this.field2865;
-   }
+	WorldMapLabelSize(int var1, int var2, int var3) {
+		this.field2484 = var1;
+		this.field2480 = var2;
+		this.field2485 = var3;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(II)Lhy;",
-      garbageValue = "272884166"
-   )
-   @Export("SequenceDefinition_get")
-   public static SequenceDefinition SequenceDefinition_get(int var0) {
-      SequenceDefinition var1 = (SequenceDefinition)SequenceDefinition.SequenceDefinition_cached.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = SequenceDefinition.SequenceDefinition_archive.takeFile(12, var0);
-         var1 = new SequenceDefinition();
-         if (var2 != null) {
-            var1.decode(new Buffer(var2));
-         }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(FS)Z",
+		garbageValue = "12895"
+	)
+	boolean method4606(float var1) {
+		return var1 >= (float)this.field2485;
+	}
 
-         var1.postDecode();
-         SequenceDefinition.SequenceDefinition_cached.put(var1, (long)var0);
-         return var1;
-      }
-   }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(II)Ljm;",
+		garbageValue = "-1666064874"
+	)
+	static WorldMapLabelSize method4607(int var0) {
+		WorldMapLabelSize[] var1 = new WorldMapLabelSize[]{WorldMapLabelSize_large, WorldMapLabelSize_medium, WorldMapLabelSize_small};
+		WorldMapLabelSize[] var2 = var1;
 
-   @ObfuscatedName("li")
-   @ObfuscatedSignature(
-      descriptor = "(IIIIII)V",
-      garbageValue = "-1040672320"
-   )
-   @Export("drawScrollBar")
-   static final void drawScrollBar(int var0, int var1, int var2, int var3, int var4) {
-      class411.scrollBarSprites[0].drawAt(var0, var1);
-      class411.scrollBarSprites[1].drawAt(var0, var3 + var1 - 16);
-      Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16, 16, var3 - 32, Client.field582);
-      int var5 = var3 * (var3 - 32) / var4;
-      if (var5 < 8) {
-         var5 = 8;
-      }
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			WorldMapLabelSize var4 = var2[var3];
+			if (var0 == var4.field2480) {
+				return var4;
+			}
+		}
 
-      int var6 = (var3 - 32 - var5) * var2 / (var4 - var3);
-      Rasterizer2D.Rasterizer2D_fillRectangle(var0, var6 + var1 + 16, 16, var5, Client.field583);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0, var6 + var1 + 16, var5, Client.field799);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 1, var6 + var1 + 16, var5, Client.field799);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + var1 + 16, 16, Client.field799);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + var1 + 17, 16, Client.field799);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 15, var6 + var1 + 16, var5, Client.field584);
-      Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 14, var6 + var1 + 17, var5 - 1, Client.field584);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + var5 + var1 + 15, 16, Client.field584);
-      Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0 + 1, var5 + var6 + var1 + 14, 15, Client.field584);
-   }
+		return null;
+	}
+
+	@ObfuscatedName("bn")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1888960513"
+	)
+	protected static final void method4610() {
+		class344.clock.mark();
+
+		int var0;
+		for (var0 = 0; var0 < 32; ++var0) {
+			GameEngine.graphicsTickTimes[var0] = 0L;
+		}
+
+		for (var0 = 0; var0 < 32; ++var0) {
+			GameEngine.clientTickTimes[var0] = 0L;
+		}
+
+		class195.gameCyclesToDo = 0;
+	}
 }

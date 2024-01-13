@@ -1,41 +1,24 @@
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ts")
+@ObfuscatedName("tz")
 public class class509 {
-   @ObfuscatedName("at")
-   @ObfuscatedGetter(
-      intValue = -447516077
-   )
-   public final int field5084;
-   @ObfuscatedName("an")
-   public Object field5083;
+	@ObfuscatedName("af")
+	static final char[] field5074;
+	@ObfuscatedName("aj")
+	static final char[] field5076;
 
-   public class509(int var1) {
-      this.field5084 = var1;
-   }
+	static {
+		field5074 = new char[]{' ', ' ', '_', '-', 'à', 'á', 'â', 'ä', 'ã', 'À', 'Á', 'Â', 'Ä', 'Ã', 'è', 'é', 'ê', 'ë', 'È', 'É', 'Ê', 'Ë', 'í', 'î', 'ï', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'ö', 'õ', 'Ò', 'Ó', 'Ô', 'Ö', 'Õ', 'ù', 'ú', 'û', 'ü', 'Ù', 'Ú', 'Û', 'Ü', 'ç', 'Ç', 'ÿ', 'Ÿ', 'ñ', 'Ñ', 'ß'};
+		field5076 = new char[]{'[', ']', '#'};
+	}
 
-   public class509(int var1, Object var2) {
-      this.field5084 = var1;
-      this.field5083 = var2;
-   }
-
-   public int hashCode() {
-      return super.hashCode();
-   }
-
-   public boolean equals(Object var1) {
-      if (!(var1 instanceof class509)) {
-         return false;
-      } else {
-         class509 var2 = (class509)var1;
-         if (var2.field5083 == null && this.field5083 != null) {
-            return false;
-         } else if (this.field5083 == null && var2.field5083 != null) {
-            return false;
-         } else {
-            return var2.field5084 == this.field5084 && var2.field5083.equals(this.field5083);
-         }
-      }
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-1827596481"
+	)
+	public static int method9132(int var0) {
+		return var0 != 0 && var0 != 1 ? -1 : 0;
+	}
 }

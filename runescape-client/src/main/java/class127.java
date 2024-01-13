@@ -1,76 +1,62 @@
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ey")
-public enum class127 implements MouseWheel {
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Ley;"
-   )
-   field1494(0, 0),
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Ley;"
-   )
-   field1486(1, 1),
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "Ley;"
-   )
-   field1487(2, 2),
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "Ley;"
-   )
-   field1488(3, 3),
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "Ley;"
-   )
-   field1491(4, 4);
+@ObfuscatedName("ef")
+public class class127 {
+	@ObfuscatedName("aj")
+	public static final float field1487;
+	@ObfuscatedName("aq")
+	public static final float field1490;
+	@ObfuscatedName("ar")
+	static float[] field1491;
+	@ObfuscatedName("ag")
+	static float[] field1492;
+	@ObfuscatedName("fq")
+	@ObfuscatedSignature(
+		descriptor = "Loz;"
+	)
+	static Archive field1489;
 
-   @ObfuscatedName("ai")
-   @Export("formattedOperatingSystemName")
-   public static String formattedOperatingSystemName;
-   @ObfuscatedName("rx")
-   @ObfuscatedSignature(
-      descriptor = "Lrm;"
-   )
-   static class442 field1495;
-   @ObfuscatedName("ap")
-   @ObfuscatedGetter(
-      intValue = 2026322375
-   )
-   final int field1490;
-   @ObfuscatedName("ab")
-   @ObfuscatedGetter(
-      intValue = 1210437169
-   )
-   final int field1489;
+	static {
+		field1487 = Math.ulp(1.0F);
+		field1490 = field1487 * 2.0F;
+		field1491 = new float[4];
+		field1492 = new float[5];
+	}
 
-   class127(int var3, int var4) {
-      this.field1490 = var3;
-      this.field1489 = var4;
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "1765448394"
+	)
+	static void method3028(int var0) {
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(B)I",
-      garbageValue = "-14"
-   )
-   @Export("rsOrdinal")
-   public int rsOrdinal() {
-      return this.field1489;
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Low;Low;I)V",
+		garbageValue = "1712425930"
+	)
+	public static void method3027(AbstractArchive var0, AbstractArchive var1) {
+		SpotAnimationDefinition.SpotAnimationDefinition_archive = var0;
+		class105.SpotAnimationDefinition_modelArchive = var1;
+	}
 
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;S)V",
-      garbageValue = "266"
-   )
-   static final void method2957(String var0) {
-      ParamComposition.method3837(var0 + " is already on your friend list");
-   }
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "963760202"
+	)
+	@Export("clearItemContainer")
+	static void clearItemContainer(int var0) {
+		ItemContainer var1 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
+		if (var1 != null) {
+			for (int var2 = 0; var2 < var1.ids.length; ++var2) {
+				var1.ids[var2] = -1;
+				var1.quantities[var2] = 0;
+			}
+
+		}
+	}
 }

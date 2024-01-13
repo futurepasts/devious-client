@@ -1,81 +1,88 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("sf")
-public class class473 {
-   @ObfuscatedName("at")
-   public final Object field4903;
-   @ObfuscatedName("an")
-   public final Object field4904;
+public abstract class class473 implements class294 {
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lut;"
+	)
+	static IndexedSprite field4839;
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Ltq;"
+	)
+	class518 field4840;
 
-   public class473(Object var1, Object var2) {
-      this.field4903 = var1;
-      this.field4904 = var2;
-   }
+	class473(int var1) {
+	}
 
-   public String toString() {
-      return this.field4903 + ", " + this.field4904;
-   }
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Luk;II)V",
+		garbageValue = "-52835535"
+	)
+	abstract void vmethod8668(Buffer var1, int var2);
 
-   public int hashCode() {
-      int var1 = 0;
-      if (this.field4903 != null) {
-         var1 += this.field4903.hashCode();
-      }
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(Luk;I)V",
+		garbageValue = "-309275755"
+	)
+	public void method8669(Buffer var1) {
+		while (true) {
+			int var2 = var1.readUnsignedByte();
+			if (var2 == 0) {
+				return;
+			}
 
-      if (this.field4904 != null) {
-         var1 += 31 * this.field4904.hashCode();
-      }
+			class469 var3 = (class469)GrandExchangeEvents.findEnumerated(FloorDecoration.method5234(), var2);
+			if (var3 != null) {
+				switch(var3.field4832) {
+				case 0:
+					GrandExchangeEvents.findEnumerated(SceneTilePaint.method5788(), var1.readUnsignedByte());
+					break;
+				case 1:
+				default:
+					throw new IllegalStateException("Unrecognised VarTypeEncodingKey - " + var3);
+				case 2:
+					int var4 = var1.readUnsignedByte();
+					this.field4840 = class270.method5345(var4);
+					if (this.field4840 != null) {
+						break;
+					}
 
-      return var1;
-   }
+					throw new IllegalStateException("Unknown ScriptVarType ID in VarType.decode: " + var4);
+				case 3:
+					var1.readStringCp1252NullCircumfixed();
+				}
+			} else {
+				this.vmethod8668(var1, var2);
+			}
+		}
+	}
 
-   public boolean equals(Object var1) {
-      if (var1 != null && var1 instanceof class473) {
-         class473 var2 = (class473)var1;
-         if (this.field4903 == null) {
-            if (var2.field4903 != null) {
-               return false;
-            }
-         } else if (!this.field4903.equals(var2.field4903)) {
-            return false;
-         }
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "-1831831336"
+	)
+	boolean method8671() {
+		return this.field4840 != null;
+	}
 
-         if (this.field4904 == null) {
-            if (var2.field4904 != null) {
-               return false;
-            }
-         } else if (!this.field4904.equals(var2.field4904)) {
-            return false;
-         }
-
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(IB)Ltp;",
-      garbageValue = "0"
-   )
-   @Export("getDbRowType")
-   public static DbRowType getDbRowType(int var0) {
-      DbRowType var1 = (DbRowType)DbRowType.DBRowType_cache.get((long)var0);
-      if (var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = DbRowType.field4997.takeFile(38, var0);
-         var1 = new DbRowType();
-         if (var2 != null) {
-            var1.method8811(new Buffer(var2));
-         }
-
-         var1.method8814();
-         DbRowType.DBRowType_cache.put(var1, (long)var0);
-         return var1;
-      }
-   }
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(B)Ljava/lang/Object;",
+		garbageValue = "13"
+	)
+	Object method8672() {
+		if (this.field4840 == class518.field5109) {
+			return 0;
+		} else if (this.field4840 == class518.field5102) {
+			return -1L;
+		} else {
+			return this.field4840 == class518.field5103 ? "" : null;
+		}
+	}
 }
