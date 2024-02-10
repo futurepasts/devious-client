@@ -3,7 +3,6 @@ package net.runelite.client.plugins.kukiBoner;
 
 
 import net.runelite.client.plugins.kukiBoner.tasks.*;
-import net.runelite.client.plugins.kukiBoner.tasks.OfferBones;
 import net.unethicalite.api.plugins.Script;
 import net.runelite.client.plugins.PluginDescriptor;
 import org.pf4j.Extension;

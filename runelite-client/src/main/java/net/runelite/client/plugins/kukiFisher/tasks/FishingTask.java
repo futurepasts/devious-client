@@ -9,6 +9,7 @@ import net.unethicalite.api.entities.Players;
 import net.unethicalite.api.game.Skills;
 import net.unethicalite.api.items.Inventory;
 import net.unethicalite.api.movement.Movement;
+import net.unethicalite.client.Static;
 
 public class FishingTask implements ScriptTask {
 	private static final WorldPoint[] FISHING_SPOTS = {

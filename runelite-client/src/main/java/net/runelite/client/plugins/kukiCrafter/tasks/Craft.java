@@ -32,7 +32,6 @@ public class Craft implements ScriptTask {
 
 	public boolean sleeping = false;
 
-	public int leatherTicks = 3;
 	protected boolean taskCooldown;
 
 	@Override

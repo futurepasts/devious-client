@@ -1,8 +1,7 @@
-package net.runelite.client.plugins.kukiFisher;
+package net.runelite.client.plugins.kukiOakChopper;
 
 import net.runelite.api.Client;
 import net.runelite.api.Skill;
-import net.runelite.client.plugins.kukiFisher.KukiFisher;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
@@ -10,20 +9,19 @@ import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.unethicalite.api.game.Skills;
 
-
 import javax.inject.Inject;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class KukiFisherOverlay extends Overlay implements MouseListener
+public class KukiChopperOverlay extends Overlay implements MouseListener
 {
     private final Client client;
-    private final KukiFisher plugin;
+    private final oakChopper plugin;
     private final PanelComponent panelComponent = new PanelComponent();
 
     @Inject
-    public KukiFisherOverlay(Client client, KukiFisher plugin)
+    public KukiChopperOverlay(Client client, oakChopper plugin)
     {
         setPosition(OverlayPosition.TOP_LEFT);
         setLayer(OverlayLayer.ABOVE_SCENE);
@@ -35,8 +33,8 @@ public class KukiFisherOverlay extends Overlay implements MouseListener
     public Dimension render(Graphics2D graphics)
     {
         panelComponent.getChildren().clear();
-        String leftText = "Kuki Fisher";
-        String rightText = "Current fishing level: " + Skills.getLevel(Skill.FISHING);
+        String leftText = "Kuki OakChopper";
+        String rightText = "Current woodcutting  level: " + Skills.getLevel(Skill.WOODCUTTING);
 
         panelComponent.getChildren().add(LineComponent.builder()
                 .left(leftText)

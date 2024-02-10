@@ -1,11 +1,9 @@
-package net.runelite.client.plugins.kukiSerum;
-
-
+package net.runelite.client.plugins.kukiIronMiner;
 
 import net.runelite.api.Client;
-import net.runelite.client.plugins.kukiSerum.tasks.Bank;
-import net.runelite.client.plugins.kukiSerum.tasks.ScriptTask;
-import net.runelite.client.plugins.kukiSerum.tasks.UseOn;
+import net.runelite.client.plugins.kukiIronMiner.tasks.DropIron;
+import net.runelite.client.plugins.kukiIronMiner.tasks.MineIron;
+import net.runelite.client.plugins.kukiIronMiner.tasks.ScriptTask;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.unethicalite.api.plugins.Script;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -14,42 +12,45 @@ import org.pf4j.Extension;
 import javax.inject.Inject;
 
 
+
 // This annotation is required in order for the client to detect it as a plugin/script.
-@PluginDescriptor(name = "Kuki serum", enabledByDefault = false)
+@PluginDescriptor(name = "Kuki IronMiner", enabledByDefault = false)
 @Extension
-public class kukiSerum extends Script
+public class ironMiner extends Script
+
+
 {
 	private static final ScriptTask[] TASKS = new ScriptTask[]{
-			new UseOn(),
-			new Bank()
+			new DropIron(),
+			new MineIron(),
 	};
-	@Inject
-	private kukiSerumOverlay kukiSerumOverlay;
+
+
+
 
 	@Inject
-	private OverlayManager overlayManager;
-	private boolean running;
+	private net.runelite.client.plugins.kukiIronMiner.KukiIronOverlay KukiIronOverlay;
 
 	@Inject
 	private Client client;
 
+
 	@Inject
-	private kukiSerumOverlay overlay;
+	private OverlayManager overlayManager;
 
 
 	@Override
 	public void onStart(String... args)
 	{
 
-		overlayManager.add(kukiSerumOverlay);
+		overlayManager.add(KukiIronOverlay);
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
-		overlayManager.remove(kukiSerumOverlay);
+		overlayManager.remove(KukiIronOverlay);
 	}
-
 
 
 	@Override
@@ -72,5 +73,4 @@ public class kukiSerum extends Script
 
 		return 1000;
 	}
-
 }

@@ -1,56 +1,58 @@
-package net.runelite.client.plugins.kukiFisher;
-
-
+package net.runelite.client.plugins.kukiOakChopper;
 
 import net.runelite.api.Client;
-import net.runelite.api.events.GameTick;
-import net.runelite.client.plugins.kukiFisher.tasks.Drop;
-import net.runelite.client.plugins.kukiFisher.tasks.FishingTask;
-import net.runelite.client.plugins.kukiFisher.tasks.ScriptTask;
+import net.runelite.client.plugins.kukiOakChopper.tasks.ChopOak;
+import net.runelite.client.plugins.kukiOakChopper.tasks.ChopWillow;
+import net.runelite.client.plugins.kukiOakChopper.tasks.Dropping;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.unethicalite.api.plugins.Script;
+import net.runelite.client.plugins.kukiOakChopper.tasks.ScriptTask;
 import net.runelite.client.plugins.PluginDescriptor;
 import org.pf4j.Extension;
 
 import javax.inject.Inject;
 
 
+
 // This annotation is required in order for the client to detect it as a plugin/script.
-@PluginDescriptor(name = "Kuki Fisher", enabledByDefault = false)
+@PluginDescriptor(name = "Kuki OakChopper", enabledByDefault = false)
 @Extension
-public class KukiFisher extends Script
+public class oakChopper extends Script
+
+
 {
 	private static final ScriptTask[] TASKS = new ScriptTask[]{
-			new FishingTask(),
-			new Drop()
+			new Dropping(),
+			new ChopOak(),
+			new ChopWillow()
 	};
-	@Inject
-	private net.runelite.client.plugins.kukiFisher.KukiFisherOverlay kukiFisherOverlay;
+
+
+
 
 	@Inject
-	private OverlayManager overlayManager;
-	private boolean running;
+	private net.runelite.client.plugins.kukiOakChopper.KukiChopperOverlay KukiChopperOverlay;
 
 	@Inject
 	private Client client;
 
+
 	@Inject
-	private net.runelite.client.plugins.kukiFisher.KukiFisherOverlay overlay;
+	private OverlayManager overlayManager;
 
 
 	@Override
 	public void onStart(String... args)
 	{
 
-		overlayManager.add(kukiFisherOverlay);
+		overlayManager.add(KukiChopperOverlay);
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
-		overlayManager.remove(kukiFisherOverlay);
+		overlayManager.remove(KukiChopperOverlay);
 	}
-
 
 
 	@Override
@@ -73,5 +75,4 @@ public class KukiFisher extends Script
 
 		return 1000;
 	}
-
 }

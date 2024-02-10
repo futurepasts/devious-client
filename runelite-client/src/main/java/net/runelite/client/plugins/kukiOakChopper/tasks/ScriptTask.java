@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.kukiCannon.tasks;
+package net.runelite.client.plugins.kukiOakChopper.tasks;
 
 public interface ScriptTask
 {

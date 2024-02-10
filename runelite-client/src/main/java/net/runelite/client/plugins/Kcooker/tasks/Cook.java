@@ -7,7 +7,6 @@ import net.runelite.api.Player;
 import net.runelite.api.TileObject;
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.client.chat.ChatColorType;
-import net.runelite.client.plugins.Kcooker.Meat;
 import net.unethicalite.api.entities.NPCs;
 import net.unethicalite.api.entities.Players;
 import net.unethicalite.api.entities.TileObjects;
@@ -17,6 +16,7 @@ import net.unethicalite.api.utils.MessageUtils;
 import net.unethicalite.api.widgets.Production;
 import net.unethicalite.api.widgets.Widgets;
 import net.runelite.client.plugins.Kcooker.CookerPlugin;
+import net.runelite.client.plugins.Kcooker.Meat;
 
 import java.util.function.Predicate;
 

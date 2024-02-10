@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.kukiSerum;
+package net.runelite.client.plugins.kukiSuperheat;
 
 import net.runelite.api.Client;
 import net.runelite.api.Skill;
@@ -9,20 +9,23 @@ import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.unethicalite.api.game.Skills;
 
-
 import javax.inject.Inject;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class kukiSerumOverlay extends Overlay implements MouseListener
+import static net.runelite.client.plugins.kukiSuperheat.tasks.Bank.BreaksSuper;
+
+public class KukiSuperheatOverlay extends Overlay implements MouseListener
 {
     private final Client client;
-    private final kukiSerum plugin;
     private final PanelComponent panelComponent = new PanelComponent();
 
+
+    private final superHeat plugin;
+
     @Inject
-    public kukiSerumOverlay(Client client, kukiSerum plugin)
+    public KukiSuperheatOverlay(Client client, superHeat plugin)
     {
         setPosition(OverlayPosition.TOP_LEFT);
         setLayer(OverlayLayer.ABOVE_SCENE);
@@ -30,17 +33,26 @@ public class kukiSerumOverlay extends Overlay implements MouseListener
         this.plugin = plugin;
     }
 
-
     @Override
     public Dimension render(Graphics2D graphics)
     {
+        Point mouse = client.getMouseCanvasPosition().getAwtPoint();
+
+        Graphics2D g2d = (Graphics2D) graphics.create();
+        g2d.setColor(Color.RED);
+        g2d.setStroke(new BasicStroke(2));
+        g2d.drawRect((int) mouse.getX(), (int) mouse.getY(), 15, 15);
+        g2d.dispose();
+
         panelComponent.getChildren().clear();
-        String leftText = "Kuki serum";
-        String rightText = "Current herblore level: " + Skills.getLevel(Skill.HERBLORE);
+        String leftText = "Kuki SuperHeater";
+        String rightText = "Current magic level: " + Skills.getLevel(Skill.MAGIC);
+        String bottomText = "Did AFK breaks: " + BreaksSuper;
 
         panelComponent.getChildren().add(LineComponent.builder()
                 .left(leftText)
                 .right(rightText)
+                .left(bottomText)
                 .rightColor(Color.GREEN)
                 .build());
 
@@ -48,6 +60,8 @@ public class kukiSerumOverlay extends Overlay implements MouseListener
         FontMetrics fontMetrics = graphics.getFontMetrics();
         int leftTextWidth = fontMetrics.stringWidth(leftText);
         int rightTextWidth = fontMetrics.stringWidth(rightText);
+        int bottomTextWidth = fontMetrics.stringWidth(bottomText);
+
 
         // Add some padding to the width
         int padding = 20;
